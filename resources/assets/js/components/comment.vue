@@ -177,7 +177,7 @@
 
 
 <script>
-var socket = io(window.location.hostname+':3000');
+var socket = io(window.location.hostname+'/socket');
  function getNestedChildren(arr, parent) {
     var out = []
     for(var i in arr) {
