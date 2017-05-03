@@ -90,9 +90,18 @@ Route::get('post/{id}/comments', function($id){
 
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
     // Controllers Within The "App\Http\Controllers\Admin" Namespace
-    Route::get('login', 'Auth\LoginController@Login');
+    Route::get('/', function(){
+     redirect('/admin/blogpost')->route();
+    });
+    Route::get('dashboard', function(){
+     redirect('/admin/blogpost')->route();
+    });
+    Auth::routes();
+    //Route::get('login', 'Auth\LoginController@Login');
+    //Route::post('login', 'Auth\LoginController@Login');
     Route::get('logout', 'Auth\LoginController@Logout');
-    Route::get('register', 'Auth\LoginController@Register');
+    //Route::get('register', 'Auth\LoginController@Register');
+    //Route::post('register', 'Auth\LoginController@Register');
     CRUD::resource('category', 'CategoryCrudController');
     CRUD::resource('blogpost', 'BlogPostCrudController');
     CRUD::resource('keypoint', 'KeypointCrudController');
