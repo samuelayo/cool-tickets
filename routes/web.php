@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,10 +38,19 @@ Route::get('post/{id}/comments', function($id){
     Route::post('post/{id}/comment',function($id, Request $request){
       $user = auth()->user();
 
-      return \App\Models\BlogPost::findOrFail($id)->comment([
+       \App\Models\BlogPost::findOrFail($id)->comment([
           'body' => $request->get('body'),
          'parent_id' => $request->get('parent_id', null)
       ],$user);
+      $all_comments=\App\Models\BlogPost::findOrFail($id)->comments;
+      $data = array('event'=>'CommentMade',
+                    'data'=>[
+                      'type'=>'blog',
+                      'id'=>$id,
+                      'all_comments'=>$all_comments
+                    ]);
+      Redis::publish('coolfm-lagos',json_encode($data));
+      return $all_comments;
     });
 
 
@@ -59,12 +70,21 @@ Route::get('post/{id}/comments', function($id){
     });
 
     Route::post('myforum/{id}/comment',function($id, Request $request){
-      $user = auth()->user();
 
-      return \App\Models\Forum::findOrFail($id)->comment([
+      $user = auth()->user();
+       \App\Models\Forum::findOrFail($id)->comment([
           'body' => $request->get('body'),
          'parent_id' => $request->get('parent_id', null)
       ],$user);
+      $all_comments=\App\Models\Forum::findOrFail($id)->comments;
+      $data = array('event'=>'CommentMade',
+                    'data'=>[
+                      'type'=>'forum',
+                      'id'=>$id,
+                      'all_comments'=>$all_comments
+                    ]);
+      Redis::publish('coolfm-lagos',json_encode($data));
+      return $all_comments;
     });
 
     Route::get('hotforum', function(){

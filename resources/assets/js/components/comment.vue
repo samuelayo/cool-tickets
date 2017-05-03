@@ -177,6 +177,7 @@
 
 
 <script>
+var socket = io(window.location.hostname+':3000');
  function getNestedChildren(arr, parent) {
     var out = []
     for(var i in arr) {
@@ -238,6 +239,7 @@ created: function(){
   mounted: function(){
     this.all_users();
     this.fetchComments();
+    this.broadcasted();
   },
 
   methods: {
@@ -245,6 +247,15 @@ created: function(){
       axios.get("/post/"+this.id+"/comments")
         .then((response)=>{
           this.comments = response.data;
+      });
+    },
+    broadcasted: function(){
+
+      socket.on('coolfm-lagos:CommentMade', (d)=>{
+        if(d.type=="blog" && d.id==this.id){
+          this.comments = d.all_comments;
+        }
+       
       });
     },
     all_users: function(){
@@ -267,7 +278,7 @@ created: function(){
       axios.post("/post/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
-          this.fetchComments();
+          
       });
     },
     childreply:function(id){
@@ -281,7 +292,7 @@ created: function(){
       axios.post("/post/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
-          this.fetchComments();
+        
           document.getElementById('close').click();
       }); 
     }, 

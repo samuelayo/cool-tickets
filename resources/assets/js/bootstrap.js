@@ -50,7 +50,7 @@ window.axios.defaults.headers.common = {
 // window.Pusher = require('pusher-js');
 
 // window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
+//     broadcaster: 'socket.io',
+//     host: 'http://localhost:3000'
 // });
 
