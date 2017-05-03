@@ -34,7 +34,11 @@ class Category extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function blogpost(){
+        return $this->hasMany('App\Models\BlogPost', 'id', 'category');
+    }
 
+    
     /*
     |--------------------------------------------------------------------------
     | SCOPES

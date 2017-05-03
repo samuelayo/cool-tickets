@@ -49,6 +49,21 @@ class BlogPostCrudController extends CrudController
         'label' => 'Content',
         'type' => 'ckeditor'
         ]);
+        $this->crud->addField([
+        'name' => 'user_id',
+        'type' => 'hidden',
+        'value' => auth()->user()->id
+        ]);
+
+        $this->crud->addField([  // Select
+                                'label' => "Category",
+                                'type' => 'select',
+                                'name' => 'category', // the db column for the foreign key
+                                'entity' => 'blogpost', // the method that defines the relationship in your Model
+                                'attribute' => 'name', // foreign key attribute that is shown to user
+                                'model' => "App\Models\Category" // foreign key model
+                                ], 
+                                'update/create/both');
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
