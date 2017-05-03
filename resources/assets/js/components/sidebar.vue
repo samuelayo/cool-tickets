@@ -1,0 +1,91 @@
+<template>
+<div id="sidebar">
+    <div class="col-md-3">
+                <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4><br>
+                <div class="panel panel-default shadowed">
+                    <div class="row"><br>
+                      <div class="col-md-12 ht_content" v-for="(ho, index) in hot" v-if="index < 6">
+                        <small style="color: grey;">Last activity: {{hottimeago(ho)}}</small>
+                                 
+                         <router-link :to="{ name: 'forum', params: { id: ho.id, name:ho.topic }}"><h4>{{ho.topic}}</h4></router-link>
+                         
+                         <small style="color:red;">
+                         In this conversation 
+                         </small>
+                         <div id="convert">
+                           <adimage src="/img/4671_1.png" width="100%" height="100%" sclass="conversation"></adimage>
+                          <adimage src="/img/s.png" width="100%" height="100%" sclass="conversation2"></adimage>
+                           <adimage src="/img/33.png" width="100%" height="100%" sclass="conversation2"></adimage>
+                            <adimage src="/img/3e.png" width="100%" height="100%" sclass="conversation2"></adimage>
+                         <span style="color: #007adf;">+ {{ho.comments.length-4}}</span>
+                         </div>
+                         <hr>      
+                    </div>
+                </div>
+            </div> 
+    </div>
+
+  <div class="row">
+      <h4 style="text-align: center;"><strong>TRENDING</strong></h4><br>
+             <div id="advert-side" class="panel panel-default ">
+                <!-- <img src="img/sq_ad.png" width="100%"/> -->
+                 <div><br><br><br> <!-- trending posts -->
+                    <div class="row">
+                          <div class="col-md-3 tr_content" v-for="trend in trending">
+                             <div class="col-md-4">
+                               <img :src="trend.image" width="100%" height="100%"/>
+                             </div>
+                             <div class="col-md-8">
+                                 <h4  class="category-tag"> {{trend.category.name}} <small class="time-stamp">{{timeago(trend.created_at)}}</small></h4>
+                                <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: trend.title }}"><h4>{{trend.title}}</h4></router-link>
+                                 <i style="color: blue;" class="ion-android-share" aria-hidden="true"></i>
+
+                                     <a href="#">7500 shares</a>
+                             </div>
+                         </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+<script>
+    export default {
+        name: 'sidebar',
+        data: function (){
+            return{
+               trending: window.Laravel.trending,
+               hot: []
+            }
+        },
+        created: function (){
+            this.gethots();
+                
+        },
+         methods: {
+            timeago: function (time){
+                return moment(time).fromNow();
+            },
+            gethots: function(){
+                axios.get('/hotforum')
+                .then(response => {
+
+                        var list=response.data;
+                        list = list.sort(function (a, b) {
+                            return getValue(a.comments.length) - getValue(a.comments.length);
+                        });
+                        this.hot=list;
+                
+                    })
+                    .catch(e => {
+                    
+                    });
+            },
+            hottimeago: function(obj){
+                var last = obj.comments[obj.comments.length-1];
+                return this.timeago(last.created_at); 
+            }
+        }
+    }
+</script>
