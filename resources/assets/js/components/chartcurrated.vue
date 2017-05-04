@@ -57,45 +57,27 @@
             <!-- -->
             <!-- chart images -->
             <div class="col-md-12">
-                <div class="col-md-6">
+                
                     <div class="row"><br>
-                         <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index <= get_length()" ><p class="chart-num"><strong> {{chart.position}} </strong></p>
+                         <div  class="col-md-2" v-for="(chart, index) in all_chart[currentchart][currentchartweek]"><p class="chart-num"><strong> {{chart.position}} </strong></p>
                             <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
                             <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
                             <span class="badge badge-new" v-if="noofchart(chart.song)==1"><small> <strong> New </strong> </small></span>
                             <span class="badge badge-lw" ><small> <strong> {{lastweek(chart.song)}} </strong> </small></span>
                             
                             <span>
-                                <center><small>{{chart.songs.song_title}}</small></center>
+                                <center><small id="tet">{{chart.songs.song_title}}</small></center>
                                  
-                                <center><small><a href="#">{{chart.songs.artistname}}</a></small></center>
+                                <center><small id="tet"><a href="#">{{chart.songs.artistname}}</a></small></center>
                             </span>
+                            <br>
                         </div>
                         
                         
                     </div>
-                </div>
+           
                
-               <div class="col-md-6">
-                    <div class="row"> <br>
-                       
-                     <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index > get_length()" ><p class="chart-num"><strong> {{chart.position}} </strong></p>
-                            <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
-                            <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
-                            <span class="badge badge-new" v-if="noofchart(chart.song)==1"><small> <strong> New </strong> </small></span>
-                            <span class="badge badge-lw" ><small> <strong> {{lastweek(chart.song)}} </strong> </small></span>
-                            
-                            <span>
-                                <center><small>{{chart.songs.song_title}}</small></center>
-                                 
-                                <center><small><a href="#">{{chart.songs.artistname}}</a></small></center>
-                            </span>
-                        </div>
-
-                        
-                   </div>
-                   
-               </div>
+               
                 
                
             </div>
@@ -213,3 +195,11 @@
         }
     }
 </script>
+<style>
+#tet{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 70%;
+}
+</style>
