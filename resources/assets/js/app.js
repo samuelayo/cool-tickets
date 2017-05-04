@@ -71,6 +71,14 @@ const router = new VueRouter({
   mode: 'history'
 })
 
+// router.afterEach((to, from) => {
+//   if (/\s/.test(window.location.href)) {
+//     // It has any kind of whitespace
+//     window.location.href=window.location.href.replace(/\s+/g, "-");
+//   }
+//   next();
+// })
+
 
 const coolfm = new Vue({
 	//define the selector for the root component
