@@ -13,8 +13,9 @@
                       <div class="row">
                         <div v-for="(oa, index) in oaps" v-if="index < split_oaps()" > 
                         <router-link :to="{ name: 'single_oap', params: { id: oa.id, name:oa.name }}"> 
-                          <div  :style="'background: url('+oa.image+'); background-size: cover;'" id="oaps" class="col-md-3"><p>{{oa.name}}</p> 
+                          <div  :style="'background: url('+oa.image+'); background-size: cover;'" id="oaps" class="col-md-3"> 
                           </div>
+                          <p>{{oa.name}}</p>
                         </router-link>
                         </div>
                         
