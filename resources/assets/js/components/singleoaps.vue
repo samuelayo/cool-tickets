@@ -40,3 +40,8 @@
         }
     }
 </script>
+<style>
+.doubleColumn p {
+    font-size: 1.1em !important;
+}
+</style>
