@@ -9,6 +9,7 @@
         "backpack/base": "^0.7.14",
         "backpack/crud": "^3.2",
         "faustbrian/laravel-commentable": "^2.1",
+        "jenssegers/agent": "^2.5",
         "laravel/framework": "5.4.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",

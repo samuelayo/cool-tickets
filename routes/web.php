@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Redis;
 |
 */
 
+
+Route::group(['middleware'=>'mobile'], function () {
+
 Route::get('/', 'HomeController@index');
+    
+});
 
+Route::group(['prefix'=>'m'], function () {
+  Route::get('/', 'HomeController@mobile');
 
+});
 
 Route::get('/home', 'HomeController@index');
 Route::get('/posts/{id}', 'HomeController@post');
@@ -106,7 +114,6 @@ Route::get('post/{id}/comments', function($id){
           })->take(5)->get();
     });
     
-    
 
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
     // Controllers Within The "App\Http\Controllers\Admin" Namespace
@@ -136,6 +143,8 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
     CRUD::resource('shows', 'ShowsCrudController');
 });
 
+Route::any('mobile/{which}', 'HomegController@index')
+->where(['which' => '.*']);;
  Route::any('{all}', 'HomeController@index')
  ->where(['all' => '.*']);
 

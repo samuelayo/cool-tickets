@@ -190,6 +190,8 @@ return [
         * socialite
         */
         Laravel\Socialite\SocialiteServiceProvider::class,
+
+        App\Providers\AgentServiceProvider::class,
     ],
 
     /*
