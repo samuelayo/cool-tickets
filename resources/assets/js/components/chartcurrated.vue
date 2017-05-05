@@ -202,4 +202,9 @@
     overflow: hidden;
     width: 70%;
 }
+
+.col-md-2 {
+    width: 10% !important;
+}
+
 </style>
