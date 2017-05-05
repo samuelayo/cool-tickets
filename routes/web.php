@@ -143,8 +143,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
     CRUD::resource('shows', 'ShowsCrudController');
 });
 
-Route::any('mobile/{which}', 'HomegController@index')
-->where(['which' => '.*']);;
+
  Route::any('{all}', 'HomeController@index')
  ->where(['all' => '.*']);
 
