@@ -297,7 +297,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
 <!-- Flickity HTML init -->
 
 <flickity ref="flickity" :options="flickityOptions">
-    <div  class="carousel-cell" v-for="fres in fresh"> <p><span class="catgory">{{fres.category.name}}</span> <br><router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: fres.title }}">{{fres.title}}</router-link></p></div>
+    <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+')'"> <p><span class="catgory">{{fres.category.name}}</span> <br><router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: fres.title }}">{{fres.title}}</router-link></p></div>
 </flickity>
 
 <!-- if you don't want to use the buttons Flickity provides -->
@@ -662,6 +662,9 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
    margin-top: 22em;
    color: #fff;
    text-shadow: 1px 2px 15px #000;
+}
+.box_text{
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.13);
 }
 </style>
 
