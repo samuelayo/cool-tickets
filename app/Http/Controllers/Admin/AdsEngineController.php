@@ -17,7 +17,7 @@ class AdsEngineController extends \App\Http\Controllers\Controller
         Advert::make(
         $request->only(['alt', 'url',
         'active'=>TRUE,
-        'advert_category_id'=>'2'
+        'advert_category_id'=>2
         ]), 
         $request->file('image')
         );

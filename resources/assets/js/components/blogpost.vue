@@ -37,7 +37,9 @@
     </div>
 
         <div class="item-body">
-            <p v-html="post.content"></p> 
+            <p v-html="post.content">
+            
+            </p> 
             <div class="col-md-12">
                 <!--<img src="img/cool_adv.png" width="100%", height="100%"/>-->
         </div>           
