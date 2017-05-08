@@ -32,6 +32,7 @@
                <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/forumcategory') }}"><i class="fa fa-files-o"></i> <span>Forum Categories </span></a></li>
                 <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/forum') }}"><i class="fa fa-files-o"></i> <span>Forums </span></a></li>
                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/shows') }}"><i class="fa fa-files-o"></i> <span>Shows </span></a></li>
+                 <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/adscategory') }}"><i class="fa fa-files-o"></i> <span>AdsCategory </span></a></li>
 
 
           <!-- ======================================= -->

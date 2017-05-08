@@ -1,6 +1,8 @@
 
 <template>
 <div id="blogpost">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
     <pulse-loader v-if="loading"></pulse-loader>
     <div class="row"  v-if="!loading">
      <!-- advert -->
@@ -35,38 +37,24 @@
     </div>
 
         <div class="item-body">
-            <p>{{post.content}}</p> 
+            <p v-html="post.content"></p> 
             <div class="col-md-12">
                 <!--<img src="img/cool_adv.png" width="100%", height="100%"/>-->
         </div>           
 
         </div>
         <!-- DISCUSS COMPONENT  -->
-        <social-sharing  inline-template>
-  <div >
-      <network network="facebook" id="socialshare">
-        <i class="fa fa-facebook"></i> Facebook
-      </network>
-      <network network="googleplus" id="socialshare">
-        <i class="fa fa-google-plus"></i> Google +
-      </network>
-      <network network="linkedin" id="socialshare">
-        <i class="fa fa-linkedin"></i> LinkedIn
-      </network>
-      <network network="pinterest" id="socialshare">
-        <i class="fa fa-pinterest"></i> Pinterest
-      </network>
-      <network network="reddit" id="socialshare">
-        <i class="fa fa-reddit"></i> Reddit
-      </network>
-      <network network="twitter" id="socialshare">
-        <i class="fa fa-twitter"></i> Twitter
-      </network>
-      <network network="whatsapp" id="socialshare">
-        <i class="fa fa-whatsapp"></i> Whatsapp
-      </network>
-  </div>
-</social-sharing>
+        	
+                    <ul class="social-network social-circle">
+                       
+                        <li><a style="border: 1px solid #3B5998; color: #3B5998 !important; background: #3B5998;" href="#" class="icoFacebook" title="Facebook" onclick="sharon.facebook()"><i class="fa fa-facebook" ></i></a></li>
+                        <li><a style="border: 1px solid #33ccff; color: #33ccff !important; background: #33ccff;" href="#" class="icoTwitter" title="Twitter" onclick="sharon.twitter()"><i class="fa fa-twitter"></i></a></li>
+                        <li><a style="border: 1px solid #BD3518; color: #BD3518 !important; background: #BD3518;" href="#" class="icoGoogle" title="Google +" onclick="sharon.plus()"><i class="fa fa-google-plus"></i></a></li>
+                       
+                    </ul>				
+				
+
+    
 
         <comment type="blog" :id="post.id" user="s" ></comment>
                 <div>
@@ -149,7 +137,7 @@
 </template>
 
 <script>
-
+    
     import comment from './comment.vue'
     import sidebar from './sidebar.vue'
      import Flickity from 'vue-flickity';
@@ -234,12 +222,85 @@
     }
 </script>
 <style>
-#socialshare {
-    cursor: pointer;
-    cursor: hand;
- 
-    padding: 2px;
-    margin: 2px;
-    color: blue;
+
+
+/*=========================
+  Icons
+ ================= */
+
+/* footer social icons */
+ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
 }
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+
+/* footer social icons */
+.social-network a.icoRss:hover {
+	background-color: #F56505;
+}
+.social-network a.icoFacebook:hover {
+	background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+	background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+	background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+	background-color:#0590B8;
+}
+.social-network a.icoLinkedin:hover {
+	background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+	color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+	color:#44BCDD;
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+
+}
+
+.social-circle li i {
+	margin:0;
+	line-height:50px;
+	text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+	
+}
+.social-circle i {
+	color: #fff;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
+}
+
+a {
+   
+}
+
+
 </style>

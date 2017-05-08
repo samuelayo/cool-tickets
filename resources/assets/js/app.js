@@ -16,6 +16,7 @@ require('./bootstrap');
 import VueRouter from 'vue-router'
 //tell vue to use the router
 Vue.use(VueRouter)
+window.sharon = require('sharon');
 
 import vmodal from 'vue-js-modal'
 

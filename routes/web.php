@@ -20,6 +20,11 @@ Route::group(['middleware'=>'mobile'], function () {
 Route::get('/', 'HomeController@index');
     
 });
+Route::get('/ads', function(){
+//dd(\Adumskis\LaravelAdvert\Model\AdvertCategory::all());
+ dd(\Adumskis\LaravelAdvert\Model\Advert::all());
+});
+
 
 Route::group(['prefix'=>'m'], function () {
   Route::get('/', 'HomeController@mobile');
@@ -141,6 +146,11 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
     CRUD::resource('forumcategory', 'ForumcategoryCrudController');
     CRUD::resource('forum', 'ForumCrudController');
     CRUD::resource('shows', 'ShowsCrudController');
+    
+    CRUD::resource('adscategory', 'AdsCategoryCrudController');
+    
+    Route::get('ads', 'AdsEngineController@list');
+    Route::post('ads', 'AdsEngineController@createad');
 });
 
 

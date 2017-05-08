@@ -192,6 +192,8 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
 
         App\Providers\AgentServiceProvider::class,
+
+        Adumskis\LaravelAdvert\AdvertServiceProvider::class,
     ],
 
     /*
@@ -242,6 +244,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'AdvMng'    => Adumskis\LaravelAdvert\AdvertFacade::class,
 
 
     ],

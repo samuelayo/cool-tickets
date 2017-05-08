@@ -4,9 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "26de0e9c168ea8b01ad5c07910c94d78",
-    "content-hash": "3b4c62b4b99c9fb567b0c1353f0271d9",
+    "hash": "b8b40a63372ffe61f96d26c79b64bfb6",
+    "content-hash": "7c0279bd0ef56045d93c64220f8faaeb",
     "packages": [
+        {
+            "name": "adumskis/laravel-advert",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adumskis/laravel-advert.git",
+                "reference": "9ebc22742940ec8d7c1db2c71dbc1a33ae8c0747"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adumskis/laravel-advert/zipball/9ebc22742940ec8d7c1db2c71dbc1a33ae8c0747",
+                "reference": "9ebc22742940ec8d7c1db2c71dbc1a33ae8c0747",
+                "shasum": ""
+            },
+            "require": {
+                "intervention/image": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Adumskis\\LaravelAdvert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Algirdas",
+                    "email": "algirdasdum@gmail.com"
+                }
+            ],
+            "description": "Advertising helper for laravel",
+            "time": "2016-03-16 09:58:40"
+        },
         {
             "name": "almasaeed2010/adminlte",
             "version": "v2.3.11",
@@ -5359,6 +5392,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "adumskis/laravel-advert": 20,
         "laracasts/generators": 20
     },
     "prefer-stable": false,
