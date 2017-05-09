@@ -18,7 +18,7 @@
 
                 <div class="article">
                     <P id="p-sh" class="p-body" >Story Highlights</P>
-                    <P class="p-body" v-for="(keypoint, index) in post.keypoints" :key="index" v-html="keypoint"></P>
+                    <P class="p-body" v-for="(keypoint, index) in keypoints" :key="index" v-html="keypoint"></P>
                   
                 </div>
 
@@ -170,9 +170,8 @@
                 this.post = response.data;
                 this.loading = false;
                 var str = this.post.keypoints;
-                console.log(str);
-                alert(str);
                 this.keypoints = str.match(/<p>.*?<\/p>/g);
+                console.log(this.keypoints);
                  var status = {
                     title: 'CoolFmNigeria | '+this.post.title,
                     description: this.post.content
