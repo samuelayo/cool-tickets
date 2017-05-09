@@ -170,6 +170,7 @@
                 this.post = response.data;
                 this.loading = false;
                 var str = this.post.keypoints;
+                console.log(str);
                 this.keypoints = str.match(/<p>.*?<\/p>/g);
                  var status = {
                     title: 'CoolFmNigeria | '+this.post.title,
