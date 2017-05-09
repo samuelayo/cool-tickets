@@ -35,7 +35,8 @@ class HomeController extends Controller
         $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->take(3)->get();
         $fresh = BlogPost::take(5)->with('category')->get();
         $categories = Category::all();
-        return view('landing', compact('trending', 'newones', 'fresh', 'categories'));
+        $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
+        return view('landing', compact('trending', 'newones', 'fresh', 'categories', 'ads'));
     }
 
     /**
@@ -46,7 +47,7 @@ class HomeController extends Controller
         $post = BlogPost::find($id);
         $post->view_count +=1;
         $post->save();
-        return BlogPost::find($id)->with('category', 'user', 'keypoints')->first();
+        return BlogPost::where('id',$id)->with('category', 'user', 'keypoints')->first();
     }
 
 

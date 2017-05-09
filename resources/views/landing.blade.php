@@ -7,7 +7,8 @@
         'trending' => $trending,
         'newones'=>$newones, 
         'fresh'=>$fresh,
-        'categories'=>$categories
+        'categories'=>$categories,
+        'ads'=>$ads
     ]); ?>
     //localStorage.setItem('username', auth()->user()->name)
 </script>

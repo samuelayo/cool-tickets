@@ -459,7 +459,7 @@ p.copyright {
   border-radius: 5px;
   counter-increment: carousel-cell;
 }
-.carousel-cell p {font-size: 2em; width: 600px; line-height: 1.1; padding: 2em; margin-top: .2em color:#fff}
+.carousel-cell p {font-size: 2em; width: 600px; line-height: 1.1; padding: 1em; margin-top: 1.9em; color:#fff !important}
 
 .catgory{font-size: .6em; font-weight: 700;}
 .title { font-size: 3.6em; letter-spacing: -1.4px ; width: 90% ; padding: 1em; font-weight: 900; }

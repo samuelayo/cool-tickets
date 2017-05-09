@@ -131,8 +131,11 @@
                 return moment(time).fromNow();
             },
              hottimeago: function(obj){
-                var last = obj.comments[obj.comments.length-1];
-                return this.timeago(last.created_at); 
+                if(obj.comments != undefined && obj.comments.length != 0){
+                    var last = obj.comments[obj.comments.length-1];
+                    return this.timeago(last.updated_at); 
+                }
+                return "No activity yet";
             }
         }
     }

@@ -1,7 +1,9 @@
 <template>
     <div id="landing">
     <div class="col-md-12">
-        <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
+    <a  v-if="homepage_chart[0]" :href="homepage_chart[0].url">
+        <adimage  :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></adimage>
+    </a>
     </div>
     <!-- Header -->
     <div class="intro-header">
@@ -174,7 +176,9 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
 
  <!-- advert -->
     <div class="col-md-12">
-         <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
+    <a  v-if="homepage_chart[1]" :href="homepage_chart[1].url">
+        <adimage  :src="'/'+homepage_chart[1].image_url" width="100%" height="100%"></adimage>
+    </a>
     </div><br>
 
 
@@ -297,7 +301,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
 <!-- Flickity HTML init -->
 
 <flickity ref="flickity" :options="flickityOptions">
-    <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:cover; left: 73.57%'"> <p><span class="catgory">{{fres.category.name}}</span> <br><router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: fres.title }}">{{fres.title}}</router-link></p></div>
+    <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:center; left: 73.57%'"> <p><span class="catgory">{{fres.category.name}}</span> <br><router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: fres.title }}">{{fres.title}}</router-link></p></div>
 </flickity>
 
 <!-- if you don't want to use the buttons Flickity provides -->
@@ -362,9 +366,9 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
             <div class="col-md-3"><br><br>
                       <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4><br>
                 <div class="panel panel-default shadowed">
-                    <div class="row"><br>
+                    <div class="row" ><br>
                      <div class="col-md-12 ht_content" v-for="(ho, index) in hot" v-if="index < 6">
-                        <small style="color: grey;">Last activity: {{hottimeago(ho)}}</small>
+                        <small style="color: grey;">Last activity: {{hottago(ho)}}</small>
                                  
                          <router-link :to="{ name: 'forum', params: { id: ho.id, name:ho.topic }}"><h4>{{ho.topic}}</h4></router-link>
                          
@@ -412,8 +416,8 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                 },
                 schedule: [],
                 podcasts: [],
-                currentweek: moment().isoWeek(),
-                currentchartweek: moment().isoWeek(),
+                currentweek: this.week(),
+                currentchartweek: this.week(),
                 nigerianchart:[],
                 globalchart:[],
                 alternativechart:[],
@@ -430,6 +434,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
             }
             this.$store.dispatch('SET_SEO', status);
             this.schedules();
+            
             this.getpodcasts();
             this.getcharts();
             this.gethots();
@@ -439,6 +444,14 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
             timeago: function (time){
                 return moment(time).fromNow();
             },
+            week: function (){
+                    var myDate = new Date();
+                    if(myDate.getDay() == 6 || myDate.getDay() == 0 || myDate.getDay() == 5){
+                        return moment().isoWeek();
+                    }
+                    return moment().isoWeek()-1;
+                    
+                },
             timeleft: function(value){
                 value  = new moment(value+":00", "HH:mm:ss a");
                 return moment(value).fromNow();
@@ -493,7 +506,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
 
             },
             nweekpod: function(){
-                if(this.currentweek == moment().isoWeek()){
+                if(this.currentweek == this.week()){
 
                 }else{
                     this.currentweek++;
@@ -508,7 +521,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                 }
             },
                 nweekcht: function(){
-                if(this.currentchartweek == moment().isoWeek()){
+                if(this.currentchartweek == this.week()){
 
                 }else{
                     this.currentchartweek++;
@@ -607,9 +620,15 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                     
                     });
             },
-            hottimeago: function(obj){
-                var last = obj.comments[obj.comments.length-1];
-                return this.timeago(last.created_at); 
+            hottago: (obj)=>{
+                
+            
+                if(obj.comments != undefined && obj.comments.length != 0){
+                    var last = obj.comments[obj.comments.length-1];
+                    return this.timeago(last.updated_at); 
+                }
+                return "No activity yet";
+                
             }
       },
       computed: {
@@ -658,6 +677,12 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
               
              
               return arr;
+          },
+          homepage_chart: function(){
+            var homeads = _.map(window.Laravel.ads, function(o) {
+                if (o.advert_category.type == "homepage_main") return o;
+            });
+            return homeads;
           }
       }
     }
