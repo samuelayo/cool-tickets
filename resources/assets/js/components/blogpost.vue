@@ -18,7 +18,7 @@
 
                 <div class="article">
                     <P id="p-sh" class="p-body" >Story Highlights</P>
-                    <P class="p-body" v-for="keypoint in post.keypoints" :key="keypoint.id">{{keypoint.Point}}</P>
+                    <P class="p-body" v-for="(keypoint, index) in post.keypoints" :key="index" v-html="keypoint"></P>
                   
                 </div>
 
@@ -148,6 +148,7 @@
         data: function (){
             return{
                post: {},
+               keypoints: [],
                loading: true,
                fresh: window.Laravel.fresh,
                shows: [],
@@ -168,6 +169,8 @@
                 // JSON responses are automatically parsed.
                 this.post = response.data;
                 this.loading = false;
+                var str = this.post.keypoints;
+                this.keypoints = str.match(/<p(.)>.*?<\/p\1>/g);
                  var status = {
                     title: 'CoolFmNigeria | '+this.post.title,
                     description: this.post.content

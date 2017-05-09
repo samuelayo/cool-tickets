@@ -47,7 +47,7 @@ class HomeController extends Controller
         $post = BlogPost::find($id);
         $post->view_count +=1;
         $post->save();
-        return BlogPost::where('id',$id)->with('category', 'user', 'keypoints')->first();
+        return BlogPost::where('id',$id)->with('category', 'user')->first();
     }
 
 

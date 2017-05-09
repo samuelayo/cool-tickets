@@ -49,6 +49,11 @@ class BlogPostCrudController extends CrudController
         'label' => 'Content',
         'type' => 'ckeditor'
         ]);
+        $this->crud->addField([   // CKEditor
+        'name' => 'keypoints',
+        'label' => 'Keypoints',
+        'type' => 'ckeditor'
+        ]);
         $this->crud->addField([
         'name' => 'user_id',
         'type' => 'hidden',
