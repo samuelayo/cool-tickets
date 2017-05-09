@@ -56,7 +56,7 @@
             <div class="col-md-3"><br><br>
                       <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Fresh</h4><br>
                 <div class="panel panel-default shadowed" >
-                    <div class="row" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10"><br>
+                    <div class="row"><br>
                      <div class="col-md-12 ht_content" v-for="newpost in all.fresh" v-if="index <=count">
                         <small style="color: grey;">Last activity: {{hottimeago(newpost)}}</small>
                                  
