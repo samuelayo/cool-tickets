@@ -1,4 +1,4 @@
-@extends('backpack::layout')
+ @extends('backpack::layout')
 
 @section('header')
     <section class="content-header">
@@ -31,14 +31,14 @@
                   <label for="inputEmail3" class="col-sm-2 control-label">Url</label>
 
                   <div class="col-sm-10">
-                    <input type="text" name="url" class="form-control" id="inputEmail3" placeholder="url to be redirected to on click" required>
+                    <input type="text" name="url" value="{{$id->url}}" class="form-control" id="inputEmail3" placeholder="url to be redirected to on click" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Alt</label>
 
                   <div class="col-sm-10">
-                    <input type="text" name="alt" class="form-control" id="inputPassword3" placeholder="Alt caption for advert" required>
+                    <input type="text" name="alt" class="form-control" value="{{$id->alt}}" id="inputPassword3" placeholder="Alt caption for advert" required>
                   </div>
                 </div>
                
@@ -46,7 +46,8 @@
                   <label for="inputEmail3" class="col-sm-2 control-label">Advert Image</label>
 
                   <div class="col-sm-10">
-                    <input type="file" name="image" class="form-control" id="inputEmail3"  required>
+                    <input type="file" name="image" class="form-control" id="inputEmail3" >
+                    <img src="/{{$id->image_path}}"/>
                   </div>
                 </div>
 

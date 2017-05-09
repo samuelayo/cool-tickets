@@ -297,7 +297,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
 <!-- Flickity HTML init -->
 
 <flickity ref="flickity" :options="flickityOptions">
-    <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+')'"> <p><span class="catgory">{{fres.category.name}}</span> <br><router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: fres.title }}">{{fres.title}}</router-link></p></div>
+    <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:cover; left: 73.57%'"> <p><span class="catgory">{{fres.category.name}}</span> <br><router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: fres.title }}">{{fres.title}}</router-link></p></div>
 </flickity>
 
 <!-- if you don't want to use the buttons Flickity provides -->
@@ -424,6 +424,11 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
         },
         components:{Flickity},
         created() {
+            var status = {
+                title: 'CoolFmNigeria | Welcome to CoolFmNigeria, your #1 hit radio station',
+                description: `Cool FM Lagos 96.9 is one of the most poopular radio station broadcasting from Lagos, Nigeria. This radio station is operating in English language and playing lots of popular music 24 hours both air and live online. Currently it is playing music genres like Top 40/Pop, Adult Contemporary etc. Cool fm lagos 96.9`
+            }
+            this.$store.dispatch('SET_SEO', status);
             this.schedules();
             this.getpodcasts();
             this.getcharts();
@@ -665,6 +670,9 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
 }
 .box_text{
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.13);
+}
+.carousel-cell{
+    width: 33.36% !important;
 }
 </style>
 

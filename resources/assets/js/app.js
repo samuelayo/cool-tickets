@@ -89,7 +89,8 @@ const coolfm = new Vue({
   //declare components that the root component can access
   components: {app},
   //pass in the router to the vue instance
-  router
+  router,
+  store
 }).$mount('#app')//mount the router on the app
 
 

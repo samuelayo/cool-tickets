@@ -162,11 +162,17 @@
             }
         },
         created: function (){
+                
                 axios.get('/posts/'+this.$route.params.id)
                 .then(response => {
                 // JSON responses are automatically parsed.
                 this.post = response.data;
                 this.loading = false;
+                 var status = {
+                    title: 'CoolFmNigeria | '+this.post.title,
+                    description: this.post.content
+                }
+                this.$store.dispatch('SET_SEO', status);
                 })
                 .catch(e => {
                 

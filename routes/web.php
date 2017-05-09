@@ -150,6 +150,10 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
     CRUD::resource('adscategory', 'AdsCategoryCrudController');
     
     Route::get('ads', 'AdsEngineController@list');
+    Route::get('adslist', 'AdsEngineController@adslist');
+    Route::get('adslist/{id}/edit', 'AdsEngineController@adsedit');
+    Route::get('adslist/{id}/delete', 'AdsEngineController@adsdelete');
+    Route::post('adslist/{id}/edit', 'AdsEngineController@adseditpost');
     Route::post('ads', 'AdsEngineController@createad');
 });
 

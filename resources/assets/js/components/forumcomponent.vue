@@ -117,6 +117,11 @@
                 .then(response => {
                 // JSON responses are automatically parsed.
                 this.forums = response.data;
+                 var status = {
+                    title: 'CoolFmNigeria | Forums topics, discuss, share your opinions',
+                    description: `Get your opinions aired, lend your voice to the masses, get outspoken, use the coolfm forums`
+                }
+                this.$store.dispatch('SET_SEO', status);
                 })
                 .catch(e => {
                 

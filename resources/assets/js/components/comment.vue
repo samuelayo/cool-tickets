@@ -563,4 +563,14 @@ created: function(){
     color: #F44336;
     transition: .2s opacity ease-out,.2s color ease-out;
 }
+.btn-primary {
+   color: #fff;
+   background-color: none;
+   border-color: blue;
+   color: blue !important;
+}
+.label-info {
+   background-color: none;
+   color: #000;
+}
 </style>

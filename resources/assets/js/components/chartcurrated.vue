@@ -115,6 +115,11 @@
             }
         },
         created: function(){
+             var status = {
+                    title: 'CoolFmNigeria | Chart billboard',
+                    description: `Top Ten Nigeria, Top 20 Global and Top 10 alternatives on the coolfm bill board`
+                }
+                this.$store.dispatch('SET_SEO', status);
             this.getcharts();
         },
         methods: {

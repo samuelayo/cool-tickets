@@ -29,6 +29,11 @@
                 .then(response => {
                 // JSON responses are automatically parsed.
                 this.oap = response.data;
+                 var status = {
+                    title: 'CoolFmNigeria | '+this.oap.name,
+                    description: this.oap.description
+                }
+                this.$store.dispatch('SET_SEO', status);
                 
                 })
                 .catch(e => {

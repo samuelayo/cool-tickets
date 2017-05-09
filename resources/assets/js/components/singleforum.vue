@@ -105,6 +105,11 @@
                 .then(response => {
                 // JSON responses are automatically parsed.
                 this.forum = response.data;
+                var status = {
+                    title: 'CoolFmNigeria | '+this.name,
+                    description: this.forum.description
+                }
+                this.$store.dispatch('SET_SEO', status);
                 
                 })
                 .catch(e => {

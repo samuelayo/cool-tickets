@@ -82,6 +82,11 @@
             }
          }, 
          created: function(){
+             var status = {
+                title: 'CoolFmNigeria | Podcasts',
+                description: `All podcasts at coolfm`
+            }
+            this.$store.dispatch('SET_SEO', status);
              this.get_podcast();
          },
          methods: {

@@ -1,6 +1,20 @@
 <template>
   <div id="app">
-  
+  <title>{{title}}</title>
+<meta name="description" :content="description"/>
+<meta name="robots" content="nodp"/>
+<meta name="author" content="ogundipe samuel">
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" :content="title" />
+<meta property="og:description" :content="description" />
+<meta property="og:url" content="/" />
+<meta property="og:site_name" content="Coolfm" />
+<meta property="og:image" content="/img/logo.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" :content="description" />
+<meta name="twitter:title" :content="title" />
+<meta name="twitter:site" content="@coolfmnigeria" />
     <nav class="navbar topnav navbar-default" role="navigation">
       <div class="container-fluid topnav">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -176,6 +190,14 @@
         //   audio.play();
         // }
   
+      }
+    },
+    computed: {
+      title: function(){
+        return this.$store.state.title;
+      },
+      description: function(){
+        return this.$store.state.description;
       }
     }
   

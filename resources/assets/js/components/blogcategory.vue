@@ -87,6 +87,11 @@ export default{
         }
     }, 
     created: function(){
+        var status = {
+                title: 'CoolFmNigeria |'+this.name,
+                description: `All news, gossips and exclusive interviews in the `+this.name+' category'
+            }
+            this.$store.dispatch('SET_SEO', status);
         this.get_all();
     },
     methods: {
