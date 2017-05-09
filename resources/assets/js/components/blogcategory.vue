@@ -41,7 +41,7 @@
             <!-- rising -->
             <div class="col-md-6"><br><br>
                      <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;"  v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">Rising</h4><br>
-                     <div class="panel panel-default shadowed" v-for="newpost in all.latest" v-if="index <=count">
+                     <div class="panel panel-default shadowed" v-for="(newpost, index) in all.latest" v-if="index <=count">
                     <div  class="rising" :style="'background-image: url('+newpost.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);'">
                        <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: newpost.title }}"> <h4 class="rising_head" style="color: white;">{{newpost.category.name}}</h4></router-link>
                         <h3 class="rising_topic" style="color: white;">{{newpost.title}}</h3>
@@ -56,8 +56,8 @@
             <div class="col-md-3"><br><br>
                       <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Fresh</h4><br>
                 <div class="panel panel-default shadowed" >
-                    <div class="row"><br>
-                     <div class="col-md-12 ht_content" v-for="newpost in all.fresh" v-if="index <=count">
+                    <div class="row" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10"><br>
+                     <div class="col-md-12 ht_content" v-for="(newpost, index) in all.fresh" v-if="index <=count">
                         <small style="color: grey;">Last activity: {{hottimeago(newpost)}}</small>
                                  
                         <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: newpost.title }}"> <h4 class="rising_head" style="color: white;">{{newpost.category.name}}</h4></router-link>
