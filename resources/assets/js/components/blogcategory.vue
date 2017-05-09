@@ -60,7 +60,7 @@
                      <div class="col-md-12 ht_content" v-for="(newpost, index) in all.fresh" v-if="index <=count">
                         <small style="color: grey;">Last activity: {{hottimeago(newpost)}}</small>
                                  
-                        <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: newpost.title }}"> <h4 class="" style="color: black;">{{newpost.category.name}}</h4></router-link>
+                        <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: newpost.title }}"> <h4 class="" style="color: black;">{{newpost.title}}</h4></router-link>
                          
                          <hr>      
                     </div>
