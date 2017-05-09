@@ -58,11 +58,11 @@ class Charts extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function setweekAttribute($value)
-    {
-        $attribute_name = "week"; 
-        $date = new \DateTime(new \Date());
-        $week = $date->format("W");
-        $this->attributes[$attribute_name] = $week;
-    }
+    // public function setweekAttribute($value)
+    // {
+    //     $attribute_name = "week"; 
+    //     $date = new \DateTime(new \Date());
+    //     $week = $date->format("W");
+    //     $this->attributes[$attribute_name] = $week;
+    // }
 }

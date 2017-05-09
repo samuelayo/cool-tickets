@@ -42,10 +42,12 @@ class ChartsCrudController extends CrudController
             ],
             'update/create/both'
         );
-
+        $date = new \DateTime(new \Date());
+         $week = $date->format("W");
         $this->crud->addField([
         'name' => 'week',
-        'type' => 'hidden'
+        'type' => 'text',
+        'value' => $week
         ]);
 
         $this->crud->addField(
