@@ -447,9 +447,9 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
             week: function (){
                     var myDate = new Date();
                     if(myDate.getDay() == 6 || myDate.getDay() == 0 || myDate.getDay() == 5){
-                        return moment().isoWeek();
+                        return moment().isoWeek()+1;
                     }
-                    return moment().isoWeek()-1;
+                    return moment().isoWeek();
                     
                 },
             timeleft: function(value){

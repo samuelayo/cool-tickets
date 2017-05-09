@@ -7,7 +7,9 @@
     <div class="row"  v-if="!loading">
      <!-- advert -->
         <div class="col-md-12">
-              <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
+             <a  v-if="homepage_chart[0]" :href="homepage_chart[0].url">
+                <adimage  :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></adimage>
+            </a>
             <!--<img src="img/cool_adv.png" width="100%", height="100%"/>-->
         </div>
 
@@ -230,6 +232,13 @@
             });
 
         }
+      }, computed:{
+           homepage_chart: function(){
+            var homeads = _.map(window.Laravel.ads, function(o) {
+                if (o.advert_category.type == "homepage_main") return o;
+            });
+            return homeads;
+          }
       }
     }
 </script>
