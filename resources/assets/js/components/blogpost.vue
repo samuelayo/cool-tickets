@@ -171,6 +171,7 @@
                 this.loading = false;
                 var str = this.post.keypoints;
                 console.log(str);
+                alert(str);
                 this.keypoints = str.match(/<p>.*?<\/p>/g);
                  var status = {
                     title: 'CoolFmNigeria | '+this.post.title,
@@ -221,7 +222,7 @@
              axios.get('/related/'+this.post.category.name)
             .then(response => {
             // JSON responses are automatically parsed.
-            alert('related');
+            //alert('related');
                 this.related_posts = response.data;
             
             })
