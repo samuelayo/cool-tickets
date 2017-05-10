@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/App.vue"],"names":[],"mappings":"AACA,OACI,kBACA,OACA,SACA,aACA,UAAY","file":"static/css/app.9ea4f10c142f1c61b33f248dc7e01f9c.css","sourcesContent":["\nfooter {\n    position: absolute;\n    left: 0;\n    bottom: 0;\n    height: 100px;\n    width: 100%;\n}\n\n\n\n// WEBPACK FOOTER //\n// ./src/App.vue"],"sourceRoot":""}

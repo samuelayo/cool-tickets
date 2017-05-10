@@ -220,7 +220,7 @@
         fetch_related: function(){
 
 
-             axios.get('/related/'+this.post.category.name)
+             axios.get('/related/'+this.post.category.id)
             .then(response => {
             // JSON responses are automatically parsed.
             //alert('related');

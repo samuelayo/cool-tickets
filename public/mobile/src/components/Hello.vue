@@ -33,10 +33,15 @@
               <div class="xs-text-left text-gray">
                 <ul class="list-unstyled">
                   <li class="xs-col-12 xs-mb2">
-                    <a href="#" class="bold text-gray">
+                  <router-link v-bind:to="{ name: 'blogpost', params: { id: fre.id, title: fre.title }}"  class="bold text-gray">
+                 
                       <img class="buzz-image xs-block xs-mb05" :src="fre.image">
                       <h4 class="xs-text-4 lg-text-3">{{fre.title}}</h4>
-                    </a>
+                    
+                    </router-link>
+                    <p id="share-m"> <span style="    font-size: 1.7em;
+    font-weight: 900;
+    vertical-align: sub;" class="ion-android-open"> </span> 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
                   </li>
   
   
@@ -69,8 +74,7 @@
             <tbody class="table-hover">
               <tr v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index <= chartlimit">
                 <td class="text-left">{{chart.position}}</td>
-                <td class="text-left">{{chart.songs.song_title}}</td>
-                <td class="text-left">{{chart.songs.artistname}}</td>
+                <td class="text-left">{{chart.songs.song_title}} by {{chart.songs.artistname}} </td>
               </tr>
   
             </tbody>
@@ -169,10 +173,15 @@
                 <div class="xs-text-left text-gray">
                   <ul class="list-unstyled">
                     <li class="xs-col-12 xs-mb2" v-for="(rising, index) in newones" v-if="index <= newlimit">
-                      <a href="#" class="bold text-gray">
+                    <router-link v-bind:to="{ name: 'blogpost', params: { id: rising.id, title: rising.title }}"  class="bold text-gray">
+                      
                         <img class="buzz-image xs-block xs-mb05" :src="rising.image">
                         <h4 class="xs-text-4 lg-text-3">{{rising.title}}</h4>
-                      </a>
+              
+                      </router-link>
+                      <p id="share-m"> <span style="    font-size: 1.7em;
+    font-weight: 900;
+    vertical-align: sub;" class="ion-android-open"> </span> 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
                     </li>
                   </ul>
                 </div>
@@ -219,10 +228,13 @@
                 </div>
               </li> -->
               <li class="xs-col-12 xs-mb2" v-for="(trend, index) in trending" v-if="index <= trendlength">
-                <a href="#" class="bold text-gray">
+              <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: trend.title }}"  class="bold text-gray">
                   <img class="xs-block xs-mb05 buzz-image" :src="trend.image">
                   <h4 class="xs-text-4 lg-text-3">{{trend.title}}</h4>
-                </a>
+                </router-link>
+                <p id="share-m"> <span style="    font-size: 1.7em;
+    font-weight: 900;
+    vertical-align: sub;" class="ion-android-open"> </span> 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
               </li>
   
   
@@ -252,8 +264,8 @@
         newones: window.Laravel.newones, 
         fresh: window.Laravel.fresh,
         freshlimit: 2,
-        currentweek: moment().isoWeek(),
-        currentchartweek: moment().isoWeek(),
+        currentweek:this.week(),
+        currentchartweek: this.week(),
         nigerianchart:[],
         globalchart:[],
         alternativechart:[],
@@ -283,6 +295,15 @@
   
           });
       },
+      week: function (){
+                    var myDate = new Date();
+                    if(myDate.getDay() == 6 || myDate.getDay() == 0 || myDate.getDay() == 5){
+                        return moment().isoWeek()+1;
+                    }
+                    return moment().isoWeek();
+                    
+                },
+
       getcharts: function(){
 
                 axios.get('/charts')
@@ -358,8 +379,11 @@
                 return moment(time).fromNow();
             },
             hottimeago: function(obj){
-                var last = obj.comments[obj.comments.length-1];
-                return this.timeago(last.created_at); 
+                if(obj.comments != undefined && obj.comments.length != 0){
+                    var last = obj.comments[obj.comments.length-1];
+                    return this.timeago(last.updated_at); 
+                }
+                return "No activity yet";
             },
             morefresh: function(){
               this.freshlimit = 4;

@@ -11,7 +11,7 @@
   
       <link rel="stylesheet" href="/mobile/css/style.css">
       <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
-       <link href="/mobile/dist/static/css/app.9ea4f10c142f1c61b33f248dc7e01f9c.css" rel="stylesheet">
+       <link href="/mobile/dist/static/css/app.e51378b17eb633dd2a8461f1e0ca9554.css" rel="stylesheet">
 
   
 </head>
@@ -26,17 +26,41 @@
     ]); ?>
     //localStorage.setItem('username', auth()->user()->name)
 </script>
+<?php
+if(auth()->user()){
+?>
+<script>
+localStorage.setItem('username', '<?php echo auth()->user()->name ?>');
+</script>
+<?php
+}
+?>
+
+<?php
+if(!auth()->user()){
+?>
+<script>
+if(localStorage.getItem('username')!=undefined){
+    localStorage.removeItem('username');
+}
+</script>
+<?php
+}
+?>
 <body>
 <div id="app"></div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
 <script>
   if( !window.jQuery ) document.write('<script src="/mobile/js/jquery-3.0.0.min.js"><\/script>');
 </script>
 <!-- Resource jQuery --> 
 
-<script type="text/javascript" src="/mobile/dist/static/js/manifest.5f764c2a465c6e7c4b63.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/vendor.856aa3b0dacb50393f74.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.9e3c5a1c7047355cb613.js"></script>
+<script type="text/javascript" src="/mobile/dist/static/js/manifest.1888410ede461aba85e2.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/vendor.b6dd142b92c4c3b5c129.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/app.f129e75f445523670e76.js"></script> 
+
+</script>
 
 
 </body>

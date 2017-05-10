@@ -1,7 +1,7 @@
 <template>
   <div id="app">
   <header class="cd-auto-hide-header">
-  <div class="logo"><a href="#0"><img src="https://www.coolfm.ng/img/logo.png" alt="Logo"></a></div>
+  <div class="logo"><router-link   v-bind:to="'/'"><img src="https://www.coolfm.ng/img/logo.png" alt="Logo"></router-link></div>
 
   <nav class="cd-primary-nav">
     <a href="#cd-navigation" class="nav-trigger">

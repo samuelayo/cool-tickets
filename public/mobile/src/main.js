@@ -8,6 +8,8 @@ import store from './store'
 window.moment = require('moment');
 window.axios = require('axios');
 window.lodash = require('lodash');
+window.sharon = require('sharon');
+window.tinymce = require('tinymce');
 
 Vue.config.productionTip = false
 
