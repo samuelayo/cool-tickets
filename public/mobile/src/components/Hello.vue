@@ -7,10 +7,8 @@
     <div id="sidebar" class="xs-m4">
   
       <div id="now-buzzing" class="xs-mb3">
-        <table style="height: 40px !important;" class="table-fill"><br><br><br><br><br><br>
-          <thead>
-  
-          </thead>
+        <table style="height: 40px !important; border: none !important;" class="table-fill"><br><br><br><br><br><br>
+          
           <tbody class="table-hover" v-if="now_playing">
             <tr>
               <td style="border-left: 6px solid red;border-right: 1px solid rgb(221, 221, 221);letter-spacing: 3px;color: red;display: inline-block;font-style: normal !important;font-size: 0.8em;width: 103px;" class="text-left"><i :class="'ion-'+current_play_state" @click="livestream()"></i> <small>LIVE</small> </td>
@@ -41,7 +39,7 @@
                     </router-link>
                     <p id="share-m"> <span style="    font-size: 1.7em;
     font-weight: 900;
-    vertical-align: sub;" class="ion-android-open"> </span> 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
+    vertical-align: sub;" class="ion-android-open"> </span> &nbsp 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
                   </li>
   
   
@@ -181,7 +179,7 @@
                       </router-link>
                       <p id="share-m"> <span style="    font-size: 1.7em;
     font-weight: 900;
-    vertical-align: sub;" class="ion-android-open"> </span> 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
+    vertical-align: sub;" class="ion-android-open"> </span> &nbsp 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
                     </li>
                   </ul>
                 </div>
@@ -234,7 +232,7 @@
                 </router-link>
                 <p id="share-m"> <span style="    font-size: 1.7em;
     font-weight: 900;
-    vertical-align: sub;" class="ion-android-open"> </span> 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
+    vertical-align: sub;" class="ion-android-open"> </span> &nbsp 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
               </li>
   
   
