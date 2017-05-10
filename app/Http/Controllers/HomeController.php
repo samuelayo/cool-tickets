@@ -75,9 +75,9 @@ class HomeController extends Controller
         return Charts::where( DB::raw('YEAR(created_at)'), '=', date('Y'))->with('songs')->get();
     }
     public function blog_category($id){
-        $trending = BlogPost::where('category', $id)->where('view_count', '>', 1000)->where('view_count', '>', 5000)->orderBy('view_count', 'DESC')->with('category')->get();
-        $newones = BlogPost::where('category', $id)->where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->get();
-        $fresh = BlogPost::where('category', $id)->with('category')->orderBy('created_at', 'DESC')->get();
+        $trending = BlogPost::where('category', $id)->where('view_count', '>', 1000)->where('view_count', '>', 5000)->orderBy('view_count', 'DESC')->orderBy('created_at', 'DESC')->with('category')->get();
+        $newones = BlogPost::where('category', $id)->where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->orderBy('created_at', 'DESC')->with('category')->get();
+        $fresh = BlogPost::orderBy('created_at', 'DESC')->where('category', $id)->with('category')->get();
         return array('trending'=>$trending,
                      'latest'=>$newones,
                      'fresh'=>$fresh);
