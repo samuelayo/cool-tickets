@@ -119,6 +119,11 @@
             timeago: function(time){
                 return moment(time).fromNow();
             }
+        },
+         watch: {
+        id: function (val) {
+            this.getforum();
         }
+  }
     }
 </script>

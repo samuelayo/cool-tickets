@@ -86,7 +86,7 @@ export default{
             count: 10
         }
     }, 
-    created: function(){
+    mounted: function(){
         var status = {
                 title: 'CoolFmNigeria |'+this.name,
                 description: `All news, gossips and exclusive interviews in the `+this.name+' category'
@@ -122,6 +122,11 @@ export default{
                 return "No activity yet";
             }
 
+  },
+  watch: {
+    id: function (val) {
+      this.get_all();
+    }
   }
 }
 </script>
