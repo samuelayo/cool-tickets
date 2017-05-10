@@ -77,7 +77,7 @@ class HomeController extends Controller
     public function blog_category($id){
         $trending = BlogPost::where('category', $id)->where('view_count', '>', 1000)->where('view_count', '>', 5000)->orderBy('view_count', 'DESC')->with('category')->get();
         $newones = BlogPost::where('category', $id)->where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->get();
-        $fresh = BlogPost::where('category', $id)->with('category')->get();
+        $fresh = BlogPost::where('category', $id)->with('category')->orderBy('created_at', 'DESC')->get();
         return array('trending'=>$trending,
                      'latest'=>$newones,
                      'fresh'=>$fresh);
