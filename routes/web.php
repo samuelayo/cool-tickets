@@ -128,6 +128,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
     Route::get('dashboard', function(){
      redirect('/admin/blogpost')->route();
     });
+    Route::get('logout', 'Auth\LoginController@Logout');
     Auth::routes();
     //Route::get('login', 'Auth\LoginController@Login');
     //Route::post('login', 'Auth\LoginController@Login');

@@ -34,6 +34,7 @@
             
 
             <div class="item-body">
+            <img :src="post.image" width="100%" height="250px"><br><br>
                <p v-html="post.content" style="width: 100% !important;">
                </p>
                <comment v-if="post.id" :id="post.id"></comment>
@@ -66,7 +67,7 @@
             <div class="vertical-specific-feed" id="mod-vertical-specific-feed-1">
                 <div class="xs-text-left text-gray">
                     <ul class="list-unstyled">
-                        <li class="xs-col-12 xs-mb2" v-for="rel in related_posts" v-if="rel.id != post.id">
+                        <li class="xs-col-12 xs-mb2" v-for="rel in related_posts" v-if="(post.id && rel.id != post.id)">
                             
                              <router-link  class="bold text-gray" v-bind:to="{ name: 'blogpost', params: { id: rel.id, title: rel.title }}">
                                 <img class="buzz-image xs-block xs-mb05" :src="rel.image">
@@ -286,3 +287,32 @@ export default{
     }
 }
 </script>
+<style>
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: none;
+    border-color: blue;
+    color: blue !important;
+}
+</style>

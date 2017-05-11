@@ -39,6 +39,9 @@
     </div>
 
         <div class="item-body">
+            <img :src="post.image" height="315px" width="100%" />
+            <br>
+            <br>
             <p v-html="post.content">
             
             </p> 

@@ -31,15 +31,16 @@
               <div class="xs-text-left text-gray">
                 <ul class="list-unstyled">
                   <li class="xs-col-12 xs-mb2">
-                  <router-link v-bind:to="{ name: 'blogpost', params: { id: fre.id, title: fre.title }}"  class="bold text-gray">
-                 
+                  <router-link v-bind:to="{ name: 'blogpost', params: { id: fre.id, title: respace(fre.title) }}"  class="bold text-gray">
+                      
                       <img class="buzz-image xs-block xs-mb05" :src="fre.image">
+                      <P id="post-cat-m"> {{fre.category.name}} </P>
                       <h4 class="xs-text-4 lg-text-3">{{fre.title}}</h4>
                     
                     </router-link>
                     <p id="share-m"> <span style="    font-size: 1.7em;
     font-weight: 900;
-    vertical-align: sub;" class="ion-android-open"> </span> &nbsp 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
+    vertical-align: sub;" class="ion-android-open"> </span> &nbsp {{shares('/blogpost/'+fre.id+'/'+respace(fre.title))}} <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">{{timeago(fre.created_at)}}</span> </p>
                   </li>
   
   
@@ -171,15 +172,16 @@
                 <div class="xs-text-left text-gray">
                   <ul class="list-unstyled">
                     <li class="xs-col-12 xs-mb2" v-for="(rising, index) in newones" v-if="index <= newlimit">
-                    <router-link v-bind:to="{ name: 'blogpost', params: { id: rising.id, title: rising.title }}"  class="bold text-gray">
+                    <router-link v-bind:to="{ name: 'blogpost', params: { id: rising.id, title: respace(rising.title) }}"  class="bold text-gray">
                       
                         <img class="buzz-image xs-block xs-mb05" :src="rising.image">
+                        <P id="post-cat-m"> {{rising.category.name}} </P>
                         <h4 class="xs-text-4 lg-text-3">{{rising.title}}</h4>
               
                       </router-link>
                       <p id="share-m"> <span style="    font-size: 1.7em;
     font-weight: 900;
-    vertical-align: sub;" class="ion-android-open"> </span> &nbsp 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
+    vertical-align: sub;" class="ion-android-open"> </span> &nbsp {{shares('/blogpost/'+rising.id+'/'+respace(rising.title))}}<span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">{{timeago(rising.created_at)}}</span> </p>
                     </li>
                   </ul>
                 </div>
@@ -226,13 +228,14 @@
                 </div>
               </li> -->
               <li class="xs-col-12 xs-mb2" v-for="(trend, index) in trending" v-if="index <= trendlength">
-              <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: trend.title }}"  class="bold text-gray">
+              <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: respace(trend.title) }}"  class="bold text-gray">
                   <img class="xs-block xs-mb05 buzz-image" :src="trend.image">
+                  <P id="post-cat-m"> {{trend.category.name}} </P>
                   <h4 class="xs-text-4 lg-text-3">{{trend.title}}</h4>
                 </router-link>
                 <p id="share-m"> <span style="    font-size: 1.7em;
     font-weight: 900;
-    vertical-align: sub;" class="ion-android-open"> </span> &nbsp 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">3 HOURS AGO</span> </p>
+    vertical-align: sub;" class="ion-android-open"> </span> &nbsp {{shares('/blogpost/'+trend.id+'/'+respace(trend.title))}}<span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span>  <span style="font-weight: 100;">{{timeago(trend.created_at)}}</span> </p>
               </li>
   
   
@@ -398,6 +401,13 @@
             trendlengthplus: function(){
               this.trendlength = 5;
             },
+            shares: function(url){
+                sharon.facebook.count(url=url,(err, count)=>{
+                   return count;
+                    //console.log('Whoa, we have ' + count + ' shares!');
+                });
+
+            },
             livestream: function(){
               if(this.current_play_state == 'play'){
                 var status = 'pause';
@@ -405,6 +415,9 @@
                 var status = 'play';
               }
               this.$store.dispatch('SET_PLAY', status);
+            },
+            respace: function(str){
+              return str.replace(/ /g,"_");
             }
     },
     computed: {
