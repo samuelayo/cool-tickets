@@ -70,7 +70,7 @@
                          <div class="row">
                             <div> 
                                 <h5 class="header-title"> RELATED POSTS</h5> 
-                                 <div id="more-news" class="col-md-3" v-for="rel in related_posts" :style="'background-image: url('+rel.image+'); background-size:cover; background-position:center;'" >
+                                 <div id="more-news" class="col-md-3" v-for="rel in related_posts" :style="'background-image: url('+rel.image+'); background-size:cover; background-position:center; margin-bottom: 1em;'" >
                                  <router-link v-bind:to="{ name: 'blogpost', params: { id: rel.id, title: rel.title }}">
                                  <p>{{rel.title}}</p> 
                                  </router-link>
