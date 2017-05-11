@@ -264,6 +264,9 @@ ul.social-network li {
 	margin: 0 5px;
 }
 
+#more-news{
+    margin-bottom: 1em;
+}
 
 /* footer social icons */
 .social-network a.icoRss:hover {
