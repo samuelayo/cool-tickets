@@ -394,10 +394,13 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
     <br>
     <br>
     <br>
+    
 </div>
 </template>
  
-<script> 
+<script>
+    import 'vue-toast/dist/vue-toast.min.css'
+    import VueToast from 'vue-toast'
     import Flickity from 'vue-flickity';
     export default {
         name: 'landing',
@@ -439,6 +442,22 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
             this.getcharts();
             this.gethots();
             
+        },
+        mounted: function(){
+          var me = this.$toast(`
+                    <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo0NzE0OTMsImNoIjoxMTc4LCJjayI6e30sImNyIjoxNjM4OTg5LCJkaSI6IjM4YTViMTQ2Y2QxZDRhYWNhZGQ4YWNiMmU3MTg4NTdlIiwiZG0iOjEsImZjIjoxOTQzNDQxLCJmbCI6MjE0MjMxMiwiaXAiOiIxOTcuMjM0LjM1LjIiLCJrdyI6Imh0bWwsY3NzLGNzcy10cmFuc2l0aW9ucyxjc3MtYW5pbWF0aW9ucyxiYW5uZXIseC1wZXJzb25hLWZyb250ZW5kIiwibnciOjIyLCJwYyI6MCwiZWMiOjAsInByIjoxNjA0LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLm5nLyIsInNiIjoiaS0wYjBjMzE5YTdmZjQ2OGZiYyIsInNwIjoxMzQ2LCJzdCI6ODI3NywidWsiOiJ1ZTEtYjVmMjA5Nzk0MjQ2NDQ1MWEzYTQ5ODg1MjNkNjE5YTkiLCJ6biI6NDQsInRzIjoxNDk0NTEwMTY5MTQ2LCJiZiI6dHJ1ZSwicG4iOiJhZHplcms4MzE0MjM2MjgiLCJ1ciI6Imh0dHA6Ly9zdGFja292ZXJmbG93LmNvbS9qb2JzP3V0bV9zb3VyY2U9d2Vic2l0ZSZ1dG1fbWVkaXVtPWJhbm5lciZ1dG1fY29udGVudD1sZWFkZXJib2FyZF84JnV0bV9jYW1wYWlnbj1ob3VzZV9hZHNfaG91c2VfYWRzX1JPU19TTyJ9&amp;s=DQvW8H00IjSFD6F3HmW1ks6DIWk" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/b08a4d7b01a04852b914e7904a73b1b8.png" title="" alt="" border="0" width="100%" height="90"></a>
+
+                    `,{
+                id:'tts',
+                className: ['my-toast', 'toast-warning'],
+                horizontalPosition: 'right',
+                verticalPosition: 'right',
+                duration: 10000,
+                mode: 'queue',
+                transition: 'fade'
+                }
+                )
+            console.log(me);
         },
         methods: {
             timeago: function (time){

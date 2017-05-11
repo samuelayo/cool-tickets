@@ -18,13 +18,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 window.sharon = require('sharon');
 
-import vmodal from 'vue-js-modal'
+import Toast from 'vue-easy-toast'
 
-Vue.use(vmodal)
-
-var SocialSharing = require('vue-social-sharing');
-
-Vue.use(SocialSharing);
+Vue.use(Toast)
 //vuex store
 import store from './store'
 

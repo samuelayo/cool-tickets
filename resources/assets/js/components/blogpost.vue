@@ -329,5 +329,17 @@ a {
    
 }
 
-
+.et-wrapper {
+    background-color: rgba(48,45,55,.7);
+    border-radius: 5px;
+    padding: 10px 30px;
+    display: inline-block;
+    max-width: 500px !important;
+    min-width: 120px !important;
+    color: #fff;
+    z-index: 9999;
+    margin: auto;
+    position: fixed;
+    top: 80%;
+}
 </style>

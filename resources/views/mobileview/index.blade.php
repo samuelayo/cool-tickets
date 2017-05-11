@@ -11,6 +11,7 @@
   
       <link rel="stylesheet" href="/mobile/css/style.css">
       <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
+	<link rel="stylesheet" href="/mobile/dist/static/fonts/MaterialDesign-Webfont-master/css/materialdesignicons.css">
        <link href="/mobile/dist/static/css/app.9e6e6389a09242f55968497598fb68e6.css" rel="stylesheet">
 
   
