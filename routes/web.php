@@ -116,7 +116,7 @@ Route::get('post/{id}/comments', function($id){
     Route::get('related/{id}', function($id){
       return \App\Models\BlogPost::whereHas('category', function ($query) use($id) {
               $query->where('id', $id);
-          })->take(5)->get();
+          })->orderBy('created_at', "DESC")->take(5)->get();
     });
     
 
