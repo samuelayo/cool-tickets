@@ -12,7 +12,7 @@
       </table>
       <br>
       <div id="now-buzzing" class="xs-mb3">
-         <h3 class=" xs-text-2 xs-mb1">  <a href="#" target="_blank" class="button button--title xs-col-12 xs-text-left xs-mb1"> Technology</a></h3>
+         <h3 class=" xs-text-2 xs-mb1">  <a href="#" target="_blank" class="button button--title xs-col-12 xs-text-left xs-mb1"> {{name}}</a></h3>
          <div id="vertical-feed" class="">
             <div class="vertical-specific-feed" id="mod-vertical-specific-feed-1">
                <div class="xs-text-left text-gray">
