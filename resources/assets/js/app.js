@@ -49,7 +49,7 @@ const routes = [
 	//route for the home route of the webpage
   
 	{ path: '/', component: landing },
-  {path:'/blogpost/:id/:title', component: blogpost, name: 'blogpost'},
+  {path:'/blogpost/:id/:title', component: blogpost, name: 'blogpost',props: true},
   {path:'/single_oap/:id/:name', component: singleoaps, name: 'single_oap'},
   {path:'/all_oaps', component: oaps, name: 'all_oaps'},
   {path:'/all_podcasts/:week', component: all_podcasts, name: 'all_podcasts', props: true},

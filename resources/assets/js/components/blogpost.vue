@@ -39,7 +39,7 @@
     </div>
 
         <div class="item-body">
-            <img :src="post.image" height="315px" width="100%" />
+            
             <br>
             <br>
             <p v-html="post.content">
@@ -70,7 +70,7 @@
                          <div class="row">
                             <div> 
                                 <h5 class="header-title"> RELATED POSTS</h5> 
-                                 <div id="more-news" class="col-md-3" v-for="rel in related_posts" :style="'background-image: url('+rel.image+'); background-size:cover; background-position:center; margin-bottom: 1em;'" >
+                                 <div id="more-news" class="col-md-3" v-for="rel in related_posts" :style="'background-image: url('+rel.image+'); background-size:cover; background-position:center; margin-bottom: 1em;'" v-if="rel.id != post.id" >
                                  <router-link v-bind:to="{ name: 'blogpost', params: { id: rel.id, title: rel.title }}">
                                  <p>{{rel.title}}</p> 
                                  </router-link>
@@ -150,6 +150,7 @@
      import Flickity from 'vue-flickity';
     export default {
         name: 'blogpost',
+        props: ['id', 'title'],
         data: function (){
             return{
                post: {},
@@ -241,6 +242,31 @@
                 if (o.advert_category.type == "homepage_main") return o;
             });
             return homeads;
+          }
+      }, 
+      watch: {
+          id: function(){
+               axios.get('/posts/'+this.$route.params.id)
+                .then(response => {
+                // JSON responses are automatically parsed.
+                this.post = response.data;
+                this.loading = false;
+                var str = this.post.keypoints;
+                this.keypoints = str.match(/<p>.*?<\/p>/g);
+                
+                 var status = {
+                    title: 'CoolFmNigeria | '+this.post.title,
+                    description: this.post.content
+                }
+                this.$store.dispatch('SET_SEO', status);
+                })
+                .catch(e => {
+                
+                });
+                this.getshows();
+                setTimeout(()=>{ 
+                    this.fetch_related();
+                 }, 1000);
           }
       }
     }
