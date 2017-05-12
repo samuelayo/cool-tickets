@@ -34,7 +34,7 @@
             
 
             <div class="item-body">
-            <img :src="post.image" width="100%" height="250px"><br><br>
+         
                <p v-html="post.content" style="width: 100% !important;">
                </p>
                <comment v-if="post.id" :id="post.id"></comment>

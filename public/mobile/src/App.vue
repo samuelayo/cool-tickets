@@ -20,7 +20,12 @@
 
   <nav class="cd-secondary-nav">
     <ul>
-      <li v-for="category in categories"><a class="" href="#">{{category.name}}</a></li>
+      <li v-for="category in categories">
+			<router-link v-bind:to="{ name: 'blogcategory', params: {'name': category.name, 'id': category.id }}">
+			<a class="" href="#">{{category.name}}
+			</a>
+			</router-link>
+			</li>
 
     </ul>
   </nav> <!-- .cd-secondary-nav -->

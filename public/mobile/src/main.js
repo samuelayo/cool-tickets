@@ -11,6 +11,10 @@ window.lodash = require('lodash');
 window.sharon = require('sharon');
 window.tinymce = require('tinymce');
 
+var infiniteScroll =  require('vue-infinite-scroll');
+Vue.use(infiniteScroll)
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
