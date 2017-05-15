@@ -42,12 +42,12 @@ return [
     'facebook' => [
             'client_id' => '1707896929508771',
             'client_secret' => '37da61622032842e85b548247e424a47',
-            'redirect' => 'http://localhost/auth/facebook/callback',
+            'redirect' => 'https://coolfm.ng/auth/facebook/callback',
         ],
     'twitter' => [
             'client_id' => '6dumN1DgxyhQ7eFneAIJYxsUt',
             'client_secret' => 'g1TFs3Wd8Gu35fppVYbHxUFNdT1sMh7yT7aFnCfj1kKed5QScF',
-            'redirect' => 'http://localhost/auth/twitter/callback',
+            'redirect' => 'https://coolfm.ng/auth/twitter/callback',
         ],
     'google' => [
             'client_id' => 'your-github-app-id',
