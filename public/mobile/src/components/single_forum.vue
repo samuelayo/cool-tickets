@@ -19,7 +19,7 @@
                 <h3 class=" xs-text-2 xs-mb1"> <a id="categ" href="#" target="_blank" class="button  xs-col-12 xs-text-left xs-mb1"> {{forum.category_name.name}}</a> </h3>
                 <h1 class="title">{{forum.topic}}
                 </h1>
-                <p><a id="author" href="#" target="_blank" class="button  xs-col-12 xs-text-left xs-mb1">Published by {{forum.user.name}} &#183; {{timeago(forum.created_at)}}</a> </p>
+                <p><a id="author" href="#" target="_blank" class="button  xs-col-12 xs-text-left xs-mb1">By {{forum.user.name}} &#183; {{timeago(forum.created_at)}}</a> </p>
                 <div class="item-body">
                     <p v-html="forum.description">
                     </p>
@@ -54,7 +54,8 @@
                 <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled" v-for="(ho, index) in hot" v-if="index < 6">
                     <div class="col xs-col-7 xs-text-left xs-text-6 text-gray-lightest">Last Activity : {{hottago(ho)}}</div>
                     <br>
-                    <router-link :to="{ name: 'single_forum', params: { id: ho.id, name: respace(ho.topic) }}">
+                    <br>
+                    <router-link :to="{ name: 'single_forum', params: { id: ho.id, name: respace(ho.topic) }}" style="color: grey;">
                         <h4>{{ho.topic}}</h4>
                     </router-link> <br><br>
                     <small style="color:red;">

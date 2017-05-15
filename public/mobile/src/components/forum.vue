@@ -24,7 +24,8 @@
                               <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled" v-for="(ho, index) in hot">
                                     <div class="col xs-col-7 xs-text-left xs-text-6 text-gray-lightest">Last Activity : {{hottago(ho)}}</div>
                                     <br>
-                                    <router-link :to="{ name: 'single_forum', params: { id: ho.id, name: respace(ho.topic) }}">
+                                    <br>
+                                    <router-link :to="{ name: 'single_forum', params: { id: ho.id, name: respace(ho.topic) }}" style="color: grey;">
                                           <h4>{{ho.topic}}</h4>
                                     </router-link> <br><br>
                                     <small style="color:red;">
