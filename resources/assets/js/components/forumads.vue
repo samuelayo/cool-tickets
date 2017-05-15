@@ -25,13 +25,13 @@
             </div> 
   <div class="row">
              <div id="advert-side" class="panel panel-default ">
-                 <img src="img/sq_ad.png" width="100%"/>
+                 <img src="/img/sq_ad.png" width="100%"/>
                  <div>
                    
                        
 
-            <img id="advert-side" src="img/ht_ad1.png" width="100%" height="70%" />
-            <img id="advert-side" src="img/ht_ad2.png" width="100%" height="70%" />
+            <img id="advert-side" src="/img/ht_ad1.png" width="100%" height="70%" />
+            <img id="advert-side" src="/img/ht_ad2.png" width="100%" height="70%" />
 
             </div>
         </div>
