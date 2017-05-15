@@ -135,7 +135,10 @@
                               return 'Later';
       
                         }
-                  }
+                  },
+            timeago: function(time) {
+                return moment(time).fromNow();
+            }
             },
             computed: {
                   now_playing: function() {
