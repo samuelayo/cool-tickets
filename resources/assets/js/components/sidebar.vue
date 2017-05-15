@@ -73,7 +73,7 @@
 
                         var list=response.data;
                         list = list.sort(function (a, b) {
-                            return getValue(a.comments.length) - getValue(a.comments.length);
+                            return a.comments.length - a.comments.length;
                         });
                         this.hot=list;
                 

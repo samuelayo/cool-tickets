@@ -3,59 +3,24 @@
                 <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4><br>
                 <div class="panel panel-default shadowed">
                     <div class="row"><br>
-                     <div class="col-md-12 ht_content">
-                        <small style="color: grey;">Last activity: 5 mins ago</small>
+                       <div class="col-md-12 ht_content" v-for="(ho, index) in hot" v-if="index < 6">
+                        <small style="color: grey;">Last activity: {{hottimeago(ho)}}</small>
                                  
-                         <h4>What are your thoughts about the current pump price of petroleum products?</h4>
+                         <router-link :to="{ name: 'forum', params: { id: ho.id, name:ho.topic }}"><h4>{{ho.topic}}</h4></router-link>
                          
                          <small style="color:red;">
                          In this conversation 
                          </small>
                          <div id="convert">
-                         <img class="conversation" src="img/4671_1.png"/>
-                         <img class="conversation2" src="img/s.png"/>
-                         <img class="conversation2" src="img/33.png"/>
-                         <img class="conversation2" src="img/3e.png"/>
-                         <span style="color: #007adf;">+ 5</span>
+                           <adimage src="/img/4671_1.png" width="100%" height="100%" sclass="conversation"></adimage>
+                          <adimage src="/img/s.png" width="100%" height="100%" sclass="conversation2"></adimage>
+                           <adimage src="/img/33.png" width="100%" height="100%" sclass="conversation2"></adimage>
+                            <adimage src="/img/3e.png" width="100%" height="100%" sclass="conversation2"></adimage>
+                         <span style="color: #007adf;">+ {{ho.comments.length-4}}</span>
                          </div>
                          <hr>      
                     </div>
 
-                    <div class="col-md-12 ht_content">
-                        <small style="color: grey;">Last activity: 5 mins ago</small>
-                                 
-                         <h4>What are your thoughts about the current pump price of petroleum products?</h4>
-                         
-                         <small style="color:red;">
-                         In this conversation 
-                         </small>
-                         <div id="convert">
-                        <img class="conversation" src="img/4671_1.png"/>
-                         <img class="conversation2" src="img/s.png"/>
-                         <img class="conversation2" src="img/33.png"/>
-                         <img class="conversation2" src="img/3e.png"/>
-                         <span style="color: #007adf;">+ 5</span>
-                         </div>
-                         <hr>      
-                    </div>
-
-                    <div class="col-md-12 ht_content">
-                        <small style="color: grey;">Last activity: 5 mins ago</small>
-                                 
-                         <h4>What are your thoughts about the current pump price of petroleum products?</h4>
-                         
-                         <small style="color:red;">
-                         In this conversation 
-                         </small>
-                         <div id="convert">
-                         <img class="conversation" src="img/4671_1.png"/>
-                         <img class="conversation2" src="img/s.png"/>
-                         <img class="conversation2" src="img/33.png"/>
-                         <img class="conversation2" src="img/3e.png"/>
-                         <span style="color: #007adf;">+ 5</span>
-                         </div>
-                         <hr>      
-                    </div>
                 </div>
             </div> 
   <div class="row">
@@ -75,6 +40,42 @@
 </template>
 <script>
     export default{
-        name: ''
+        name: 'forumads',
+        data: function (){
+            return{
+               hot: []
+            }
+        },
+        created: function (){
+            this.gethots();
+                
+        },
+         methods: {
+            timeago: function (time){
+                return moment(time).fromNow();
+            },
+            gethots: function(){
+                axios.get('/hotforum')
+                .then(response => {
+
+                        var list=response.data;
+                        list = list.sort(function (a, b) {
+                            return a.comments.length - a.comments.length;
+                        });
+                        this.hot=list;
+                
+                    })
+                    .catch(e => {
+                    
+                    });
+            },
+            hottimeago: function(obj){
+                if(obj.comments != undefined && obj.comments.length != 0){
+                    var last = obj.comments[obj.comments.length-1];
+                    return this.timeago(last.updated_at); 
+                }
+                return "No activity yet";
+            }
+        }
     }
 </script>

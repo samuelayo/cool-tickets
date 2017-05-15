@@ -301,7 +301,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
 <!-- Flickity HTML init -->
 
 <flickity ref="flickity" :options="flickityOptions">
-    <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:center; left: 73.57%'"> <p><span class="catgory">{{fres.category.name}}</span> <br><router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: fres.title }}">{{fres.title}}</router-link></p></div>
+    <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:center; left: 73.57%'"> <p><span class="catgory">{{fres.category.name}}</span> <br><router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: respace(fres.title) }}">{{fres.title}}</router-link></p></div>
 </flickity>
 
 <!-- if you don't want to use the buttons Flickity provides -->
@@ -333,7 +333,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                              </div>
                              <div class="col-md-8">
                                  <h4  class="category-tag"> {{trend.category.name}} <small class="time-stamp">{{timeago(trend.created_at)}}</small></h4>
-                                <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: trend.title }}"><h4>{{trend.title}}</h4></router-link>
+                                <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: respace(trend.title) }}"><h4>{{trend.title}}</h4></router-link>
                                  <i style="color: blue;" class="ion-android-share" aria-hidden="true"></i>
 
                                      <a href="#">7500 shares</a>
@@ -353,8 +353,9 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                      <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Rising</h4><br>
                 <div class="panel panel-default shadowed" v-for="newpost in newones">
                     <div  class="rising" :style="'background-image: url('+newpost.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);'">
-                       <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: newpost.title }}"> <h4 class="rising_head" style="color: white;">{{newpost.category.name}}</h4></router-link>
+                       <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: respace(newpost.title) }}"> <h4 class="rising_head" style="color: white;">{{newpost.category.name}}</h4>
                         <h3 class="rising_topic" style="color: white;">{{newpost.title}}</h3>
+                        </router-link>
                         <span style="color: white;" class="rising_share" >
                             <i  class="ion-android-share" aria-hidden="true"></i>
                             <a href="#" style="color: white;">7500 shares</a>
@@ -370,7 +371,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                      <div class="col-md-12 ht_content" v-for="(ho, index) in hot" v-if="index < 6">
                         <small style="color: grey;">Last activity: {{hottago(ho)}}</small>
                                  
-                         <router-link :to="{ name: 'forum', params: { id: ho.id, name:ho.topic }}"><h4>{{ho.topic}}</h4></router-link>
+                         <router-link :to="{ name: 'forum', params: { id: ho.id, name: respace(ho.topic) }}"><h4>{{ho.topic}}</h4></router-link>
                          
                          <small style="color:red;">
                          In this conversation 
@@ -592,6 +593,9 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                 }
                 this.$parent.$options.methods.playthis(id, type, src, name);
             },
+             respace: function(str){
+              return str.replace(/ /g,"_");
+            },
             stringify: function(arr){
                 return JSON.stringify(arr);
             }, 
@@ -717,6 +721,14 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
 }
 .carousel-cell{
     width: 33.36% !important;
+}
+.carousel-cell p {
+   font-size: 2em;
+   line-height: 1.1;
+   width: auto !important;
+   padding: 1em;
+   margin-top: 1.9em;
+   color: #fff !important;
 }
 </style>
 

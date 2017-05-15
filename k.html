@@ -1,111 +1,77 @@
-
-
-
-
-
-@extends('backpack::layout')
-
-@section('header')
-    <section class="content-header">
-      <h1>
-       View all adverts in the system
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="{{ url(config('backpack.base.route_prefix', 'ads')) }}">{{ config('backpack.base.project_name') }}</a></li>
-        <li class="active">All Adverts</li>
-      </ol>
-    </section>
-@endsection
-
-
-@section('content')
-    <div class="row">
-        <div class="col-md-12">
-           
-
-
-        <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+<div>
+   <div class="row">
+      <!-- advert -->
+      <div class="col-md-12">
+         <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
+      </div>
+      <!-- 3 grid for trending, rising and hot topics -->
+      <div class="col-md-12">
+         <br><br><br>
+         <div class="col-md-9" v-if="forum.length !=0">
+            <div class="panel">
+               <br>
+               <h5 style="text-align: center;" >{{forum.category_name.name}}</h5>
+               <br>
+               <h1 class="forum-lg" >{{forum.topic}}</h1>
+               <div class="item-content ">
+                  <div class="item-meta">
+                     <div class="author" :style="'background: url('+forum.user.image+'); background-size: cover;'"></div>
+                     <div class="title-meta" >
+                        <h6>WRITTEN BY</h6>
+                     </div>
+                     <div class="title-meta">
+                        <h5>{{forum.user.name}}</h5>
+                        <h6>CATEGORY</h6>
+                     </div>
+                     <div class="title-meta">
+                        <h5>{{forum.category_name.name}}</h5>
+                        <br> 
+                        <h5 style="color:#999;">{{timeago(forum.created_at)}}</h5>
+                     </div>
+                  </div>
+                  <div class="item-body">
+                     <p v-html="forum.description">
+                     </p>
+                     <br>
+                     <br>
+                     <center>Comments </center>
+                     <forumcomment :id="forum.id" ></forumcomment>
+                  </div>
+               </div>
+               <div id="forum-div" class="container-fluid">        
+               </div>
+               <!-- end forum  ends-->
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
-                <thead>
-                <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 230px;">Rendering engine</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 282px;">Browser</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 250px;">Platform(s)</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 197px;">Engine version</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 145px;">CSS grade</th></tr>
-                </thead>
-                <tbody>    
-                
-                <tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Firefox 1.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Firefox 1.5</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Firefox 2.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Firefox 3.0</td>
-                  <td>Win 2k+ / OSX.3+</td>
-                  <td>1.9</td>
-                  <td>A</td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Camino 1.0</td>
-                  <td>OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Camino 1.5</td>
-                  <td>OSX.3+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Netscape 7.2</td>
-                  <td>Win 95+ / Mac OS 8.6-9.2</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Netscape Browser 8</td>
-                  <td>Win 98SE+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Netscape Navigator 9</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1">Gecko</td>
-                  <td>Mozilla 1.0</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1</td>
-                  <td>A</td>
-                </tr></tbody>
-                <tfoot>
-                <tr><th rowspan="1" colspan="1">Rendering engine</th><th rowspan="1" colspan="1">Browser</th><th rowspan="1" colspan="1">Platform(s)</th><th rowspan="1" colspan="1">Engine version</th><th rowspan="1" colspan="1">CSS grade</th></tr>
-                </tfoot>
-              </table>
+            <div>
+               <div>
+                  <div>
+                  </div>
+               </div>
             </div>
-            <!-- /.box-body -->
-          </div>
-
-
-        </div>
-    </div>
-@endsection
+            <br><!-- advert -->
+            <div class="col-md-12">
+               <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
+            </div>
+            <div>
+               <br> 
+               <div id="more" class="col-md-12">
+                  <div class="row">
+                     <div>
+                        <div  class="col-md-3"> </div>
+                     </div>
+                  </div>
+               </div>
+               <br><br>   <!-- freshly pressed -->
+               <!-- trending posts -->
+               <div class="row">
+                  <div class="col-md-12 tr_content">
+                  </div>
+               </div>
+               <!-- -->
+            </div>
+         </div>
+         <forumads></forumads>
+      </div>
+   </div>
+</div>
+</div>

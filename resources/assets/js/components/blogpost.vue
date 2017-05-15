@@ -188,9 +188,9 @@
                 
                 });
                 this.getshows();
-                setTimeout(()=>{ 
-                    this.fetch_related();
-                 }, 1000);
+                
+                   
+               
                 
                 
                 
@@ -214,6 +214,7 @@
             .then(response => {
             // JSON responses are automatically parsed.
             this.shows = response.data;
+             this.fetch_related();
             
             })
             .catch(e => {
