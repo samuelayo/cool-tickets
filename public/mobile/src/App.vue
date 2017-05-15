@@ -13,7 +13,7 @@
 
     <ul id="cd-navigation">
       <li><a href="#">OAPs</a></li>
-      <li><a href="#">Forums</a></li>
+      <li><router-link   v-bind:to="'/forums'">Forums</router-link></li>
 
     </ul>
   </nav> <!-- .cd-primary-nav -->

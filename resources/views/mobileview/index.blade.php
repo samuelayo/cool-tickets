@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="/mobile/css/style.css">
       <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
 	<link rel="stylesheet" href="/mobile/dist/static/fonts/MaterialDesign-Webfont-master/css/materialdesignicons.css">
-       <link href="/mobile/dist/static/css/app.9e6e6389a09242f55968497598fb68e6.css" rel="stylesheet">
+       <link href="/mobile/dist/static/css/app.168f324bfc92ada06a4d853d3458af5f.css" rel="stylesheet">
 
   
 </head>
@@ -57,9 +57,11 @@ if(localStorage.getItem('username')!=undefined){
 </script>
 <!-- Resource jQuery --> 
 
- <script type="text/javascript" src="/mobile/dist/static/js/manifest.a348866fdb6ece2ae75d.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/vendor.43af89498c9974239114.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.9023f2277834786ad672.js"></script> 
+<script type="text/javascript" src="/mobile/dist/static/js/manifest.f7f16a2458d80033a4d0.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/vendor.a2bec47521638ccdbe42.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/app.c19c9435627a16a16630.js"></script>
+
+   <!-- <script src="http://localhost:8080/app.js"></script> -->
 
 
 

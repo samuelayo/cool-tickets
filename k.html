@@ -1,77 +1,124 @@
-<div>
-   <div class="row">
-      <!-- advert -->
-      <div class="col-md-12">
-         <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
-      </div>
-      <!-- 3 grid for trending, rising and hot topics -->
-      <div class="col-md-12">
-         <br><br><br>
-         <div class="col-md-9" v-if="forum.length !=0">
-            <div class="panel">
-               <br>
-               <h5 style="text-align: center;" >{{forum.category_name.name}}</h5>
-               <br>
-               <h1 class="forum-lg" >{{forum.topic}}</h1>
-               <div class="item-content ">
-                  <div class="item-meta">
-                     <div class="author" :style="'background: url('+forum.user.image+'); background-size: cover;'"></div>
-                     <div class="title-meta" >
-                        <h6>WRITTEN BY</h6>
-                     </div>
-                     <div class="title-meta">
-                        <h5>{{forum.user.name}}</h5>
-                        <h6>CATEGORY</h6>
-                     </div>
-                     <div class="title-meta">
-                        <h5>{{forum.category_name.name}}</h5>
-                        <br> 
-                        <h5 style="color:#999;">{{timeago(forum.created_at)}}</h5>
-                     </div>
-                  </div>
-                  <div class="item-body">
-                     <p v-html="forum.description">
-                     </p>
-                     <br>
-                     <br>
-                     <center>Comments </center>
-                     <forumcomment :id="forum.id" ></forumcomment>
-                  </div>
-               </div>
-               <div id="forum-div" class="container-fluid">        
-               </div>
-               <!-- end forum  ends-->
-            </div>
-            <div>
-               <div>
-                  <div>
-                  </div>
-               </div>
-            </div>
-            <br><!-- advert -->
-            <div class="col-md-12">
-               <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
-            </div>
-            <div>
-               <br> 
-               <div id="more" class="col-md-12">
-                  <div class="row">
-                     <div>
-                        <div  class="col-md-3"> </div>
-                     </div>
-                  </div>
-               </div>
-               <br><br>   <!-- freshly pressed -->
-               <!-- trending posts -->
-               <div class="row">
-                  <div class="col-md-12 tr_content">
-                  </div>
-               </div>
-               <!-- -->
-            </div>
+<div id="sidebar" class="xs-m4">
+<div id="now-buzzing" class="xs-mb3">
+   <table style="height: 40px !important;" class="table-fill">
+      <br><br><br><br><br><br>
+      <thead>
+      </thead>
+      <tbody  class="table-hover">
+         <tr>
+            <td style="border-left: 6px solid red; border-right:  1px solid #ddd; letter-spacing: 3px; color: red; font-size: .8em;"  class="text-left">LIVE </td>
+            <td class="text-left">Midday Show With Mannie </td>
+         </tr>
+      </tbody>
+   </table>
+   <br>
+   <div id="now-buzzing" class="xs-mb3">
+      <h3 class=" xs-text-2 xs-mb1">  <a id="categ" href="#" target="_blank" class="button  xs-col-12 xs-text-left xs-mb1"> SPORTS</a> </h3>
+      <h1 class="title">Stunning artwork brings to life 
+         intimate conversations with 
+         immigrants in cabs
+      </h1>
+      <p><a id="author" href="#" target="_blank" class="button  xs-col-12 xs-text-left xs-mb1">Published by Author &#183; 5 mins ago</a> </p>
+      <div class="item-body">
+         <p>Dorje, who became Karmapa in 1994, tied the knot with Bhutan-born Rinchen Yangzom in a private ceremony in Delhi, where his wife currently resides. 
+            "My role and activities as Karmapa will continue as before – with the single exception of conducting ordinations... As Karmapa, I will continue to protect and preserve our beloved lineage," 
+            Dorje was quoted as saying. 
+         </p>
+         <div id="connect" class="xs-mb3">
+            <a href="#" target="_blank" class="button button--facebook xs-col-12 xs-text-left xs-mb1">  <span class="mdi-facebook-box
+               "></span>  Share On Facebook </a>
+            <a href="#" class="button button--twitter button--icon xs-col-12 xs-text-left xs-mb1"><span class="ion-social-twitter"></span> Share On Twitter</a>
+            <a style="background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%) !important; " href="#" class="button button--apple-news xs-col-12 xs-text-left xs-mb1"> <span class="ion-social-whatsapp"></span> Share On Whatsapp </a>
+            <p id="share-m"> <span style="    font-size: 1.7em;
+               font-weight: 900;
+               vertical-align: sub;" class="ion-android-open"> </span> 200 <span style="font-weight: 100;">SHARES</span> </p>
          </div>
-         <forumads></forumads>
       </div>
    </div>
+   <br>
+</div>
+<h3 class=" xs-text-2 xs-mb1">
+<a style="background: #f83600 !important; text-transform: uppercase;
+   font-weight: 900; " href="#" target="_blank" class="button button--title xs-col-12 xs-text-left xs-mb1"> <span class="ion-ios-flame"></span> Hot</a><br>
+<div id="news" class="card xs-mb2 xs-p2">
+   <div id="news-header" class="clearfix">
+      <div class="col xs-col-5">
+      </div>
+   </div>
+   <ul id="news-list" class="xs-p0">
+      <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled">
+         <div class="col xs-col-7 xs-text-left xs-text-6 text-gray-lightest">Last Activity : 1 day ago</div>
+         <br>
+         <a href="#" class="link-gray">
+         Many states, the ACLU, and refugee groups are all going to court to try and stop President Trump's new travel ban before it even takes effect on Thursday.
+         </a>   <br><br>
+         <small style="color:red;">
+         In this conversation 
+         </small><br>
+         <p></p>
+         <div id="convert">
+            <img class="conversation" src="img/4671_1.png"/>
+            <img class="conversation2" src="img/s.png"/>
+            <img class="conversation2" src="img/33.png"/>
+            <img class="conversation2" src="img/3e.png"/>
+            <span style="color: #007adf; font-size: 15px;font-size: 15px;
+               vertical-align: super;">+ 5</span>
+         </div>
+         <hr>
+      </li>
+      <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled">
+         <a href="#" class="link-gray">
+            <div class="col xs-col-7 xs-text-left xs-text-6 text-gray-lightest">Last Activity : 1 day ago</div>
+            <br>
+         <a href="#" class="link-gray">
+         Ride-hail app startups, trying to fill the void left by Uber and Lyft when they pulled out of Austin, crashed under high demand at SXSW.
+         </a> <br><br>
+         <small style="color:red;">
+         In this conversation 
+         </small><br>
+         <p></p>
+         <div id="convert">
+            <img class="conversation" src="img/4671_1.png"/>
+            <img class="conversation2" src="img/s.png"/>
+            <img class="conversation2" src="img/33.png"/>
+            <img class="conversation2" src="img/3e.png"/>
+            <span style="color: #007adf; font-size: 15px;font-size: 15px;
+               vertical-align: super;">+ 5</span>
+         </div>
+         <hr>
+      </li>
+      <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled">
+         <a href="#" class="link-gray">
+         Crusading US Attorney Preet Bharara defied a Justice Department request that he resign, so President Trump fired him.
+         </a><br><br>
+         <small style="color:red;">
+         In this conversation 
+         </small><br>
+         <p></p>
+         <div id="convert">
+            <img class="conversation" src="img/4671_1.png"/>
+            <img class="conversation2" src="img/s.png"/>
+            <img class="conversation2" src="img/33.png"/>
+            <img class="conversation2" src="img/3e.png"/>
+            <span style="color: #007adf; font-size: 15px;font-size: 15px;
+               vertical-align: super;">+ 5</span>
+         </div>
+         <hr>
+      </li>
+   </ul>
+   <a href="#" class="xs-block xs-text-5 bold">+ Show more</a>
+</div>
+<div id="connect" class="xs-mb3">
+   <h3 class="xs-mb1">
+      Connect With Us
+   </h3>
+   <a href="#" target="_blank" class="button button--facebook xs-col-12 xs-text-left xs-mb1"> <span class="mdi-facebook-box
+      "></span> Like Us On Facebook </a>
+   <a href="#" class="button button--twitter button--icon xs-col-12 xs-text-left xs-mb1"> <span class="ion-social-twitter"></span>  Follow Us On Twitter</a>
+   <a href="#" class="button button--apple-news xs-col-12 xs-text-left xs-mb1"> <span class="mdi-instagram
+      "></span>  Follow Us On Instagram </a>
+   <a style="background-image: linear-gradient(to top, #ff0844 0%, red 100%)  !important;" href="#" class="button button--apple-news xs-col-12 xs-text-left xs-mb1"> <span class="ion-social-youtube
+      "></span>  Subscribe On Youtube </a>
+</div>
 </div>
 </div>
