@@ -177,7 +177,7 @@
     
                     });
             },
-            hottago: (obj) => {
+            hottago: function(obj){
     
     
                 if (obj.comments != undefined && obj.comments.length != 0) {
