@@ -101,8 +101,8 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
            
                   <span style="color:#B2BEB5">
                     <small>
-                        <a href="javascript::void" @click="pweekpod"> <span class="ion-ios-arrow-left"></span> </a><span style="    text-transform: uppercase;
-    letter-spacing: 1px;"> Week {{currentweek}} </span> <a href="javascript::void" @click="nweekpod"> <span class="ion-ios-arrow-right"></span> </a>
+                        <a href="javascript:void(0)" @click="pweekpod"> <span class="ion-ios-arrow-left"></span> </a><span style="    text-transform: uppercase;
+    letter-spacing: 1px;"> Week {{currentweek}} </span> <a href="javascript:void(0)" @click="nweekpod"> <span class="ion-ios-arrow-right"></span> </a>
                     </small>
                   </span> 
                 </h3> 
@@ -115,8 +115,8 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                 <div class="col-md-6">
                     <div class="row"><br><br>
                         <div   class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="index <= 3"> 
-                            <a  href="javascript::void" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a> 
-                             <span class="badge badge-play"><small><a href="javascript::void" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
+                            <a  href="javascript:void(0)" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a> 
+                             <span class="badge badge-play"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
                  
                             <span>   <center><small><a class="listen" href="#"><span class="ion-ios-play"></span> 1000 Listens</a></small> </center>
                                 <center><small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small></center>
@@ -131,9 +131,9 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                <div class="col-md-6">
                     <div class="row"> <br><br>
                         <div  class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="(index > 3 && index <=6)" >
-                            <a href="javascript::void" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a>
+                            <a href="javascript:void(0)" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a>
                            
-                           <span class="badge badge-play"><small><a href="javascript::void" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
+                           <span class="badge badge-play"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
                  
                             <span>   <center><small><a class="listen" href="#"><span class="ion-ios-play"></span> 1000 Listens</a></small> </center>
                                 <center><small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small></center>
@@ -195,8 +195,8 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                   &nbsp;
                   <span style="color:#B2BEB5">
                     <small>
-                        <a href="javascript::void" @click="pweekcht()"> <span class="ion-ios-arrow-left"></span> </a><span style="    text-transform: uppercase;
-    letter-spacing: 1px;"> Week {{currentchartweek}} </span> <a href="javascript::void" @click="nweekcht()"> <span class="ion-ios-arrow-right"></span> </a>
+                        <a href="javascript:void(0)" @click="pweekcht()"> <span class="ion-ios-arrow-left"></span> </a><span style="    text-transform: uppercase;
+    letter-spacing: 1px;"> Week {{currentchartweek}} </span> <a href="javascript:void(0)" @click="nweekcht()"> <span class="ion-ios-arrow-right"></span> </a>
                     </small>
                   </span>
                   <span class="centered">
@@ -458,7 +458,6 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                 transition: 'fade'
                 }
                 )
-            console.log(me);
         },
         methods: {
             timeago: function (time){

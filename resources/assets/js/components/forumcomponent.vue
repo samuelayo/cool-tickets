@@ -25,7 +25,7 @@
                         </tr>
                         <tr v-for="forum in forums">
                            <td class="forum-topic">
-                              <router-link :to="{ name: 'forum', params: { id: forum.id, name:forum.topic }}"> {{forum.topic}}</router-link>
+                              <router-link :to="{ name: 'forum', params: { id: forum.id, name:respace(forum.topic) }}"> {{forum.topic}}</router-link>
                            </td>
                            <td>{{hottimeago(forum)}}</td>
                            <td>{{forum.comments.length}}</td>
@@ -114,6 +114,9 @@ import forumads from './forumads'
             },
             timeago: function (time){
                 return moment(time).fromNow();
+            },
+            respace: function(str){
+              return str.replace(/ /g,"_");
             },
              hottimeago: function(obj){
                 if(obj.comments != undefined && obj.comments.length != 0){

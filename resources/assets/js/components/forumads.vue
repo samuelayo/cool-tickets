@@ -6,7 +6,7 @@
                        <div class="col-md-12 ht_content" v-for="(ho, index) in hot" v-if="index < 6">
                         <small style="color: grey;">Last activity: {{hottimeago(ho)}}</small>
                                  
-                         <router-link :to="{ name: 'forum', params: { id: ho.id, name:ho.topic }}"><h4>{{ho.topic}}</h4></router-link>
+                         <router-link :to="{ name: 'forum', params: { id: ho.id, name:respace(ho.topic) }}"><h4>{{ho.topic}}</h4></router-link>
                          
                          <small style="color:red;">
                          In this conversation 
@@ -53,6 +53,9 @@
          methods: {
             timeago: function (time){
                 return moment(time).fromNow();
+            },
+            respace: function(str){
+              return str.replace(/ /g,"_");
             },
             gethots: function(){
                 axios.get('/hotforum')
