@@ -1,401 +1,340 @@
 <template>
-    <div id="landing">
-    <div class="col-md-12">
-    <a  v-if="homepage_chart[0]" :href="homepage_chart[0].url">
-        <adimage  :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></adimage>
-    </a>
-    </div>
-    <!-- Header -->
-    <div class="intro-header">
-        <div id="fb-streaming-row">
-
-            <div class="row">
-            <div class="col-lg-12">
-                <div class="container-fluid"><br><br>
-                    <div class="col-lg-7">
-        <p class="on-air-title">On Air Now</p>
-                        <div v-if="now_playing" :style="'background: url('+now_playing.image+'); background-size: cover;'" class="streaming">
-
-                            <div class="col-md-12">
-                                <div class="col-md-8">
-                                    <div id="live-play" class="col-md-12">
-                                      
-                                      <button class="c-btn c-btn--pill-l c-btn--on-air" role="button"><span class="c-btn__icon"> <span class="u-font-size--s"> <span style="font-size: 1.8em; vertical-align: middle;" :class="'ion-ios-'+play+''" @click="playthis(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);"></span>&nbsp; Listen Live</span></span></button> &nbsp; Ending {{timeleft(now_playing.end)}}
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div><div v-if="now_playing"><h3 class="center"><strong> {{now_playing.title}} </strong></h3>
-
-<h5 class="center">{{now_playing.description}}</h5></div>
-                    </div>
-
-
-                    <div style="-webkit-box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4);
--moz-box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4);
-box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
-
-                       <!-- <div class="onair">
-                            
-                        </div> -->
-                                                     <div class="waves">
-    <div class="wave wave_1"></div>
-            <div class="wave wave_2"></div>
-            <div class="wave wave_3"></div>
-            <div class="wave wave_4"></div>
-            <div class="wave wave_5"></div>
-    </div>
-          
-                        <div class="playlist ">
-
-                            <ul style="list-style-type: none;">
-                                <li v-for="(schedule, index) in formated_schedules">
-                                    <div class="col-md-12">
-                                        <div id="center"  class="col-md-2">
-
-                                           <p class="player-status-live">{{between(schedule.start, schedule.end)}}</p>
-
-                                        </div>
-                                        <div class="col-md-10" >
-                                        <h5>{{schedule.title}}</h5>
-                                        <p style="color: grey;">
-                                            {{schedule.description}}
-                                        </p>
-                                        <p>
-                                        <small style="color:red" v-if="index==0">Ending: {{timeleft(schedule.end)}} </small>
-                                        <small style="color:red" v-if="index!=0">Running Time: {{schedule.start}} - {{schedule.end}} </small>
-                                        
-                                        
-                                        </p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container-fluid -->
-
-    </div>
-    <!-- /.intro-header -->
-
-    <!-- Page Content -->
-    
-
-
-
-<!-- podcast details -->
-    <div class="container-fluid">
-         <div class="row"><br><br><br>
-             <div style="margin-left: 1em;" class="col-md-12">
-                 <h3>
-              PODCASTS
-                  &nbsp;
-                  &nbsp;
-           
-                  <span style="color:#B2BEB5">
-                    <small>
-                        <a href="javascript:void(0)" @click="pweekpod"> <span class="ion-ios-arrow-left"></span> </a><span style="    text-transform: uppercase;
-    letter-spacing: 1px;"> Week {{currentweek}} </span> <a href="javascript:void(0)" @click="nweekpod"> <span class="ion-ios-arrow-right"></span> </a>
-                    </small>
-                  </span> 
-                </h3> 
-                
-             </div>
-            <!-- chart header -->
-            <!-- -->
-            <!-- chart images -->
-            <div class="col-md-12">
-                <div class="col-md-6">
-                    <div class="row"><br><br>
-                        <div   class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="index <= 3"> 
-                            <a  href="javascript:void(0)" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a> 
-                             <span class="badge badge-play"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
-                 
-                            <span>   <center><small><a class="listen" href="#"><span class="ion-ios-play"></span> 1000 Listens</a></small> </center>
-                                <center><small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small></center>
-                                <center><small><a href="#">{{pod.part}}</a></small></center>
-
-
-                            </span>
-                        </div>
-                    </div>
-                </div>
-               
-               <div class="col-md-6">
-                    <div class="row"> <br><br>
-                        <div  class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="(index > 3 && index <=6)" >
-                            <a href="javascript:void(0)" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a>
-                           
-                           <span class="badge badge-play"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
-                 
-                            <span>   <center><small><a class="listen" href="#"><span class="ion-ios-play"></span> 1000 Listens</a></small> </center>
-                                <center><small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small></center>
-                                <center><small><a href="#">{{pod.part}}</a></small></center>
-
-
-                            </span>
-                        </div>  
-                  
-                   </div>
-                   
-               </div>
-                
-               
-            </div>
-            <!-- -->
-        </div>
-    </div><br>
-    <br>
-
-
-
-
-    <br>
-    <!-- end chart details -->
-    <router-link :to="{ name: 'all_podcasts', params: { week: currentweek}}"> 
-    <p style="text-align: center;" v-if="rearrange_podcasts[currentweek]"><span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> <a href=""><span style="color: #666; text-align: center;  font-style: italic; padding: 1em;     vertical-align: -webkit-baseline-middle;"> Show more</span></a>  <span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
-    </router-link>
-    <br><br>
-  
-
-
-
-
-    
-
-   
-
- <!-- advert -->
-    <div class="col-md-12">
-    <a  v-if="homepage_chart[1]" :href="homepage_chart[1].url">
-        <adimage  :src="'/'+homepage_chart[1].image_url" width="100%" height="100%"></adimage>
-    </a>
-    </div><br>
-
-
-    <!-- chart details -->
-    <div class="container-fluid">
+<div id="landing">
+   <div class="col-md-12">
+      <a  v-if="homepage_chart[0]" :href="homepage_chart[0].url">
+         <adimage  :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></adimage>
+      </a>
+   </div>
+   <!-- Header -->
+   <div class="intro-header">
+      <div id="fb-streaming-row">
          <div class="row">
-             <div style="margin-left: 1em;" class="col-md-12">
-               <br>
-    
-
-    <br>  <h3>
-                  CHARTS
-                  &nbsp;
-                  &nbsp;
-                  <span style="color:#B2BEB5">
-                    <small>
-                        <a href="javascript:void(0)" @click="pweekcht()"> <span class="ion-ios-arrow-left"></span> </a><span style="    text-transform: uppercase;
-    letter-spacing: 1px;"> Week {{currentchartweek}} </span> <a href="javascript:void(0)" @click="nweekcht()"> <span class="ion-ios-arrow-right"></span> </a>
-                    </small>
-                  </span>
-                  <span class="centered">
-                      <div class="btn-group btn-toggle"> 
-                        <button :class="'btn btn-'+selectedcat[0]+' chart'" @click="change_chart(0)">Nigerian</button>
-                        <button :class="'btn btn-'+selectedcat[1]+' chart'" @click="change_chart(1)">Global</button>
-                        <button :class="'btn btn-'+selectedcat[2]+' chart'" @click="change_chart(2)">Alternative</button>
-                      </div>
-                  </span>
-                  <span style="float: right; margin-right: 2em;">
-                    <small>
-                    <span class="badge badge-pink">&nbsp;</span>
-                    <span>Weeks On Chart</span>
-                    &nbsp;
-                    &nbsp;
-                    <span class="badge badge-orange">&nbsp;</span>
-                    <span>New Entry</span>
-                    &nbsp;
-                    &nbsp;
-                    <span class="badge badge-pink" style="background-color: #009efd;">&nbsp;</span>
-                    <span>Last week</span>
-                    </small>
-                
-                </span>
-                </h3>
-                
-             </div>
-
-            <!-- chart header -->
-            <!-- -->
-            <!-- chart images -->
-            <div class="col-md-12">
-                <div class="col-md-6">
-                    <div class="row"><br><br>
-                   
-                        <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index <= 3" ><p class="chart-num"><strong> {{chart.position}} </strong></p>
-                            <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
-                            <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
-                            <span class="badge badge-new" v-if="noofchart(chart.song)==1"><small> <strong> New </strong> </small></span>
-                            <span class="badge badge-lw" ><small> <strong> {{lastweek(chart.song)}} </strong> </small></span>
-                            
-                            <span>
-                                <center><small>{{chart.songs.song_title}}</small></center>
-                                 
-                                <center><small><a href="#">{{chart.songs.artistname}}</a></small></center>
-                            </span>
+            <div class="col-lg-12">
+               <div class="container-fluid">
+                  <br><br>
+                  <div class="col-lg-7">
+                     <p class="on-air-title" >On Air Now</p>
+                     <div v-if="now_playing" :style="'background: url('+now_playing.image+'); background-size: cover;'" class="streaming">
+                        <div class="col-md-12">
+                           <div class="col-md-8">
+                              <div id="live-play" class="col-md-12">
+                                 <button class="c-btn c-btn--pill-l c-btn--on-air" role="button"><span class="c-btn__icon"> <span class="u-font-size--s"> <span style="font-size: 1.8em; vertical-align: middle;" :class="'ion-ios-'+play+''" @click="playthis(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);"></span>&nbsp; Listen Live</span></span></button> &nbsp; Ending {{timeleft(now_playing.end)}}
+                              </div>
+                           </div>
                         </div>
-                        
-                         
-                      
-                        
-                    </div>
-                </div>
-               
-               <div class="col-md-6">
-                    <div class="row"> <br><br>
-                        <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="(index > 3 && index <=6)" ><p class="chart-num"><strong> {{chart.position}} </strong></p>
-                            <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
-                            <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
-                            <span class="badge badge-new" v-if="noofchart(chart.song)==1"><small> <strong> New </strong> </small></span>
-                            <span class="badge badge-lw" ><small> <strong> {{lastweek(chart.song)}} </strong> </small></span>
-                            
-                            <span>
-                                <center><small>{{chart.songs.song_title}}</small></center>
-                                 
-                                <center><small><a href="#">{{chart.songs.artistname}}</a></small></center>
-                            </span>
-                        </div>
-                       
-                        
-                        
-                        <br><br>
-                        <div  class="col-sm-3" >
-                            
-                            <router-link v-bind:to="{ name: 'chartcurrated', params: {currentchartweek: currentchartweek }}">
-                            <a id="see-all" href="http://trovacamporall.com" class="ratio img-responsive img-circle" >See Complete List</a>
-                            </router-link>
-                     
-                           
-                        </div>
-                   </div>
-                   
-               </div>
-                
-               
-            </div>
-            <!-- -->
-        </div>
-    </div>
-    <!-- end chart details -->
-    <br>
-    <br>
-    <!-- freshly pressed -->
-    <div class="container-fluid">
-        <h3>
-        FRESHLY PRESSED
-        </h3>
-        
-
-    <br>
-    <br>
-<!-- Flickity HTML init -->
-
-<flickity ref="flickity" :options="flickityOptions">
-    <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:center; left: 73.57%'"> <p><span class="catgory">{{fres.category.name}}</span> <br><router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: respace(fres.title) }}">{{fres.title}}</router-link></p></div>
-</flickity>
-
-<!-- if you don't want to use the buttons Flickity provides -->
-
-
-    </div>
-    <!-- -->
-
-   
-    <div class="row">
-     <!-- advert -->
-    <div class="col-md-12">
-    
-    </div>
-
-    <!-- 3 grid for trending, rising and hot topics -->
-        <div class="col-md-12">
-            <div class="col-md-3"><br><br>
-                <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Trending</h4><br>
-                <div class="panel panel-default shadowed">
-                
-                 <div>
-                     <br>
-                    <!-- trending posts -->
-                     <div class="row">
-                         <div class="col-md-12 tr_content" v-for="trend in trending">
-                             <div class="col-md-4">
-                               <img :src="trend.image" width="100%" height="100%"/>
-                             </div>
-                             <div class="col-md-8">
-                                 <h4  class="category-tag"> {{trend.category.name}} <small class="time-stamp">{{timeago(trend.created_at)}}</small></h4>
-                                <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: respace(trend.title) }}"><h4>{{trend.title}}</h4></router-link>
-                                 <i style="color: blue;" class="ion-android-share" aria-hidden="true"></i>
-
-                                     <a href="#">7500 shares</a>
-                             </div>
-                         </div>
-
-                          
                      </div>
-                     <!-- -->
-
-                       
-                 </div>
-                </div>
+                     <div v-if="now_playing">
+                        <h3 class="center"><strong> {{now_playing.title}} </strong></h3>
+                        <h5 class="center">{{now_playing.description}}</h5>
+                     </div>
+                  </div>
+                  <div  class="col-lg-5">
+                   <p  style="color: #333; text-align: center;">Schedules</p>
+                   <br>
+                     <!-- <div class="onair">
+                        </div> -->
+                        <div class="col-md-12" style="-webkit-box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4);
+                     -moz-box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4);
+                     box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" >
+                     <div class="waves">
+                        <div class="wave wave_1"></div>
+                        <div class="wave wave_2"></div>
+                        <div class="wave wave_3"></div>
+                        <div class="wave wave_4"></div>
+                        <div class="wave wave_5"></div>
+                     </div>
+                     <div class="playlist ">
+                        <ul style="list-style-type: none;">
+                           <li v-for="(schedule, index) in formated_schedules">
+                              <div class="col-md-12">
+                                 <div id="center"  class="col-md-2">
+                                    <p class="player-status-live">{{between(schedule.start, schedule.end)}}</p>
+                                 </div>
+                                 <div class="col-md-10" >
+                                    <h5>{{schedule.title}}</h5>
+                                    <p style="color: grey;">
+                                       {{schedule.description}}
+                                    </p>
+                                    <p>
+                                       <small style="color:red" v-if="index==0">Ending: {{timeleft(schedule.end)}} </small>
+                                       <small style="color:red" v-if="index!=0">Running Time: {{schedule.start}} - {{schedule.end}} </small>
+                                    </p>
+                                 </div>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <!-- rising -->
-            <div class="col-md-6"><br><br>
-                     <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Rising</h4><br>
-                <div class="panel panel-default shadowed" v-for="newpost in newones">
-                    <div  class="rising" :style="'background-image: url('+newpost.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);'">
-                       <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: respace(newpost.title) }}"> <h4 class="rising_head" style="color: white;">{{newpost.category.name}}</h4>
-                        <h3 class="rising_topic" style="color: white;">{{newpost.title}}</h3>
-                        </router-link>
-                        <span style="color: white;" class="rising_share" >
-                            <i  class="ion-android-share" aria-hidden="true"></i>
-                            <a href="#" style="color: white;">7500 shares</a>
-                        </span>
-                    </div>
-                </div>
+         </div>
+      </div>
+      <!-- /.container-fluid -->
+   </div>
+   <!-- /.intro-header -->
+   <!-- Page Content -->
+   <!-- podcast details -->
+   <div class="container-fluid">
+      <div class="row">
+         <br><br><br>
+         <div style="margin-left: 1em;" class="col-md-12" v-if="rearrange_podcasts[currentweek]">
+            <h3>
+               PODCASTS
+               &nbsp;
+               &nbsp;
+               <span style="color:#B2BEB5">
+               <small>
+               <a href="javascript:void(0)" @click="pweekpod"> <span class="ion-ios-arrow-left"></span> </a><span style="    text-transform: uppercase;
+                  letter-spacing: 1px;"> Week {{currentweek}} </span> <a href="javascript:void(0)" @click="nweekpod"> <span class="ion-ios-arrow-right"></span> </a>
+               </small>
+               </span> 
+            </h3>
+         </div>
+         <!-- chart header -->
+         <!-- -->
+         <!-- chart images -->
+         <div class="col-md-12" v-if="rearrange_podcasts[currentweek]">
+            <div class="col-md-6">
+               <div class="row" >
+                  <br><br>
+                  <div   class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="index <= 3">
+                     <a  href="javascript:void(0)" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a> 
+                     <span class="badge badge-play"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
+                     <span>
+                        <center><small><a class="listen" href="#"><span class="ion-ios-play"></span> 1000 Listens</a></small> </center>
+                        <center><small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small></center>
+                        <center><small><a href="#">{{pod.part}}</a></small></center>
+                     </span>
+                  </div>
+               </div>
             </div>
-            <!-- end rising -->
-            <div class="col-md-3"><br><br>
-                      <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4><br>
-                <div class="panel panel-default shadowed">
-                    <div class="row" ><br>
-                     <div class="col-md-12 ht_content" v-for="(ho, x) in hot" v-if="x < 6">
-                        <small style="color: grey;">Last activity: {{hottago(ho)}}</small>
-                                 
-                         <router-link :to="{ name: 'forum', params: { id: ho.id, name: respace(ho.topic) }}"><h4>{{ho.topic}}</h4></router-link>
-                         
-                         <small style="color:red;">
-                         In this conversation 
-                         </small>
-                         <div id="convert">
-                           <adimage src="/img/4671_1.png" width="100%" height="100%" sclass="conversation"></adimage>
-                          <adimage src="/img/s.png" width="100%" height="100%" sclass="conversation2"></adimage>
-                           <adimage src="/img/33.png" width="100%" height="100%" sclass="conversation2"></adimage>
-                            <adimage src="/img/3e.png" width="100%" height="100%" sclass="conversation2"></adimage>
-                         <span style="color: #007adf;">+ {{ho.comments.length-4}}</span>
-                         </div>
-                         <hr>      
-                    </div>
-                </div>
+            <div class="col-md-6">
+               <div class="row">
+                  <br><br>
+                  <div  class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="(index > 3 && index <=6)" >
+                     <a href="javascript:void(0)" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a>
+                     <span class="badge badge-play"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
+                     <span>
+                        <center><small><a class="listen" href="#"><span class="ion-ios-play"></span> 1000 Listens</a></small> </center>
+                        <center><small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small></center>
+                        <center><small><a href="#">{{pod.part}}</a></small></center>
+                     </span>
+                  </div>
+               </div>
             </div>
-           
-
+         </div>
+         <!-- -->
+      </div>
+   </div>
+   <br>
+   <br>
+   <br>
+   <!-- end chart details -->
+   <router-link :to="{ name: 'all_podcasts', params: { week: currentweek}}">
+      <p style="text-align: center;" v-if="rearrange_podcasts[currentweek]"><span style="border-bottom: 1px solid #ddd;
+         vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> <a href=""><span style="color: #666; text-align: center;  font-style: italic; padding: 1em;     vertical-align: -webkit-baseline-middle;"> Show more</span></a>  <span style="border-bottom: 1px solid #ddd;
+         vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
+   </router-link>
+   <br><br>
+   <!-- advert -->
+   <div class="col-md-12">
+      <a  v-if="homepage_chart[1]" :href="homepage_chart[1].url">
+         <adimage  :src="'/'+homepage_chart[1].image_url" width="100%" height="100%"></adimage>
+      </a>
+   </div>
+   <br>
+   <!-- chart details -->
+   <div class="container-fluid">
+      <div class="row">
+         <div style="margin-left: 1em;" class="col-md-12">
+            <br>
+            <br>  
+            <h3>
+               CHARTS
+               &nbsp;
+               &nbsp;
+               <span style="color:#B2BEB5">
+               <small>
+               <a href="javascript:void(0)" @click="pweekcht()"> <span class="ion-ios-arrow-left"></span> </a><span style="    text-transform: uppercase;
+                  letter-spacing: 1px;"> Week {{currentchartweek}} </span> <a href="javascript:void(0)" @click="nweekcht()"> <span class="ion-ios-arrow-right"></span> </a>
+               </small>
+               </span>
+               <span class="centered">
+                  <div class="btn-group btn-toggle"> 
+                     <button :class="'btn btn-'+selectedcat[0]+' chart'" @click="change_chart(0)">Nigerian</button>
+                     <button :class="'btn btn-'+selectedcat[1]+' chart'" @click="change_chart(1)">Global</button>
+                     <button :class="'btn btn-'+selectedcat[2]+' chart'" @click="change_chart(2)">Alternative</button>
+                  </div>
+               </span>
+               <span style="float: right; margin-right: 2em;">
+               <small>
+               <span class="badge badge-pink">&nbsp;</span>
+               <span>Weeks On Chart</span>
+               &nbsp;
+               &nbsp;
+               <span class="badge badge-orange">&nbsp;</span>
+               <span>New Entry</span>
+               &nbsp;
+               &nbsp;
+               <span class="badge badge-pink" style="background-color: #009efd;">&nbsp;</span>
+               <span>Last week</span>
+               </small>
+               </span>
+            </h3>
+         </div>
+         <!-- chart header -->
+         <!-- -->
+         <!-- chart images -->
+         <div class="col-md-12">
+            <div class="col-md-6">
+               <div class="row">
+                  <br><br>
+                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index <= 3" >
+                     <p class="chart-num"><strong> {{chart.position}} </strong></p>
+                     <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
+                     <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
+                     <span class="badge badge-new" v-if="noofchart(chart.song)==1"><small> <strong> New </strong> </small></span>
+                     <span class="badge badge-lw" ><small> <strong> {{lastweek(chart.song)}} </strong> </small></span>
+                     <span>
+                        <center><small>{{chart.songs.song_title}}</small></center>
+                        <center><small><a href="#">{{chart.songs.artistname}}</a></small></center>
+                     </span>
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    
+            <div class="col-md-6">
+               <div class="row">
+                  <br><br>
+                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="(index > 3 && index <=6)" >
+                     <p class="chart-num"><strong> {{chart.position}} </strong></p>
+                     <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
+                     <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
+                     <span class="badge badge-new" v-if="noofchart(chart.song)==1"><small> <strong> New </strong> </small></span>
+                     <span class="badge badge-lw" ><small> <strong> {{lastweek(chart.song)}} </strong> </small></span>
+                     <span>
+                        <center><small>{{chart.songs.song_title}}</small></center>
+                        <center><small><a href="#">{{chart.songs.artistname}}</a></small></center>
+                     </span>
+                  </div>
+                  <br><br>
+                  <div  class="col-sm-3" >
+                     <router-link v-bind:to="{ name: 'chartcurrated', params: {currentchartweek: currentchartweek }}">
+                        <a id="see-all" href="http://trovacamporall.com" class="ratio img-responsive img-circle" >See Complete List</a>
+                     </router-link>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- -->
+      </div>
+   </div>
+   <!-- end chart details -->
+   <br>
+   <br>
+   <!-- freshly pressed -->
+   <div class="container-fluid">
+      <h3>
+         FRESHLY PRESSED
+      </h3>
+      <br>
+      <br>
+      <!-- Flickity HTML init -->
+      <flickity ref="flickity" :options="flickityOptions">
+         <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:center; left: 73.57%'">
+            <p>
+               <span class="catgory">{{fres.category.name}}</span> <br>
+               <router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: respace(fres.title) }}">{{fres.title}}</router-link>
+            </p>
+         </div>
+      </flickity>
+      <!-- if you don't want to use the buttons Flickity provides -->
+   </div>
+   <!-- -->
+   <div class="row">
+      <!-- advert -->
+      <div class="col-md-12">
+      </div>
+      <!-- 3 grid for trending, rising and hot topics -->
+      <div class="col-md-12">
+         <div class="col-md-3">
+            <br><br>
+            <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Trending</h4>
+            <br>
+            <div class="panel panel-default shadowed">
+               <div>
+                  <br>
+                  <!-- trending posts -->
+                  <div class="row">
+                     <div class="col-md-12 tr_content" v-for="trend in trending">
+                        <div class="col-md-4">
+                           <img :src="trend.image" width="100%" height="100%"/>
+                        </div>
+                        <div class="col-md-8">
+                           <h4  class="category-tag"> {{trend.category.name}} <small class="time-stamp">{{timeago(trend.created_at)}}</small></h4>
+                           <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: respace(trend.title) }}">
+                              <h4>{{trend.title}}</h4>
+                           </router-link>
+                           <i style="color: blue;" class="ion-android-share" aria-hidden="true"></i>
+                           <a href="#">7500 shares</a>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- -->
+               </div>
+            </div>
+         </div>
+         <!-- rising -->
+         <div class="col-md-6">
+            <br><br>
+            <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Rising</h4>
+            <br>
+            <div class="panel panel-default shadowed" v-for="newpost in newones">
+               <div  class="rising" :style="'background-image: url('+newpost.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);'">
+                  <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: respace(newpost.title) }}">
+                     <h4 class="rising_head" style="color: white;">{{newpost.category.name}}</h4>
+                     <h3 class="rising_topic" style="color: white;">{{newpost.title}}</h3>
+                  </router-link>
+                  <span style="color: white;" class="rising_share" >
+                  <i  class="ion-android-share" aria-hidden="true"></i>
+                  <a href="#" style="color: white;">7500 shares</a>
+                  </span>
+               </div>
+            </div>
+         </div>
+         <!-- end rising -->
+         <div class="col-md-3">
+            <br><br>
+            <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4>
+            <br>
+            <div class="panel panel-default shadowed">
+               <div class="row" >
+                  <br>
+                  <div class="col-md-12 ht_content" v-for="(ho, x) in hot" v-if="x < 6">
+                     <small style="color: grey;">Last activity: {{hottago(ho)}}</small>
+                     <router-link :to="{ name: 'forum', params: { id: ho.id, name: respace(ho.topic) }}">
+                        <h4>{{ho.topic}}</h4>
+                     </router-link>
+                     <small style="color:red;">
+                     In this conversation 
+                     </small>
+                     <div id="convert">
+                        <adimage src="/img/4671_1.png" width="100%" height="100%" sclass="conversation"></adimage>
+                        <adimage src="/img/s.png" width="100%" height="100%" sclass="conversation2"></adimage>
+                        <adimage src="/img/33.png" width="100%" height="100%" sclass="conversation2"></adimage>
+                        <adimage src="/img/3e.png" width="100%" height="100%" sclass="conversation2"></adimage>
+                        <span style="color: #007adf;">+ {{ho.comments.length-4}}</span>
+                     </div>
+                     <hr>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+   <br>
+   <br>
 </div>
 </template>
  
