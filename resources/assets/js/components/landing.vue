@@ -368,7 +368,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                       <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4><br>
                 <div class="panel panel-default shadowed">
                     <div class="row" ><br>
-                     <div class="col-md-12 ht_content" v-for="(ho, index) in hot" v-if="index < 6">
+                     <div class="col-md-12 ht_content" v-for="(ho, x) in hot" v-if="x < 6">
                         <small style="color: grey;">Last activity: {{hottago(ho)}}</small>
                                  
                          <router-link :to="{ name: 'forum', params: { id: ho.id, name: respace(ho.topic) }}"><h4>{{ho.topic}}</h4></router-link>
@@ -635,14 +635,14 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                         list = list.sort(function (a, b) {
                             return a.comments.length - a.comments.length;
                         });
-                        //this.hot=list;
+                        this.hot=list;
                 
                     })
                     .catch(e => {
                     
                     });
             },
-            hottago: (obj)=>{
+            hottago: function(obj){
                 
             
                 if(obj.comments != undefined && obj.comments.length != 0){
