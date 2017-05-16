@@ -111,7 +111,8 @@
                 globalchart:[],
                 alternativechart:[],
                 selectedcat:['nigerian','global','global'],
-                currentchart: 0
+                currentchart: 0,
+                all_chart_ever: []
             }
         },
         created: function(){
@@ -127,6 +128,7 @@
 
                 axios.get('/charts')
                 .then(response => {
+                this.all_chart_ever = response.data;
                 // JSON responses are automatically parsed.
                 var grouped = _.groupBy(response.data, function(car) {
                                 return car.category;
@@ -161,7 +163,7 @@
 
             },
             noofchart: function(id){
-                var arr_to_check = this.all_chart[this.currentchart][this.currentchartweek];
+                var arr_to_check = this.all_chart_ever;
                 var count = 0;
                 for (var i=0; i < arr_to_check.length; i++){
                     if(arr_to_check[i].song==id){

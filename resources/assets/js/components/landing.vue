@@ -127,9 +127,11 @@
          <!-- -->
       </div>
    </div>
+   <span v-if="rearrange_podcasts[currentweek]">
    <br>
    <br>
    <br>
+   </span>
    <!-- end chart details -->
    <router-link :to="{ name: 'all_podcasts', params: { week: currentweek}}">
       <p style="text-align: center;" v-if="rearrange_podcasts[currentweek]"><span style="border-bottom: 1px solid #ddd;
@@ -366,7 +368,8 @@
                 alternativechart:[],
                 selectedcat:['nigerian','global','global'],
                 currentchart: 0,
-                play: 'play'
+                play: 'play',
+                all_chart_ever: []
             }
         },
         components:{Flickity},
@@ -498,6 +501,7 @@
                 axios.get('/charts')
                 .then(response => {
                 // JSON responses are automatically parsed.
+                this.all_chart_ever = response.data;
                 var grouped = _.groupBy(response.data, function(car) {
                                 return car.category;
                                 });
@@ -545,7 +549,7 @@
 
             },
             noofchart: function(id){
-                var arr_to_check = this.all_chart[this.currentchart][this.currentchartweek];
+                var arr_to_check = this.all_chart_ever;
                 var count = 0;
                 for (var i=0; i < arr_to_check.length; i++){
                     if(arr_to_check[i].song==id){
