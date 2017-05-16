@@ -635,7 +635,7 @@ box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" class="col-lg-5">
                         list = list.sort(function (a, b) {
                             return a.comments.length - a.comments.length;
                         });
-                        this.hot=list;
+                        //this.hot=list;
                 
                     })
                     .catch(e => {
