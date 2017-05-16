@@ -422,6 +422,8 @@
                 .then(response => {
                 // JSON responses are automatically parsed.
                 this.schedule = response.data;
+
+                setInterval(()=>{ this.schedule = response.data; }, 1000);
                 
                 })
                 .catch(e => {
