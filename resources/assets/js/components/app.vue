@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" :content="description" />
 <meta name="twitter:title" :content="title" />
-<meta name="twitter:site" content="@coolfmnigeria" />
+<meta name="twitter:site" content="@coolfmnigeria" /> 
     <nav class="navbar topnav navbar-default" role="navigation">
       <div class="container-fluid topnav">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -78,6 +78,8 @@
       </div>
       <!-- /.container-fluid -->
     </nav>
+<br>
+<br>
     <!-- the router outlet, where all matched components would ber viewed -->
     <transition>
       <router-view></router-view>
@@ -135,6 +137,8 @@
     },
     
     created: function() {
+      
+
      
     },
     mounted: function(){
