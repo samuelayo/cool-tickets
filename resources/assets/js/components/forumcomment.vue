@@ -252,6 +252,8 @@ created: function(){
     broadcasted: function(){
 
       socket.on('coolfm-lagos:CommentMade', (d)=>{
+        console.log(d);
+        alert('recieved new comment');
         if(d.type=="forum" && d.id==this.id){
           this.comments = d.all_comments;
         }
