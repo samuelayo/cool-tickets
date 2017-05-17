@@ -400,7 +400,7 @@
                 transition: 'fade'
                 }
                 )
-                setInterval(()=>{ this.schedule = response.data; }, 1000);
+                setInterval(()=>{ this.schedule = this.schedule; }, 1000);
         },
         methods: {
             timeago: function (time){
