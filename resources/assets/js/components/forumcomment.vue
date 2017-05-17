@@ -251,14 +251,14 @@ created: function(){
     },
     broadcasted: function(){
 
-      socket.on('coolfm-lagos:CommentMade', (d)=>{
+      socket.on('coolfm-lagos:CommentMade', function(d){
         console.log(d);
         alert('recieved new comment');
         if(d.type=="forum" && d.id==this.id){
           this.comments = d.all_comments;
         }
        
-      });
+      }.bind(this));
     },
     all_users: function(){
        axios.get("/all_users")

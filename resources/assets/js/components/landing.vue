@@ -400,6 +400,7 @@
                 transition: 'fade'
                 }
                 )
+                setInterval(()=>{ this.schedule = response.data; }, 1000);
         },
         methods: {
             timeago: function (time){
@@ -423,7 +424,7 @@
                 // JSON responses are automatically parsed.
                 this.schedule = response.data;
 
-                setInterval(()=>{ this.schedule = response.data; }, 1000);
+                
                 
                 })
                 .catch(e => {
@@ -618,7 +619,7 @@
                             return num
                         }
                 })
-                return array_s.slice(0, 3);
+                return array_s.slice(0, 4);
             
           },
           now_playing: function(){

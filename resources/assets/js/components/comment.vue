@@ -251,12 +251,12 @@ created: function(){
     },
     broadcasted: function(){
 
-      socket.on('coolfm-lagos:CommentMade', (d)=>{
+      socket.on('coolfm-lagos:CommentMade', function(d){
         if(d.type=="blog" && d.id==this.id){
           this.comments = d.all_comments;
         }
        
-      });
+      }.bind(this));
     },
     all_users: function(){
        axios.get("/all_users")
