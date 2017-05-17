@@ -29,7 +29,7 @@
                      </div>
                   </div>
                   <div  class="col-lg-5">
-                   <p  style="color: #333; text-align: center;">Schedules</p>
+                   <p  style="color: rgb(51, 51, 51); text-align: center; font-size: 1.71667rem; margin-top: .9em;">Schedules</p>
                    <br>
                      <!-- <div class="onair">
                         </div> -->
