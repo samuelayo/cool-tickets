@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="comments">
     
     
   <div class="post-comments col-md-12">
@@ -133,11 +133,11 @@
 <div id="openModal" class="modalDialog">
 	<div>
 		<a href="#close" id="close" title="Close" class="close">X</a>
-		<h2>Send reply</h2>
+		
 		 <div>
-        <label for="comment">Your Comment</label>
+        <label for="comment" style="font-family: 'karla';">Your Comment</label>
         <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary" v-show="!edit" @click="childsubmit()">Add Comment</button>
+        <button type="submit" style="font-family: 'karla';" class="btn btn-primary" v-show="!edit" @click="childsubmit()">Add Comment</button>
       </div>
 	</div>
 </div>
@@ -313,8 +313,8 @@ created: function(){
 }
 
 .post-comments .media {
-  border-left: 1px dotted #000;
-  border-bottom: 1px dotted #000;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   margin-bottom: 5px;
   padding-left: 10px;
 }
@@ -551,16 +551,26 @@ created: function(){
     color: #F44336 !important;
     transition: .2s opacity ease-out,.2s color ease-out;
 }
+.comments .btn {
+  padding: 3px 10px !important;
+}
 .comments .btn-primary {
    color: #fff;
    background: none !important;
    border-color: blue;
    color: blue !important;
+   margin-bottom: 1em !important;
+   text-transform: uppercase !important;
 }
 .comments .label-info {
    background: none !important;
    color: #000;
 }
+.comments .media-body p{
+  background: aliceblue !important;
+  padding: 1em !important;
+  border-radius: 10px !important;
+} 
 .comments .label-info{
    background: none !important;
    font-size: .9em !important;
