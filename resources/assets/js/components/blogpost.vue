@@ -156,6 +156,7 @@
 </template>
 
 <script>
+import comment from './comment.vue'
     import sidebar from './sidebar.vue'
     import Flickity from 'vue-flickity';
     export default {
