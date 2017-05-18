@@ -137,6 +137,8 @@
 		 <div>
         <label for="comment" style="font-family: 'karla';">Your Comment</label>
         <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
+        <br>
+        <br>
         <button type="submit" style="font-family: 'karla';" class="btn btn-primary" v-show="!edit" @click="childsubmit()">Add Comment</button>
       </div>
 	</div>
@@ -147,6 +149,8 @@
      <div class="form-group col-md-12">
         <label for="comment">Your Comment</label>
         <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
+        <br>
+        <br>
         <button type="submit" class="btn btn-primary" v-show="!edit">Add Comment</button>
       </div>
     </form>
@@ -308,13 +312,13 @@ created: function(){
 }
 
 .post-comments .comment-meta {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee !important;
   margin-bottom: 5px;
 }
 
 .post-comments .media {
-  border-left: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-left: 1px dotted #000;
+  border-bottom: 1px dotted #000;
   margin-bottom: 5px;
   padding-left: 10px;
 }
@@ -580,4 +584,5 @@ created: function(){
    font-size: .9em;
    content: ' /';
 }
+
 </style>
