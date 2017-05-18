@@ -657,13 +657,13 @@
               return arr;
           },
           homepage_chart: function(){
-            var homeads = _.find(window.Laravel.ads, function(o) {
+            var homeads = _.filter(window.Laravel.ads, function(o) {
                 if (o.advert_category.type == "homepage_main") return o;
             });
             return homeads;
           },
           sidebar_chart: function(){
-            var homeads = _.find(window.Laravel.ads, function(o) {
+            var homeads = _.filter(window.Laravel.ads, function(o) {
                 if (o.advert_category.type == "homepage_side") return o;
             });
             return homeads;
