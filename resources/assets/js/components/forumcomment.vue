@@ -226,7 +226,7 @@ created: function(){
       });
     },
     broadcasted: function(){
-
+      alert(window.location.hostname+'/socket');
       socket.on('coolfm-lagos:CommentMade', function(d){
         console.log(d);
         alert('recieved new comment');
