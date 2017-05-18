@@ -31400,7 +31400,7 @@ function getNestedChildren(arr, parent) {
       for (var i = 0; i < this.users.length; i++) {
         if (this.users[i].id == userid) {
 
-          return this.users[i].name;
+          return this.users[i];
         }
       }
     },
