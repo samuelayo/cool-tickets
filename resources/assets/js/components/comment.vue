@@ -547,18 +547,21 @@ created: function(){
     -ms-transition: .2s;
     transition: .2s;
 }
-.error-text{
+.comment .error-text{
     color: #F44336;
     transition: .2s opacity ease-out,.2s color ease-out;
 }
-.btn-primary {
+.comments .btn-primary {
    color: #fff;
    background-color: none;
    border-color: blue;
    color: blue !important;
 }
-.label-info {
+.comments .label-info {
    background-color: none;
    color: #000;
+}
+.comments .label_info{
+   background-color: none;
 }
 </style>
