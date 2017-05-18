@@ -214,8 +214,9 @@ created: function(){
 },
   mounted: function(){
     this.all_users();
-    this.fetchComments();
     this.broadcasted();
+    this.fetchComments();
+    
   },
 
   methods: {
