@@ -29,6 +29,7 @@ Vue.use(infiniteScroll)
 
 import VueSocketio from 'vue-socket.io';
 Vue.use(VueSocketio, window.location.hostname + '/socket');
+alert(window.location.hostname);
 
 Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
 
