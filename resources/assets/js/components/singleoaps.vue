@@ -2,7 +2,7 @@
     <div id="">
 
            <div class="doubleColumns">
-  <div :style="'background-size: cover; width: 15% !important; background: url('+oap.image+');'" class="doubleColumn">
+  <div :style="'background-size: cover; width: 15% !important; background-image: url('+oap.image+');'" class="doubleColumn">
     
   </div>
   <div class="doubleColumn"><p style="text-align: center;"> <router-link to="/all_oaps">OAPS</router-link></p><h5 style="text-align: center;"> <span class="oaps"> {{oap.name}} </span></h5><br>
