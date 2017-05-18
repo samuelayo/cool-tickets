@@ -28712,8 +28712,7 @@ var infiniteScroll = __webpack_require__(231);
 Vue.use(infiniteScroll);
 
 
-Vue.use(__WEBPACK_IMPORTED_MODULE_3_vue_socket_io___default.a, window.location.hostname + '/socket');
-alert(window.location.hostname);
+Vue.use(__WEBPACK_IMPORTED_MODULE_3_vue_socket_io___default.a, 'https://coolfm.ng/socket');
 
 Vue.component('pulse-loader', __webpack_require__(232));
 
