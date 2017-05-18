@@ -566,13 +566,13 @@ created: function(){
    background: none !important;
    color: #000;
 }
-.comments .label_info{
+.comments .label-info{
    background: none !important;
-   font-size: .9em;
+   font-size: .9em !important;
 }
 .comments .label-info:after{
    background: none !important;
    font-size: .9em;
-   content: '/';
+   content: ' /';
 }
 </style>
