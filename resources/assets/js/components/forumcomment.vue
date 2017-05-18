@@ -227,7 +227,7 @@ created: function(){
       });
     },
     broadcasted: function(){
-      alert("saasasasasas");
+      console.log("saasasasasas");
       socket.on('coolfm-lagos:CommentMade', function(d){
         console.log(d);
         alert('recieved new comment');
