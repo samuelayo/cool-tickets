@@ -268,6 +268,9 @@
                   <br>
                   <!-- trending posts -->
                   <div class="row">
+                   <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url">
+                    <adimage  :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%"></adimage>
+                  </a>
                      <div class="col-md-12 tr_content" v-for="trend in trending">
                         <div class="col-md-4">
                            <img :src="trend.image" width="100%" height="100%"/>
@@ -310,6 +313,7 @@
             <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4>
             <br>
             <div class="panel panel-default shadowed">
+            <adimage  src="" width="100%" height="100%"></adimage>
                <div class="row" >
                   <br>
                   <div class="col-md-12 ht_content" v-for="(ho, x) in hot" v-if="x < 6">
@@ -329,6 +333,12 @@
                      </div>
                      <hr>
                   </div>
+                    <a  v-if="sidebar_chart[1]" :href="sidebar_chart[1].url">
+                    <adimage  :src="'/'+sidebar_chart[1].image_url" width="100%" height="100%"></adimage>
+                  </a>
+                  <a  v-if="sidebar_chart[2]" :href="sidebar_chart[2].url">
+                    <adimage  :src="'/'+sidebar_chart[2].image_url" width="100%" height="100%"></adimage>
+                  </a>
                </div>
             </div>
          </div>
@@ -649,6 +659,12 @@
           homepage_chart: function(){
             var homeads = _.map(window.Laravel.ads, function(o) {
                 if (o.advert_category.type == "homepage_main") return o;
+            });
+            return homeads;
+          },
+          sidebar_chart: function(){
+            var homeads = _.map(window.Laravel.ads, function(o) {
+                if (o.advert_category.type == "homepage_side") return o;
             });
             return homeads;
           }
