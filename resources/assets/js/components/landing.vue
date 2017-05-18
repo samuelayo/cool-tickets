@@ -265,12 +265,13 @@
             <br>
             <div class="panel panel-default shadowed">
                <div>
+                <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url">
+                    <adimage  :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="0"></adimage>
+                  </a>
                   <br>
                   <!-- trending posts -->
                   <div class="row">
-                   <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url">
-                    <adimage  :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%"></adimage>
-                  </a>
+                  
                      <div class="col-md-12 tr_content" v-for="trend in trending">
                         <div class="col-md-4">
                            <img :src="trend.image" width="100%" height="100%"/>
@@ -333,10 +334,10 @@
                      <hr>
                   </div>
                     <a  v-if="sidebar_chart[1]" :href="sidebar_chart[1].url">
-                    <adimage  :src="'/'+sidebar_chart[1].image_url" width="100%" height="100%"></adimage>
+                     <adimage :src="'/'+sidebar_chart[1].image_url" width="100%" height="100%" isd="1"></adimage>
                   </a>
                   <a  v-if="sidebar_chart[2]" :href="sidebar_chart[2].url">
-                    <adimage  :src="'/'+sidebar_chart[2].image_url" width="100%" height="100%"></adimage>
+                    <adimage  :src="'/'+sidebar_chart[2].image_url" width="100%" height="100%" isd="2"></adimage>
                   </a>
                </div>
             </div>
