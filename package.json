@@ -34,6 +34,7 @@
     "vue-js-modal": "^1.0.18",
     "vue-router": "^2.4.0",
     "vue-social-sharing": "^2.2.0",
+    "vue-socket.io": "^2.1.1-a",
     "vue-spinner": "^1.0.2",
     "vue-toast": "^3.1.0",
     "vuex": "^2.3.1"

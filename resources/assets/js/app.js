@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -21,13 +20,15 @@ window.sharon = require('sharon');
 import Toast from 'vue-easy-toast'
 
 Vue.use(Toast)
-//vuex store
+    //vuex store
 import store from './store'
 
 
-var infiniteScroll =  require('vue-infinite-scroll');
+var infiniteScroll = require('vue-infinite-scroll');
 Vue.use(infiniteScroll)
 
+import VueSocketio from 'vue-socket.io';
+Vue.use(VueSocketio, window.location.hostname + '/socket');
 
 Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
 
@@ -46,26 +47,26 @@ import blogcategory from './components/blogcategory'
 
 
 const routes = [
-	//route for the home route of the webpage
-  
-	{ path: '/', component: landing },
-  {path:'/blogpost/:id/:title', component: blogpost, name: 'blogpost',props: true},
-  {path:'/single_oap/:id/:name', component: singleoaps, name: 'single_oap'},
-  {path:'/all_oaps', component: oaps, name: 'all_oaps'},
-  {path:'/all_podcasts/:week', component: all_podcasts, name: 'all_podcasts', props: true},
-  {path:'/chartcurrated/:currentchartweek', component: chartcurrated, name: 'chartcurrated', props: true},
-  {path:'/forums', component: forumcomponent, name: 'forumcomponent'},
-  {path:'/forum/:id/:name', component: singleforum, name: 'forum', props: true},
-  {path:'/blogcategory/:name/:id', component: blogcategory, name: 'blogcategory', props: true}
-	
+    //route for the home route of the webpage
+
+    { path: '/', component: landing },
+    { path: '/blogpost/:id/:title', component: blogpost, name: 'blogpost', props: true },
+    { path: '/single_oap/:id/:name', component: singleoaps, name: 'single_oap' },
+    { path: '/all_oaps', component: oaps, name: 'all_oaps' },
+    { path: '/all_podcasts/:week', component: all_podcasts, name: 'all_podcasts', props: true },
+    { path: '/chartcurrated/:currentchartweek', component: chartcurrated, name: 'chartcurrated', props: true },
+    { path: '/forums', component: forumcomponent, name: 'forumcomponent' },
+    { path: '/forum/:id/:name', component: singleforum, name: 'forum', props: true },
+    { path: '/blogcategory/:name/:id', component: blogcategory, name: 'blogcategory', props: true }
+
 ]
 
 
 
 const router = new VueRouter({
-  routes, // short for routes: routes
-  store,
-  mode: 'history'
+    routes, // short for routes: routes
+    store,
+    mode: 'history'
 })
 
 // router.afterEach((to, from) => {
@@ -78,17 +79,13 @@ const router = new VueRouter({
 
 
 const coolfm = new Vue({
-	//define the selector for the root component
-  el: '#app',
-  //pass the template to the root component
-  template: '<app/>',
-  //declare components that the root component can access
-  components: {app},
-  //pass in the router to the vue instance
-  router,
-  store
-}).$mount('#app')//mount the router on the app
-
-
-
-
+        //define the selector for the root component
+        el: '#app',
+        //pass the template to the root component
+        template: '<app/>',
+        //declare components that the root component can access
+        components: { app },
+        //pass in the router to the vue instance
+        router,
+        store
+    }).$mount('#app') //mount the router on the app

@@ -11,7 +11,7 @@ redis.subscribe('coolfm-lagos');
 redis.on('message', function(channel, message) {
     message = JSON.parse(message);
 
-    var emit = io.emit(channel + ':' + message.event, message.data);
+    var emit = io.emit('coolfmlagos_' + message.event, message.data);
 
 });
 

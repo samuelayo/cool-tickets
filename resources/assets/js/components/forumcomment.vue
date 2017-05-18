@@ -177,7 +177,7 @@
 
 
 <script>
-var socket = io(window.location.hostname+'/socket');
+
  function getNestedChildren(arr, parent) {
     var out = []
     for(var i in arr) {
@@ -214,11 +214,19 @@ created: function(){
 },
   mounted: function(){
     this.all_users();
-    this.broadcasted();
+    
     this.fetchComments();
     
   },
-
+  sockets: {
+            coolfmlagos_CommentMade: function(d){
+              alert('done');
+              if(d.type=="forum" && d.id==this.id){
+                this.comments = d.all_comments;
+              }
+       
+      }
+        },
   methods: {
     fetchComments: function(){
       axios.get("/myforum/"+this.id+"/comments")
