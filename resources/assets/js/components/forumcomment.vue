@@ -249,7 +249,7 @@ created: function(){
         for(var i=0; i < this.users.length; i++){
           if (this.users[i].id == userid){
           
-            return this.users[i];
+            return this.users[i].name;
           }
         }
     },
