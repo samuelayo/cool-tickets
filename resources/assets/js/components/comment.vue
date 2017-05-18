@@ -255,7 +255,7 @@ created: function(){
       axios.post("/post/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
-          this.fetchComments();
+          this.comments = response.data;
           
       });
     },
@@ -272,7 +272,7 @@ created: function(){
           this.comment.body= '';
         
           document.getElementById('close').click();
-          this.fetchComments();
+          this.comments = response.data;
       }); 
     }, 
     getChildren: function (id) {
