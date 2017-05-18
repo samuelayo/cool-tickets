@@ -32200,13 +32200,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return arr;
         },
         homepage_chart: function homepage_chart() {
-            var homeads = _.map(window.Laravel.ads, function (o) {
+            var homeads = _.find(window.Laravel.ads, function (o) {
                 if (o.advert_category.type == "homepage_main") return o;
             });
             return homeads;
         },
         sidebar_chart: function sidebar_chart() {
-            var homeads = _.map(window.Laravel.ads, function (o) {
+            var homeads = _.find(window.Laravel.ads, function (o) {
                 if (o.advert_category.type == "homepage_side") return o;
             });
             return homeads;
