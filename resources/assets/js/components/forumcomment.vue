@@ -257,6 +257,7 @@ created: function(){
       axios.post("/myforum/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
+          this.fetchComments();
       });
     },
     childreply:function(id){
@@ -270,7 +271,9 @@ created: function(){
       axios.post("/myforum/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
+
           document.getElementById('close').click();
+          this.fetchComments();
       }); 
     }, 
     getChildren: function (id) {
