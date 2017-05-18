@@ -2,7 +2,9 @@
   <div class="row" id="blogcategory">
      <!-- advert -->
     <div class="col-md-12">   <h1 style="text-align: center; font-weight: 700;">{{name}}</h1><br><br>
-       <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
+        <a  v-if="homepage_chart[0]" :href="homepage_chart[0].url">
+         <adimage  :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></adimage>
+      </a>
     </div>
 
 
@@ -12,7 +14,9 @@
             <div class="col-md-3"><br><br>
                 <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Trending</h4><br>
                 <div class="panel panel-default shadowed">
-                <adimage src="/img/sq_ad.png" width="100%" height="100%"></adimage>
+                <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url">
+                    <adimage  :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="0"></adimage>
+                  </a>
        
 
                  <div>
@@ -69,8 +73,14 @@
                     
                 </div>
             </div>
-            <adimage src="/img/ht_ad1.png" width="100%" height="70%"></adimage>
-             <adimage src="/img/ht_ad2.png" width="100%" height="70%"></adimage>
+              <a  v-if="sidebar_chart[1]" :href="sidebar_chart[1].url">
+                     <adimage :src="'/'+sidebar_chart[1].image_url" width="100%" height="100%" isd="1"></adimage>
+                  </a>
+                   <br>
+                   <br>
+                  <a  v-if="sidebar_chart[2]" :href="sidebar_chart[2].url">
+                    <adimage  :src="'/'+sidebar_chart[2].image_url" width="100%" height="100%" isd="2"></adimage>
+                  </a>
             </div>
         </div>
     </div>
@@ -121,12 +131,25 @@ export default{
                 }
                 return "No activity yet";
             }
-
   },
   watch: {
     id: function (val) {
       this.get_all();
     }
+  },
+  computed: {
+      homepage_chart: function(){
+            var homeads = _.filter(window.Laravel.ads, function(o) {
+                if (o.advert_category.type == "homepage_main") return o;
+            });
+            return homeads;
+          },
+          sidebar_chart: function(){
+            var homeads = _.filter(window.Laravel.ads, function(o) {
+                if (o.advert_category.type == "homepage_side") return o;
+            });
+            return homeads;
+          }
   }
 }
 </script>

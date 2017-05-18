@@ -269,6 +269,7 @@
                     <adimage  :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="0"></adimage>
                   </a>
                   <br>
+                  <br>
                   <!-- trending posts -->
                   <div class="row">
                   
@@ -336,6 +337,8 @@
                     <a  v-if="sidebar_chart[1]" :href="sidebar_chart[1].url">
                      <adimage :src="'/'+sidebar_chart[1].image_url" width="100%" height="100%" isd="1"></adimage>
                   </a>
+                   <br>
+                   <br>
                   <a  v-if="sidebar_chart[2]" :href="sidebar_chart[2].url">
                     <adimage  :src="'/'+sidebar_chart[2].image_url" width="100%" height="100%" isd="2"></adimage>
                   </a>
