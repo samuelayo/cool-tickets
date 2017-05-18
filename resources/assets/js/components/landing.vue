@@ -313,7 +313,6 @@
             <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4>
             <br>
             <div class="panel panel-default shadowed">
-            <adimage  src="" width="100%" height="100%"></adimage>
                <div class="row" >
                   <br>
                   <div class="col-md-12 ht_content" v-for="(ho, x) in hot" v-if="x < 6">
