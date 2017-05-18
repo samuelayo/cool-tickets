@@ -8,12 +8,12 @@ var redis = new Redis();
 
 redis.subscribe('coolfm-lagos');
 
-redis.on('message', function(channel, message){
+redis.on('message', function(channel, message) {
     message = JSON.parse(message);
-  
-    io.emit(channel+':'+message.event, message.data);
+
+    io.sockets.emit(channel + ':' + message.event, message.data);
 });
 
-server.listen(3000, function(){
-    
+server.listen(3000, function() {
+
 });
