@@ -291,7 +291,11 @@ created: function(){
               }
        
       }
+        },
+        connect: function(){
+          alert('connected');
         }
+      
 }
 </script>
 <style>
