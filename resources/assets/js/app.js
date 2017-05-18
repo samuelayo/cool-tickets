@@ -28,8 +28,7 @@ var infiniteScroll = require('vue-infinite-scroll');
 Vue.use(infiniteScroll)
 
 import VueSocketio from 'vue-socket.io';
-Vue.use(VueSocketio, window.location.hostname + '/socket');
-alert(window.location.hostname);
+Vue.use(VueSocketio, 'https://coolfm.ng/socket');
 
 Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
 
