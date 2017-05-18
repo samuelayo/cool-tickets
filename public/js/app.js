@@ -31082,14 +31082,7 @@ function getNestedChildren(arr, parent) {
 
     this.fetchComments();
   },
-  sockets: {
-    coolfmlagos_CommentMade: function coolfmlagos_CommentMade(d) {
-      alert('done');
-      if (d.type == "forum" && d.id == this.id) {
-        this.comments = d.all_comments;
-      }
-    }
-  },
+
   methods: {
     fetchComments: function fetchComments() {
       var _this = this;
@@ -31154,6 +31147,14 @@ function getNestedChildren(arr, parent) {
     },
     timeago: function timeago(time) {
       return moment(time).fromNow();
+    }
+  },
+  sockets: {
+    coolfmlagos_CommentMade: function coolfmlagos_CommentMade(d) {
+      alert('done');
+      if (d.type == "forum" && d.id == this.id) {
+        this.comments = d.all_comments;
+      }
     }
   }
 });
