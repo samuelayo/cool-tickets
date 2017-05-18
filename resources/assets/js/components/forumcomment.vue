@@ -570,7 +570,7 @@ created: function(){
    background: none !important;
    font-size: .9em;
 }
-.comments .label_info:after{
+.comments .label-info:after{
    background: none !important;
    font-size: .9em;
    content: '/';
