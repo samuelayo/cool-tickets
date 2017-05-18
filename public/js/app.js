@@ -31458,7 +31458,11 @@ function getNestedChildren(arr, parent) {
         this.comments = d.all_comments;
       }
     }
+  },
+  connect: function connect() {
+    alert('connected');
   }
+
 });
 
 /***/ }),
