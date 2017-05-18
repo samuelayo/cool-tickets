@@ -218,15 +218,7 @@ created: function(){
     this.fetchComments();
     
   },
-  sockets: {
-            coolfmlagos_CommentMade: function(d){
-              alert('done');
-              if(d.type=="blog" && d.id==this.id){
-                this.comments = d.all_comments;
-              }
-       
-      }
-        },
+  
   methods: {
     fetchComments: function(){
       axios.get("/post/"+this.id+"/comments")
@@ -290,7 +282,16 @@ created: function(){
         timeago: function (time){
                 return moment(time).fromNow();
             }
-  }
+  },
+  sockets: {
+            coolfmlagos_CommentMade: function(d){
+              alert('done');
+              if(d.type=="blog" && d.id==this.id){
+                this.comments = d.all_comments;
+              }
+       
+      }
+        }
 }
 </script>
 <style>
