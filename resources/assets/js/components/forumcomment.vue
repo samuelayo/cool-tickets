@@ -568,5 +568,11 @@ created: function(){
 }
 .comments .label_info{
    background: none !important;
+   font-size: .9em;
+}
+.comments .label_info:after{
+   background: none !important;
+   font-size: .9em;
+   content: '/';
 }
 </style>
