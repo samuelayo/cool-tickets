@@ -548,20 +548,20 @@ created: function(){
     transition: .2s;
 }
 .comment .error-text{
-    color: #F44336;
+    color: #F44336 !important;
     transition: .2s opacity ease-out,.2s color ease-out;
 }
 .comments .btn-primary {
    color: #fff;
-   background-color: none;
+   background: none !important;
    border-color: blue;
    color: blue !important;
 }
 .comments .label-info {
-   background-color: none;
+   background: none !important;
    color: #000;
 }
 .comments .label_info{
-   background-color: none;
+   background: none !important;
 }
 </style>
