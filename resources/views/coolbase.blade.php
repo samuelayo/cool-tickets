@@ -54,7 +54,7 @@
 
 
 </body>
-<script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
+<script src="/js/socket.io-1.3.4.js"></script>
   <!-- jQuery -->
 
 <script src="/js/app.js"></script>
