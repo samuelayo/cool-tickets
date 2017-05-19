@@ -86,7 +86,7 @@
 
         <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
         <a  v-if="homepage_chart[0]" :href="homepage_chart[0].url">
-         <adimage  :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></adimage>
+         <img  :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></img>
       </a>
 
         </div>
@@ -144,7 +144,7 @@
         <div>
           <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
            <a  v-if="homepage_chart[1]" :href="homepage_chart[1].url">
-         <adimage  :src="'/'+homepage_chart[1].image_url" width="100%" height="100%"></adimage>
+         <img  :src="'/'+homepage_chart[1].image_url" width="100%" height="100%"></img>
       </a>
           </div>
           <br>
@@ -184,7 +184,7 @@
 
           <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
            <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url">
-         <adimage  :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%"></adimage>
+         <img  :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%"></img>
       </a>
 
 
