@@ -58,9 +58,9 @@ if(localStorage.getItem('username')!=undefined){
 </script>
 <!-- Resource jQuery --> 
 
-<script type="text/javascript" src="/mobile/dist/static/js/manifest.32bcf1dcdfee51dc9b1e.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/vendor.98ceb34e996acedd4548.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.77a9d67de04b91607a2a.js"></script>
+<script type="text/javascript" src="/mobile/dist/static/js/manifest.8664f98f6b0d59fd24da.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/vendor.875afc491451e1b702fb.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/app.c78add18a68b16550fa5.js"></script>
 
    <!-- <script src="http://localhost:8080/app.js"></script> -->
 
