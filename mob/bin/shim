@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+export NODE_PATH=/home/samuel/coolfm/mob/lib/node_modules
+export NPM_CONFIG_PREFIX=/home/samuel/coolfm/mob
+export npm_config_prefix=/home/samuel/coolfm/mob
+exec mob/bin/node "$@"
