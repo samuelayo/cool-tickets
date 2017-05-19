@@ -89,7 +89,8 @@ class HomeController extends Controller
         $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->take(3)->get();
         $fresh = BlogPost::take(5)->with('category')->get();
         $categories = Category::all();
-        return view('mobileview.index', compact('trending', 'newones', 'fresh', 'categories'));
+        $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
+        return view('mobileview.index', compact('trending', 'newones', 'fresh', 'categories', 'ads'));
    
     }
 }

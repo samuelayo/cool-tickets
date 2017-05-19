@@ -67,7 +67,7 @@
     
     
     
-    
+                            <center>Comments</center>
                             <comment type="blog" :id="post.id" user="s"></comment>
                             <div>
                                 <br>

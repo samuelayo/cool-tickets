@@ -420,10 +420,10 @@
                 return moment(time).fromNow();
             },
             week: function (){
-                    var myDate = new Date();
-                    if(myDate.getDay() == 6 || myDate.getDay() == 0 || myDate.getDay() == 5){
-                        return moment().isoWeek()+1;
-                    }
+                    // var myDate = new Date();
+                    // if(myDate.getDay() == 6 || myDate.getDay() == 0 || myDate.getDay() == 5){
+                    //     return moment().isoWeek()+1;
+                    // }
                     return moment().isoWeek();
                     
                 },
