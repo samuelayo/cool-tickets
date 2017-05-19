@@ -137,7 +137,7 @@
 		 <div>
         <label for="comment" style="font-family: 'karla';">Your Comment</label>
         <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
-        <br>
+      
         <br>
         <button type="submit" style="font-family: 'karla';" class="btn btn-primary" v-show="!edit" @click="childsubmit()">Add Comment</button>
       </div>
@@ -149,7 +149,7 @@
      <div class="form-group col-md-12">
         <label for="comment">Your Comment</label>
         <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
-        <br>
+       
         <br>
         <button type="submit" class="btn btn-primary" v-show="!edit">Add Comment</button>
       </div>

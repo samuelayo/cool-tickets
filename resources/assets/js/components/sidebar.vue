@@ -27,7 +27,7 @@
 
   <div class="row">
       <h4 style="text-align: center;"><strong>TRENDING</strong></h4><br>
-             <div id="advert-side" class="panel panel-default ">
+             <div id="advert-side" class="panel panel-default shadowed">
                 <!-- <img src="img/sq_ad.png" width="100%"/> -->
                  <div><br><br><br> <!-- trending posts -->
                     <div class="row">
