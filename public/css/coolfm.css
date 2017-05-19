@@ -270,15 +270,17 @@ h5 {
 .rising_head {
     position: absolute;
     padding: 25px;
-    margin-top: 30%;
+    margin-top: 12em;
 }
 
 .rising_topic {
     position: absolute;
     padding: 25px;
-    margin-top: 33%;
+    margin-top: 10em;
+    padding-bottom: 2em !important;
     font-weight: 600;
-    width: 80%;
+    width: auto;
+    height: auto;
 }
 
 .rising_share {
