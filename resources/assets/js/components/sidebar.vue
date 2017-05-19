@@ -33,7 +33,7 @@
                 <div><br><br><br>
                     <!-- trending posts -->
                     <div class="row">
-                        <div class="col-md-3 tr_content" v-for="trend in trending">
+                        <div class="col-md-12 tr_content" v-for="trend in trending">
                             <div class="col-md-4">
                                 <img :src="trend.image" width="100%" height="100%" />
                             </div>
