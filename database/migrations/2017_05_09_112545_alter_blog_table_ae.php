@@ -15,7 +15,7 @@ class AlterBlogTableAe extends Migration
     {
         Schema::table('blog_posts', function (Blueprint $table) {
             //
-            $table->text('keypoints')->nullable();
+         //   $table->text('keypoints')->nullable();
         });
     }
 
