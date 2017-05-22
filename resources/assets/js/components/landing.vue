@@ -435,10 +435,9 @@
                  axios.get('/schedules')
                 .then(response => {
                 // JSON responses are automatically parsed.
-                this.schedule = response.data;
-
-                
-                
+                 this.schedule = _.groupBy(response.data, function(car) {
+                                return car.state;
+                                });
                 })
                 .catch(e => {
                 
@@ -615,10 +614,14 @@
       computed: {
           formated_schedules: function (){
               var form_sche = [];
-              var schedule_arry = this.schedule;
-                var array_s = schedule_arry.sort(function(a,b){
+               var schedule_arry = this.schedule[this.current_state];
+               var array_s = [];
+               if(schedule_arry){
+                    array_s = schedule_arry.sort(function(a,b){
                     return a.start > b.start; 
-                });
+                    });
+               }
+                
                 array_s = array_s.filter(function(num){
                         var format = 'hh:mm:ss'
                         var time = moment();
@@ -636,11 +639,13 @@
             
           },
           now_playing: function(){
-              for(var i =0; i < this.schedule.length; i++){
-                  var schedu = this.schedule[i];
-                  if(this.between(schedu.start, schedu.end)=="Now"){
-                      return schedu
-                  }
+              if(this.schedule[this.current_state]){
+                for(var i =0; i < this.schedule[this.current_state].length; i++){
+                    var schedu = this.schedule[this.current_state][i];
+                    if(this.between(schedu.start, schedu.end)=="Now"){
+                        return schedu
+                    }
+                }
               }
           },
           rearrange_podcasts: function(){
@@ -670,6 +675,9 @@
                 if (o.advert_category.type == "homepage_side") return o;
             });
             return homeads;
+          },
+          current_state: function(){
+              return this.$store.state.current_state;
           }
       }
     }

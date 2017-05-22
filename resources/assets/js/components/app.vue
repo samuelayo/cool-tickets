@@ -67,9 +67,10 @@
               <a class="switch" data-toggle="dropdown">Switch Channel
                             <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Coolfm Kano</a></li>
-                <li><a href="#">Coolfm Abuja</a></li>
-                <li><a href="#">Coolfm Port-Harcourt</a></li>
+                <li><a href="javascript:void()" @click="change_state('Lagos', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos')">Coolfm Lagos</a></li>
+                <li><a href="javascript:void()" @click="change_state('Kano', 'http://icestream.coolwazobiainfo.com:8000/coolfm-kano')">Coolfm Kano</a></li>
+                <li><a href="javascript:void()" @click="change_state('Abuja', 'http://icestream.coolwazobiainfo.com:8000/coolfm-abuja')">Coolfm Abuja</a></li>
+                <li><a href="javascript:void()" @click="change_state('Ph', 'http://icestream.coolwazobiainfo.com:8000/coolfm-ph')">Coolfm Port-Harcourt</a></li>
               </ul>
             </li>
           </ul>
@@ -93,7 +94,7 @@
             <div id="playhead"></div>
           </div><span style="vertical-align: -webkit-baseline-middle;">&nbsp <span id="len">5.50</span></span>-->
         <audio id="ourplay" ref="ourplay" controls > 
-          <source src="http://icestream.coolwazobiainfo.com:8000/coolfm-lagos"/>
+          <source :src="current_stream"/>
         </audio>
         </span>
   
@@ -143,7 +144,6 @@
     },
     mounted: function(){
       this.player=plyr.setup();
-      console.log('mounted');
     },
     computed: {
       playorpause: function() {
@@ -167,7 +167,6 @@
           document.getElementById('live').style.display='none';
         }
         var audio = document.getElementById('ourplay');
-        console.log(this.type);
         if (this.type == "livestream") {
   
         } else if (this.type == "podcast") {
@@ -187,13 +186,11 @@
            audio.play();
         }
         document.getElementById('playname').innerHTML='Now Playing: '+name;
-        //console.log(this.playorpause);
-        // if(!audio.paused){
-        //   audio.pause();
-        // }else{
-        //   audio.play();
-        // }
   
+      },
+      change_state: function(status, stream){
+        this.$store.dispatch('SET_STATE', status);
+        this.$store.dispatch('SET_STREAM', stream);
       }
     },
     computed: {
@@ -202,6 +199,14 @@
       },
       description: function(){
         return this.$store.state.description;
+      },
+      current_stream: function(){
+         if(this.$refs.ourplay !=undefined)
+        {
+          var audio = this.$refs.ourplay;
+          audio.src = this.$store.state.current_stream;
+        }
+        return this.$store.state.current_stream;
       }
     }
   

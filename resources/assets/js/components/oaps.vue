@@ -14,7 +14,7 @@
                         <div v-for="(oa, index) in oaps" v-if="index < split_oaps()" > 
                         <router-link :to="{ name: 'single_oap', params: { id: oa.id, name:oa.name }}"> 
                           <div  :style="'background: url('+oa.image+'); background-size: cover;'" id="oaps" class="col-md-3"> 
-                          <p style="padding-top:10.4em;">{{oa.name}}</p>
+                          <p style="padding-top:10.4em;">{{oa.name}} ({{oa.state}})</p>
                           </div>
                          
                         </router-link>
@@ -39,7 +39,7 @@
                             <div v-for="(oa, index) in oaps" v-if="index >= split_oaps()" >   
                               <router-link :to="{ name: 'single_oap', params: { id: oa.id, name:oa.name }}"> 
                               <div  :style="'background: url('+oa.image+'); background-size: cover;'" id="oaps" class="col-md-3">
-                                 <p style="padding-top:10.4em;">{{oa.name}}</p> 
+                                 <p style="padding-top:10.4em;">{{oa.name}} ({{oa.state}})</p> 
                                </div>
                              
                               </router-link>
