@@ -1,7 +1,7 @@
 <template>
   <div class="">
-    
-    
+
+
   <div class="post-comments col-md-12">
 
     <div class="row">
@@ -17,14 +17,14 @@
           <div class="media-body">
             <p v-html="comment.body"></p>
             <div class="comment-meta">
-              
+
               <span>
                         <a class="" role="button" class="btn btn-primary" style="color: white;" @click="childreply(comment.id)" v-if="loggedin">reply</a>
                       </span>
             </div>
 
 
-              
+
                 <div class="media" v-for="com in getChildren(comment.id)" >
                   <!-- first comment -->
 
@@ -37,7 +37,7 @@
                     <div class="media-body">
                       <p v-html="com.body"></p>
                       <div class="comment-meta">
-                        
+
                         <span>
                                   <a class="" role="button" class="btn btn-primary" style="color: white;" @click="childreply(com.id)"  v-if="loggedin">reply</a>
                                 </span>
@@ -57,7 +57,7 @@
                                       <div class="media-body">
                                         <p v-html="co.body"></p>
                                         <div class="comment-meta">
-                                          
+
                                           <span>
                                                     <a class="" role="button" class="btn btn-primary" style="color: white;" @click="childreply(co.id)"  v-if="loggedin">reply</a>
                                                   </span>
@@ -80,48 +80,48 @@
                                                           <div class="media-body">
                                                             <p v-html="c.body"></p>
                                                             <div class="comment-meta">
-                                                              
+
                                                             </div>
                                                             <!-- comment-meta -->
                                                             <!-- answer to the first comment -->
-                                                                    
+
                                                           </div>
                                                         </div>
                                                         <!-- comments -->
 
                                                       </div>
-                                                
+
                                       </div>
                                     </div>
                                     <!-- comments -->
 
                                   </div>
                       <!-- answer to the first comment -->
-                              
+
                     </div>
                   </div>
                   <!-- comments -->
 
                 </div>
                 <!-- first comment -->
-              
+
 
 
 
             <!-- comment-meta -->
             <!-- answer to the first comment -->
-      
-                    
+
+
           </div>
-          
+
         </div>
 
 
-        
+
         <br>
       </div>
       <!-- first comment -->
-         
+
     </div>
 
   </div>
@@ -150,7 +150,7 @@
         <button type="submit" class="btn btn-primary" v-show="!edit">Add Comment</button>
       </div>
     </form>
-    
+
     <div id="login" v-if="!loggedin">
   <p style="text-align: center;" ><span style="border-bottom: 1px solid #ddd;
     vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> Please login to comment</span>  <span style="border-bottom: 1px solid #ddd;
@@ -158,26 +158,26 @@
               <div class="row margin-bottom-10" style="text-align: center;">
               <div class="col-md-6 col-sm-6 col-xs-6">
                   <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook">Facebook</a>
-              
-              
+
+
                   <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter">Twitter</a>
               </div>
           </div>
 
-         
+
 
     </div>
-  
+
   </div>
 </template>
 
- 
+
 
 
 
 
 <script>
-var socket = io(window.location.hostname+'/socket');
+var socket = io('https://coolfm.ng/socket');
  function getNestedChildren(arr, parent) {
     var out = []
     for(var i in arr) {
@@ -234,7 +234,7 @@ created: function(){
     '//www.tinymce.com/css/codepen.min.css'
   ]
  });
-    
+
 },
   mounted: function(){
     this.all_users();
@@ -255,7 +255,7 @@ created: function(){
         if(d.type=="blog" && d.id==this.id){
           this.comments = d.all_comments;
         }
-       
+
       });
     },
     all_users: function(){
@@ -269,7 +269,7 @@ created: function(){
       console.log('fired');
         for(var i=0; i < this.users.length; i++){
           if (this.users[i].id == userid){
-          
+
             return this.users[i].name;
           }
         }
@@ -278,11 +278,11 @@ created: function(){
       axios.post("/post/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
-          
+
       });
     },
     childreply:function(id){
-      
+
       this.replyid = id;
       document.getElementById('open').click();
     },
@@ -292,10 +292,10 @@ created: function(){
       axios.post("/post/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
-        
+
           document.getElementById('close').click();
-      }); 
-    }, 
+      });
+    },
     getChildren: function (id) {
 
             return this.comments.filter(function (el) {

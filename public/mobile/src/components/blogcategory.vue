@@ -19,11 +19,11 @@
                   <ul class="list-unstyled" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
                      <li class="xs-col-12 xs-mb2"  v-for="(fre, index) in posts.fresh" v-if="index <=count">
                         <router-link v-bind:to="{ name: 'blogpost', params: { id: fre.id, title: respace(fre.title) }}"  class="bold text-gray">
-                      
+
                       <img class="buzz-image xs-block xs-mb05" :src="fre.image">
                       <P id="post-cat-m"> {{fre.category.name}} </P>
                       <h4 class="xs-text-4 lg-text-3">{{fre.title}}</h4>
-                    
+
                     </router-link>
                     <p id="share-m"> <span style="    font-size: 1.7em;
     font-weight: 900;
@@ -58,30 +58,32 @@ export default{
         axios.get('/schedules')
           .then(response => {
             // JSON responses are automatically parsed.
-            this.schedule = response.data;
-  
+            this.schedule = _.groupBy(response.data, function(car) {
+                                return car.state;
+                                });
+
           })
           .catch(e => {
-  
+
           });
       },
       between: function(start, end) {
-  
-  
+
+
         var format = 'hh:mm:ss'
-  
+
         // var time = moment() gives you current time. no format required.
         var time = moment(),
           beforeTime = moment(start, format),
           afterTime = moment(end, format);
-  
+
         if (time.isBetween(beforeTime, afterTime)) {
-  
+
           return 'Now';
         } else {
-  
+
           return 'Later';
-  
+
         }
       },
       cat_posts: function(){
@@ -116,16 +118,21 @@ export default{
             timeago: function (time){
                 return moment(time).fromNow();
             }
-    }, 
+    },
     computed: {
-         now_playing: function() {
-        for (var i = 0; i < this.schedule.length; i++) {
-          var schedu = this.schedule[i];
-          if (this.between(schedu.start, schedu.end) == "Now") {
-            return schedu
-          }
-        }
-      },
+          now_playing: function(){
+              if(this.schedule[this.current_state]){
+                for(var i =0; i < this.schedule[this.current_state].length; i++){
+                    var schedu = this.schedule[this.current_state][i];
+                    if(this.between(schedu.start, schedu.end)=="Now"){
+                        return schedu
+                    }
+                }
+              }
+          },
+        current_state: function(){
+              return this.$store.state.current_state;
+          },
       current_play_state: function(){
             return this.$store.state.play;
           }

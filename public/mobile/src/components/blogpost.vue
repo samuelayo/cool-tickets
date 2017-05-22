@@ -8,8 +8,8 @@
               <td style="border-left: 6px solid red;border-right: 1px solid rgb(221, 221, 221);letter-spacing: 3px;color: red;display: inline-block;font-style: normal !important;font-size: 0.8em;width: 103px;" class="text-left"><i :class="'ion-'+current_play_state" @click="livestream()"></i> <small>LIVE</small> </td>
               <td class="text-left" style="padding-left: 11.4px !important; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;">{{now_playing.title}} </td>
             </tr>
-  
-  
+
+
           </tbody>
         </table>
 
@@ -31,10 +31,10 @@
 
             <br>
             <br>
-            
+
 
             <div class="item-body">
-         
+
                <p v-html="post.content" style="width: 100% !important;">
                </p>
                <comment v-if="post.id" :id="post.id"></comment>
@@ -68,7 +68,7 @@
                 <div class="xs-text-left text-gray">
                     <ul class="list-unstyled">
                         <li class="xs-col-12 xs-mb2" v-for="rel in related_posts" v-if="(post.id && rel.id != post.id)">
-                            
+
                              <router-link  class="bold text-gray" v-bind:to="{ name: 'blogpost', params: { id: rel.id, title: rel.title }}">
                                 <img class="buzz-image xs-block xs-mb05" :src="rel.image">
 
@@ -78,7 +78,7 @@
                                 <p id="share-m"> <span style="    font-size: 1.7em;
     font-weight: 900;
     vertical-align: sub;" class="ion-android-open"> </span> &nbsp 200 <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span> <span style="font-weight: 100;">3 HOURS AGO</span> </p>
-                            
+
                         </li>
                     </ul>
                 </div>
@@ -103,7 +103,7 @@
              {{ho.topic}}
             </a>   <br><br>
                          <small style="color:red;">
-                         In this conversation 
+                         In this conversation
                          </small><br><p></p>
                          <div id="convert">
                          <img class="conversation" src="img/4671_1.png"/>
@@ -113,7 +113,7 @@
                          <span style="color: #007adf; font-size: 15px;font-size: 15px;
     vertical-align: super;">+ {{ho.comments.length-4}}</span>
                          </div>
-                         <hr>      
+                         <hr>
       </li>
   </ul>
 
@@ -169,15 +169,15 @@ export default{
                 this.keypoints = str.match(/<p>.*?<\/p>/g);
                 })
                 .catch(e => {
-                
+
                 });
                 //this.getshows();
-                setTimeout(()=>{ 
+                setTimeout(()=>{
                     this.fetch_related();
                  }, 1000);
-                
-                
-                
+
+
+
         },
         components:{
             comment
@@ -190,11 +190,14 @@ export default{
             .then(response => {
             // JSON responses are automatically parsed.
             //alert('related');
-                this.related_posts = response.data;
-            
+                this.schedule = _.groupBy(response.data, function(car) {
+                                return car.state;
+                                });
+
+
             })
             .catch(e => {
-            
+
             });
 
         },
@@ -217,40 +220,43 @@ export default{
                             return getValue(a.comments.length) - getValue(a.comments.length);
                         });
                         this.hot=list;
-                
+
                     })
                     .catch(e => {
-                    
+
                     });
             },
         schedules: function() {
         axios.get('/schedules')
           .then(response => {
             // JSON responses are automatically parsed.
-            this.schedule = response.data;
-  
+            this.schedule = _.groupBy(response.data, function(car) {
+                                return car.state;
+                                });
+
+
           })
           .catch(e => {
-  
+
           });
       },
       between: function(start, end) {
-  
-  
+
+
         var format = 'hh:mm:ss'
-  
+
         // var time = moment() gives you current time. no format required.
         var time = moment(),
           beforeTime = moment(start, format),
           afterTime = moment(end, format);
-  
+
         if (time.isBetween(beforeTime, afterTime)) {
-  
+
           return 'Now';
         } else {
-  
+
           return 'Later';
-  
+
         }
       },
       livestream: function(){
@@ -267,20 +273,25 @@ export default{
             hottimeago: function(obj){
                 if(obj.comments != undefined && obj.comments.length != 0){
                     var last = obj.comments[obj.comments.length-1];
-                    return this.timeago(last.updated_at); 
+                    return this.timeago(last.updated_at);
                 }
                 return "No activity yet";
             }
     },
     computed: {
-        now_playing: function() {
-        for (var i = 0; i < this.schedule.length; i++) {
-          var schedu = this.schedule[i];
-          if (this.between(schedu.start, schedu.end) == "Now") {
-            return schedu
-          }
-        }
-      },
+       now_playing: function(){
+              if(this.schedule[this.current_state]){
+                for(var i =0; i < this.schedule[this.current_state].length; i++){
+                    var schedu = this.schedule[this.current_state][i];
+                    if(this.between(schedu.start, schedu.end)=="Now"){
+                        return schedu
+                    }
+                }
+              }
+          },
+        current_state: function(){
+              return this.$store.state.current_state;
+          },
       current_play_state: function(){
             return this.$store.state.play;
           }

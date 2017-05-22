@@ -268,7 +268,9 @@
         axios.get('/schedules')
           .then(response => {
             // JSON responses are automatically parsed.
-            this.schedule = response.data;
+            this.schedule = _.groupBy(response.data, function(car) {
+                                return car.state;
+                                });
 
           })
           .catch(e => {
@@ -400,14 +402,19 @@
             }
     },
     computed: {
-      now_playing: function() {
-        for (var i = 0; i < this.schedule.length; i++) {
-          var schedu = this.schedule[i];
-          if (this.between(schedu.start, schedu.end) == "Now") {
-            return schedu
-          }
-        }
-      },
+        now_playing: function(){
+              if(this.schedule[this.current_state]){
+                for(var i =0; i < this.schedule[this.current_state].length; i++){
+                    var schedu = this.schedule[this.current_state][i];
+                    if(this.between(schedu.start, schedu.end)=="Now"){
+                        return schedu
+                    }
+                }
+              }
+          },
+        current_state: function(){
+              return this.$store.state.current_state;
+          },
        all_chart: function(){
               var arr = {
                   0: this.nigerianchart,
