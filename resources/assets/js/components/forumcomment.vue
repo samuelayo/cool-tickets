@@ -297,11 +297,18 @@ created: function(){
                 this.comments = d.all_comments;
               }
        
-      }
-        },
-        connect: function(){
+      },
+      connect: function(){
           alert('connected');
         }
+        },
+        watch: {
+          id: function(){
+            this.all_users();
+            this.fetchComments();
+          }
+        }
+        
       
 }
 </script>

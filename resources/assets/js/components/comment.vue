@@ -297,6 +297,12 @@ created: function(){
               }
        
       }
+        },
+        watch: {
+          id: function(){
+            this.all_users();
+            this.fetchComments();
+          }
         }
 }
 </script>
