@@ -69,6 +69,10 @@ const router = new VueRouter({
     mode: 'history'
 })
 
+router.beforeEach(function(transition) {
+    window.scrollTo(0, 0)
+    transition.next()
+});
 // router.afterEach((to, from) => {
 //   if (/\s/.test(window.location.href)) {
 //     // It has any kind of whitespace
