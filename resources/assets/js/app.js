@@ -69,17 +69,17 @@ const router = new VueRouter({
     mode: 'history'
 })
 
-router.beforeEach(function(transition) {
-    window.scrollTo(0, 0)
-    transition.next()
-});
-// router.afterEach((to, from) => {
-//   if (/\s/.test(window.location.href)) {
-//     // It has any kind of whitespace
-//     window.location.href=window.location.href.replace(/\s+/g, "-");
-//   }
-//   next();
-// })
+router.beforeEach(function(to, from, next) {
+        window.scrollTo(0, 0)
+        next();
+    })
+    // router.afterEach((to, from) => {
+    //   if (/\s/.test(window.location.href)) {
+    //     // It has any kind of whitespace
+    //     window.location.href=window.location.href.replace(/\s+/g, "-");
+    //   }
+    //   next();
+    // })
 
 
 const coolfm = new Vue({
