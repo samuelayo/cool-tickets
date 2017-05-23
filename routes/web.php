@@ -45,17 +45,17 @@ Route::get('blog_category/{id}', 'HomeController@blog_category');
 
 Route::get('/charts', 'HomeController@charts');
 Route::get('post/{id}/comments', function($id){
-      return \App\Models\BlogPost::findOrFail($id)->comments;
+      return \App\Models\BlogPost::where('id',$id)->first()->comments;
     });
 
     Route::post('post/{id}/comment',function($id, Request $request){
       $user = auth()->user();
 
-       \App\Models\BlogPost::findOrFail($id)->comment([
+       \App\Models\BlogPost::where('id',$id)->first()->comment([
           'body' => $request->get('body'),
          'parent_id' => $request->get('parent_id', null)
       ],$user);
-      $all_comments=\App\Models\BlogPost::findOrFail($id)->comments;
+      $all_comments=\App\Models\BlogPost::where('id',$id)->first()->comments;
       $data = array('event'=>'CommentMade',
                     'data'=>[
                       'type'=>'blog',
@@ -79,17 +79,17 @@ Route::get('post/{id}/comments', function($id){
     });
 
     Route::get('myforum/{id}/comments', function($id){
-      return \App\Models\Forum::findOrFail($id)->comments;
+      return \App\Models\Forum::where('id',$id)->first()->comments;
     });
 
     Route::post('myforum/{id}/comment',function($id, Request $request){
 
       $user = auth()->user();
-       \App\Models\Forum::findOrFail($id)->comment([
+       \App\Models\Forum::where('id',$id)->first()->comment([
           'body' => $request->get('body'),
          'parent_id' => $request->get('parent_id', null)
       ],$user);
-      $all_comments=\App\Models\Forum::findOrFail($id)->comments;
+      $all_comments=\App\Models\Forum::where('id',$id)->first()->comments;
       $data = array('event'=>'CommentMade',
                     'data'=>[
                       'type'=>'forum',
