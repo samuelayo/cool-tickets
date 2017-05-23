@@ -188,6 +188,7 @@ import comment from './comment.vue'
                     this.loading = false;
                     var str = this.post.keypoints;
                     this.keypoints = str.match(/<p>.*?<\/p>/g);
+                    document.body.scrollTop = document.documentElement.scrollTop = 0;
     
                     var status = {
                         title: 'CoolFmNigeria | ' + this.post.title,

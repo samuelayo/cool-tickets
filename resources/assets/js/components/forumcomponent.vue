@@ -106,6 +106,7 @@ import forumads from './forumads'
                     title: 'CoolFmNigeria | Forums topics, discuss, share your opinions',
                     description: `Get your opinions aired, lend your voice to the masses, get outspoken, use the coolfm forums`
                 }
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
                 this.$store.dispatch('SET_SEO', status);
                 })
                 .catch(e => {
