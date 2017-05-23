@@ -48,14 +48,13 @@ Route::get('post/{id}/comments', function($id){
       return \App\Models\BlogPost::where('id',$id)->first()->comments;
     });
 
-    Route::post('post/{id}/comment',function($id, Request $request){
+    Route::post('post/{id}/comment',function(\App\Models\BlogPost $id, Request $request){
       $user = auth()->user();
-
-       \App\Models\BlogPost::where('id',$id)->first()->comment([
+       $id->comment([
           'body' => $request->get('body'),
          'parent_id' => $request->get('parent_id', null)
       ],$user);
-      $all_comments=\App\Models\BlogPost::where('id',$id)->first()->comments;
+      $all_comments=$id->comments;
       $data = array('event'=>'CommentMade',
                     'data'=>[
                       'type'=>'blog',
@@ -75,7 +74,7 @@ Route::get('post/{id}/comments', function($id){
     });
 
     Route::get('thisforum/{id}', function($id){
-      return \App\Models\Forum::find($id)->with('category_name', 'user', 'comments')->first();
+      return \App\Models\Forum::where('id',$id)->with('category_name', 'user', 'comments')->first();
     });
 
     Route::get('myforum/{id}/comments', function($id){
