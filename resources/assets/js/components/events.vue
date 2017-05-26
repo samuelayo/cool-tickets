@@ -51,14 +51,7 @@
         <br>
         <br>
         <br>
-    
-        <form id="paystack-card-form">
-            <input type="text" data-paystack="number">
-            <input type="text" data-paystack="cvv">
-            <input type="text" data-paystack="expiryMonth">
-            <input type="text" data-paystack="expiryYear">
-            <button type="submit" data-paystack="submit">Submit</button>
-        </form>
+   
     </div>
 </template>
 
@@ -147,22 +140,28 @@
                 this.ticket_price[index].price = ticket.price * this.ticket_qty[index];
             },
             buyticket: function(index) {
-
-                axios.post("/initiate_ticket_purchase")
-                    .then((response)=>{
-                var paystack;
-                Paystack.init({
-                    form: "paystack-card-form", // Form ID
-                    access_code: response.access // You should programmatically pass the access
-                    // code via Ajax or a server variable. Note that
-                    // the access code can only be used once. 
-                }).then(function(returnedObj) {
-                    paystack = returnedObj;
-                }).catch(function(error) {
-                    console.log("There was an error loading Paystack", error);
-                });
-                    
-                });
+                    var handler = PaystackPop.setup({
+                    key: 'pk_test_e5b2f82bc75abecde0e0fe9c004b2eb8551c7549',
+                    email: 'customer@email.com',
+                    amount: this.ticket_price[index].price*100,
+                    ref: "cool_ticket_"+this.ticket_price[index].price+this.ticket_qty[index]+Math.round(+new Date()/1000),
+                    metadata: {
+                        custom_fields: [
+                            {
+                                display_name: "Mobile Number",
+                                variable_name: "mobile_number",
+                                value: "+2348012345678"
+                            }
+                        ]
+                    },
+                    callback: function(response){
+                        //alert('success. transaction ref is ' + response.reference);
+                    },
+                    onClose: function(){
+                        alert('An error occured, please try agian later');
+                    }
+                    });
+                    handler.openIframe();
                
             }
     

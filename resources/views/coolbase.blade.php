@@ -58,7 +58,8 @@
   <!-- jQuery -->
   
 <script src="/js/app.js"></script>
-<script src="https://js.paystack.co/v1/paystack.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<!--<script src="https://js.paystack.co/v1/paystack.js"></script>-->
 
 <style>
 .hidesa{

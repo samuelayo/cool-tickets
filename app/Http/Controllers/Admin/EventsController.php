@@ -62,20 +62,15 @@ class EventsController extends \App\Http\Controllers\Controller
         return Events::with('tickets')->get();
     }
     public function initiate(){
-        // $client = new Client();
-        $headers = ['Authorization' => 'Bearer sk_test_536b6bea23be98d0562e2cdc0641e17ae70c27cf',
-                    'Content-Type'=> 'application/json'
-                   ];
-        $body = [
-            'reference'=>rand(0, 10000),
-            'bearer'=>'account',
-            'amount'=>'5000',
-            'email'=>'aogundipe@coolwazobiainfo.com'
+        $headers = ['Authorization: Bearer sk_test_536b6bea23be98d0562e2cdc0641e17ae70c27cf',
+        'Content-Type: application/json'
         ];
-        // $res = $client->request('POST', 'https://api.paystack.co/transaction/initialize', $headers, $body);
-        // return $res;
-        // $response = $res->send();
-        // return $response;
+        $body = [
+        'reference'=>rand(0, 10000),
+        'bearer'=>'account',
+        'amount'=>'5000',
+        'email'=>'aogundipe@coolwazobiainfo.com'
+        ];
         $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
@@ -83,12 +78,12 @@ class EventsController extends \App\Http\Controllers\Controller
         CURLOPT_USERAGENT => 'Cool fm ticket payment request',
         CURLOPT_POST => 1,
         CURLOPT_HTTPHEADER => $headers,
-        CURLOPT_POSTFIELDS => $body
-    ));
-    $resp = curl_exec($curl);
-    // Close request to clear up some resources
-    curl_close($curl);
-    return $resp;
-    }
+        CURLOPT_HEADER => false,
+        CURLOPT_POSTFIELDS => json_encode($body)
+        ));
+        $resp = curl_exec($curl);
+        curl_close($curl);
+        return $resp;
 
+    }
 }
