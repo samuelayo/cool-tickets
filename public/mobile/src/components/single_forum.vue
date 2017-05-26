@@ -196,8 +196,30 @@
         computed: {
              now_playing: function(){
               if(this.schedule[this.current_state]){
-                for(var i =0; i < this.schedule[this.current_state].length; i++){
-                    var schedu = this.schedule[this.current_state][i];
+                var myDate = new Date();
+                 var schedule_arry = this.schedule[this.current_state];
+                if(myDate.getDay() == 6){
+                       //saturday
+                       //filter by saturday
+                        schedule_arry = _.filter(schedule_arry, (sch) => {
+                                return sch.period == "saturday";
+                            });
+
+                    }else if(myDate.getDay() == 0 ){
+                        //sunday
+                        //filter by sunday
+                        schedule_arry = _.filter(schedule_arry, (sch) => {
+                                return sch.period == "sunday";
+                            });
+
+                    }else{
+                        //otherdays
+                        schedule_arry = _.filter(schedule_arry, (sch) => {
+                                return sch.period != "sunday" && sch.period != "saturday";
+                            });
+                    }
+                for(var i =0; i < schedule_arry.length; i++){
+                    var schedu = schedule_arry[i];
                     if(this.between(schedu.start, schedu.end)=="Now"){
                         return schedu
                     }
