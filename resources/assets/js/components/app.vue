@@ -64,6 +64,10 @@
             </li>
             <li>
   
+              <router-link to="/events">Events</router-link>
+            </li>
+            <li>
+  
               <a class="switch" data-toggle="dropdown">Switch Channel
                             <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -205,6 +209,7 @@
         {
           var audio = this.$refs.ourplay;
           audio.src = this.$store.state.current_stream;
+          audio.play();
         }
         return this.$store.state.current_stream;
       }

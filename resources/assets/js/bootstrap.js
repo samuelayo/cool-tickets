@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 /**
@@ -22,7 +21,8 @@ window.Vue = require('vue');
 window.moment = require('moment');
 
 window.tinymce = require('tinymce');
-window.plyr=require('plyr')
+window.plyr = require('plyr')
+window.accounting = require('accounting');
 
 
 
@@ -53,4 +53,3 @@ window.axios.defaults.headers.common = {
 //     broadcaster: 'socket.io',
 //     host: 'http://localhost:3000'
 // });
-

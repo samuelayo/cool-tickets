@@ -117,9 +117,11 @@ Route::get('post/{id}/comments', function($id){
               $query->where('id', $id);
           })->orderBy('created_at', "DESC")->take(5)->get();
     });
+    Route::post('initiate_ticket_purchase', 'Admin\EventsController@initiate');
+    Route::get('all_tickets', 'Admin\EventsController@allticktes');
     
 
-Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
+Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware'=>'auth'], function () {
     // Controllers Within The "App\Http\Controllers\Admin" Namespace
     Route::get('/', function(){
      redirect('/admin/blogpost')->route();
@@ -129,11 +131,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
     });
     Route::get('logout', 'Auth\LoginController@Logout');
     Auth::routes();
-    //Route::get('login', 'Auth\LoginController@Login');
-    //Route::post('login', 'Auth\LoginController@Login');
     Route::get('logout', 'Auth\LoginController@Logout');
-    //Route::get('register', 'Auth\LoginController@Register');
-    //Route::post('register', 'Auth\LoginController@Register');
     CRUD::resource('category', 'CategoryCrudController');
     CRUD::resource('blogpost', 'BlogPostCrudController');
     CRUD::resource('keypoint', 'KeypointCrudController');
@@ -146,9 +144,11 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function () {
     CRUD::resource('forumcategory', 'ForumcategoryCrudController');
     CRUD::resource('forum', 'ForumCrudController');
     CRUD::resource('shows', 'ShowsCrudController');
-    
+    Route::get('events', 'EventsController@list');
+    Route::get('events/create', 'EventsController@create');
+    Route::post('events/create', 'EventsController@createpost');
+    Route::get('events/{id}/delete', 'EventsController@delete_event');
     CRUD::resource('adscategory', 'AdsCategoryCrudController');
-    
     Route::get('ads', 'AdsEngineController@list');
     Route::get('adslist', 'AdsEngineController@adslist');
     Route::get('adslist/{id}/edit', 'AdsEngineController@adsedit');

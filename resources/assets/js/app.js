@@ -33,6 +33,9 @@ Vue.use(VueSocketio, 'https://coolfm.ng/socket');
 Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
 
 Vue.component('adimage', require('./components/adimage.vue'));
+Vue.filter('money', function(value) {
+    return accounting.format(value);
+})
 
 import app from './components/app'
 import landing from './components/landing'
@@ -44,6 +47,7 @@ import chartcurrated from './components/chartcurrated'
 import forumcomponent from './components/forumcomponent'
 import singleforum from './components/singleforum'
 import blogcategory from './components/blogcategory'
+import events from './components/events'
 
 
 const routes = [
@@ -57,7 +61,8 @@ const routes = [
     { path: '/chartcurrated/:currentchartweek', component: chartcurrated, name: 'chartcurrated', props: true },
     { path: '/forums', component: forumcomponent, name: 'forumcomponent' },
     { path: '/forum/:id/:name', component: singleforum, name: 'forum', props: true },
-    { path: '/blogcategory/:name/:id', component: blogcategory, name: 'blogcategory', props: true }
+    { path: '/blogcategory/:name/:id', component: blogcategory, name: 'blogcategory', props: true },
+    { path: '/events', component: events, name: 'events' }
 
 ]
 
