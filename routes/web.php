@@ -119,6 +119,7 @@ Route::get('post/{id}/comments', function($id){
     });
     Route::post('initiate_ticket_purchase', 'Admin\EventsController@initiate');
     Route::get('all_tickets', 'Admin\EventsController@allticktes');
+    Route::post('ticket_purchased', 'Admin\EventsController@ticket_purchased');
     
 
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware'=>'auth'], function () {

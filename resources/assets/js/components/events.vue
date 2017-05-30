@@ -25,20 +25,20 @@
                             <form>
                                 <div class="dropdown">
                                     <select id="select" type="button" class="btn btn-select" v-model="ticket_price[index].id" @change="check(index)" data-toggle="dropdown">
-                                             
-                                                        <option v-for="typ in evn.tickets" :value="typ.id">{{typ.name}}</option>
-                                               
-                                            </select>
+                                                 
+                                                            <option v-for="typ in evn.tickets" :value="typ.id">{{typ.name}}</option>
+                                                   
+                                                </select>
                                 </div>
                             </form>
     
                             <form>
                                 <div class="dropdown">
                                     <select id="select" type="button" class="btn btn-select" @change="check(index)" v-model="ticket_qty[index]" data-toggle="dropdown">
-                                                
-                                                        <option v-for="(i, index) in 10">{{i}}</option>
-                                                
-                                            </select>
+                                                    
+                                                            <option v-for="(i, index) in 10">{{i}}</option>
+                                                    
+                                                </select>
                                 </div>
                             </form> <button id="floater" class="btn btn-success" @click="buyticket(index)">Buy Tickets</button>
                         </div>
@@ -51,7 +51,7 @@
         <br>
         <br>
         <br>
-   
+    
     </div>
 </template>
 
@@ -69,20 +69,6 @@
             this.get_tickets();
         },
         mounted: function() {
-            setTimeout(
-                $('.dropdown-radio').find('input').change(function() {
-                    var dropdown = $(this).closest('.dropdown');
-                    var radioname = $(this).attr('name');
-                    var checked = 'input[name=' + radioname + ']:checked';
-    
-                    //update the text
-                    var checkedtext = $(checked).closest('.dropdown-radio').text();
-                    dropdown.find('button').text(checkedtext);
-    
-                    //retrieve the checked value, if needed in page 
-                    var thisvalue = dropdown.find(checked).val();
-                    alert(thisvalue);
-                }), 3000);
     
     
         },
@@ -140,29 +126,40 @@
                 this.ticket_price[index].price = ticket.price * this.ticket_qty[index];
             },
             buyticket: function(index) {
-                    var handler = PaystackPop.setup({
+                var ticket_id = this.ticket_price[index].price;
+                var qty = this.ticket_qty[index];
+                var total_amt = this.ticket_price[index].price;
+                var email = 'customer@email.com';
+                var handler = PaystackPop.setup({
                     key: 'pk_test_e5b2f82bc75abecde0e0fe9c004b2eb8551c7549',
                     email: 'customer@email.com',
-                    amount: this.ticket_price[index].price*100,
-                    ref: "cool_ticket_"+this.ticket_price[index].price+this.ticket_qty[index]+Math.round(+new Date()/1000),
+                    amount: this.ticket_price[index].price * 100,
+                    ref: "cool_ticket_" + this.ticket_price[index].price + this.ticket_qty[index] + Math.round(+new Date() / 1000),
                     metadata: {
-                        custom_fields: [
-                            {
-                                display_name: "Mobile Number",
-                                variable_name: "mobile_number",
-                                value: "+2348012345678"
-                            }
-                        ]
+                        custom_fields: [{
+                            display_name: "Mobile Number",
+                            variable_name: "mobile_number",
+                            value: "+2348012345678"
+                        }]
                     },
-                    callback: function(response){
+                    callback: function(response) {
                         //alert('success. transaction ref is ' + response.reference);
+                        axios.post('ticket_purchased', {
+                                ticket_id, qty, total_amt, email
+                            })
+                            .then(function(response) {
+                                alert("Please check your email for your tickets");
+                            })
+                            .catch(function(error) {
+                                console.log(error);
+                            });
                     },
-                    onClose: function(){
+                    onClose: function() {
                         alert('An error occured, please try agian later');
                     }
-                    });
-                    handler.openIframe();
-               
+                });
+                handler.openIframe();
+    
             }
     
         },

@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use App\Models\Events;
 use App\Models\Eventickets;
 use GuzzleHttp\Client;
+use App\TicketPurchased;
+use App\Events\TicketPurchased as EventTicketPurchased;
+
 
 
 class EventsController extends \App\Http\Controllers\Controller
@@ -85,5 +88,16 @@ class EventsController extends \App\Http\Controllers\Controller
         curl_close($curl);
         return $resp;
 
+    }
+
+    public function ticket_purchased(Request $request){      
+        $ticket = new TicketPurchased();
+        $ticket->ticket_id = $request->get('ticket_id');
+        $ticket->qty = $request->get('qty');
+        $ticket->total_amt = $request->get('total_amt');
+        $ticket->email = $request->get('email');
+        $ticket->save();
+        event(new EventTicketPurchased($ticket));
+        return "Event Purchase Succesful";
     }
 }

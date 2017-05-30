@@ -1,5 +1,10 @@
 <?php
-
+$mail_from = [
+            'Kolapo from Cool FM',
+            'Cj from Cool FM',
+            'Fola from Cool FM',
+            'Ay from Cool FM'
+    ];
 return [
 
     /*
@@ -16,7 +21,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => 'smtp',
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +34,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => 'mail2.coolfm.ng',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +47,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' =>465,
 
     /*
     |--------------------------------------------------------------------------
@@ -55,9 +60,10 @@ return [
     |
     */
 
+    
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => 'tickets@coolfm.com',
+        'name' => $mail_from[rand(0, count($mail_from)-1)],
     ],
 
     /*
@@ -71,7 +77,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' =>'ssl',
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +90,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => 'tickets@coolfm.ng',
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => 'ticket123',
 
     /*
     |--------------------------------------------------------------------------
@@ -111,6 +117,8 @@ return [
     | of the emails. Or, you may simply stick with the Laravel defaults!
     |
     */
+    'pretend' => false,
+
 
     'markdown' => [
         'theme' => 'default',
