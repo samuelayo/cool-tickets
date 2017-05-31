@@ -97,7 +97,13 @@ class EventsController extends \App\Http\Controllers\Controller
         $ticket->total_amt = $request->get('total_amt');
         $ticket->email = $request->get('email');
         $ticket->save();
-        event(new EventTicketPurchased($ticket));
-        return "Event Purchase Succesful";
+
+        $original_ticket = Eventickets::where('id',$request->get('ticket_id'))->first();
+        $original_ticket->amount = $original_ticket->amount - $request->get('qty');
+        $original_ticket->save();
+
+        $event = Events::where('id', $original_ticket->event)->first();
+        event(new EventTicketPurchased($ticket, $original_ticket, $event));
+        return Events::with('tickets')->get();
     }
 }

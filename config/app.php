@@ -194,6 +194,8 @@ return [
         App\Providers\AgentServiceProvider::class,
 
         Adumskis\LaravelAdvert\AdvertServiceProvider::class,
+        //qr code 
+   
     ],
 
     /*
@@ -245,6 +247,7 @@ return [
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'AdvMng'    => Adumskis\LaravelAdvert\AdvertFacade::class,
+       
 
 
     ],

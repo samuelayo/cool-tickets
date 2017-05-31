@@ -10,13 +10,14 @@
         'categories'=>$categories,
         'ads'=>$ads
     ]); ?>
-    //localStorage.setItem('username', auth()->user()->name)
+    
 </script>
 <?php
 if(auth()->user()){
 ?>
 <script>
 localStorage.setItem('username', '<?php echo auth()->user()->name ?>');
+localStorage.setItem('email', '<?php echo auth()->user()->email ?>');
 </script>
 <?php
 }
@@ -28,6 +29,7 @@ if(!auth()->user()){
 <script>
 if(localStorage.getItem('username')!=undefined){
     localStorage.removeItem('username');
+    localStorage.removeItem('email');
 }
 </script>
 <?php

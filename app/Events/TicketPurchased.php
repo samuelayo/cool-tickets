@@ -9,29 +9,32 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Picqer\Barcode\BarcodeGeneratorHTML;
+use Picqer\Barcode\BarcodeGeneratorSVG;
 
 class TicketPurchased
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $ticketdetails;
+    public $original;
+    public $event;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($ticketdetails)
+    public function __construct($ticketdetails, $original, $event)
     {
         //
         $this->ticketdetails = $ticketdetails;
-        $generator = new BarcodeGeneratorHTML();
+        $this->original = $original;
+        $this->event = $event;
+        $generator = new BarcodeGeneratorSVG();
 
-        Mail::send('emails.send', ['details' => $ticketdetails, 'barcode'=> $generator->getBarcode($ticketdetails->id, $generator::TYPE_CODE_128)], function ($message)
+        Mail::send('emails.send', ['ticketpurchased' => $ticketdetails, 'original'=>$original, 'event'=>$event, 'barcode'=> $generator->getBarcode($ticketdetails->id, $generator::TYPE_CODE_128)], function ($message) use ($ticketdetails)
         {
-
-            $message->to('aogundipe@coolwazobiainfo.com');
+            $message->to($ticketdetails->email)->subject('Your Ticket has arrived');
 
         });
     }

@@ -60,7 +60,6 @@
         data: function() {
             return {
                 all_events: [],
-                searchable: [],
                 ticket_price: [],
                 ticket_qty: []
             }
@@ -77,7 +76,7 @@
                 axios.get("/all_tickets")
                     .then((response) => {
                         this.all_events = response.data;
-                        this.loadable();
+                        //this.loadable();
                         this.pushem();
                     });
             },
@@ -90,10 +89,7 @@
                 return false;
             },
             loadable: function() {
-                var ll = _.filter(this.all_events, (event) => {
-                    return this.verify(event.date);
-                });
-                this.searchable = ll;
+                
             },
             daysRemaining: function(eventdate) {
                 return moment(eventdate).fromNow();
@@ -126,44 +122,121 @@
                 this.ticket_price[index].price = ticket.price * this.ticket_qty[index];
             },
             buyticket: function(index) {
-                var ticket_id = this.ticket_price[index].price;
+                var ticket_id = this.ticket_price[index].id;
                 var qty = this.ticket_qty[index];
                 var total_amt = this.ticket_price[index].price;
-                var email = 'customer@email.com';
-                var handler = PaystackPop.setup({
-                    key: 'pk_test_e5b2f82bc75abecde0e0fe9c004b2eb8551c7549',
-                    email: 'customer@email.com',
-                    amount: this.ticket_price[index].price * 100,
-                    ref: "cool_ticket_" + this.ticket_price[index].price + this.ticket_qty[index] + Math.round(+new Date() / 1000),
-                    metadata: {
-                        custom_fields: [{
-                            display_name: "Mobile Number",
-                            variable_name: "mobile_number",
-                            value: "+2348012345678"
-                        }]
-                    },
-                    callback: function(response) {
-                        //alert('success. transaction ref is ' + response.reference);
-                        axios.post('ticket_purchased', {
-                                ticket_id, qty, total_amt, email
-                            })
-                            .then(function(response) {
-                                alert("Please check your email for your tickets");
-                            })
-                            .catch(function(error) {
-                                console.log(error);
+                var email = localStorage.getItem('email')?localStorage.getItem('email'):'';
+                var tickets = this.searchable[index].tickets;
+                var ticket = tickets.find(x => x.id == this.ticket_price[index].id);
+                if(ticket.amount == 0){
+                    swal({
+                            title: "Error!",
+                            text: ticket.name+" tickets sold out",
+                            type: "error",
+                            confirmButtonText: "Cool"
+                        });
+                    return false;
+                }
+                if(this.ticket_qty[index] > ticket.amount && ticket.amount != 0 ){
+                    swal({
+                            title: "Error!",
+                            text: "we have only "+ticket.amount+ " "+ticket.name+" tickets available",
+                            type: "error",
+                            confirmButtonText: "Cool"
+                        });
+                    
+                    return false;
+                }
+                if(email == ""){
+                   var getemail="";
+                   var regex = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+                   swal({
+                        title: "Your Email!",
+                        text: "Please provide us with an email:",
+                        type: "input",
+                        showCancelButton: true,
+                        closeOnConfirm: true,
+                        animation: "slide-from-top",
+                        inputPlaceholder: "email"
+                        },
+                        (inputValue)=>{
+                        if (inputValue === false) {
+                            return false;
+                        }else if (inputValue === "") {
+                            swal.showInputError("You need to write something!");
+                            return false
+                        }else if(!regex.test(inputValue)){
+                        swal.showInputError("Your email is not valid!");
+                        return false;
+                        }else{
+                            email = inputValue;
+                             var self = this;
+                            var handler = PaystackPop.setup({
+                                key: 'pk_test_e5b2f82bc75abecde0e0fe9c004b2eb8551c7549',
+                                email,
+                                amount: this.ticket_price[index].price * 100,
+                                ref: "cool_ticket_" + this.ticket_price[index].price + this.ticket_qty[index] + Math.round(+new Date() / 1000),
+                                metadata: {
+                                    // custom_fields: [{
+                                    //     display_name: "Mobile Number",
+                                    //     variable_name: "mobile_number",
+                                    //     value: "+2348012345678"
+                                    // }]
+                                },
+                                callback: function(response) {
+                                    swal({
+                                        title: "In progress",
+                                        text: "Please hold on, your ticket is being processed",
+                                        type: "info",
+                                        showCancelButton: true,
+                                        closeOnConfirm: false,
+                                        showLoaderOnConfirm: true,
+                                        },
+                                        ()=>{
+                                        axios.post('ticket_purchased', {
+                                            ticket_id, qty, total_amt, email
+                                        })
+                                        .then((response)=> {
+                                            self.all_events = response.data;
+                                            swal("Please check your email for your tickets");
+                                        })
+                                        .catch((error)=> {
+                                            swal("An error occured. If your ticket was not sent, and you have been debitted, please send an email to tickets@coolfm.ng");
+                                        });
+                                            
+                                        
+                                    });
+                                    //alert('success. transaction ref is ' + response.reference);
+                                    
+                                },
+                                onClose: ()=>{
+                                    swal('An error occured, please try agian later');
+                                }
                             });
-                    },
-                    onClose: function() {
-                        alert('An error occured, please try agian later');
-                    }
-                });
-                handler.openIframe();
+                            handler.openIframe();
+                        }
+                        
+                        
+                        });
+                   
+                    
+                }
+               
     
             }
     
         },
-        computed: {}
+        computed: {
+            searchable: function(){
+                if(!this.all_events){
+                    return [];
+                }
+                var ll = _.filter(this.all_events, (event) => {
+                    return this.verify(event.date);
+                });
+                return ll;
+            }
+        }
     }
 </script>
 
