@@ -34,7 +34,7 @@ return [
     |
     */
 
-    'host' => 'smtp.gmail.com',
+    'host' => 'smtp.sendgrid.net',
 
     /*
     |--------------------------------------------------------------------------
@@ -90,9 +90,9 @@ return [
     |
     */
 
-    'username' => 'ayoogundipe2005@gmail.com',
+    'username' => 'webteam',
 
-    'password' => 'olufemi1',
+    'password' => 'Coolfm123',
 
     /*
     |--------------------------------------------------------------------------
