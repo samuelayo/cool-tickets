@@ -42,7 +42,7 @@
                                 <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: respace(trend.title) }}">
                                     <h4>{{trend.title}}</h4>
                                 </router-link>
-                                <i style="color: blue;" class="ion-android-share" aria-hidden="true"></i>
+                                <i style="color: blue;" class="ion-android-open" aria-hidden="true"></i>
 
                                 <a href="#">7500 shares</a>
                             </div>

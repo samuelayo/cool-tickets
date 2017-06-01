@@ -282,7 +282,7 @@
                            <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: respace(trend.title) }}">
                               <h4>{{trend.title}}</h4>
                            </router-link>
-                           <i style="color: blue;" class="ion-android-share" aria-hidden="true"></i>
+                           <i style="color: blue;" class="ion-android-open" aria-hidden="true"></i>
                            <a href="#">7500 shares</a>
                         </div>
                      </div>
@@ -302,10 +302,7 @@
                      <h4 class="rising_head" style="color: white;">{{newpost.category.name}}</h4>
                      <h3 class="rising_topic" style="color: white;">{{newpost.title}}</h3>
                   </router-link>
-                  <span style="color: white;" class="rising_share" >
-                  <i  class="ion-android-share" aria-hidden="true"></i>
-                  <a href="#" style="color: white;">7500 shares</a>
-                  </span>
+                  <span class="rising_share" style="color: white;"><i aria-hidden="true" class="ion-android-open" style="font-size:1.57em;vertical-align:middle;"></i> <a href="#" style="color: white;">7500 shares</a></span>
                </div>
             </div>
          </div>

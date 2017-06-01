@@ -487,7 +487,8 @@
                                                                                                             <p class="center"> <img style="width: 90px; " src="https://www.coolfm.ng/img/logo.png"> </p>
 
 
-                                                                                                            <p style="width: 100%;"> {!! $barcode !!}</p>
+                                                                                                            <p style="width: 100%;"> <?php echo $barcode;
+                                                                                                            ?></p>
 
                                                                                                         </td>
                                                                                                     </tr>

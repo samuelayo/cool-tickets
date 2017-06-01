@@ -118,10 +118,13 @@ Route::get('post/{id}/comments', function($id){
           })->orderBy('created_at', "DESC")->take(5)->get();
     });
     Route::post('initiate_ticket_purchase', 'Admin\EventsController@initiate');
-    Route::get('all_tickets', 'Admin\EventsController@allticktes');
-    Route::post('ticket_purchased', 'Admin\EventsController@ticket_purchased');
     
+    Route::post('ticket_purchased', 'Admin\EventsController@ticket_purchased');
 
+    Route::group(['middleware'=>'cors'], function(){
+        Route::get('all_tickets', 'Admin\EventsController@allticktes');
+        Route::get('ticket/{id}/redeem', 'Admin\EventsController@redeem');
+    });
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware'=>'auth'], function () {
     // Controllers Within The "App\Http\Controllers\Admin" Namespace
     Route::get('/', function(){

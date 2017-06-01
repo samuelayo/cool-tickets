@@ -62,7 +62,9 @@ class EventsController extends \App\Http\Controllers\Controller
     }
 
     public function allticktes(){
-        return Events::with('tickets')->get();
+        return Events::with(['tickets'=>function($tick){
+            $tick->with('purchased');
+        }])->get();
     }
     public function initiate(){
         $headers = ['Authorization: Bearer sk_test_536b6bea23be98d0562e2cdc0641e17ae70c27cf',
@@ -105,5 +107,10 @@ class EventsController extends \App\Http\Controllers\Controller
         $event = Events::where('id', $original_ticket->event)->first();
         event(new EventTicketPurchased($ticket, $original_ticket, $event));
         return Events::with('tickets')->get();
+    }
+    public function redeem(TicketPurchased $id){
+        $id->redeemed = 1;
+        $id->save();
+        return $this->allticktes();
     }
 }

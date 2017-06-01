@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'username' => 'webteam',
+    'username' => 'coolweb',
 
     'password' => 'Coolfm123',
 

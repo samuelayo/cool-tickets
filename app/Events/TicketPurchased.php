@@ -9,7 +9,7 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Picqer\Barcode\BarcodeGeneratorSVG;
+
 
 class TicketPurchased
 {
@@ -30,9 +30,15 @@ class TicketPurchased
         $this->ticketdetails = $ticketdetails;
         $this->original = $original;
         $this->event = $event;
-        $generator = new BarcodeGeneratorSVG();
+     
+    
+        $qrCode = new \Arcanedev\QrCode\QrCode;
+        $qrCode->setText($ticketdetails->id);
+        $qrCode->setSize(200);
 
-        Mail::send('emails.send', ['ticketpurchased' => $ticketdetails, 'original'=>$original, 'event'=>$event, 'barcode'=> $generator->getBarcode($ticketdetails->id, $generator::TYPE_CODE_128)], function ($message) use ($ticketdetails)
+ 
+
+        Mail::send('emails.send', ['ticketpurchased' => $ticketdetails, 'original'=>$original, 'event'=>$event, 'barcode'=> $qrCode->image("image alt", ['class' => 'qr-code-img'])], function ($message) use ($ticketdetails)
         {
             $message->to($ticketdetails->email)->subject('Your Ticket has arrived');
 

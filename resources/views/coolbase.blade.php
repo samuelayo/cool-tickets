@@ -24,7 +24,8 @@
 <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet">
 
 
-<link href="fonts/ionicons/css/ionicons.css" rel="stylesheet">
+<link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
+<link href="/fonts/circular-font.css" rel="stylesheet">
 
 <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">

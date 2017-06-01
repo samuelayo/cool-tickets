@@ -34,6 +34,9 @@ class Eventickets extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function purchased(){
+        return $this->hasMany('App\TicketPurchased', 'ticket_id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------
