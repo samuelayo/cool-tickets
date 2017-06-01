@@ -309,7 +309,7 @@
          <!-- end rising -->
          <div class="col-md-3">
             <br><br>
-            <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4>
+            <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Forum</h4>
             <br>
             <div class="panel panel-default shadowed">
                <div class="row" >

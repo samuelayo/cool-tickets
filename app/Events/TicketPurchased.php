@@ -35,10 +35,13 @@ class TicketPurchased
         $qrCode = new \Arcanedev\QrCode\QrCode;
         $qrCode->setText($ticketdetails->id);
         $qrCode->setSize(200);
+        $filename = 'uploads/'.$ticketdetails->id.'.jpg';
+        $qrCode->save($filename);
+        
 
  
 
-        Mail::send('emails.send', ['ticketpurchased' => $ticketdetails, 'original'=>$original, 'event'=>$event, 'barcode'=> $qrCode->image("image alt", ['class' => 'qr-code-img'])], function ($message) use ($ticketdetails)
+        Mail::send('emails.send', ['ticketpurchased' => $ticketdetails, 'original'=>$original, 'event'=>$event], function ($message) use ($ticketdetails)
         {
             $message->to($ticketdetails->email)->subject('Your Ticket has arrived');
 
