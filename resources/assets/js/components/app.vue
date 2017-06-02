@@ -66,8 +66,16 @@
   
               <router-link to="/events">Events</router-link>
             </li>
+              
             <li>
-  
+              <a href="#">About Us</a>
+            </li>
+            <li>
+              <a href="#">Contact Us</a>
+            </li>
+            <li>
+            
+
               <a class="switch" data-toggle="dropdown">Switch Channel
                             <span class="caret"></span></a>
               <ul class="dropdown-menu">
