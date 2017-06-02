@@ -53,7 +53,9 @@
             </div>
             <br><!-- advert -->
             <div class="col-md-12">
-               <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
+                <a  v-if="category_chart[1]" :href="category_chart[1].url">
+         <adimage  :src="'/'+category_chart[1].image_url" width="100%" height="100%"></adimage>
+      </a>
             </div>
             <div>
                <br> 
