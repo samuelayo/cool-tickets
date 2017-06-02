@@ -193,7 +193,7 @@
             <div class="col-md-6">
                <div class="row">
                   <br><br>
-                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index <= 3" >
+                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index <= 3" transition="fadeLeft">
                      <p class="chart-num"><strong> {{chart.position}} </strong></p>
                      <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
                      <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
@@ -209,7 +209,7 @@
             <div class="col-md-6">
                <div class="row">
                   <br><br>
-                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="(index > 3 && index <=6)" >
+                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="(index > 3 && index <=6)" transition="fadeLeft">
                      <p class="chart-num"><strong> {{chart.position}} </strong></p>
                      <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
                      <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
