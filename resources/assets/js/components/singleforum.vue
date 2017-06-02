@@ -125,10 +125,13 @@
         },
         computed: {
             category_chart: function(){
-            var homeads = _.filter(window.Laravel.ads, (o)=>{
-                if (o.advert_category.type == this.forum.category_name.name+"_ads") return o;
-            });
-            return homeads;
+                if(this.forum){
+                    var homeads = _.filter(window.Laravel.ads, (o)=>{
+                        if (o.advert_category.type == this.forum.category_name.name+"_ads") return o;
+                    });
+                    return homeads;
+                }
+            return [];
           }
         }
     }
