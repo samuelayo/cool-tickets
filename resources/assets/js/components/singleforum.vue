@@ -125,7 +125,7 @@
         },
         computed: {
             category_chart: function(){
-                if(this.forum){
+                if(this.forum.category_name){
                     var homeads = _.filter(window.Laravel.ads, (o)=>{
                         if (o.advert_category.type == this.forum.category_name.name+"_ads") return o;
                     });

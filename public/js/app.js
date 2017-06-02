@@ -33380,7 +33380,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         category_chart: function category_chart() {
             var _this2 = this;
 
-            if (this.forum) {
+            if (this.forum.category_name) {
                 var homeads = _.filter(window.Laravel.ads, function (o) {
                     if (o.advert_category.type == _this2.forum.category_name.name + "_ads") return o;
                 });
