@@ -193,7 +193,7 @@
             <div class="col-md-6">
                <div class="row">
                   <br><br>
-                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index <= 3" transition="fadeLeft">
+                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index <= 3" :id="'sa_'+index">
                      <p class="chart-num"><strong> {{chart.position}} </strong></p>
                      <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
                      <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
@@ -203,13 +203,14 @@
                         <center><small>{{chart.songs.song_title}}</small></center>
                         <center><small><a href="#">{{chart.songs.artistname}}</a></small></center>
                      </span>
+                     {{fadein('sa_'+index)}}
                   </div>
                </div>
             </div>
             <div class="col-md-6">
                <div class="row">
                   <br><br>
-                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="(index > 3 && index <=6)" transition="fadeLeft">
+                  <div  class="col-sm-3" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="(index > 3 && index <=6)" :id="'sa2_'+index">
                      <p class="chart-num"><strong> {{chart.position}} </strong></p>
                      <a  class="ratio img-responsive img-circle" :style="'background-image: url('+chart.songs.image+');'"></a>
                      <span class="badge badge-notify"><small>{{noofchart(chart.song)}}</small></span>
@@ -219,6 +220,7 @@
                         <center><small>{{chart.songs.song_title}}</small></center>
                         <center><small><a href="#">{{chart.songs.artistname}}</a></small></center>
                      </span>
+                     {{fadein('sa2_'+index)}}
                   </div>
                   <br><br>
                   <div  class="col-sm-3" >
@@ -607,6 +609,10 @@
                 }
                 return "No activity yet";
                 
+            },
+            fadein: function(id){
+                var tim = Math.floor(Math.random() * 5000) + 1500;
+                $('#'+id).fadeOut(0).fadeIn(tim);
             }
       },
       computed: {
