@@ -24,7 +24,7 @@
           <div class="navbar-brand topnav">
             <a>
               <router-link to="/">
-                <img src="/img/logo.png" width="120" alt="Cool Fm">
+                <img src="/img/logo.png" width="150" alt="Cool Fm">
               </router-link>
             </a>
           </div>
@@ -83,7 +83,6 @@
       </div>
       <!-- /.container-fluid -->
     </nav>
-<br>
 <br>
     <!-- the router outlet, where all matched components would ber viewed -->
     <transition>

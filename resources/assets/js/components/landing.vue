@@ -51,7 +51,7 @@
                                     <p class="player-status-live">{{between(schedule.start, schedule.end)}}</p>
                                  </div>
                                  <div class="col-md-10" >
-                                    <h5>{{schedule.title}}</h5>
+                                    <h5 style="font-family: 'Circular-Black'">{{schedule.title}}</h5>
                                     <p style="color: grey;">
                                        {{schedule.description}}
                                     </p>
@@ -246,7 +246,7 @@
          <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:center; left: 73.57%'">
             <p>
                <span class="catgory">{{fres.category.name}}</span> <br>
-               <router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: respace(fres.title) }}">{{fres.title}}</router-link>
+               <router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: respace(fres.title) }}" style="font-family: 'Circular-Black; font-size: 1.2em;'">{{fres.title}}</router-link>
             </p>
          </div>
       </flickity>

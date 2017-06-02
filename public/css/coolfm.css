@@ -64,9 +64,7 @@ h5 {
     color: black;
 }
 
-.htop {
-    margin-top: 10px;
-}
+.htop {}
 
 #center {
     text-align: center;
@@ -270,23 +268,25 @@ h5 {
 .rising_head {
     position: absolute;
     padding: 25px;
-    margin-top: 12em;
+    margin-top: 10em;
 }
 
 .rising_topic {
     position: absolute;
     padding: 25px;
-    margin-top: 10em;
+    margin-top: 5.4em;
+    font-size: 2.7em;
     padding-bottom: 2em !important;
-    font-weight: 600;
-    width: auto;
+    font-weight: 100;
+    width: 96%;
+    font-family: ‘Circular-Black’;
     height: auto;
 }
 
 .rising_share {
     position: absolute;
-    padding: 25px;
-    margin-top: 22em;
+    padding: 28px;
+    margin-top: 20.5em;
 }
 
 .badge-new {
@@ -1325,10 +1325,12 @@ tr:hover {
 }
 
 .forum-lg {
-    text-align: center;
+    text-align: left;
     font-weight: 700;
-    width: 90%;
+    width: 70%;
+    font-size: 3.3em;
     margin: 0 auto;
+    font-family: ‘Circular-Black’;
     line-height: 1.2;
 }
 
@@ -1834,4 +1836,17 @@ tr:hover {
 .dropdown-menu>li>a {
     padding: 6px 30px !important;
     border-top: 1px solid #ddd !important;
+}
+
+.navbar-nav>li {
+    float: left !important;
+    border-right: 1px solid #eff2f5 !important;
+    padding: 1.5em !important;
+}
+
+.dropdown-menu>li>a {
+    padding: 12px 30px !important;
+    border-top: 1px solid #ddd !important;
+    font-family: 'Circular-Light';
+    font-weight: 700;
 }
