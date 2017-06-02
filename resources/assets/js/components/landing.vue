@@ -48,7 +48,8 @@
                            <li v-for="(schedule, index) in formated_schedules">
                               <div class="col-md-12">
                                  <div id="center"  class="col-md-2">
-                                    <p class="player-status-live">{{between(schedule.start, schedule.end)}}</p>
+                                    <p class="player-status-live" v-if="(between(schedule.start, schedule.end)=='NOW')">{{between(schedule.start, schedule.end)}}</p>
+                                    <p class="player-status-live" v-if="(between(schedule.start, schedule.end)=='LATER')" style="color: black;">{{between(schedule.start, schedule.end)}}</p>
                                  </div>
                                  <div class="col-md-10" >
                                     <h5 style="font-family: 'Circular-Black'">{{schedule.title}}</h5>
@@ -459,10 +460,10 @@
 
                 if (time.isBetween(beforeTime, afterTime)) {
 
-                return 'Now';
+                return 'NOW';
                 } else {
 
-                return 'Later';
+                return 'LATER';
 
                 }
             },
