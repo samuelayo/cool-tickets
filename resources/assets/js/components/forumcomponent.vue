@@ -126,6 +126,14 @@ import forumads from './forumads'
                 }
                 return "No activity yet";
             }
+        },
+        computed: {
+            forum_chart: function() {
+                var homeads = _.map(window.Laravel.ads, function(o) {
+                    if (o.advert_category.type == "forum_main") return o;
+                });
+                return homeads;
+            }
         }
     }
 </script>

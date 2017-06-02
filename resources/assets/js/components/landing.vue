@@ -49,7 +49,7 @@
                               <div class="col-md-12">
                                  <div id="center"  class="col-md-2">
                                     <p class="player-status-live" v-if="(between(schedule.start, schedule.end)=='NOW')">{{between(schedule.start, schedule.end)}}</p>
-                                    <p class="player-status-live" v-if="(between(schedule.start, schedule.end)=='LATER')" style="color: black;">{{between(schedule.start, schedule.end)}}</p>
+                                    <p class="player-status-live" v-if="(between(schedule.start, schedule.end)=='LATER')" style="color: grey;">{{between(schedule.start, schedule.end)}}</p>
                                  </div>
                                  <div class="col-md-10" >
                                     <h5 style="font-family: 'Circular-Black'">{{schedule.title}}</h5>
@@ -689,7 +689,7 @@
                     }
                 for(var i =0; i < schedule_arry.length; i++){
                     var schedu = schedule_arry[i];
-                    if(this.between(schedu.start, schedu.end)=="Now"){
+                    if(this.between(schedu.start, schedu.end)=="NOW"){
                         return schedu
                     }
                 }
