@@ -189,7 +189,7 @@
          <!-- chart header -->
          <!-- -->
          <!-- chart images -->
-         <div class="col-md-12">
+         <div class="col-md-12 chartsall">
             <div class="col-md-6">
                <div class="row">
                   <br><br>
@@ -611,8 +611,8 @@
                 
             },
             fadein: function(id){
-                var tim = Math.floor(Math.random() * 5000) + 1500;
-                $('#'+id).fadeOut(0).fadeIn(tim);
+                    var tim = Math.floor(Math.random() * 5000) + 1500;
+                    $('#'+id).fadeOut(0).fadeIn(tim);
             }
       },
       computed: {
