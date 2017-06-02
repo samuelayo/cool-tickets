@@ -157,8 +157,8 @@
     
     <div id="login" v-if="!loggedin">
   <p style="text-align: center;" ><span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> Please login to comment</span>  <span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
+    vertical-align: super; color: #fff; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> Please login to comment</span>  <span style="border-bottom: 1px solid #ddd;
+    vertical-align: super; color: #fff; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
               <div class="row margin-bottom-10">
               <div class="col-md-6 col-sm-6 col-xs-6">
                   <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook">Facebook</a>

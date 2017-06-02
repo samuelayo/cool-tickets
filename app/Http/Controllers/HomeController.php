@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function index()
     {
         $trending = BlogPost::where('view_count', '>', 1000)->where('view_count', '>', 5000)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
-        $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->take(3)->get();
+        $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
         $fresh = BlogPost::take(5)->with('category')->orderBy('created_at', 'DESC')->get();
         $categories = Category::all();
         $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();

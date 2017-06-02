@@ -25,13 +25,19 @@
             </div> 
   <div class="row">
              <div id="advert-side" class="panel panel-default ">
-                 <img src="/img/sq_ad.png" width="100%"/>
+                 <a v-if="side_ad[0]" :href="side_ad[0].url">
+                    <adimage :src="'/'+side_ad[0].image_url" width="100%" height="100%"></adimage>
+                </a>
                  <div>
                    
                        
 
-            <img id="advert-side" src="/img/ht_ad1.png" width="100%" height="70%" />
-            <img id="advert-side" src="/img/ht_ad2.png" width="100%" height="70%" />
+                <a v-if="side_ad[1]" :href="side_ad[1].url">
+                    <adimage :src="'/'+side_ad[1].image_url" width="100%" height="100%"></adimage>
+                </a>
+                <a v-if="side_ad[2]" :href="side_ad[2].url">
+                    <adimage :src="'/'+side_ad[2].image_url" width="100%" height="100%"></adimage>
+                </a>
 
             </div>
         </div>
@@ -78,6 +84,16 @@
                     return this.timeago(last.updated_at); 
                 }
                 return "No activity yet";
+            }
+        }, 
+        computed: {
+            side_ad: function(){
+                
+                var homeads = _.map(window.Laravel.ads, function(o) {
+                    if (o.advert_category.type == "forum_side") return o;
+                });
+                return homeads;
+          
             }
         }
     }

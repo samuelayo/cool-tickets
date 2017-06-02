@@ -1320,7 +1320,6 @@ tr:hover {
 }
 
 .forum-topic {
-    font-weight: 700;
     min-width: 250px;
 }
 
@@ -1330,7 +1329,7 @@ tr:hover {
     width: 70%;
     font-size: 3.3em;
     margin: 0 auto;
-    font-family: ‘Circular-Black’;
+    font-family: 'Circular-Black';
     line-height: 1.2;
 }
 

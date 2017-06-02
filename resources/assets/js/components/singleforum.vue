@@ -3,7 +3,9 @@
    <div class="row">
       <!-- advert -->
       <div class="col-md-12">
-         <adimage src="/img/cool_adv.png" width="100%" height="100%"></adimage>
+          <a  v-if="category_chart[0]" :href="category_chart[0].url">
+         <adimage  :src="'/'+category_chart[0].image_url" width="100%" height="100%"></adimage>
+      </a>
       </div>
       <!-- 3 grid for trending, rising and hot topics -->
       <div class="col-md-12">
@@ -117,9 +119,17 @@
             }
         },
          watch: {
-        id: function (val) {
-            this.getforum();
+            id: function (val) {
+                this.getforum();
+            }
+        },
+        computed: {
+            category_chart: function(){
+            var homeads = _.filter(window.Laravel.ads, (o)=>{
+                if (o.advert_category.type == forum.category_name.name+"_ads") return o;
+            });
+            return homeads;
+          }
         }
-  }
     }
 </script>
