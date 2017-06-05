@@ -1840,7 +1840,7 @@ tr:hover {
 .navbar-nav>li {
     float: left !important;
     border-right: 1px solid #eff2f5 !important;
-    padding: 1.5em !important;
+    padding: 0.5em !important;
 }
 
 .dropdown-menu>li>a {

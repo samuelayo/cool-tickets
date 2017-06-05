@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-  <title>{{title}}</title>
-<meta name="description" :content="description"/>
-<meta name="robots" content="nodp"/>
-<meta name="author" content="ogundipe samuel">
-<meta property="og:locale" content="en_US" />
-<meta property="og:type" content="website" />
-<meta property="og:title" :content="title" />
-<meta property="og:description" :content="description" />
-<meta property="og:url" content="/" />
-<meta property="og:site_name" content="Coolfm" />
-<meta property="og:image" content="/img/logo.png" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:description" :content="description" />
-<meta name="twitter:title" :content="title" />
-<meta name="twitter:site" content="@coolfmnigeria" /> 
+    <title>{{title}}</title>
+    <meta name="description" :content="description" />
+    <meta name="robots" content="nodp" />
+    <meta name="author" content="ogundipe samuel">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" :content="title" />
+    <meta property="og:description" :content="description" />
+    <meta property="og:url" content="/" />
+    <meta property="og:site_name" content="Coolfm" />
+    <meta property="og:image" content="/img/logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" :content="description" />
+    <meta name="twitter:title" :content="title" />
+    <meta name="twitter:site" content="@coolfmnigeria" />
     <nav class="navbar topnav navbar-default" role="navigation">
       <div class="container-fluid topnav">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,33 +27,39 @@
                 <img src="/img/logo.png" width="150" alt="Cool Fm">
               </router-link>
             </a>
+            
           </div>
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                      </button>
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
           </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse htop" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <!--<li>
-              <a class="active" href="#">On Air</a>
-            </li>
-            <li>
-              <a href="#">Schedules</a>
-            </li> -->
+                <a class="active" href="#">On Air</a>
+              </li>
+              <li>
+                <a href="#">Schedules</a>
+              </li> -->
+              <li>
+              <gcse:search></gcse:search>
+              </li>
             <li>
               <a data-toggle="dropdown">Categories
-                            <span class="caret"></span></a>
+                              <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li v-for="cat in categories"> <router-link :to="{ name: 'blogcategory', params: { id: cat.id, name:cat.name }}">{{cat.name}}</router-link></li>
+                <li v-for="cat in categories">
+                  <router-link :to="{ name: 'blogcategory', params: { id: cat.id, name:cat.name }}">{{cat.name}}</router-link>
+                </li>
               </ul>
             </li>
-            
+  
             <li>
               <router-link to="/all_oaps">OAPs</router-link>
   
@@ -66,7 +72,7 @@
   
               <router-link to="/events">Events</router-link>
             </li>
-              
+  
             <li>
               <a href="#">About Us</a>
             </li>
@@ -74,10 +80,10 @@
               <a href="#">Contact Us</a>
             </li>
             <li>
-            
-
+  
+  
               <a class="switch" data-toggle="dropdown">Switch Channel
-                            <span class="caret"></span></a>
+                              <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="javascript:void()" @click="change_state('Lagos', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos')">Coolfm Lagos</a></li>
                 <li><a href="javascript:void()" @click="change_state('Kano', 'http://icestream.coolwazobiainfo.com:8000/coolfm-kano')">Coolfm Kano</a></li>
@@ -85,48 +91,49 @@
                 <li><a href="javascript:void()" @click="change_state('Ph', 'http://icestream.coolwazobiainfo.com:8000/coolfm-ph')">Coolfm Port-Harcourt</a></li>
               </ul>
             </li>
+           
           </ul>
         </div>
         <!-- /.navbar-collapse -->
       </div>
       <!-- /.container-fluid -->
     </nav>
-<br>
+    <br>
     <!-- the router outlet, where all matched components would ber viewed -->
     <transition>
       <router-view></router-view>
     </transition>
     <div class="navbar navbar-default navbar-fixed-bottom">
       <div class="container">
-      
+  
         <span class="navbar-text" style="margin-top:1%">
-          
-          <!--<div id="timeline">
-            <div id="playhead"></div>
-          </div><span style="vertical-align: -webkit-baseline-middle;">&nbsp <span id="len">5.50</span></span>-->
-        <audio id="ourplay" ref="ourplay" controls > 
-          <source :src="current_stream"/>
-        </audio>
+            
+            <!--<div id="timeline">
+              <div id="playhead"></div>
+            </div><span style="vertical-align: -webkit-baseline-middle;">&nbsp <span id="len">5.50</span></span>-->
+        <audio id="ourplay" ref="ourplay" controls> 
+            <source :src="current_stream"/>
+          </audio>
         </span>
   
   
         <p class="navbar-text pull-right">
-          <span  ><p></p>
-          <span id="playname">
-          Now Playing: Cool fm live stream
-          </span>
+          <span><p></p>
+            <span id="playname">
+            Now Playing: Cool fm live stream
+            </span>
           <span id="live" style="
-   margin-left: 1em;
-   color: red;
-   padding: .19em;
-   font-weight: 400;
-   font-size: 0.8em;
-   letter-spacing: 3px;
-   border: 1.2px solid red;
-   padding-left: .5em;
-   padding-right: .5em;
-">LIVE</span>
-        </span>
+     margin-left: 1em;
+     color: red;
+     padding: .19em;
+     font-weight: 400;
+     font-size: 0.8em;
+     letter-spacing: 3px;
+     border: 1.2px solid red;
+     padding-left: .5em;
+     padding-right: .5em;
+  ">LIVE</span>
+          </span>
         </p>
       </div>
   
@@ -134,48 +141,55 @@
     </div>
   </div>
 </template>
-
 <script>
   export default {
     name: 'app',
-    data: ()=>{
+    data: () => {
       return {
         type: '',
         src: '',
         play: 'play',
-        player:'',
+        player: '',
         categories: Laravel.categories
       }
     },
-    
+  
     created: function() {
-      
-
-     
+  
+  
+  
     },
-    mounted: function(){
-      this.player=plyr.setup();
+    mounted: function() {
+      (function() {
+        var cx = '004277073545021023643:yuy8iwmq_ky';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+      this.player = plyr.setup();
     },
     computed: {
       playorpause: function() {
-        if(this.$refs.ourplay !=undefined)
-        {
+        if (this.$refs.ourplay != undefined) {
           var audio = this.$refs.ourplay;
-          if(audio.paused){
+          if (audio.paused) {
             return 'play';
           }
-        return 'paused';
+          return 'paused';
         }
         return 'play';
-         
+  
       }
     },
     methods: {
-      playthis: (id, type, src, name)=>{
-        if(type=="livestream"){
-          document.getElementById('live').style.display='inline-block';
-        }else{
-          document.getElementById('live').style.display='none';
+      playthis: (id, type, src, name) => {
+        if (type == "livestream") {
+          document.getElementById('live').style.display = 'inline-block';
+        } else {
+          document.getElementById('live').style.display = 'none';
         }
         var audio = document.getElementById('ourplay');
         if (this.type == "livestream") {
@@ -187,33 +201,32 @@
         audio.src = src;
         this.src = src;
         this.type = type;
-       
+  
         audio.play();
         if (this.type == type && this.play == 'play') {
-           this.play = 'pause';
-           audio.pause();
-        }else if(this.type == type && this.play != 'play'){
-           this.play = 'play';
-           audio.play();
+          this.play = 'pause';
+          audio.pause();
+        } else if (this.type == type && this.play != 'play') {
+          this.play = 'play';
+          audio.play();
         }
-        document.getElementById('playname').innerHTML='Now Playing: '+name;
+        document.getElementById('playname').innerHTML = 'Now Playing: ' + name;
   
       },
-      change_state: function(status, stream){
+      change_state: function(status, stream) {
         this.$store.dispatch('SET_STATE', status);
         this.$store.dispatch('SET_STREAM', stream);
       }
     },
     computed: {
-      title: function(){
+      title: function() {
         return this.$store.state.title;
       },
-      description: function(){
+      description: function() {
         return this.$store.state.description;
       },
-      current_stream: function(){
-         if(this.$refs.ourplay !=undefined)
-        {
+      current_stream: function() {
+        if (this.$refs.ourplay != undefined) {
           var audio = this.$refs.ourplay;
           audio.src = this.$store.state.current_stream;
           audio.play();
@@ -240,7 +253,14 @@
     height: 1px;
     background: rgba(0, 255, 196, 0.82);
   }
-  audio::-webkit-media-controls-enclosure, video::-webkit-media-controls-enclosure {
-  max-width: 100%;
-}
+  
+  audio::-webkit-media-controls-enclosure,
+  video::-webkit-media-controls-enclosure {
+    max-width: 100%;
+  }
+  .cse .gsc-control-cse, .gsc-control-cse{
+    padding: 0 0 0 0 !important;
+    margin: -1em !important;
+  }
+    
 </style>
