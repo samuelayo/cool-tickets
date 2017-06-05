@@ -262,5 +262,10 @@
     padding: 0 0 0 0 !important;
     margin: -1em !important;
   }
+ input#gsc-i-id1 {
+    outline: none;
+    background: none !important;
+    text-indent: 0px !important;
+}
     
 </style>
