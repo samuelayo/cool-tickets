@@ -93,4 +93,19 @@ class HomeController extends Controller
         return view('mobileview.index', compact('trending', 'newones', 'fresh', 'categories', 'ads'));
    
     }
+
+    public function app_sess(){
+        $trending = BlogPost::where('view_count', '>', 1000)->where('view_count', '>', 5000)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
+        $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
+        $fresh = BlogPost::take(10)->with('category')->orderBy('created_at', 'DESC')->get();
+        $categories = Category::all();
+        $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
+        return json_encode([
+                    'trending' => $trending,
+                    'newones'=>$newones, 
+                    'fresh'=>$fresh,
+                    'categories'=>$categories,
+                    'ads'=>$ads
+                ]);
+    }
 }
