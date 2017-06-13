@@ -1,0 +1,24 @@
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Alternates Regular'), local('MontserratAlternates-Regular'), url(http://fonts.gstatic.com/s/montserratalternates/v7/z2n1Sjxk9souK3HCtdHukh2IngJzWcPT5W0V3nD-4dg.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Alternates Regular'), local('MontserratAlternates-Regular'), url(http://fonts.gstatic.com/s/montserratalternates/v7/z2n1Sjxk9souK3HCtdHuksk3T0zDZptq2_3paB0vlqg.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Alternates Regular'), local('MontserratAlternates-Regular'), url(http://fonts.gstatic.com/s/montserratalternates/v7/z2n1Sjxk9souK3HCtdHukpy2IC1KoJIC5P3EDKbgI_s.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}

@@ -7,8 +7,7 @@
 require('./bootstrap');
 
 /**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
+ * Next, we will create a fresh Vue application instance and attach it to * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
@@ -48,6 +47,7 @@ import forumcomponent from './components/forumcomponent'
 import singleforum from './components/singleforum'
 import blogcategory from './components/blogcategory'
 import events from './components/events'
+import errorpage from './components/errorpage'
 
 
 const routes = [
@@ -62,7 +62,8 @@ const routes = [
     { path: '/forums', component: forumcomponent, name: 'forumcomponent' },
     { path: '/forum/:id/:name', component: singleforum, name: 'forum', props: true },
     { path: '/blogcategory/:name/:id', component: blogcategory, name: 'blogcategory', props: true },
-    { path: '/events', component: events, name: 'events' }
+    { path: '/events', component: events, name: 'events' },
+    { path: '*', component: errorpage }
 
 ]
 
