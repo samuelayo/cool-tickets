@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdn.plyr.io/2.0.12/plyr.css">
 
     <!-- Custom Fonts -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -30,7 +31,7 @@
 <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-<script src="http://maps.google.com/maps/api/js?sensor=false&callback=init"></script>
+
 
 
 
