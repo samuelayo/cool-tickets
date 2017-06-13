@@ -31,7 +31,7 @@ Route::group(['prefix'=>'m'], function () {
 
 });
 
-
+Route::get('sendmail', 'HomeController@sendMail');
 Route::group(['middleware'=>'cors'], function(){
     Route::get('/app_sess', 'HomeController@app_sess');
     Route::get('/home', 'HomeController@index');

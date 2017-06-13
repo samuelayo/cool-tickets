@@ -44,6 +44,7 @@ import forumcomponent from './components/forumcomponent'
 import singleforum from './components/singleforum'
 import blogcategory from './components/blogcategory'
 import events from './components/events'
+import contact from './components/contact'
 import errorpage from './components/errorpage'
 
 
@@ -60,6 +61,7 @@ const routes = [
     { path: '/forum/:id/:name', component: singleforum, name: 'forum', props: true },
     { path: '/blogcategory/:name/:id', component: blogcategory, name: 'blogcategory', props: true },
     { path: '/events', component: events, name: 'events' },
+    { path: '/contact-us', component: contact, name: 'contact-us' },
     { path: '*', component: errorpage }
 
 ]

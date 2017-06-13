@@ -11,6 +11,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use App\Mail\ContactMail;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -108,4 +110,21 @@ class HomeController extends Controller
                     'ads'=>$ads
                 ]);
     }
+
+    public function sendMail(Request $request){
+        $name = $request->get('name');
+        $body = $request->get('body');
+        $email = $request->get('email');
+        $phone = $request->get('phone');
+        $content = [
+    		'title'=> 'New mail from '.$name, 
+    		'body'=> $body,
+            'email'=>$email,
+            'phone'=>$phone
+    		];
+        $receiverAddress = 'webteam@coolwazobiainfo.com';
+        Mail::to($receiverAddress)->send(new ContactMail($content));
+        
+    }
+    
 }

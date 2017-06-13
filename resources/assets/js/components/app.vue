@@ -77,7 +77,7 @@
               <a href="#">About Us</a>
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <router-link to="/contact-us">Contact Us</router-link>
             </li>
             <li>
   

@@ -271,7 +271,7 @@
             <br>
             <div class="panel panel-default shadowed">
                <div>
-                <a  v-if="sidebar_chart_2[0]" :href="sidebar_chart_2[0].url">
+                <a  v-if="sidebar_chart_2[0]" :href="sidebar_chart_2[0].url" style="padding: 1em;">
                     <adimage  :src="'/'+sidebar_chart_2[0].image_url" width="100%" height="100%" isd="0"></adimage>
                   </a>
                   <br>
@@ -337,12 +337,12 @@
                      </div>
                      <hr>
                   </div>
-                    <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url">
+                    <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url" style="padding: 1em;">
                      <adimage :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="1"></adimage>
                   </a>
                    <br>
                    <br>
-                  <a  v-if="sidebar_chart_2[1]" :href="sidebar_chart_2[1].url">
+                  <a  v-if="sidebar_chart_2[1]" :href="sidebar_chart_2[1].url" style="padding: 1em;">
                     <adimage  :src="'/'+sidebar_chart_2[1].image_url" width="100%" height="100%" isd="2"></adimage>
                   </a>
                </div>
