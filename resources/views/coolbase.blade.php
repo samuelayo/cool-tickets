@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  
 <head>
 
     <meta charset="utf-8">
@@ -16,8 +17,6 @@
     <link rel="stylesheet" href="https://cdn.plyr.io/2.0.12/plyr.css">
 
     <!-- Custom Fonts -->
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   <link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>

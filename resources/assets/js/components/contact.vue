@@ -94,7 +94,7 @@
                         mapOptions);
                     marker.setMap(map);
                 }
-                init_map1();
+                init();
             });
         },
         computed: {
