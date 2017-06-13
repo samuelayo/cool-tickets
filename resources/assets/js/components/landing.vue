@@ -225,7 +225,7 @@
                   <br><br>
                   <div  class="col-sm-3" >
                      <router-link v-bind:to="{ name: 'chartcurrated', params: {currentchartweek: currentchartweek }}">
-                        <a id="see-all" href="http://trovacamporall.com" class="ratio img-responsive img-circle" >See Complete List</a>
+                        <a id="see-all" href="#" class="ratio img-responsive img-circle" >See Complete List</a>
                      </router-link>
                   </div>
                </div>
@@ -237,6 +237,9 @@
    <!-- end chart details -->
    <br>
    <br>
+   <span v-if="all_chart[currentchart][currentchartweek]">
+   <br>
+   </span>
    <!-- freshly pressed -->
    <div class="container-fluid">
       <h3>
