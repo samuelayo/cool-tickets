@@ -143,7 +143,7 @@
    <!-- advert -->
    <div class="col-md-12">
       <a  v-if="homepage_chart[1]" :href="homepage_chart[1].url">
-         <adimage  :src="'/'+homepage_chart[1].image_url" width="100%" height="100%"></adimage>
+         <adimage  :src="'/'+homepage_chart[1].image_url" width="100%" height="100%" style="padding: 1em;"></adimage>
       </a>
    </div>
    <br>
@@ -406,29 +406,29 @@
     
                 $(document).ready(function(){
 
-                    toastr.options = {
-                "closeButton": true,
-                "debug": false,
-                "newestOnTop": true,
-                "progressBar": true,
-                "positionClass": "toast-bottom-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "100000",
-                "timeOut": "50000000",
-                "extendedTimeOut": "1000000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-                }
+        //             toastr.options = {
+        //         "closeButton": true,
+        //         "debug": false,
+        //         "newestOnTop": true,
+        //         "progressBar": true,
+        //         "positionClass": "toast-bottom-right",
+        //         "preventDuplicates": false,
+        //         "onclick": null,
+        //         "showDuration": "300",
+        //         "hideDuration": "100000",
+        //         "timeOut": "50000000",
+        //         "extendedTimeOut": "1000000",
+        //         "showEasing": "swing",
+        //         "hideEasing": "linear",
+        //         "showMethod": "fadeIn",
+        //         "hideMethod": "fadeOut"
+        //         }
           
-           toastr.success(`
-                    <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo0NzE0OTMsImNoIjoxMTc4LCJjayI6e30sImNyIjoxNjM4OTg5LCJkaSI6IjM4YTViMTQ2Y2QxZDRhYWNhZGQ4YWNiMmU3MTg4NTdlIiwiZG0iOjEsImZjIjoxOTQzNDQxLCJmbCI6MjE0MjMxMiwiaXAiOiIxOTcuMjM0LjM1LjIiLCJrdyI6Imh0bWwsY3NzLGNzcy10cmFuc2l0aW9ucyxjc3MtYW5pbWF0aW9ucyxiYW5uZXIseC1wZXJzb25hLWZyb250ZW5kIiwibnciOjIyLCJwYyI6MCwiZWMiOjAsInByIjoxNjA0LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLm5nLyIsInNiIjoiaS0wYjBjMzE5YTdmZjQ2OGZiYyIsInNwIjoxMzQ2LCJzdCI6ODI3NywidWsiOiJ1ZTEtYjVmMjA5Nzk0MjQ2NDQ1MWEzYTQ5ODg1MjNkNjE5YTkiLCJ6biI6NDQsInRzIjoxNDk0NTEwMTY5MTQ2LCJiZiI6dHJ1ZSwicG4iOiJhZHplcms4MzE0MjM2MjgiLCJ1ciI6Imh0dHA6Ly9zdGFja292ZXJmbG93LmNvbS9qb2JzP3V0bV9zb3VyY2U9d2Vic2l0ZSZ1dG1fbWVkaXVtPWJhbm5lciZ1dG1fY29udGVudD1sZWFkZXJib2FyZF84JnV0bV9jYW1wYWlnbj1ob3VzZV9hZHNfaG91c2VfYWRzX1JPU19TTyJ9&amp;s=DQvW8H00IjSFD6F3HmW1ks6DIWk" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/b08a4d7b01a04852b914e7904a73b1b8.png" title="" alt="" border="0" width="200px" height="90"></a>
+        //    toastr.success(`
+        //             <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo0NzE0OTMsImNoIjoxMTc4LCJjayI6e30sImNyIjoxNjM4OTg5LCJkaSI6IjM4YTViMTQ2Y2QxZDRhYWNhZGQ4YWNiMmU3MTg4NTdlIiwiZG0iOjEsImZjIjoxOTQzNDQxLCJmbCI6MjE0MjMxMiwiaXAiOiIxOTcuMjM0LjM1LjIiLCJrdyI6Imh0bWwsY3NzLGNzcy10cmFuc2l0aW9ucyxjc3MtYW5pbWF0aW9ucyxiYW5uZXIseC1wZXJzb25hLWZyb250ZW5kIiwibnciOjIyLCJwYyI6MCwiZWMiOjAsInByIjoxNjA0LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLm5nLyIsInNiIjoiaS0wYjBjMzE5YTdmZjQ2OGZiYyIsInNwIjoxMzQ2LCJzdCI6ODI3NywidWsiOiJ1ZTEtYjVmMjA5Nzk0MjQ2NDQ1MWEzYTQ5ODg1MjNkNjE5YTkiLCJ6biI6NDQsInRzIjoxNDk0NTEwMTY5MTQ2LCJiZiI6dHJ1ZSwicG4iOiJhZHplcms4MzE0MjM2MjgiLCJ1ciI6Imh0dHA6Ly9zdGFja292ZXJmbG93LmNvbS9qb2JzP3V0bV9zb3VyY2U9d2Vic2l0ZSZ1dG1fbWVkaXVtPWJhbm5lciZ1dG1fY29udGVudD1sZWFkZXJib2FyZF84JnV0bV9jYW1wYWlnbj1ob3VzZV9hZHNfaG91c2VfYWRzX1JPU19TTyJ9&amp;s=DQvW8H00IjSFD6F3HmW1ks6DIWk" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/b08a4d7b01a04852b914e7904a73b1b8.png" title="" alt="" border="0" width="200px" height="90"></a>
 
-                    `
-                )
+        //             `
+        //         )
 
 
 
