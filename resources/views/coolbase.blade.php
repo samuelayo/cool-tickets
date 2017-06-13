@@ -30,7 +30,7 @@
 <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&callback=init"></script>
 
 
 

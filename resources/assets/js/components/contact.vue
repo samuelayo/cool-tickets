@@ -80,7 +80,7 @@
             }
             this.$store.dispatch('SET_SEO', status);
             jQuery(function($) {
-                function init_map1() {
+                function init() {
                     var myLocation = new google.maps.LatLng(6.433123, 3.437555);
                     var mapOptions = {
                         center: myLocation,
@@ -94,7 +94,7 @@
                         mapOptions);
                     marker.setMap(map);
                 }
-                init_map1();
+                //init_map1();
             });
         },
         computed: {
