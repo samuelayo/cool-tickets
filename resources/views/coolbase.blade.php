@@ -29,6 +29,8 @@
 
 <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 
 
 
@@ -60,6 +62,7 @@
   <!-- jQuery -->
   
 <script src="/js/app.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <!--<script src="https://js.paystack.co/v1/paystack.js"></script>-->
 

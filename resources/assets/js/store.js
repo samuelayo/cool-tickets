@@ -30,9 +30,12 @@ const store = new Vuex.Store({
         },
         SET_STATE_MUTATION(state, status) {
             state.current_state = status
+            toastr.success('You are now listening to Coolfm ' + status);
         },
         SET_STREAM_MUTATION(state, stream) {
             state.current_stream = stream
+
+
         }
 
     },

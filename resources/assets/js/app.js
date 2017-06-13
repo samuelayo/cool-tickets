@@ -16,10 +16,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 window.sharon = require('sharon');
 
-import Toast from 'vue-easy-toast'
-
-Vue.use(Toast)
-    //vuex store
+//vuex store
 import store from './store'
 
 

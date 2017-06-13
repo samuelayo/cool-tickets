@@ -156,7 +156,7 @@
   
     created: function() {
   
-  
+      
   
     },
     mounted: function() {
@@ -267,6 +267,10 @@
     background: none !important;
     text-indent: 0px !important;
     font-family: 'circular-medium' !important;
+}
+
+.toast-success {
+    background-color: #117af2 !important;
 }
     
 </style>
