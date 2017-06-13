@@ -148,7 +148,7 @@
    </div>
    <br>
    <!-- chart details -->
-   <div class="container-fluid">
+   <div class="container-fluid"  v-if="all_chart[currentchart][currentchartweek]">
       <div class="row">
          <div style="margin-left: 1em;" class="col-md-12">
             <br>
