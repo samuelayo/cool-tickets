@@ -30,6 +30,23 @@ const store = new Vuex.Store({
         },
         SET_STATE_MUTATION(state, status) {
             state.current_state = status
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "100000",
+                "timeOut": "50000000",
+                "extendedTimeOut": "1000000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
             toastr.success('You are now listening to Coolfm ' + status);
         },
         SET_STREAM_MUTATION(state, stream) {
