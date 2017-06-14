@@ -18,9 +18,9 @@
     <nav class="navbar topnav navbar-default" role="navigation">
       <div class="container-fluid topnav">
         <!-- Brand and toggle get grouped for better mobile display -->
-  
+  <br><br>
         <div class="navbar-header htop">
-        <br>
+        
           <div class="navbar-brand topnav">
             <a>
               <router-link to="/">
