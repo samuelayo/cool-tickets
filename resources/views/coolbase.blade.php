@@ -49,7 +49,7 @@
 
 
     <!-- Navigation -->
-
+    <br>
     <div id="app">
      @yield('content')
     </div>
