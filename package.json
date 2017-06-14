@@ -42,6 +42,7 @@
     "vue-socket.io": "^2.1.1-a",
     "vue-spinner": "^1.0.2",
     "vue-toast": "^3.1.0",
+    "vue2-google-maps": "^0.7.9",
     "vuex": "^2.3.1"
   }
 }

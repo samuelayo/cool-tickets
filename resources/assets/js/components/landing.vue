@@ -13,7 +13,12 @@
                <div class="container-fluid">
                   <br><br>
                   <div class="col-lg-7">
-                     <p class="on-air-title" >On Air Now</p>
+                     <p v-if="now_playing" class="on-air-title" >Live from {{current_state}}</p>
+                     <div  v-if="now_playing" style="width: 95%; height: 163px; background-image: linear-gradient(to right,  black 0%, #222 100%);">
+
+        <p v-if="now_playing" style="padding-left: 1.7em; padding-top: 1.8em; letter-spacing: 1px; color: #fff;line-height: 0; font-family: ‘Circular-Book’; font-size: 1.1em;opacity: .6;width: 78%;">NOW</p>
+        <p  v-if="now_playing" style="padding-left: .6em; padding-top: .4em; color: #fff; line-height: 1; font-family: ‘Circular-Book’; font-size: 3.1em;width: 78%;">{{now_playing.title}}</p><br>
+    </div>
                      <div v-if="now_playing" :style="'background: url('+now_playing.image+'); background-size: cover;'" class="streaming">
                         <div class="col-md-12">
                            <div class="col-md-8">
@@ -23,10 +28,7 @@
                            </div>
                         </div>
                      </div>
-                     <div v-if="now_playing">
-                        <h3 class="center"><strong> {{now_playing.title}} </strong></h3>
-                        <h5 class="center">{{now_playing.description}}</h5>
-                     </div>
+                    
                   </div>
                   <div  class="col-lg-5">
                    <p  style="color: rgb(51, 51, 51); text-align: center; font-size: 1.71667rem; margin-top: .9em;">Schedules</p>
@@ -252,7 +254,7 @@
          <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:center; left: 73.57%'">
             <p>
                <span class="catgory">{{fres.category.name}}</span> <br>
-               <router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: respace(fres.title) }}" style="font-family: 'Circular-Black; font-size: 1.2em;'">{{fres.title}}</router-link>
+               <router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: respace(fres.title) }}" style="font-family: 'Circular-Black; font-size: 1.0em;'">{{fres.title}}</router-link>
             </p>
          </div>
       </flickity>

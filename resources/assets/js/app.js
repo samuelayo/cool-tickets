@@ -33,6 +33,15 @@ Vue.filter('money', function(value) {
     return accounting.format(value);
 })
 
+const VueGoogleMaps = require('vue2-google-maps');
+Vue.use(VueGoogleMaps, {
+    load: {
+        key: 'AIzaSyCsuhXhpC_UpQEtgM3lunppHtUwt8gt5e8',
+        v: '3',
+        libraries: 'places'
+    }
+})
+
 import app from './components/app'
 import landing from './components/landing'
 import blogpost from './components/blogpost'
@@ -46,6 +55,7 @@ import blogcategory from './components/blogcategory'
 import events from './components/events'
 import contact from './components/contact'
 import errorpage from './components/errorpage'
+
 
 
 const routes = [

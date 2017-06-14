@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
   
 <head>
 

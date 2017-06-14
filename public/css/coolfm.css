@@ -758,13 +758,39 @@ p.copyright {
     margin-top: 22em
 }
 
+#app {
+    width: 92% !important;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid rgba(105, 96, 96, 0.07);
+}
+
+.c-btn {
+    cursor: pointer;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    height: 4em;
+    width: 10em;
+    justify-content: center;
+    font-size: 1.09em;
+    color: #fff;
+    border: .083rem solid blue;
+    background-color: blue;
+}
+
 .on-air-title {
-    color: red;
+    color: #fff;
     width: 95%;
+    padding-left: 1.4em;
+    background: red;
+    margin-bottom: -.1em;
     font-size: 1.71667rem;
     line-height: 3;
-    font-family: 'Circular-Medium';
-    text-align: center;
+    font-family: ‘Circular-Bold’;
+    text-align: left;
 }
 
 .slick-dots {

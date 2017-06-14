@@ -52,8 +52,13 @@
                                 webteam@coolwazobiainfo.com<br />
                             </div>
                             <hr />
-                            <div id="map1" class="map">
-                            </div>
+                            <!-- <div id="map1" class="map"> -->
+                            <gmap-map :center="{lat:6.433123, lng:3.437555}" :zoom="20" map-type-id="roadmap" style="width: 100%; height: 100%; min-width: 300px; min-height: 300px;">
+                                <gmap-marker :position="{lat:6.433123, lng:3.437555}">
+                                </gmap-marker>
+                            </gmap-map>
+    
+                            <!--</div>-->
                         </div>
                     </div>
                 </div>
@@ -75,27 +80,30 @@
         },
         created: function() {
             var status = {
-                title: 'CoolFmNigeria | Contact Us',
+                title: 'Cool FM Nigeria | Contact Us',
                 description: `Contact us at  267A Etim Inyang Cres, Victoria island annex, Lagos, Nigeria. Email: webteam@coolwazobiainfo.com. Longitude:6.433123, Latitude:3.437555`
             }
             this.$store.dispatch('SET_SEO', status);
-            jQuery(function($) {
-                function init() {
-                    var myLocation = new google.maps.LatLng(6.433123, 3.437555);
-                    var mapOptions = {
-                        center: myLocation,
-                        zoom: 16
-                    };
-                    var marker = new google.maps.Marker({
-                        position: myLocation,
-                        title: "Property Location"
-                    });
-                    var map = new google.maps.Map(document.getElementById("map1"),
-                        mapOptions);
-                    marker.setMap(map);
-                }
-                init();
-            });
+    
+            // function init() {
+            //     var myLocation = new google.maps.LatLng(6.433123, 3.437555);
+            //     var mapOptions = {
+            //         center: myLocation,
+            //         zoom: 16
+            //     };
+            //     var marker = new google.maps.Marker({
+            //         position: myLocation,
+            //         title: "Property Location"
+            //     });
+            //     var map = new google.maps.Map(document.getElementById("map1"),
+            //         mapOptions);
+            //     marker.setMap(map);
+            // }
+    
+            // while (typeof google != undefined) {
+            //     init();
+            //     break;
+            // }
         },
         computed: {
             ready: function() {
@@ -149,6 +157,7 @@
         width: 100%;
         height: 100%;
     }
+    
     .header {
         background-color: #F5F5F5;
         color: #36A0FF;
