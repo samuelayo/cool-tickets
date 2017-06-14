@@ -16,8 +16,8 @@
                      <p v-if="now_playing" class="on-air-title" >Live from {{current_state}}</p>
                      <div  v-if="now_playing" style="width: 95%; height: 163px; background-image: linear-gradient(to right,  black 0%, #222 100%);">
 
-        <p v-if="now_playing" style="padding-left: 1.7em; padding-top: 1.8em; letter-spacing: 1px; color: #fff;line-height: 0; font-family: ‘Circular-Book’; font-size: 1.1em;opacity: .6;width: 78%;">NOW</p>
-        <p  v-if="now_playing" style="padding-left: .6em; padding-top: .4em; color: #fff; line-height: 1; font-family: ‘Circular-Book’; font-size: 3.1em;width: 78%;">{{now_playing.title}}</p><br>
+        <p v-if="now_playing" style="padding-left: 1.7em; padding-top: 1.8em; letter-spacing: 1px; color: #fff;line-height: 0; font-family: 'Circular-Book'; font-size: 1.1em;opacity: .6;width: 78%;">NOW</p>
+        <p  v-if="now_playing" style="padding-left: .6em; padding-top: .4em; color: #fff; line-height: 1; font-family: 'Circular-Book'; font-size: 3.1em;width: 78%;">{{now_playing.title}}</p><br>
     </div>
                      <div v-if="now_playing" :style="'background: url('+now_playing.image+'); background-size: cover;'" class="streaming">
                         <div class="col-md-12">
@@ -78,10 +78,10 @@
    <!-- /.intro-header -->
    <!-- Page Content -->
    <!-- podcast details -->
-   <div class="container-fluid">
+   <div class="container-fluid" v-if="rearrange_podcasts[currentweek]">
       <div class="row">
          <br><br><br>
-         <div style="margin-left: 1em;" class="col-md-12" v-if="rearrange_podcasts[currentweek]">
+         <div style="margin-left: 1em;" class="col-md-12" >
             <h3>
                PODCASTS
                &nbsp;
