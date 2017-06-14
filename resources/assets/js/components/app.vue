@@ -20,7 +20,7 @@
         <!-- Brand and toggle get grouped for better mobile display -->
   
         <div class="navbar-header htop">
-  
+        <br>
           <div class="navbar-brand topnav">
             <a>
               <router-link to="/">
