@@ -26,7 +26,7 @@ Vue.use(infiniteScroll)
 import VueSocketio from 'vue-socket.io';
 Vue.use(VueSocketio, 'https://coolfm.ng/socket');
 
-Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
+Vue.component('clip-loader', require('vue-spinner/src/ClipLoader.vue'));
 
 Vue.component('adimage', require('./components/adimage.vue'));
 Vue.filter('money', function(value) {

@@ -3,7 +3,7 @@
     <div id="blogpost">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     
-        <pulse-loader v-if="loading"></pulse-loader>
+        <clip-loader v-if="loading" color="blue"></clip-loader>
         <div class="row" v-if="!loading">
             <!-- advert -->
             <div class="col-md-12">
