@@ -74,7 +74,7 @@
             </li>
   
             <li>
-              <a href="#">About Us</a>
+              <router-link to="/aboutus">About Us</router-link>
             </li>
             <li>
               <router-link to="/contact-us">Contact Us</router-link>

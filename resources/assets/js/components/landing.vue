@@ -347,6 +347,11 @@
                   <a  v-if="sidebar_chart_2[1]" :href="sidebar_chart_2[1].url" >
                     <adimage  :src="'/'+sidebar_chart_2[1].image_url" width="100%" height="100%" isd="2" style="padding: 1em;"></adimage>
                   </a>
+                  <br>
+                  <br>
+                  <a  v-if="sidebar_chart[1]" :href="sidebar_chart[1].url" >
+                     <adimage :src="'/'+sidebar_chart[1].image_url" width="100%" height="100%" isd="1" style="padding: 1em;"></adimage>
+                  </a>
                </div>
             </div>
          </div>

@@ -1,17 +1,16 @@
-@component('mail::message')
-# {{ $content['title'] }}
 
-## {{ $content['email'] }}
-### Phone: {{ $content['phone'] }}
+<h1> {{ $content['title'] }}</h2>
+
+<h2> {{ $content['email'] }}</h2>
+<h3> Phone: {{ $content['phone'] }} </h3>
 
 {{ $content['body'] }}
 
 
 
 Thanks,<br>
-{{ config('app.name') }}
-@endcomponent
-@component('mail::message')
+Cool FM contact Page
+
 
 
 

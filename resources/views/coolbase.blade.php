@@ -36,6 +36,7 @@
 
 
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -63,6 +64,7 @@
   <!-- jQuery -->
   
 <script src="/js/app.js"></script>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <!--<script src="https://js.paystack.co/v1/paystack.js"></script>-->

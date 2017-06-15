@@ -14,8 +14,8 @@
             <div class="col-md-3"><br><br>
                 <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Trending</h4><br>
                 <div class="panel panel-default shadowed">
-                <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url">
-                    <adimage  :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="0"></adimage>
+                <a  v-if="sidebar_chart_2[0]" :href="sidebar_chart_2[0].url" >
+                    <adimage  :src="'/'+sidebar_chart_2[0].image_url" width="100%" height="100%" isd="0" style="padding: 1em;"></adimage>
                   </a>
        
 
@@ -73,13 +73,18 @@
                     
                 </div>
             </div>
-              <a  v-if="sidebar_chart[1]" :href="sidebar_chart[1].url">
-                     <adimage :src="'/'+sidebar_chart[1].image_url" width="100%" height="100%" isd="1"></adimage>
+              <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url" >
+                     <adimage :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="1" style="padding: 1em;"></adimage>
                   </a>
                    <br>
                    <br>
-                  <a  v-if="sidebar_chart[2]" :href="sidebar_chart[2].url">
-                    <adimage  :src="'/'+sidebar_chart[2].image_url" width="100%" height="100%" isd="2"></adimage>
+                  <a  v-if="sidebar_chart_2[1]" :href="sidebar_chart_2[1].url" >
+                    <adimage  :src="'/'+sidebar_chart_2[1].image_url" width="100%" height="100%" isd="2" style="padding: 1em;"></adimage>
+                  </a>
+                  <br>
+                  <br>
+                  <a  v-if="sidebar_chart[1]" :href="sidebar_chart[1].url" >
+                     <adimage :src="'/'+sidebar_chart[1].image_url" width="100%" height="100%" isd="1" style="padding: 1em;"></adimage>
                   </a>
             </div>
         </div>
@@ -147,6 +152,12 @@ export default{
           sidebar_chart: function(){
             var homeads = _.filter(window.Laravel.ads, function(o) {
                 if (o.advert_category.type == "homepage_side") return o;
+            });
+            return homeads;
+          },
+          sidebar_chart_2: function(){
+            var homeads = _.filter(window.Laravel.ads, function(o) {
+                if (o.advert_category.type == "homepage_side_2") return o;
             });
             return homeads;
           }

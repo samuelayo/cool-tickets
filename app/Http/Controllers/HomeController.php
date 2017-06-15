@@ -123,8 +123,8 @@ class HomeController extends Controller
             'phone'=>$phone
     		];
         $receiverAddress = 'webteam@coolwazobiainfo.com';
-        Mail::to($receiverAddress)->send(new ContactMail($content));
-        
+        $sentmail = Mail::to($receiverAddress)->send(new ContactMail($content));
+        return $content;
     }
     
 }

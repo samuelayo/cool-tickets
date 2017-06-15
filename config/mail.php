@@ -34,7 +34,7 @@ return [
     |
     */
 
-    'host' => 'smtp.sendgrid.net',
+    'host' => 'box.coolfm.com.ng',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ return [
 
     
     'from' => [
-        'address' => 'tickets@coolfm.com',
+        'address' => 'tickets@coolfm.com.ng',
         'name' => $mail_from[rand(0, count($mail_from)-1)],
     ],
 
@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'encryption' =>'tls',
+    'encryption' =>'ssl',
 
     /*
     |--------------------------------------------------------------------------
@@ -90,9 +90,9 @@ return [
     |
     */
 
-    'username' => 'coolweb',
+    'username' => 'tickets@coolfm.com.ng',
 
-    'password' => 'Coolfm123',
+    'password' => 'coolfmadm1n',
 
     /*
     |--------------------------------------------------------------------------

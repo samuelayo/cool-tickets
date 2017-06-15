@@ -55,6 +55,7 @@ import blogcategory from './components/blogcategory'
 import events from './components/events'
 import contact from './components/contact'
 import errorpage from './components/errorpage'
+import aboutus from './components/aboutus'
 
 
 
@@ -72,6 +73,7 @@ const routes = [
     { path: '/blogcategory/:name/:id', component: blogcategory, name: 'blogcategory', props: true },
     { path: '/events', component: events, name: 'events' },
     { path: '/contact-us', component: contact, name: 'contact-us' },
+    { path: '/aboutus', component: aboutus, name: 'aboutus' },
     { path: '*', component: errorpage }
 
 ]
