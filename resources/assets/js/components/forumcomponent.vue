@@ -4,7 +4,7 @@
             <!-- advert -->
             <div class="col-md-12">
                 <a v-if="forum_chart[0]" :href="forum_chart[0].url">
-                    <adimage :src="'/'+forum_chart[0].image_url" width="100%" height="100%"></adimage>
+                    <adimage :src="'/'+forum_chart[0].image_url" width="100%" height="100%" style="padding: 1em;"></adimage>
                 </a>
             </div>
             <!-- 3 grid for trending, rising and hot topics -->
@@ -58,7 +58,7 @@
                         <!-- advert -->
                         <div class="col-md-12">
                             <a v-if="forum_chart[1]" :href="forum_chart[1].url">
-                                <adimage :src="'/'+forum_chart[1].image_url" width="100%" height="100%"></adimage>
+                                <adimage :src="'/'+forum_chart[1].image_url" width="100%" height="100%" style="padding: 1em;"></adimage>
                             </a>
                         </div>
                         <div>
