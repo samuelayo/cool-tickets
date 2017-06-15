@@ -30,7 +30,7 @@
                              <div class="col-md-8">
                                  <h4  class="category-tag" >{{trend.category.name}} <small class="time-stamp">{{timeago(trend.created_at)}}</small></h4>
                                 <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: trend.title }}"><h4>{{trend.title}}</h4></router-link>
-                                 <i style="color: blue;" class="ion-android-share" aria-hidden="true"></i>
+                                 <i style="color: blue;" class="ion-android-open" aria-hidden="true"></i>
 
                                      <a href="#">7500 shares</a>
                              </div>
@@ -50,7 +50,7 @@
                        <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: newpost.title }}"> <h4 class="" style="color: black;">{{newpost.category.name}}</h4></router-link>
                         <h3 class="rising_topic" style="color: white;">{{newpost.title}}</h3>
                         <span style="color: white;" class="rising_share" >
-                            <i  class="ion-android-share" aria-hidden="true"></i>
+                            <i  class="ion-android-open" aria-hidden="true"></i>
                             <a href="#" style="color: white;">7500 shares</a>
                         </span>
                     </div>
