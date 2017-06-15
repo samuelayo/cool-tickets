@@ -89,7 +89,7 @@
         computed: {
             side_ad: function(){
                 
-                var homeads = _.map(window.Laravel.ads, function(o) {
+                var homeads = _.filter(window.Laravel.ads, function(o) {
                     if (o.advert_category.type == "forum_side") return o;
                 });
                 return homeads;
