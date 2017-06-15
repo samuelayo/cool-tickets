@@ -47,8 +47,9 @@
                      <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;"  v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">Rising</h4><br>
                      <div class="panel panel-default shadowed" v-for="(newpost, index) in all.latest" v-if="index <=count">
                     <div  class="rising" :style="'background-image: url('+newpost.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);'">
-                       <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: newpost.title }}"> <h4 class="" style="color: black;">{{newpost.category.name}}</h4></router-link>
+                       <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: newpost.title }}"> 
                         <h3 class="rising_topic" style="color: white;">{{newpost.title}}</h3>
+                        </router-link>
                         <span style="color: white;" class="rising_share" >
                             <i  class="ion-android-open" aria-hidden="true"></i>
                             <a href="#" style="color: white;">7500 shares</a>
