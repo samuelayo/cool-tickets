@@ -26,17 +26,17 @@
   <div class="row" style=" position: fixed; right: 120px;">
              <div id="advert-side" class="panel panel-default ">
                  <a v-if="side_ad[0]" :href="side_ad[0].url">
-                    <adimage :src="'/'+side_ad[0].image_url" width="100%" height="100%"></adimage>
+                    <adimage :src="'/'+side_ad[0].image_url" width="100%" height="100%" style="padding: 1em;"></adimage>
                 </a>
                  <div>
                    
                        
 
                 <a v-if="side_ad[1]" :href="side_ad[1].url">
-                    <adimage :src="'/'+side_ad[1].image_url" width="100%" height="100%"></adimage>
+                    <adimage :src="'/'+side_ad[1].image_url" width="100%" height="100%" style="padding: 1em;"></adimage>
                 </a>
                 <a v-if="side_ad[2]" :href="side_ad[2].url">
-                    <adimage :src="'/'+side_ad[2].image_url" width="100%" height="100%"></adimage>
+                    <adimage :src="'/'+side_ad[2].image_url" width="100%" height="100%" style="padding: 1em;"></adimage>
                 </a>
 
             </div>
