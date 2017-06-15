@@ -23,7 +23,7 @@
 
                 </div>
             </div> 
-  <div class="row">
+  <div class="row" style=" position: fixed; right: 120px;">
              <div id="advert-side" class="panel panel-default ">
                  <a v-if="side_ad[0]" :href="side_ad[0].url">
                     <adimage :src="'/'+side_ad[0].image_url" width="100%" height="100%"></adimage>
