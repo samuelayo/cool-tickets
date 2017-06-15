@@ -36,7 +36,7 @@ Vue.filter('money', function(value) {
 const VueGoogleMaps = require('vue2-google-maps');
 Vue.use(VueGoogleMaps, {
     load: {
-        key: 'AIzaSyCsuhXhpC_UpQEtgM3lunppHtUwt8gt5e8',
+        key: 'AIzaSyDIvfBrO5c7GYfRdPUFzquWOye2FOI6xg0',
         v: '3',
         libraries: 'places'
     }
