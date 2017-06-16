@@ -24,7 +24,7 @@
           <div class="navbar-brand topnav">
             <a>
               <router-link to="/">
-                <img src="/img/logo.svg" width="130" alt="Cool Fm">
+                <img src="/img/logo.svg" width="100" alt="Cool Fm">
               </router-link>
             </a>
             
@@ -47,7 +47,7 @@
               <li>
                 <a href="#">Schedules</a>
               </li> -->
-              <li style="padding: 0px;">
+              <li style="padding: 0px;padding-top: 0px !important;padding-left: 0px !important;padding-right: 0px !important;">
               <gcse:search></gcse:search>
               </li>
             <li>
@@ -79,7 +79,7 @@
             <li>
               <router-link to="/contact-us">Contact Us</router-link>
             </li>
-            <li style="margin-right: 1.1em;">
+            <li style="margin-right: -1.1em;">
   
   
               <a class="switch" data-toggle="dropdown">Switch Channel
