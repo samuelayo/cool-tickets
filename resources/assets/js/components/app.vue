@@ -24,7 +24,7 @@
           <div class="navbar-brand topnav">
             <a>
               <router-link to="/">
-                <img src="/img/logo.png" width="150" alt="Cool Fm">
+                <img src="/img/logo.png" width="130" alt="Cool Fm">
               </router-link>
             </a>
             
@@ -333,5 +333,13 @@ input.gsc-search-button {
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
     filter: alpha(opacity=80);
 }
-    
+  
+  div#___gcse_0 {
+    width: 90% !important;
+    margin: 0 auto !important;
+}
+control-cse {
+    padding: none !important;
+    width: auto;
+}
 </style>
