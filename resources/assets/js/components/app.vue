@@ -47,7 +47,7 @@
               <li>
                 <a href="#">Schedules</a>
               </li> -->
-              <li>
+              <li style="padding: 0px;">
               <gcse:search></gcse:search>
               </li>
             <li>
@@ -79,7 +79,7 @@
             <li>
               <router-link to="/contact-us">Contact Us</router-link>
             </li>
-            <li>
+            <li style="margin-right: 1.1em;">
   
   
               <a class="switch" data-toggle="dropdown">Switch Channel
@@ -341,6 +341,10 @@ input.gsc-search-button {
 .cse .gsc-control-cse, .gsc-control-cse {
     padding: 0px !important;
     width: auto;
+}
+td.gsc-clear-button {
+    width: 14px !important;
+    display: none !important;
 }
 
 </style>

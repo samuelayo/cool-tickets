@@ -1869,10 +1869,13 @@ tr:hover {
     border-top: 1px solid #ddd !important;
 }
 
-.navbar-nav>li {
+navbar-nav>li {
     float: left !important;
     border-right: 1px solid #eff2f5 !important;
-    padding: 0.5em !important;
+    height: 80px !important;
+    padding-top: 1em !important;
+    padding-left: .8em !important;
+    padding-right: .8em !important;
 }
 
 .dropdown-menu>li>a {
