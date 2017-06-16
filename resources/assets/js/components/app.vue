@@ -10,7 +10,7 @@
     <meta property="og:description" :content="description" />
     <meta property="og:url" content="/" />
     <meta property="og:site_name" content="Coolfm" />
-    <meta property="og:image" content="/img/logo.png" />
+    <meta property="og:image" content="/img/logo.svg" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" :content="description" />
     <meta name="twitter:title" :content="title" />
@@ -24,7 +24,7 @@
           <div class="navbar-brand topnav">
             <a>
               <router-link to="/">
-                <img src="/img/logo.png" width="130" alt="Cool Fm">
+                <img src="/img/logo.svg" width="130" alt="Cool Fm">
               </router-link>
             </a>
             
