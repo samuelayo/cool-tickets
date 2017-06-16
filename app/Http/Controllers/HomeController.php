@@ -122,7 +122,7 @@ class HomeController extends Controller
             'email'=>$email,
             'phone'=>$phone
     		];
-        $receiverAddress = 'webteam@coolwazobiainfo.com';
+        $receiverAddress = $request->get('dept');
         $sentmail = Mail::to($receiverAddress)->send(new ContactMail($content));
         return $content;
     }

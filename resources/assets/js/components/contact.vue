@@ -28,6 +28,19 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
+                                    <select class="form-control" v-model="dept_email" >
+                                        <option value="" disabled selected hidden>Which Department would you like to contact?</option>
+                                        <option value="saleslagos@coolwazobiainfo.com">Sales</option>
+                                        <option value="newslagos@coolwazobiainfo.com">News</option>
+                                        <option value="webteam@coolwazobiainfo.com">Web Team</option>
+                                        <option value="webteam@coolwazobiainfo.com">Social Media</option>
+                                        <option value="admin@coolwazobiainfo.com">General Enquiries</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10 col-md-offset-1">
                                     <textarea class="form-control" id="message" v-model="content" required placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
                                 </div>
                             </div>
@@ -75,6 +88,7 @@
                 lastname: '',
                 email: '',
                 phone: '',
+                dept_email: '',
                 content: ''
             }
         },
@@ -107,7 +121,7 @@
         },
         computed: {
             ready: function() {
-                if (this.firstname != '' && this.lastname != '' && this.email != '' && this.phone != '' && this.content != "") {
+                if (this.firstname != '' && this.lastname != '' && this.email != '' && this.phone != '' && this.content != "" && this.dept_email != "") {
                     return false;
                 }
                 return true;
@@ -119,13 +133,15 @@
                     name: this.firstname + ' ' + this.lastname,
                     body: this.content,
                     email: this.email,
-                    phone: this.phone
+                    phone: this.phone,
+                    dept: this.dept_email
                 }).then(response => {
                     this.firstname = '';
                     this.lastname = '';
                     this.content = '';
                     this.email = '';
                     this.phone = '';
+                    this.dept_email = '';
                     toastr.options = {
                         "closeButton": true,
                         "debug": false,
@@ -151,6 +167,9 @@
 </script>
 
 <style scooped>
+ select:invalid{
+     background: grey; 
+ }
     .map {
         min-width: 300px;
         min-height: 300px;
