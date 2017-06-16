@@ -96,6 +96,11 @@ class BlogPost extends Model
         }
     }
 
+    // public function setextra_imagesAttribute($value){
+    //     $attribute_name = "extra_images";
+    //     $this->attributes[$attribute_name] = json_encode($value);
+    // }
+
     public function setweekAttribute($value)
     {
         $attribute_name = "week"; 

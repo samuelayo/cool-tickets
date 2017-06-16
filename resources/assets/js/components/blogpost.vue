@@ -50,6 +50,24 @@
                                 <p v-html="post.content">
     
                                 </p>
+                                
+
+
+                                <!--- slider test -->
+<div class="slider" v-if="sliderimages">
+  <ul>
+    <li class="slide" v-for="(slide, index) in sliderimages" :id="'no-js-slider-'+index">
+      <img :src="'/uploads/'+slide" class="imsg">
+      <a class="prev"  v-if="index ==0 " :href="'#no-js-slider-'+(sliderimages.length -1)">prev</a>
+      <a class="prev"  v-if="index !=0 " :href="'#no-js-slider-'+(index-1)">prev</a>
+      <a class="next" v-if="index != (sliderimages.length -1)" :href="'#no-js-slider-'+(index+1)">next</a>
+    </li>
+  </ul>
+</div>
+<!-- slider end -->
+
+
+
                                 <div class="col-md-12">
                                     <!--<img src="img/cool_adv.png" width="100%", height="100%"/>-->
                                 </div>
@@ -166,6 +184,7 @@ import comment from './comment.vue'
             return {
                 post: {},
                 keypoints: [],
+                sliderimages: [],
                 loading: true,
                 fresh: window.Laravel.fresh,
                 shows: [],
@@ -188,10 +207,11 @@ import comment from './comment.vue'
                     this.loading = false;
                     var str = this.post.keypoints;
                     this.keypoints = str.match(/<p>.*?<\/p>/g);
+                    this.sliderimages = JSON.parse(this.post.extra_images);
                     document.body.scrollTop = document.documentElement.scrollTop = 0;
     
                     var status = {
-                        title: 'CoolFmNigeria | ' + this.post.title,
+                        title: 'Cool FM Nigeria | ' + this.post.title,
                         description: this.post.content
                     }
                     this.$store.dispatch('SET_SEO', status);
@@ -272,9 +292,9 @@ import comment from './comment.vue'
                         this.loading = false;
                         var str = this.post.keypoints;
                         this.keypoints = str.match(/<p>.*?<\/p>/g);
-    
+                        this.sliderimages = JSON.parse(this.post.extra_images);
                         var status = {
-                            title: 'CoolFmNigeria | ' + this.post.title,
+                            title: 'Cool FM Nigeria | ' + this.post.title,
                             description: this.post.content
                         }
                         this.$store.dispatch('SET_SEO', status);
@@ -291,7 +311,7 @@ import comment from './comment.vue'
     }
 </script>
 
-<style>
+<style scooped>
     /*=========================
       Icons
      ================= */
@@ -400,4 +420,134 @@ import comment from './comment.vue'
         position: fixed;
         top: 80%;
     }
+
+header {
+	height:40px;
+	width:100%;
+	position:fixed;
+	background:rgba(0,0,0,0.9);
+	z-index:120;
+}
+header li {
+	float: left;
+	list-style-type:none;
+	border-right: 1px solid #252525;
+}
+header li a {
+	float: left;
+	width: 98px;
+	height: 12px;
+	padding: 14px 7px;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font: normal 62.5% "proxima-nova-alt", Helvetica, Arial, sans-serif;
+}
+header .logo {
+	float: left;
+	width: 201px;
+	height: 40px;
+	background:#fde624 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat 16px 1px;
+}
+#show-nails:hover div.thumbnail-peekaboo {
+	display:block;
+}
+header div.thumbnail-peekaboo {
+	display:none;
+	height:165px;
+	width:3000px;
+	top:40px;
+	left:0;
+	background:#222;
+	background-size:100px 100px;
+	position:absolute;
+}
+/*header div.thumbnail-peekaboo:hover {
+	-webkit-animation: TMNT 4s ease-in;
+	-webkit-animation-fill-mode:backwards;
+}*/
+.thumb {
+	height:140px;
+	width:210px;
+	top:136px;
+	left:12px;
+	position:relative;
+	background-size:contain;
+	box-shadow:-12px 0 0 12px #000;
+}
+.thumb:last-of-type {
+  box-shadow:0 0 0 12px #000;
+}
+.thumb:after {
+  content:attr(title);
+  font:normal normal 20pt 'impact';
+  position:relative;
+}
+.thumb:hover {
+	-webkit-filter: grayscale(80%);
+	-moz-filter: grayscale(80%);
+	-ms-filter: grayscale(80%);
+	-o-filter: grayscale(80%);
+	filter: grayscale(80%);
+	/*filter: url(grayscale.svg#greyscale); */
+	filter: gray;
+}
+@-webkit-keyframes TMNT {
+	0%  { left: 0px; }
+	100% { left: -1200px; }
+}
+a.prev,a.next {
+	height:91px;
+	position:absolute;
+	width:43px;
+	top:50%;
+	margin-top:-30px;
+	opacity:0.6;
+	text-indent:-99999px;
+	cursor:pointer;
+	-webkit-transition:opacity 200ms ease-out;
+}
+* {
+margin: 0;
+padding: 0;
+list-style-type:none;
+}
+a.prev:hover,a.next:hover {
+	opacity:1;
+}
+.prev {
+	left:0;
+	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -200px 25px;
+}
+.next {
+	right:0;
+	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -167px 25px;
+}
+.slider {
+	/** height:100vh; **/
+    height: 450px;
+	position: relative;
+}
+.slide {
+	position:absolute;
+	height:100%;
+	width:100%;
+}
+.slider .slide:target {
+	z-index: 100;
+}
+.slide li img {
+	max-width:100%;
+	width:100%;
+	position:fixed;
+	left:0;
+}
+img.imsg {
+    max-width: 100%;
+    max-height: 100%;
+    left: 0;
+}
 </style>

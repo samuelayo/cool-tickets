@@ -69,7 +69,17 @@ class BlogPostCrudController extends CrudController
                                 'model' => "App\Models\Category" // foreign key model
                                 ], 
                                 'update/create/both');
-
+  
+      $this->crud->addFields([
+[ // image
+                'label' => "Extra Images",
+                'name' => "extra_images",
+                'type' => 'image_multiple',
+                'upload' => true,
+                'crop' => true, // set to true to allow cropping, false to disable
+                'aspect_ratio' => 1.8, // ommit or set to 0 to allow any aspect ratio
+            ]
+]);
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
@@ -131,21 +141,93 @@ class BlogPostCrudController extends CrudController
         // $this->crud->limit();
     }
 
+    // public function store(StoreRequest $request)
+    // {
+    //     // your additional operations before save here
+    //     $redirect_location = parent::storeCrud();
+    //     // your additional operations after save here
+    //     // use $this->data['entry'] or $this->crud->entry
+    //     return $redirect_location;
+    // }
+
     public function store(StoreRequest $request)
-    {
-        // your additional operations before save here
-        $redirect_location = parent::storeCrud();
+	{
+        // Setup storage
+        $attribute_name = "extra_images";
+        $disk = "uploads";
+        $destination_path = "/uploads/uploads";
+	    // Then get images from request
+	    $input = $request->all();
+	    $images = $input[$attribute_name];
+	    $imageArray = [];
+	    // Now iterate images
+        foreach ($images as $value) {
+            // Store on disk and add to array
+            if (starts_with($value, 'data:image'))
+            {
+                // 0. Make the image
+                $image = \Image::make($value);
+                // 1. Generate a filename.
+                $filename = md5($value.time()).'.jpg';
+                // 2. Store the image on disk.
+                \Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
+                // 3. Save the path to the database
+                array_push($imageArray, $destination_path.'/'.$filename);
+            }
+        }
+        // Update $request with new array
+        $request->request->set($attribute_name, json_encode($imageArray));
+
+		// Save $request
+        $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-    }
+	}
+
+    // public function update(UpdateRequest $request)
+    // {
+    //     // your additional operations before save here
+    //     $redirect_location = parent::updateCrud();
+    //     // your additional operations after save here
+    //     // use $this->data['entry'] or $this->crud->entry
+    //     return $redirect_location;
+    // }
 
     public function update(UpdateRequest $request)
-    {
+	{
+        // Setup storage
+        $attribute_name = "extra_images";
+        $disk = "uploads";
+        $destination_path = "/uploads/uploads";
+        // Then get images from request
+        $input = $request->all();
+        $images = $input[$attribute_name];
+        $imageArray = [];
+        // Now iterate images
+        foreach ($images as $value) {
+            // Store on disk and add to array
+            if (starts_with($value, 'data:image'))
+            {
+                // 0. Make the image
+                $image = \Image::make($value);
+                // 1. Generate a filename.
+                $filename = md5($value.time()).'.jpg';
+                // 2. Store the image on disk.
+                \Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
+                // 3. Save the path to the database
+                array_push($imageArray, $destination_path.'/'.$filename);
+            } else {
+                $value = substr($value, 9);
+                array_push($imageArray, $value);
+            }
+        }
+        // Update $request with new array
+        $request->request->set($attribute_name, json_encode($imageArray));
         // your additional operations before save here
-        $redirect_location = parent::updateCrud();
+        $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-    }
+	}
 }
