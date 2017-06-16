@@ -34,7 +34,7 @@
                                         <option value="newslagos@coolwazobiainfo.com">News</option>
                                         <option value="webteam@coolwazobiainfo.com">Web Team</option>
                                         <option value="webteam@coolwazobiainfo.com">Social Media</option>
-                                        <option value="admin@coolwazobiainfo.com">General Enquiries</option>
+                                        <option value="adminlagos@coolwazobiainfo.com">General Enquiries</option>
                                     </select>
                                 </div>
                             </div>

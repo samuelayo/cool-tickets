@@ -258,15 +258,53 @@
   video::-webkit-media-controls-enclosure {
     max-width: 100%;
   }
-  .cse .gsc-control-cse, .gsc-control-cse{
+  /**.cse .gsc-control-cse, .gsc-control-cse{
     padding: 0 0 0 0 !important;
     margin: -1em !important;
-  }
+  }**/
+
+  .cse .gsc-control-cse, .gsc-control-cse {
+    font-family: Arial, serif !important;
+    background-color: none !important;
+    border: none !important;
+} 
+  .gsc-control-cse {
+    font-family: Arial, sans-serif !important;
+    border-color: none !important;
+    background-color: none !important;
+}
+
+
+
  input#gsc-i-id1 {
     outline: none;
     background: none !important;
     text-indent: 0px !important;
     font-family: 'circular-medium' !important;
+}
+
+input.gsc-input {
+    border-color: none !important;
+}
+
+input.gsc-search-button {
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%) !important;
+    border: none !important;
+    color: #fff !important;
+    width: 86px !important;
+    height: 31px !important;
+    border-radius: 26px !important;
+}
+
+.cse input.gsc-input, input.gsc-input {
+    font-family: inherit !important;
+    font-size: 16px !important;
+    border: none !important;
+    border-bottom: 1px dashed #ddd !important;
+    padding: 4px 6px !important;
+    -moz-border-radius: 2px !important;
+    -webkit-border-radius: 2px !important;
+    border-radius: 2px !important;
 }
 
 .toast-success {
