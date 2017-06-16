@@ -511,8 +511,7 @@ a.prev,a.next {
 	-webkit-transition:opacity 200ms ease-out;
 }
 * {
-margin: 0;
-padding: 0;
+
 list-style-type:none;
 }
 a.prev:hover,a.next:hover {
