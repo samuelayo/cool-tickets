@@ -7,7 +7,7 @@
 {{ $content['body'] }}
 
 
-
+<br>
 Thanks,<br>
 Cool FM contact Page
 
