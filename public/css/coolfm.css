@@ -1869,7 +1869,7 @@ tr:hover {
     border-top: 1px solid #ddd !important;
 }
 
-navbar-nav>li {
+.navbar-nav>li {
     float: left !important;
     border-right: 1px solid #eff2f5 !important;
     height: 80px !important;
