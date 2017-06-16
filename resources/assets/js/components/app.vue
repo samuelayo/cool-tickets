@@ -339,7 +339,8 @@ input.gsc-search-button {
     margin: 0 auto !important;
 }
 .cse .gsc-control-cse, .gsc-control-cse {
-    padding: none !important;
+    padding: 0px !important;
     width: auto;
 }
+
 </style>
