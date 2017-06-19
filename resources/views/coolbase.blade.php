@@ -21,21 +21,12 @@
 
   <link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>
 
-<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet">
-
-
 <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
 <link href="/fonts/circular-font.css" rel="stylesheet">
 
 <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
-
-
-
-
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

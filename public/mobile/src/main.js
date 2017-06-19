@@ -11,17 +11,20 @@ window.lodash = require('lodash');
 window.sharon = require('sharon');
 window.tinymce = require('tinymce');
 
-var infiniteScroll =  require('vue-infinite-scroll');
+var infiniteScroll = require('vue-infinite-scroll');
 Vue.use(infiniteScroll)
-
+window.accounting = require('accounting');
+Vue.filter('money', function(value) {
+    return accounting.format(value);
+})
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    store,
+    template: '<App/>',
+    components: { App }
 })

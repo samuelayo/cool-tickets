@@ -13,6 +13,7 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+    "accounting": "^0.4.1",
     "axios": "^0.16.1",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",

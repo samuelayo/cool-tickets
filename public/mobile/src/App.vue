@@ -2,7 +2,7 @@
   <div id="app">
     <header class="cd-auto-hide-header">
       <div class="logo">
-        <router-link v-bind:to="'/'"><img src="https://www.coolfm.ng/img/logo.png" alt="Logo"></router-link>
+        <router-link v-bind:to="'/'"><img src="https://www.coolfm.ng/img/logo.svg" alt="Logo"></router-link>
       </div>
 
       <nav class="cd-primary-nav">
@@ -18,6 +18,9 @@
           <li><a href="#">OAPs</a></li>
           <li>
             <router-link v-bind:to="'/forums'">Forums</router-link>
+          </li>
+          <li>
+            <router-link v-bind:to="'/events'">Events</router-link>
           </li>
           <li ><a href="javascript:void()" style="color: grey;">Switch Channels</a></li>
           <li><a href="javascript:void()" @click="change_state('Lagos', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos')">Coolfm Lagos</a></li>

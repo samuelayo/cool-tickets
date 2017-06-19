@@ -13,7 +13,8 @@ require('./bootstrap');
 
 import VueRouter from 'vue-router'
 //tell vue to use the router
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+
 window.sharon = require('sharon');
 
 //vuex store
@@ -87,16 +88,9 @@ const router = new VueRouter({
 })
 
 router.beforeEach(function(to, from, next) {
-        window.scrollTo(0, 0)
-        next();
-    })
-    // router.afterEach((to, from) => {
-    //   if (/\s/.test(window.location.href)) {
-    //     // It has any kind of whitespace
-    //     window.location.href=window.location.href.replace(/\s+/g, "-");
-    //   }
-    //   next();
-    // })
+    window.scrollTo(0, 0)
+    next();
+})
 
 
 const coolfm = new Vue({

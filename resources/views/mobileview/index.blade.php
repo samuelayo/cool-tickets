@@ -5,14 +5,13 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Coolfm - Nigeria</title>
-  
-  
-<link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet">
-  
       <link rel="stylesheet" href="/mobile/css/style.css">
+      <link href="/fonts/circular-font.css" rel="stylesheet">
       <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
 	<link rel="stylesheet" href="/mobile/dist/static/fonts/MaterialDesign-Webfont-master/css/materialdesignicons.css">
-       <link href="/mobile/dist/static/css/app.168f324bfc92ada06a4d853d3458af5f.css" rel="stylesheet">
+       <link href="/mobile/dist/static/css/app.50cd431fed598cd056fa083f67bd154d.css" rel="stylesheet">
+       <script src="/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 
   
 </head>
@@ -58,13 +57,13 @@ if(localStorage.getItem('username')!=undefined){
 </script>
 <!-- Resource jQuery --> 
 
-<script type="text/javascript" src="/mobile/dist/static/js/manifest.99a77315c6061d2fff57.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/vendor.875afc491451e1b702fb.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.16e37368506f8dffd0b8.js"></script> 
 
-<!--<script src="http://localhost:8080/app.js"></script>-->
+<script type="text/javascript" src="/mobile/dist/static/js/manifest.144ba7a70446a1589d7c.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/vendor.174a1994a95c2da26a76.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/app.fdddf72ca3f5289ea454.js"></script> 
+<!-- <script src="http://localhost:8080/app.js"></script>-->
 
-
+<script src="https://js.paystack.co/v1/inline.js"></script>
 
 
 </body>
