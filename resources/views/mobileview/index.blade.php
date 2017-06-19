@@ -9,7 +9,7 @@
       <link href="/fonts/circular-font.css" rel="stylesheet">
       <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
 	<link rel="stylesheet" href="/mobile/dist/static/fonts/MaterialDesign-Webfont-master/css/materialdesignicons.css">
-       <link href="/mobile/dist/static/css/app.50cd431fed598cd056fa083f67bd154d.css" rel="stylesheet">
+       <link href="/mobile/dist/static/css/app.37f90d7bd66a5dee8406d23ad164ba24.css" rel="stylesheet">
        <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 
@@ -58,10 +58,10 @@ if(localStorage.getItem('username')!=undefined){
 <!-- Resource jQuery --> 
 
 
-<script type="text/javascript" src="/mobile/dist/static/js/manifest.144ba7a70446a1589d7c.js"></script>
+<script type="text/javascript" src="/mobile/dist/static/js/manifest.7bc5e16c8a5437f66d89.js"></script>
     <script type="text/javascript" src="/mobile/dist/static/js/vendor.174a1994a95c2da26a76.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.fdddf72ca3f5289ea454.js"></script> 
-<!-- <script src="http://localhost:8080/app.js"></script>-->
+    <script type="text/javascript" src="/mobile/dist/static/js/app.eb5c1f98ba5cb56a3e20.js"></script> 
+ <!--<script src="http://localhost:8080/app.js"></script>-->
 
 <script src="https://js.paystack.co/v1/inline.js"></script>
 

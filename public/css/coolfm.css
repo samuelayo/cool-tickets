@@ -1853,7 +1853,8 @@ tr:hover {
     color: black;
 }
 
-.dropdown-menu>li>a {
+
+/*.dropdown-menu>li>a {
     display: block;
     padding: 3px 20px;
     clear: both;
@@ -1862,12 +1863,20 @@ tr:hover {
     color: #333;
     white-space: nowrap;
     font-size: 1.1em;
-}
+}*/
 
 .dropdown-menu>li>a {
+    padding: 12px 30px !important;
+    border-top: 1px solid #ddd !important;
+    font-family: ‘Circular-Book’;
+    font-weight: 100;
+}
+
+
+/*.dropdown-menu>li>a {
     padding: 6px 30px !important;
     border-top: 1px solid #ddd !important;
-}
+}*/
 
 .navbar-nav>li {
     float: left !important;

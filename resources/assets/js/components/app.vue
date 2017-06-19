@@ -15,44 +15,77 @@
     <meta name="twitter:description" :content="description" />
     <meta name="twitter:title" :content="title" />
     <meta name="twitter:site" content="@coolfmnigeria" />
+  
+  
+    <div class="container-fluid topnav" style="
+      height: 40px !important;
+       background-image: url('https://i.imgur.com/PRammPf.png') ; border-bottom: 3px solid #f9f9f9; box-shadow: inset 0 0 0 1000px rgba(0, 79, 253, 0.4); ;
+                                             ">
+      <p style="
+      text-align:center;
+      width: 100%;
+      padding: 1em;
+      font-size: 1.5em; color:#fff;
+      font-family: 'Circular-light';
+            ">All your favorite events, All the time.
+        <router-link to="/events"><button style="
+      border-radius: 40px;
+      border: 1px solid blue;
+      background: rgba(240, 248, 255, 0.97);
+      /* -webkit-box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75); */
+      -moz-box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75);
+      /* box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75); */
+      border: 1px solid blue;
+      color: blue;
+      height: 36px;
+      font-size: .7em !important;
+      width: 149px;
+      margin-left: 2em;
+      font-family: 'Circular-Book';
+      vertical-align: middle;
+  ">Learn more</button></router-link>
+      </p>
+    </div>
+  
+  
     <nav class="navbar topnav navbar-default" role="navigation">
       <div class="container-fluid topnav">
         <!-- Brand and toggle get grouped for better mobile display -->
   
         <div class="navbar-header htop">
-        
+  
           <div class="navbar-brand topnav">
             <a>
               <router-link to="/">
-                <img src="/img/logo.svg" width="100" alt="Cool Fm">
+                <img src="/img/logo.svg" width="150" alt="Cool Fm">
               </router-link>
             </a>
-            
+  
           </div>
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                          </button>
           </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse htop" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <!--<li>
-                <a class="active" href="#">On Air</a>
-              </li>
-              <li>
-                <a href="#">Schedules</a>
-              </li> -->
-              <li style="padding: 0px;padding-top: 0px !important;padding-left: 0px !important;padding-right: 0px !important;">
+                  <a class="active" href="#">On Air</a>
+                </li>
+                <li>
+                  <a href="#">Schedules</a>
+                </li> -->
+            <li style="padding: 0px;padding-top: 0px !important;padding-left: 0px !important;padding-right: 0px !important;">
               <gcse:search></gcse:search>
-              </li>
+            </li>
             <li>
               <a data-toggle="dropdown">Categories
-                              <span class="caret"></span></a>
+                                <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li v-for="cat in categories">
                   <router-link :to="{ name: 'blogcategory', params: { id: cat.id, name:cat.name }}">{{cat.name}}</router-link>
@@ -68,22 +101,25 @@
   
               <router-link to="/forums">Forum</router-link>
             </li>
-            <li>
-  
-              <router-link to="/events">Events</router-link>
-            </li>
   
             <li>
-              <router-link to="/aboutus">About Us</router-link>
+              <a data-toggle="dropdown">Company
+                                <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <router-link to="/aboutus">About Us</router-link>
+                </li>
+                <li>
+                  <router-link to="/contact-us">Contact Us</router-link>
+                </li>
+              </ul>
             </li>
-            <li>
-              <router-link to="/contact-us">Contact Us</router-link>
-            </li>
+  
             <li style="margin-right: -1.1em;">
   
   
               <a class="switch" data-toggle="dropdown">Switch Channel
-                              <span class="caret"></span></a>
+                                <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="javascript:void()" @click="change_state('Lagos', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos')">Coolfm Lagos</a></li>
                 <li><a href="javascript:void()" @click="change_state('Kano', 'http://icestream.coolwazobiainfo.com:8000/coolfm-kano')">Coolfm Kano</a></li>
@@ -91,13 +127,38 @@
                 <li><a href="javascript:void()" @click="change_state('Ph', 'http://icestream.coolwazobiainfo.com:8000/coolfm-ph')">Coolfm PH</a></li>
               </ul>
             </li>
-           
+  
           </ul>
         </div>
         <!-- /.navbar-collapse -->
       </div>
       <!-- /.container-fluid -->
     </nav>
+  
+    <div class="container-fluid topnav" style="
+      height: 40px !important;
+      ">
+      <p style="
+      text-align:center;
+      width: 100%;
+      padding: 1em;
+      font-size: 1.4em;
+      color: #333;
+      font-family: 'Circular-Book';
+      "> <span class="ion-paper-airplane" style="
+      font-size: 1.5em;
+      color: blue;
+  "></span> Get the latest gists straight to your mail box <input placeholder="Enter Your Email" style="
+      margin-left: 1em;
+      border-radius: 55px;
+      border: 1px solid #ddd;
+      font-size: .85em;
+      padding-left: 1em;
+      width: 400px;
+      outline: none;
+      height: 45px;
+  "> </p>
+    </div>
     <br>
     <!-- the router outlet, where all matched components would ber viewed -->
     <transition>
@@ -107,32 +168,32 @@
       <div class="container">
   
         <span class="navbar-text" style="margin-top:1%">
-            
-            <!--<div id="timeline">
-              <div id="playhead"></div>
-            </div><span style="vertical-align: -webkit-baseline-middle;">&nbsp <span id="len">5.50</span></span>-->
+              
+              <!--<div id="timeline">
+                <div id="playhead"></div>
+              </div><span style="vertical-align: -webkit-baseline-middle;">&nbsp <span id="len">5.50</span></span>-->
         <audio id="ourplay" ref="ourplay" controls> 
-            <source :src="current_stream"/>
-          </audio>
+              <source :src="current_stream"/>
+            </audio>
         </span>
   
   
         <p class="navbar-text pull-right">
           <span><p></p>
-            <span id="playname">
-            Now Playing: Cool fm live stream
-            </span>
+              <span id="playname">
+              Now Playing: Cool fm live stream
+              </span>
           <span id="live" style="
-     margin-left: 1em;
-     color: red;
-     padding: .19em;
-     font-weight: 400;
-     font-size: 0.8em;
-     letter-spacing: 3px;
-     border: 1.2px solid red;
-     padding-left: .5em;
-     padding-right: .5em;
-  ">LIVE</span>
+       margin-left: 1em;
+       color: red;
+       padding: .19em;
+       font-weight: 400;
+       font-size: 0.8em;
+       letter-spacing: 3px;
+       border: 1.2px solid red;
+       padding-left: .5em;
+       padding-right: .5em;
+    ">LIVE</span>
           </span>
         </p>
       </div>
@@ -141,6 +202,7 @@
     </div>
   </div>
 </template>
+
 <script>
   export default {
     name: 'app',
@@ -156,7 +218,7 @@
   
     created: function() {
   
-      
+  
   
     },
     mounted: function() {
@@ -258,45 +320,48 @@
   video::-webkit-media-controls-enclosure {
     max-width: 100%;
   }
+  
+  
   /**.cse .gsc-control-cse, .gsc-control-cse{
-    padding: 0 0 0 0 !important;
-    margin: -1em !important;
-  }**/
-
-  .cse .gsc-control-cse, .gsc-control-cse {
+      padding: 0 0 0 0 !important;
+      margin: -1em !important;
+    }**/
+  
+  .cse .gsc-control-cse,
+  .gsc-control-cse {
     font-family: Arial, serif !important;
     background-color: none !important;
     border: none !important;
-} 
+  }
+  
   .gsc-control-cse {
     font-family: Arial, sans-serif !important;
     border-color: none !important;
     background-color: none !important;
-}
-
-
-
- input#gsc-i-id1 {
+  }
+  
+  input#gsc-i-id1 {
     outline: none;
     background: none !important;
     text-indent: 0px !important;
     font-family: 'circular-medium' !important;
-}
-
-input.gsc-input {
+  }
+  
+  input.gsc-input {
     border-color: none !important;
-}
-
-input.gsc-search-button {
+  }
+  
+  input.gsc-search-button {
     background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%) !important;
     border: none !important;
     color: #fff !important;
     width: 86px !important;
     height: 31px !important;
     border-radius: 26px !important;
-}
-
-.cse input.gsc-input, input.gsc-input {
+  }
+  
+  .cse input.gsc-input,
+  input.gsc-input {
     font-family: inherit !important;
     font-size: 16px !important;
     border: none !important;
@@ -305,15 +370,17 @@ input.gsc-search-button {
     -moz-border-radius: 2px !important;
     -webkit-border-radius: 2px !important;
     border-radius: 2px !important;
-}
-
-.toast-success {
+  }
+  
+  .toast-success {
     background-color: #117af2 !important;
-}
-#toast-container>.toast-success {
-     background-image: none !important;
-}
-#toast-container>div {
+  }
+  
+  #toast-container>.toast-success {
+    background-image: none !important;
+  }
+  
+  #toast-container>div {
     position: relative;
     pointer-events: auto;
     overflow: hidden;
@@ -332,19 +399,21 @@ input.gsc-search-button {
     opacity: .8;
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
     filter: alpha(opacity=80);
-}
+  }
   
   div#___gcse_0 {
     width: 90% !important;
     margin: 0 auto !important;
-}
-.cse .gsc-control-cse, .gsc-control-cse {
+  }
+  
+  .cse .gsc-control-cse,
+  .gsc-control-cse {
     padding: 0px !important;
     width: auto;
-}
-td.gsc-clear-button {
+  }
+  
+  td.gsc-clear-button {
     width: 14px !important;
     display: none !important;
-}
-
+  }
 </style>
