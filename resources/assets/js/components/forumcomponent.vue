@@ -1,5 +1,6 @@
 <template>
     <div id="forumcomponent">
+     <clip-loader v-if="loading" color="blue"></clip-loader>
         <div class="row">
             <!-- advert -->
             <div class="col-md-12">
@@ -94,6 +95,7 @@
         name: 'forumcomponent',
         data: function() {
             return {
+                loading: true,
                 forums: []
             }
         },
@@ -115,6 +117,7 @@
                         }
                         document.body.scrollTop = document.documentElement.scrollTop = 0;
                         this.$store.dispatch('SET_SEO', status);
+                        this.loading = false;
                     })
                     .catch(e => {
     

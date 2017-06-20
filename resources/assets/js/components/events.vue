@@ -1,5 +1,6 @@
 <template>
     <div id="products" class="container row list-group" style="padding: 2em;">
+        <clip-loader v-if="loading" color="blue"></clip-loader>
         <div class="item  col-xs-4 col-lg-4" v-for="(evn, index) in searchable">
     
             <div id="event-single" class="thumbnail">
@@ -61,7 +62,8 @@
             return {
                 all_events: [],
                 ticket_price: [],
-                ticket_qty: []
+                ticket_qty: [], 
+                loading: true,
             }
         },
         created: function() {
@@ -78,6 +80,7 @@
                         this.all_events = response.data;
                         //this.loadable();
                         this.pushem();
+                        this.loading = false;
                     });
             },
             verify: function(start) {

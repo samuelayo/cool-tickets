@@ -1,5 +1,6 @@
 <template>
 <div>
+ <clip-loader v-if="loading" color="blue"></clip-loader>
    <div class="row">
       <!-- advert -->
       <div class="col-md-12">
@@ -92,7 +93,8 @@
         components: {forumcomment, forumads},
         data: function(){
             return {
-                forum: {}
+                forum: {},
+                loading: true
                
             }
         },
@@ -110,6 +112,7 @@
                     description: this.forum.description
                 }
                 this.$store.dispatch('SET_SEO', status);
+                this.loading = false;
                 
                 })
                 .catch(e => {

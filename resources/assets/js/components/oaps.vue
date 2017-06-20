@@ -1,6 +1,6 @@
 <template>
 <div id="oapspage">
- <pulse-loader v-if="loading"></pulse-loader>
+ <clip-loader v-if="loading" color="blue"></clip-loader>
 
  <h1 style="text-align: center; font-weight: 700;">OAPS</h1><br><br>
    

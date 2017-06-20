@@ -1,5 +1,6 @@
 <template>
   <div class="row" id="blogcategory">
+   <clip-loader v-if="loading" color="blue"></clip-loader>
      <!-- advert -->
     <div class="col-md-12">   <h1 style="text-align: center; font-weight: 700;">{{name}}</h1><br><br>
         <a  v-if="homepage_chart[0]" :href="homepage_chart[0].url">
@@ -97,6 +98,7 @@ export default{
     props: ['id', 'name'],
     data: function(){
         return {
+            loading: true,
             all: {},
             busy: false,
             count: 10
@@ -127,6 +129,7 @@ export default{
         axios.get("/blog_category/"+this.id)
         .then((response)=>{
           this.all = response.data;
+          this.loading = false;
       });
 
     },

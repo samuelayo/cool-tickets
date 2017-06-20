@@ -1,5 +1,6 @@
 <template>
 <div id="sidebar">
+ <clip-loader v-if="loading" color="blue"></clip-loader>
     <div class="col-md-3">
         <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Hot</h4><br>
         <div class="panel panel-default shadowed">
@@ -63,7 +64,8 @@
         data: function (){
             return{
                trending: window.Laravel.trending,
-               hot: []
+               hot: [], 
+               loading: true
             }
         },
         created: function (){
@@ -86,6 +88,7 @@
                             return a.comments.length - a.comments.length;
                         });
                         this.hot=list;
+                        this.loading = false;
                 
                     })
                     .catch(e => {

@@ -1,5 +1,6 @@
 <template>
     <div id="">
+     <clip-loader v-if="loading" color="blue"></clip-loader>
 
            <div class="doubleColumns">
   <div :style="'background-size: cover; width: 15% !important; background-image: url('+oap.image+');'" class="doubleColumn">
@@ -21,7 +22,8 @@
         name: 'singleoaps',
         data: function (){
             return{
-                oap:{}
+                oap:{},
+                loading: true
             }
         },
         created: function(){
@@ -34,6 +36,7 @@
                     description: this.oap.description
                 }
                 this.$store.dispatch('SET_SEO', status);
+                this.loading = false;
                 
                 })
                 .catch(e => {

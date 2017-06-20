@@ -1,5 +1,6 @@
 <template>
     <div id="all_podcasts">
+     <clip-loader v-if="loading" color="blue"></clip-loader>
         <h1 style="text-align: center; font-weight: 700;line-height: 1.3;">PODCASTS   </h1><br>
 
 
@@ -76,6 +77,7 @@
          props: ['week'],
          data: function(){
             return {
+                loading: true,
                 podcasts: [],
                 part_one:[],
                 part_two:[]
@@ -96,6 +98,7 @@
                     // JSON responses are automatically parsed.
                     this.podcasts = response.data;
                     this.split_podcasts();
+                    this.loading = false;
                     })
                     .catch(e => {
                     

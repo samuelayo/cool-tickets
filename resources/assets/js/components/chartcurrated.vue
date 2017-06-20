@@ -1,5 +1,6 @@
 <template>
     <div id="chartcurrated">
+     <clip-loader v-if="loading" color="blue"></clip-loader>
 
            
 
@@ -112,7 +113,8 @@
                 alternativechart:[],
                 selectedcat:['nigerian','global','global'],
                 currentchart: 0,
-                all_chart_ever: []
+                all_chart_ever: [], 
+                loading: true
             }
         },
         created: function(){
@@ -148,7 +150,7 @@
                     this.alternativechart =  _.groupBy(this.alternativechart, function(car) {
                                             return car.week;
                                             });                   
-                
+                    this.loading = false;
                 })
                 .catch(e => {
                 

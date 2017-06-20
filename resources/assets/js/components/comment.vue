@@ -1,6 +1,6 @@
 <template>
   <div class="comments">
-    
+     <clip-loader v-if="loading" color="blue"></clip-loader>
     
   <div class="post-comments col-md-12">
 
@@ -202,6 +202,7 @@
     data: function(){
       return {
         users: [],
+        loading: true,
         edit:false,
         comments:[],
         comment: {
@@ -228,6 +229,7 @@ created: function(){
       axios.get("/post/"+this.id+"/comments")
         .then((response)=>{
           this.comments = response.data;
+          this.loading = false;
       });
     },
     broadcasted: function(){

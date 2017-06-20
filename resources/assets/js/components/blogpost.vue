@@ -283,6 +283,7 @@ import comment from './comment.vue'
         },
         watch: {
             id: function() {
+                this.loading = true;
                 axios.get('/posts/' + this.$route.params.id)
                     .then(response => {
                         // JSON responses are automatically parsed.
@@ -309,7 +310,7 @@ import comment from './comment.vue'
     }
 </script>
 
-<style scooped>
+<style scoped>
     /*=========================
       Icons
      ================= */
