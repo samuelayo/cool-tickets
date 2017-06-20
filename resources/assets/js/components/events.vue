@@ -3,7 +3,7 @@
         <div class="item  col-xs-4 col-lg-4" v-for="(evn, index) in searchable">
     
             <div id="event-single" class="thumbnail">
-                <img class="group list-group-image" :src="evn.image" style="height: 180px;" alt="" />
+                <img class="group list-group-image" :src="evn.image"  alt="" />
                 <div class="caption">
                     <h4 id="event-title" class="group inner list-group-item-heading">
                         {{evn.title}}</h4>

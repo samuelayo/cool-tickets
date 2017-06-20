@@ -44,9 +44,7 @@
                             </div>
     
                             <div class="item-body">
-    
-                                <br>
-                                <br>
+
                                 <p v-html="post.content">
     
                                 </p>

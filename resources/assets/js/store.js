@@ -47,7 +47,7 @@ const store = new Vuex.Store({
                 "showMethod": "fadeIn",
                 "hideMethod": "fadeOut"
             }
-            toastr.success('You are now listening to Coolfm ' + status);
+            toastr.success('You are now listening to Cool FM ' + status);
         },
         SET_STREAM_MUTATION(state, stream) {
             state.current_stream = stream

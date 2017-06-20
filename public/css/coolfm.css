@@ -279,8 +279,8 @@ h5 {
 .rising_topic {
     position: absolute;
     padding: 25px;
-    margin-top: 5.4em;
-    font-size: 2.7em;
+    margin-top: 6.2em;
+    font-size: 2.4em;
     padding-bottom: 2em !important;
     font-weight: 100;
     width: 100%;
@@ -1885,11 +1885,4 @@ tr:hover {
     padding-top: 1em !important;
     padding-left: .8em !important;
     padding-right: .8em !important;
-}
-
-.dropdown-menu>li>a {
-    padding: 12px 30px !important;
-    border-top: 1px solid #ddd !important;
-    font-family: 'Circular-Light';
-    font-weight: 700;
 }
