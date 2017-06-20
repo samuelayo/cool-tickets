@@ -138,28 +138,7 @@
     <div class="container-fluid topnav" style="
       height: 40px !important;
       ">
-      <p style="
-      text-align:center;
-      width: 100%;
-      padding: 1em;
-      font-size: 1.4em;
-      color: #333;
-      font-family: 'Circular-Book';
-      "> <span class="ion-paper-airplane" style="
-      font-size: 1.5em;
-      color: blue;
-  "></span> Get the latest gists straight to your mail box <input placeholder="Enter Your Email" style="
-      margin-left: 1em;
-      border-radius: 55px;
-      border: 1px solid #ddd;
-      font-size: .85em;
-      padding-left: 1em;
-      width: 400px;
-      outline: none;
-      height: 45px;
-  "> 
-  <button style="border-radius: 55px;color: blue;background: #ecf5ff;border: 1px solid blue;width: 145px;height: 40px;font-size: 14px;font-family: circular-bold;margin-bottom: 1em;" background-color:=""> Subscribe </button>
-</p>
+     <p style="text-align: center;width: 100%;padding: 1em;font-size: 1.4em;padding-top: .5em;color: rgb(51, 51, 51);font-family: Circular-Book;"> Get the latest gists straight to your mail box <input placeholder="Enter Your Email" style="margin-left: 1em; border-radius: 55px; border: 1px solid rgb(221, 221, 221); font-size: 0.85em; padding-left: 1em; width: 400px; outline: none; height: 45px;"> <button background-color:="" style="border-radius: 55px;color: #fff;background: rgb(0, 0, 0);border: 1px solid #000;width: 42px;height: 40px;-moz-box-shadow: 0px 2px 4px 0px #000000;-webkit-box-shadow: 0px 2px 4px 0px #000000;box-shadow: 0px 2px 4px 0px #000000;font-size: 14px;font-family: circular-bold;margin-bottom: 1em;">  <span class="ion-paper-airplane" style="font-size: 1.5em;color: #fff;"></span> </button></p><p style="text-align: center;width: 100%;padding: 1em;font-size: 1.4em;padding-top: .5em;color: rgb(51, 51, 51);font-family: Circular-Book;"> Get the latest gists straight to your mail box <input placeholder="Enter Your Email" style="margin-left: 1em; border-radius: 55px; border: 1px solid rgb(221, 221, 221); font-size: 0.85em; padding-left: 1em; width: 400px; outline: none; height: 45px;"> <button background-color:="" style="border-radius: 55px;color: #fff;background: rgb(0, 0, 0);border: 1px solid #000;width: 42px;height: 40px;-moz-box-shadow: 0px 2px 4px 0px #000000;-webkit-box-shadow: 0px 2px 4px 0px #000000;box-shadow: 0px 2px 4px 0px #000000;font-size: 14px;font-family: circular-bold;margin-bottom: 1em;">  <span class="ion-paper-airplane" style="font-size: 1.5em;color: #fff;"></span> </button></p>
     </div>
     <br>
     <!-- the router outlet, where all matched components would ber viewed -->
