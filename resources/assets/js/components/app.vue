@@ -145,6 +145,10 @@
     <transition>
       <router-view></router-view>
     </transition>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="navbar navbar-default navbar-fixed-bottom">
       <div class="container">
   
