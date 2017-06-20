@@ -41,8 +41,6 @@ class OAPCrudController extends CrudController
         'name' => "image",
         'type' => 'image',
         'upload' => true,
-        'crop' => true, // set to true to allow  cropping, false to disable
-        'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
         ]);
 
          $this->crud->addField([ // image
