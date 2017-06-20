@@ -89,7 +89,7 @@ class OAP extends Model
 
     public function setfull_imageAttribute($value)
     {
-        $attribute_name = "full_image";
+        $attribute_name = "fullimage";
         $disk = "uploads";
         $destination_path = "folder_1";
 

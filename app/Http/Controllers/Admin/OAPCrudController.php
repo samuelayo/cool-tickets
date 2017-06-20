@@ -45,7 +45,7 @@ class OAPCrudController extends CrudController
 
          $this->crud->addField([ // image
         'label' => "Full Image",
-        'name' => "full_image",
+        'name' => "fullimage",
         'type' => 'image',
         'upload' => true,
         ]);
