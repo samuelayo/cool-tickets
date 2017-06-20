@@ -37,12 +37,19 @@ class OAPCrudController extends CrudController
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
          $this->crud->addField([ // image
-        'label' => "Image",
+        'label' => "Thumbnail",
         'name' => "image",
         'type' => 'image',
         'upload' => true,
         'crop' => true, // set to true to allow  cropping, false to disable
         'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
+        ]);
+
+         $this->crud->addField([ // image
+        'label' => "Full Image",
+        'name' => "full_image",
+        'type' => 'image',
+        'upload' => true,
         ]);
 
         $this->crud->addField([   // CKEditor

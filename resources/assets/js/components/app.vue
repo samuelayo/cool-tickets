@@ -166,7 +166,7 @@
         <p class="navbar-text pull-right">
           <span><p></p>
                 <span id="playname">
-                Now Playing: Cool fm live stream
+                Cool FM live stream
                 </span>
           <span id="live" style="
          margin-left: 1em;
