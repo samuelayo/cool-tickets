@@ -245,9 +245,11 @@
     }
 </script>
 
-<style>
+<style scoped>
     /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-    
+    *{
+        font-family: 'Circular-Book'
+    }
     .glyphicon {
         margin-right: 5px;
     }

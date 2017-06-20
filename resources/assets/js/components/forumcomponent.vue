@@ -11,8 +11,8 @@
             <div class="col-md-12">
                 <br><br><br>
                 <div class="col-md-9">
-                    <div class="panel">
-                        <br>
+                    <div class="panel shadowed">
+                        
                         <h3 style="text-align: center; font-weight: 700;">FORUM</h3>
                         <br>
                         <div class="article">
