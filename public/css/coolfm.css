@@ -560,31 +560,38 @@ p.copyright {
     margin-left: 2.8em;
     font-size: 1.3em;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 1em
+    padding-bottom: 1em;
 }
 
 .item-body {
     position: relative;
     min-height: 220px;
-    max-width: 729px;
+    max-width: 100%;
+    font-weight: 900;
+    padding: 1em;
     font-size: 1.4em;
-    margin: 0 0 auto auto;
+    color: #000;
+    margin: 0 auto;
     line-height: 1.7;
 }
 
 .item-content {
-    width: 940px;
+    width: 91%;
+    font-family: 'Circular-Light' !important;
     margin: auto;
     margin-top: 2em;
-    min-width: 940px;
+    color: #000;
+    font-size: .98em;
 }
 
 .item-meta {
-    width: 160px;
+    width: 159px;
     background: #f9f9f9;
     padding: 1em;
     float: left;
     line-height: 21px;
+    margin-top: 2em;
+    margin-right: 3em;
 }
 
 .title-meta h6 {
@@ -618,11 +625,14 @@ p.copyright {
 }
 
 #more p {
-    font-size: 1.4em;
-    margin-top: 6em;
-    line-height: 1.1;
+    line-height: 1;
     font-weight: 100;
-    color: #fff;
+    font-size: 1.35em;
+    margin-top: 8em;
+    background: yellow;
+    color: #000;
+    font-family: 'Circular-Bold';
+    padding: 1em;
 }
 
 #oaps {
@@ -632,14 +642,6 @@ p.copyright {
     width: 230px;
     margin-left: 3em;
     border-radius: 10px
-}
-
-#more p {
-    font-size: 1.4em;
-    line-height: 1.1;
-    font-weight: 100;
-    font-size: 1.3em;
-    color: #fff;
 }
 
 #oaps p {

@@ -257,7 +257,7 @@
           this.play = 'play';
           audio.play();
         }
-        document.getElementById('playname').innerHTML = 'Now Playing: ' + name;
+        document.getElementById('playname').innerHTML = name;
   
       },
       change_state: function(status, stream) {
