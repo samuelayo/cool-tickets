@@ -157,7 +157,9 @@
       width: 400px;
       outline: none;
       height: 45px;
-  "> </p>
+  "> 
+  <button style="border-radius: 55px;color: blue;background: #ecf5ff;border: 1px solid blue;width: 145px;height: 40px;font-size: 14px;font-family: circular-bold;margin-bottom: 1em;" background-color:=""> Subscribe </button>
+</p>
     </div>
     <br>
     <!-- the router outlet, where all matched components would ber viewed -->
