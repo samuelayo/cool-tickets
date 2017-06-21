@@ -38,9 +38,12 @@
                      </p>
                      <br>
                      <br>
-                     <center>Comments </center>
-                     <forumcomment :id="forum.id" ></forumcomment>
+                    
                   </div>
+               </div>
+               <div class="panel shadowed">
+                <center>Comments </center>
+                     <forumcomment :id="forum.id" ></forumcomment>
                </div>
                <div id="forum-div" class="container-fluid">        
                </div>
