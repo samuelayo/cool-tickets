@@ -2,7 +2,36 @@
   <div class="comments">
   <clip-loader v-if="loading" color="blue"></clip-loader>
  
+ <div id="login" v-if="!loggedin">
+      <div class="row margin-bottom-10"><div class="col-md-6 col-sm-6 col-xs-6"><a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="
+    border-radius: 40px;
+    height: 50px;
+    color: #fff !important;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+-moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+    padding-top: .7em !important;
+    background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+">
+  <span style="
+    border-right: 1px solid #fff;
+    margin-right: 1em;
+    padding-right: 1em;
+" class="ion-social-facebook"> </span> Sign in with Facebook</a></div> <div class="col-md-6 col-sm-6 col-xs-6"><a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="
+    border-radius: 40px;
+    height: 50px;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+-moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+    color: #fff !important;
+    padding-top: .7em !important;
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+                                                                                              "> <span class="ion-social-twitter" style="
+    border-right: 1px solid #fff;
+    margin-right: 1em;
+    padding-right: 1em;
+"></span> Sign in with Twitter</a></div></div>
 
+    </div>
+  
  <form action="" @submit.prevent="edit ? editComment(comment.id) : createComment()" v-if="loggedin">
      <div class="form-group col-md-12">
         <div class="form-group col-md-12"> <textarea name="comment" id="textarea" placeholder="Write your responses" rows="3" class="form-control" style="
@@ -236,23 +265,7 @@
 
    
     
-    <div id="login" v-if="!loggedin">
-  <p style="text-align: center;" ><span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #fff; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> Please login to comment</span>  <span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #fff; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
-              <div class="row margin-bottom-10">
-              <div class="col-md-6 col-sm-6 col-xs-6">
-                  <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook">Facebook</a>
-              </div>
-              <div class="col-md-6 col-sm-6 col-xs-6">
-                  <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter">Twitter</a>
-              </div>
-          </div>
-
-         
-
-    </div>
-  
+   
   </div>
 </template>
 
