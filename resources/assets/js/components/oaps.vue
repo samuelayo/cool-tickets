@@ -108,7 +108,7 @@
     font-weight: 100;
     font-size: 1.35em;
     margin-top: 5em;
-    /* background: yellow; */
+    background: none !important; 
     color: #000;
     font-family: 'Circular-Bold';
     padding: 1em;
