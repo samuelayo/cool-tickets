@@ -11,7 +11,7 @@
       <!-- 3 grid for trending, rising and hot topics -->
       <div class="col-md-12">
          <br><br><br>
-         <div class="col-md-9" v-if="forum.id">
+         <div class="col-md-9" v-if="forum.id" style="background: #f9f9f9;">
             <div class="panel shadowed">
                <br>
                <h5 style="text-align: center;" >{{forum.category_name.name}}</h5>
@@ -51,8 +51,8 @@
                   </div>
                </div>
             </div>
-            <div class="panel">
-            <center>Comments </center>
+            <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
+  
                      <forumcomment :id="forum.id" ></forumcomment>
             </div>
             <br><!-- advert -->

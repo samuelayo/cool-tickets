@@ -1,6 +1,7 @@
 <template>
   <div class="comments">
-     <clip-loader v-if="loading" color="blue"></clip-loader>
+  <clip-loader v-if="loading" color="blue"></clip-loader>
+ 
     
   <div class="post-comments col-md-12">
 
@@ -8,19 +9,34 @@
       <div class="media" v-for="comment in getChildren(null)" >
         <!-- first comment -->
 
-        <div class="media-heading">
-         <span class="label label-info">{{timeago(comment.created_at)}}</span> {{username(comment.creator_id)}}
-        </div>
+      
 
         <div class="panel-collapse collapse in" id="collapseThree">
           <!-- media-left -->
           <div class="media-body">
-            <p v-html="comment.body"></p>
+           
+            <p>
+            <span style="float: right;">
+                                  <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(comment.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span> &nbsp; reply</a>
+                                </span>
+             <span class="" style="
+    display: block;
+    font-size: .8em;
+    margin-bottom: 4px;
+    color: #607490 !important;
+"> {{username(comment.creator_id)}}</span>
+<span style="
+    display: block;
+    font-size: .6em;
+    color: rgba(0,0,0,.44)!important;
+    margin-bottom: 12.5px;
+    font-family: 'Circular-Book';
+">{{timeago(comment.created_at)}}</span> 
+            {{comment.body}}
+            </p>
             <div class="comment-meta">
               
-              <span>
-                        <a class="" role="button" class="btn btn-primary" style="color: white;" @click="childreply(comment.id)" v-if="loggedin">reply</a>
-                      </span>
+             
             </div>
 
 
@@ -28,19 +44,34 @@
                 <div class="media" v-for="com in getChildren(comment.id)" >
                   <!-- first comment -->
 
-                  <div class="media-heading">
-                  <span class="label label-info">{{timeago(com.created_at)}}</span> {{username(com.creator_id)}}
-                  </div>
+                 
 
                   <div class="panel-collapse collapse in" id="collapseThree">
                     <!-- media-left -->
                     <div class="media-body">
-                      <p v-html="com.body"></p>
+                      <p >
+                      <span style="float: right;">
+                                  <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(com.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span> &nbsp; reply</a>
+                                </span>
+                        <span class="" style="
+    display: block;
+    font-size: .8em;
+    margin-bottom: 4px;
+    color: #607490 !important;
+"> {{username(com.creator_id)}}</span>
+<span style="
+    display: block;
+    font-size: .6em;
+    color: rgba(0,0,0,.44)!important;
+    margin-bottom: 12.5px;
+    font-family: 'Circular-Book';
+">{{timeago(com.created_at)}}</span> 
+
+{{com.body}}
+                      </p>
                       <div class="comment-meta">
                         
-                        <span>
-                                  <a class="" role="button" class="btn btn-primary" style="color: white;" @click="childreply(com.id)"  v-if="loggedin">reply</a>
-                                </span>
+                        
                       </div>
                       <!-- comment-meta -->
 
@@ -48,19 +79,33 @@
                                     <div class="media" v-for="co in getChildren(com.id)" >
                                     <!-- first comment -->
 
-                                    <div class="media-heading">
-                                    <span class="label label-info">{{timeago(co.created_at)}}</span> {{username(co.creator_id)}}
-                                    </div>
+                                  
 
                                     <div class="panel-collapse collapse in" id="collapseThree">
                                       <!-- media-left -->
                                       <div class="media-body">
-                                        <p v-html="co.body"></p>
+                                        <p>
+                                        <span style="float: right;">
+                                  <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(co.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span> &nbsp; reply</a>
+                                </span>
+                                         <span class="" style="
+    display: block;
+    font-size: .8em;
+    margin-bottom: 4px;
+    color: #607490 !important;
+"> {{username(co.creator_id)}}</span>
+<span style="
+    display: block;
+    font-size: .6em;
+    color: rgba(0,0,0,.44)!important;
+    margin-bottom: 12.5px;
+    font-family: 'Circular-Book';
+">{{timeago(co.created_at)}}</span>
+{{co.body}}
+                                        </p>
                                         <div class="comment-meta">
                                           
-                                          <span>
-                                                    <a class="" role="button" class="btn btn-primary" style="color: white;" @click="childreply(co.id)"  v-if="loggedin">reply</a>
-                                                  </span>
+                                          
                                         </div>
                                         <!-- comment-meta -->
                                         <!-- answer to the first comment -->
@@ -71,14 +116,30 @@
                                                   <div class="media" v-for="c in getChildren(co.id)" >
                   <!-- first comment -->
 
-                                                        <div class="media-heading">
-                                                        <span class="label label-info">{{timeago(c.created_at)}}</span> {{username(c.creator_id)}}
-                                                        </div>
+                                                       
 
                                                         <div class="panel-collapse collapse in" id="collapseThree">
                                                           <!-- media-left -->
                                                           <div class="media-body">
-                                                            <p v-html="c.body"></p>
+                                                            <p >
+                                                            <span style="float: right;">
+                                  <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(c.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span> &nbsp; reply</a>
+                                </span>
+                                                              <span class="" style="
+    display: block;
+    font-size: .8em;
+    margin-bottom: 4px;
+    color: #607490 !important;
+"> {{username(c.creator_id)}}</span>
+<span style="
+    display: block;
+    font-size: .6em;
+    color: rgba(0,0,0,.44)!important;
+    margin-bottom: 12.5px;
+    font-family: 'Circular-Book';
+">{{timeago(c.created_at)}}</span>
+{{c.body}}
+                                                            </p>
                                                             <div class="comment-meta">
                                                               
                                                             </div>
@@ -133,11 +194,11 @@
 <div id="openModal" class="modalDialog">
 	<div>
 		<a href="#close" id="close" title="Close" class="close">X</a>
-		
+	
 		 <div>
         <label for="comment" style="font-family: 'karla';">Your Comment</label>
         <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
-
+      
         <br>
         <button type="submit" style="font-family: 'karla';" class="btn btn-primary" v-show="!edit" @click="childsubmit()">Add Comment</button>
       </div>
@@ -149,7 +210,7 @@
      <div class="form-group col-md-12">
         <label for="comment">Your Comment</label>
         <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
-
+       
         <br>
         <button type="submit" class="btn btn-primary" v-show="!edit">Add Comment</button>
       </div>
@@ -157,7 +218,7 @@
     
     <div id="login" v-if="!loggedin">
   <p style="text-align: center;" ><span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color:#fff; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> Please login to comment</span>  <span style="border-bottom: 1px solid #ddd;
+    vertical-align: super; color: #fff; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> Please login to comment</span>  <span style="border-bottom: 1px solid #ddd;
     vertical-align: super; color: #fff; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
               <div class="row margin-bottom-10">
               <div class="col-md-6 col-sm-6 col-xs-6">
@@ -202,7 +263,6 @@
     data: function(){
       return {
         users: [],
-        loading: true,
         edit:false,
         comments:[],
         comment: {
@@ -211,15 +271,16 @@
           id: '',
         },
         replyid: 0,
-        loggedin: localStorage.getItem('username')?true:false
+        loggedin: localStorage.getItem('username')?true:false,
+        loading: true
       }
     },
 
-created: function(){
-    
+created: function(){    
 },
   mounted: function(){
     this.all_users();
+    
     this.fetchComments();
     
   },
@@ -233,9 +294,11 @@ created: function(){
       });
     },
     broadcasted: function(){
-
+      console.log("saasasasasas");
       socket.on('coolfm-lagos:CommentMade', function(d){
-        if(d.type=="blog" && d.id==this.id){
+        console.log(d);
+        alert('recieved new comment');
+        if(d.type=="forum" && d.id==this.id){
           this.comments = d.all_comments;
         }
        
@@ -249,7 +312,7 @@ created: function(){
 
     },
     username: function(userid){
-      console.log('fired');
+      
         for(var i=0; i < this.users.length; i++){
           if (this.users[i].id == userid){
           
@@ -262,7 +325,6 @@ created: function(){
         .then((response)=>{
           this.comment.body= '';
           this.comments = response.data;
-          
       });
     },
     childreply:function(id){
@@ -276,9 +338,9 @@ created: function(){
       axios.post("/post/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
-        
+
           document.getElementById('close').click();
-          this.comments = response.data;
+         this.comments = response.data;
       }); 
     }, 
     getChildren: function (id) {
@@ -294,11 +356,14 @@ created: function(){
   sockets: {
             coolfmlagos_CommentMade: function(d){
               alert('done');
-              if(d.type=="blog" && d.id==this.id){
+              if(d.type=="forum" && d.id==this.id){
                 this.comments = d.all_comments;
               }
        
-      }
+      },
+      connect: function(){
+          alert('connected');
+        }
         },
         watch: {
           id: function(){
@@ -306,6 +371,8 @@ created: function(){
             this.fetchComments();
           }
         }
+        
+      
 }
 </script>
 <style>
@@ -325,10 +392,10 @@ created: function(){
 }
 
 .post-comments .media {
-  border-left: 1px dotted #000;
-  border-bottom: 1px dotted #000;
-  margin-bottom: 5px;
-  padding-left: 10px;
+    border-left: 1px dotted #f9f9f9;
+    border-bottom: 1px dotted #f9f9f9;
+    margin-bottom: 5px;
+    padding-left: 10px;
 }
 
 .post-comments .media-heading {
@@ -567,21 +634,27 @@ created: function(){
   padding: 3px 10px !important;
 }
 .comments .btn-primary {
-   color: #fff;
-   background: none !important;
-   border-color: blue;
-   color: blue !important;
-   margin-bottom: 1em !important;
-   text-transform: uppercase !important;
+    color: blue;
+    background: none !important;
+    
+    color: #ddd;
+
+    margin-bottom: 1em !important;
+    text-transform: lowercase !important;
 }
 .comments .label-info {
    background: none !important;
    color: #000;
 }
-.comments .media-body p{
-  background: aliceblue !important;
-  padding: 1em !important;
-  border-radius: 10px !important;
+.comments .media-body p {
+    background: #fff !important;
+    padding: 1.8em!important;
+    font-family: 'Circular-Light';
+    border: 1px solid #f7f7f7;
+    -webkit-box-shadow: -1px 9px 53px -6px rgba(0,0,0,0.07);
+    -moz-box-shadow: -1px 9px 53px -6px rgba(0,0,0,0.07);
+    box-shadow: -1px 9px 53px -6px rgba(0,0,0,0.07);
+    font-size: 1.5em;
 } 
 .comments .label-info{
    background: none !important;
@@ -592,5 +665,6 @@ created: function(){
    font-size: .9em;
    content: ' /';
 }
+
 
 </style>
