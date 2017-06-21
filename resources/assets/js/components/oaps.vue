@@ -96,11 +96,21 @@
         }
     }
 </script>
-<style>
+<style scoped>
 .doubleColumn {
     background: #FFF;
     display: table-cell;
     width: 8% !important;
     padding: 2em;
+}
+#more p {
+    line-height: 1;
+    font-weight: 100;
+    font-size: 1.35em;
+    margin-top: 5em;
+    /* background: yellow; */
+    color: #000;
+    font-family: 'Circular-Bold';
+    padding: 1em;
 }
 </style>
