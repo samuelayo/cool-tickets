@@ -51,7 +51,7 @@
                   </div>
                </div>
             </div>
-            <div class="panel shadowed">
+            <div class="panel">
             <center>Comments </center>
                      <forumcomment :id="forum.id" ></forumcomment>
             </div>
