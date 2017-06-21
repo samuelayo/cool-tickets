@@ -28,17 +28,17 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <select class="form-control" v-model="dept_email" >
-                                        <option value="" disabled selected hidden>Which Department would you like to contact?</option>
-                                        <option value="saleslagos@coolwazobiainfo.com">Sales</option>
-                                        <option value="newslagos@coolwazobiainfo.com">News</option>
-                                        <option value="webteam@coolwazobiainfo.com">Web Team</option>
-                                        <option value="webteam@coolwazobiainfo.com">Social Media</option>
-                                        <option value="adminlagos@coolwazobiainfo.com">General Enquiries</option>
-                                    </select>
+                                    <select class="form-control" v-model="dept_email">
+                                            <option value="" disabled selected hidden>Which Department would you like to contact?</option>
+                                            <option value="saleslagos@coolwazobiainfo.com">Sales</option>
+                                            <option value="newslagos@coolwazobiainfo.com">News</option>
+                                            <option value="webteam@coolwazobiainfo.com">Web Team</option>
+                                            <option value="webteam@coolwazobiainfo.com">Social Media</option>
+                                            <option value="adminlagos@coolwazobiainfo.com">General Enquiries</option>
+                                        </select>
                                 </div>
                             </div>
-
+    
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
                                     <textarea class="form-control" id="message" v-model="content" required placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
@@ -57,13 +57,51 @@
                 <div>
                     <div class="panel panel-default">
                         <div class="text-center header" style="color: black;">Our Office</div>
-                        <div class="panel-body text-center">
-                            <h4>Address</h4>
-                            <div>
-                                267A Etim Inyang Cres<br /> Victoria island annex, <br /> Lagos, Nigeria <br/>
-                                <!-- #(703) 1234 1234<br /> -->
-                                webteam@coolwazobiainfo.com<br />
+                        
+                         <div class="col-md-12 panel-body" >
+                                <div class="col-md-6">
+                                    <h4>Lagos Address</h4>
+                                    <div>
+                                        267A Etim Inyang Cres<br /> Victoria island annex, <br /> Lagos, Nigeria <br/>
+                                        <!-- #(703) 1234 1234<br /> -->
+                                        webteam@coolwazobiainfo.com<br />
+                                    </div>
+                                </div>
+
+                                 <div class="col-md-6">
+                                    <h4>Kano Address</h4>
+                                    <div>
+                                        267A Etim Inyang Cres<br /> Victoria island annex, <br /> Lagos, Nigeria <br/>
+                                        <!-- #(703) 1234 1234<br /> -->
+                                        webteam@coolwazobiainfo.com<br />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                <br>
+                                    <h4>Abuja Address</h4>
+                                    <div>
+                                        267A Etim Inyang Cres<br /> Victoria island annex, <br /> Lagos, Nigeria <br/>
+                                        <!-- #(703) 1234 1234<br /> -->
+                                        webteam@coolwazobiainfo.com<br />
+                                    </div>
+                                </div>
+
+                                 <div class="col-md-6">
+                                 <br>
+                                    <h4>Port Harcourt Address</h4>
+                                    <div>
+                                        267A Etim Inyang Cres<br /> Victoria island annex, <br /> Lagos, Nigeria <br/>
+                                        <!-- #(703) 1234 1234<br /> -->
+                                        webteam@coolwazobiainfo.com<br />
+                                    </div>
+                                </div>
+
+                                
                             </div>
+                        <div class="panel-body text-center">
+                           
+    
                             <hr />
                             <!-- <div id="map1" class="map"> -->
                             <gmap-map :center="{lat:6.433123, lng:3.437555}" :zoom="20" map-type-id="roadmap" style="width: 100%; height: 100%; min-width: 300px; min-height: 300px;">
@@ -167,9 +205,10 @@
 </script>
 
 <style scooped>
- select:invalid{
-     background: grey; 
- }
+    select:invalid {
+        background: grey;
+    }
+    
     .map {
         min-width: 300px;
         min-height: 300px;
@@ -184,4 +223,9 @@
         font-size: 27px;
         padding: 10px;
     }
+    .vue-map-container {
+
+    margin-top: 264px !important;
+}
+     
 </style>

@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Redis;
 |
 */
 
-
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 Route::group(['middleware'=>'mobile'], function () {
 
 Route::get('/', 'HomeController@index');
@@ -69,8 +70,7 @@ Route::group(['middleware'=>'cors'], function(){
         });
 
 
-        Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
-        Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+        
 
         Route::get('getforums', function(){
           return \App\Models\Forum::with('category_name', 'user', 'comments')->get();
