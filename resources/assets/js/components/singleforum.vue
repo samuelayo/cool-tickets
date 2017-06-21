@@ -38,12 +38,8 @@
                      </p>
                      <br>
                      <br>
-                    
+                     
                   </div>
-               </div>
-               <div class="panel shadowed">
-                <center>Comments </center>
-                     <forumcomment :id="forum.id" ></forumcomment>
                </div>
                <div id="forum-div" class="container-fluid">        
                </div>
@@ -54,6 +50,10 @@
                   <div>
                   </div>
                </div>
+            </div>
+            <div class="panel shadowed">
+            <center>Comments </center>
+                     <forumcomment :id="forum.id" ></forumcomment>
             </div>
             <br><!-- advert -->
             <div class="col-md-12">
