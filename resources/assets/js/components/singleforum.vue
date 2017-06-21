@@ -12,7 +12,7 @@
       <div class="col-md-12">
          <br><br><br>
          <div class="col-md-9" v-if="forum.id">
-            <div class="panel">
+            <div class="panel shadowed">
                <br>
                <h5 style="text-align: center;" >{{forum.category_name.name}}</h5>
                <br>
