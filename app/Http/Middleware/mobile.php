@@ -19,8 +19,11 @@ class mobile
         $response = $next($request);
         $agent = new Agent();
         if($agent->isMobile()){
-            $url = '/m/'.$request->path();
-            return redirect($url);
+            if(substr( $request->path(), 0, 2 ) != "/m"){
+                $url = '/m/'.$request->path();
+                return redirect($url);
+            }
+            
         }
         return $response;
     }

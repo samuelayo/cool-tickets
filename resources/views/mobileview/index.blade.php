@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="/mobile/css/style.css">
       <link href="/fonts/circular-font.css" rel="stylesheet">
       <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
-	<link rel="stylesheet" href="/mobile/dist/static/fonts/MaterialDesign-Webfont-master/css/materialdesignicons.css">
+	<!--<link rel="stylesheet" href="/mobile/dist/static/fonts/MaterialDesign-Webfont-master/css/materialdesignicons.css"> m-->
        <link href="/mobile/dist/static/css/app.37f90d7bd66a5dee8406d23ad164ba24.css" rel="stylesheet">
        <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
