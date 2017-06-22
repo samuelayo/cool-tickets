@@ -202,7 +202,7 @@ class BlogPostCrudController extends CrudController
         $destination_path = "/uploads/uploads";
         // Then get images from request
         $input = $request->all();
-        if($input[$attribute_name]){
+        if(array_key_exists($attribute_name,$input)){
             $images = $input[$attribute_name];
         }else{
             $images = [];
