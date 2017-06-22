@@ -166,7 +166,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware'=>'auth'], 
 });
 
 
- Route::any('{all}', 'HomeController@mobile')
+ Route::any('{all}', 'HomeController@index')
  ->where(['all' => '.*']);
 
 //Auth::routes();
