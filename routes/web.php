@@ -139,6 +139,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware'=>'auth'], 
     Route::get('logout', 'Auth\LoginController@Logout');
     Auth::routes();
     Route::get('logout', 'Auth\LoginController@Logout');
+    CRUD::resource('user', 'UserCrudController');
     CRUD::resource('category', 'CategoryCrudController');
     CRUD::resource('blogpost', 'BlogPostCrudController');
     CRUD::resource('keypoint', 'KeypointCrudController');

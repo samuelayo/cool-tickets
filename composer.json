@@ -10,6 +10,7 @@
         "arcanedev/qr-code": "^1.0",
         "backpack/base": "^0.7.14",
         "backpack/crud": "^3.2",
+        "backpack/permissionmanager": "^2.1",
         "faustbrian/laravel-commentable": "^2.1",
         "jenssegers/agent": "^2.5",
         "laravel/framework": "5.4.*",

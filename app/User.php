@@ -6,12 +6,16 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 use App\Uuids;
+use Backpack\CRUD\CrudTrait; // <------------------------------- this one
+use Spatie\Permission\Traits\HasRoles;// <---------------------- and this one
 
 
 class User extends Authenticatable
 {
     use Notifiable;
     use Uuids;
+    use CrudTrait; // <----- this
+    use HasRoles;
 
     public $incrementing = false;
 
