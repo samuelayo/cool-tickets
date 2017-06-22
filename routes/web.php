@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Jenssegers\Agent\Agent;
 
 /*
 |--------------------------------------------------------------------------
@@ -166,7 +167,23 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware'=>'auth'], 
 });
 
 
- Route::any('{all}', 'HomeController@index')
+ Route::any('{all}', 
+function($all)
+{
+   $agent = new Agent();
+        if($agent->isMobile()){
+             return [
+                'uses' => 'HomeController@mobile'
+            ];
+        }
+         return [
+                'uses' => 'HomeController@index'
+            ];
+    // Stuffffffff
+   
+
+}
+)
  ->where(['all' => '.*']);
 
 //Auth::routes();
