@@ -59,7 +59,7 @@ box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
     box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
     border: none;
     border-radius: 45px;
-" class="btn btn-primary" type="submit">Add Comment</button></div>`
+" class="btn btn-primary" type="submit">Add Comment</button></div>
         
       </div>
     </form>
@@ -257,11 +257,36 @@ box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
 		<a href="#close" id="close" title="Close" class="close">X</a>
 	
 		 <div>
-        <label for="comment" style="font-family: 'karla';">Your Comment</label>
-        <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
+        
+        <textarea name="comment" id="textarea" ref="textarea" placeholder="Write your responses" rows="3" class="form-control" style="
+   padding: 1em;
+    border: none;
+    width: 100%;
+    margin-top: 1.2em;
+    border-radius: 10px;
+    font-family: Circular-light;
+    font-size: 1.5em;
+    box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px;
+    background-image: url(http://i.imgur.com/8BNiTwp.png);
+    background-repeat: no-repeat;
+    text-indent: 2em;
+    background-position: 2% 15%;
+"  v-model="comment.body"></textarea>
       
-        <br>
-        <button type="submit" style="font-family: 'karla';" class="btn btn-primary" v-show="!edit" @click="childsubmit()">Add Comment</button>
+      <br> <button style="
+    font-family: 'Circular-Book';
+    width: 200px;
+    text-transform: capitalize !important;
+    height: 49px;
+    background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%)!important;
+    color: #fff;
+    font-size: 1.1em;
+    -webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+    -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+    box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+    border: none;
+    border-radius: 45px;
+" class="btn btn-primary" type="submit" v-show="!edit" @click="childsubmit()">Add Comment</button></div>
       </div>
 	</div>
 </div>
