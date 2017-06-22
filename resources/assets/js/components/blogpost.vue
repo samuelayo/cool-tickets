@@ -52,7 +52,7 @@
 
 
                                 <!--- slider test -->
-<div class="slider" v-if="sliderimages">
+<div class="slider" v-if="(sliderimages && sliderimages.length !=0)">
   <ul>
     <li class="slide" v-for="(slide, index) in sliderimages" :id="'no-js-slider-'+index">
       <img :src="'/uploads/'+slide" class="imsg">
