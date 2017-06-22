@@ -2,11 +2,59 @@
   <div class="comments">
   <clip-loader v-if="loading" color="blue"></clip-loader>
  
+ <div id="login" v-if="!loggedin">
+      <div class="row margin-bottom-10"><div class="col-md-6 col-sm-6 col-xs-6"><a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="
+    border-radius: 40px;
+    height: 50px;
+    color: #fff !important;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+-moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+    padding-top: .7em !important;
+    background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+">
+  <span style="
+    border-right: 1px solid #fff;
+    margin-right: 1em;
+    padding-right: 1em;
+" class="ion-social-facebook"> </span> Sign in with Facebook</a></div> <div class="col-md-6 col-sm-6 col-xs-6"><a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="
+    border-radius: 40px;
+    height: 50px;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+-moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+    color: #fff !important;
+    padding-top: .7em !important;
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+                                                                                              "> <span class="ion-social-twitter" style="
+    border-right: 1px solid #fff;
+    margin-right: 1em;
+    padding-right: 1em;
+"></span> Sign in with Twitter</a></div></div>
+
+    </div>
+  
+ <form action="" @submit.prevent="edit ? editComment(comment.id) : createComment()" v-if="loggedin">
+     <div class="form-group col-md-12">
+        <div class="form-group col-md-12"> <textarea name="comment" id="textarea" placeholder="Write your responses" rows="3" class="form-control" style="
+         padding: 1em;
+    border: none;
+    width: 100%;
+    border-radius: 10px;
+    font-family: Circular-light;
+    font-size: 1.5em;
+    box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px;
+    background-image: url(http://i.imgur.com/8BNiTwp.png);
+    background-repeat: no-repeat;
+    text-indent: 2em;
+    background-position: 2% 15%;`
+        " class="btn btn-primary" type="submit">Add Comment</button></div>`
+        
+      </div>
+    </form>
     
   <div class="post-comments col-md-12">
 
     <div class="row">
-      <div class="media" v-for="comment in getChildren(null)" >
+      <div class="media" v-for="(comment, index) in getChildren(null)"  v-if="index < load_limit">
         <!-- first comment -->
 
       
@@ -187,7 +235,7 @@
 
   </div>
   <!-- post-comments -->
-
+<div class="media-body" v-if="load_limit!=10000000000"><p> <span style="display: block;text-align: center;font-size: 0.8em;margin-bottom: 4px;font-family: 'Circular-book';color: rgb(96, 116, 144) !important;"><a href="#" @click="load_limit=10000000000">Show all responses</a></span> </p> <div class="comment-meta"></div> </div>
 
 <a href="#openModal" id="open" style="display: none;">Open Modal</a>
 
@@ -206,33 +254,9 @@
 </div>
 
 
-   <form action="" @submit.prevent="edit ? editComment(comment.id) : createComment()" v-if="loggedin">
-     <div class="form-group col-md-12">
-        <label for="comment">Your Comment</label>
-        <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
-       
-        <br>
-        <button type="submit" class="btn btn-primary" v-show="!edit">Add Comment</button>
-      </div>
-    </form>
+   
     
-    <div id="login" v-if="!loggedin">
-  <p style="text-align: center;" ><span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #fff; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> Please login to comment</span>  <span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #fff; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
-              <div class="row margin-bottom-10">
-              <div class="col-md-6 col-sm-6 col-xs-6">
-                  <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook">Facebook</a>
-              </div>
-              <div class="col-md-6 col-sm-6 col-xs-6">
-                  <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter">Twitter</a>
-              </div>
-          </div>
-
-         
-
-    </div>
-  
+   
   </div>
 </template>
 
@@ -263,6 +287,7 @@
     data: function(){
       return {
         users: [],
+        load_limit: 4,
         edit:false,
         comments:[],
         comment: {

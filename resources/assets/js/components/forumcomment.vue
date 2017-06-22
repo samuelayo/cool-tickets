@@ -35,27 +35,18 @@ box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
  <form action="" @submit.prevent="edit ? editComment(comment.id) : createComment()" v-if="loggedin">
      <div class="form-group col-md-12">
         <div class="form-group col-md-12"> <textarea name="comment" id="textarea" placeholder="Write your responses" rows="3" class="form-control" style="
-    padding: 1em;
+         padding: 1em;
     border: none;
     width: 100%;
     border-radius: 10px;
-    font-family: 'Circular-light';
+    font-family: Circular-light;
     font-size: 1.5em;
-    box-shadow: -1px 9px 53px -6px rgba(0,0,0,.07);
-"  v-model="comment.body"></textarea> <br> <button style="
-    font-family: 'Circular-Book';
-    width: 200px;
-    text-transform: capitalize !important;
-    height: 49px;
-    background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%)!important;
-    color: #fff;
-    font-size: 1.1em;
-    -webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-    -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-    box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-    border: none;
-    border-radius: 45px;
-" class="btn btn-primary" type="submit">Add Comment</button></div>`
+    box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px;
+    background-image: url(http://i.imgur.com/8BNiTwp.png);
+    background-repeat: no-repeat;
+    text-indent: 2em;
+    background-position: 2% 15%;`
+        " class="btn btn-primary" type="submit">Add Comment</button></div>`
         
       </div>
     </form>
