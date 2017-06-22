@@ -7,19 +7,7 @@
     <div id="sidebar" class="xs-m4">
 
       <div id="now-buzzing" class="xs-mb3">
-        <table style="height: 40px !important; border: none !important;" class="table-fill"><br><br><br><br><br><br>
 
-          <tbody class="table-hover" v-if="now_playing">
-            <tr>
-              <td style="border-left: 6px solid red;border-right: 1px solid rgb(221, 221, 221);letter-spacing: 3px;color: red;display: inline-block;font-style: normal !important;font-size: 0.8em;width: 103px;" class="text-left"><i :class="'ion-'+current_play_state" @click="livestream()"></i> <small>LIVE</small> </td>
-              <td class="text-left" style="padding-left: 11.4px !important; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;">{{now_playing.title}} </td>
-            </tr>
-
-
-          </tbody>
-        </table>
-
-        <br>
 
         <div id="now-buzzing" class="xs-mb3">
 
@@ -128,18 +116,6 @@
           <br>
         </div>
 
-        <div id="connect" class="xs-mb3">
-          <h3 class="xs-mb1">
-            Connect With Us
-          </h3>
-
-          <a href="#" target="_blank" class="button button--facebook xs-col-12 xs-text-left xs-mb1"> Like Us On Facebook </a>
-
-          <a href="#" class="button button--twitter button--icon xs-col-12 xs-text-left xs-mb1">Follow Us On Twitter</a>
-
-          <a href="#" class="button button--apple-news xs-col-12 xs-text-left xs-mb1"> Follow Us On Instagram </a>
-
-        </div>
 
         <div>
           <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
@@ -239,7 +215,6 @@
     name: 'hello',
     data() {
       return {
-        schedule: [],
         trending: window.Laravel.trending,
         newones: window.Laravel.newones,
         fresh: window.Laravel.fresh,
@@ -259,24 +234,12 @@
       }
     },
     mounted: function() {
-      this.schedules();
+
        this.getcharts();
        this.gethots();
     },
     methods: {
-      schedules: function() {
-        axios.get('/schedules')
-          .then(response => {
-            // JSON responses are automatically parsed.
-            this.schedule = _.groupBy(response.data, function(car) {
-                                return car.state;
-                                });
 
-          })
-          .catch(e => {
-
-          });
-      },
       week: function (){
                     var myDate = new Date();
                     if(myDate.getDay() == 6 || myDate.getDay() == 0 || myDate.getDay() == 5){
@@ -316,25 +279,6 @@
                 });
 
             },
-      between: function(start, end) {
-
-
-        var format = 'hh:mm:ss'
-
-        // var time = moment() gives you current time. no format required.
-        var time = moment(),
-          beforeTime = moment(start, format),
-          afterTime = moment(end, format);
-
-        if (time.isBetween(beforeTime, afterTime)) {
-
-          return 'Now';
-        } else {
-
-          return 'Later';
-
-        }
-      },
       change_chart: function(id){
                 var ch = ['global','global','global'];
                 ch[id]='nigerian';
@@ -402,41 +346,7 @@
             }
     },
     computed: {
-        now_playing: function(){
-              if(this.schedule[this.current_state]){
-                var myDate = new Date();
-                 var schedule_arry = this.schedule[this.current_state];
-                if(myDate.getDay() == 6){
-                       //saturday
-                       //filter by saturday
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period == "saturday";
-                            });
 
-                    }else if(myDate.getDay() == 0 ){
-                        //sunday
-                        //filter by sunday
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period == "sunday";
-                            });
-
-                    }else{
-                        //otherdays
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period != "sunday" && sch.period != "saturday";
-                            });
-                    }
-                for(var i =0; i < schedule_arry.length; i++){
-                    var schedu = schedule_arry[i];
-                    if(this.between(schedu.start, schedu.end)=="Now"){
-                        return schedu
-                    }
-                }
-              }
-          },
-        current_state: function(){
-              return this.$store.state.current_state;
-          },
        all_chart: function(){
               var arr = {
                   0: this.nigerianchart,
@@ -447,9 +357,7 @@
 
               return arr;
           },
-          current_play_state: function(){
-            return this.$store.state.play;
-          },
+
           homepage_chart: function(){
             var homeads = _.filter(window.Laravel.ads, function(o) {
                 if (o.advert_category.type == "homepage_main") return o;

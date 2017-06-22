@@ -157,10 +157,10 @@
     vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
               <div class="row margin-bottom-10" style="text-align: center;">
               <div class="col-md-6 col-sm-6 col-xs-6">
-                  <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook">Facebook</a>
+                  <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook">Login with Facebook</a>
 
 
-                  <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter">Twitter</a>
+                  <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter">Login with Twitter</a>
               </div>
           </div>
 

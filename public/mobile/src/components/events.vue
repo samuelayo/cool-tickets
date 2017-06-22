@@ -1,18 +1,7 @@
 <template>
   <div id="now-buzzing" class="xs-mb3">
-    <table style="height: 40px !important;" class="table-fill"><br><br><br><br><br><br>
+<br>
 
-      <tbody class="table-hover" v-if="now_playing">
-        <tr>
-          <td style="border-left: 6px solid red;border-right: 1px solid rgb(221, 221, 221);letter-spacing: 3px;color: red;display: inline-block;font-style: normal !important;font-size: 0.8em;width: 103px;" class="text-left"><i :class="'ion-'+current_play_state" @click="livestream()"></i> <small>LIVE</small> </td>
-          <td class="text-left" style="padding-left: 11.4px !important; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;">{{now_playing.title}} </td>
-        </tr>
-
-
-      </tbody>
-    </table>
-
-    <br>
 
     <div id="now-buzzing" class="xs-mb3">
 
@@ -65,31 +54,18 @@
         all_events: [],
         ticket_price: [],
         ticket_qty: [],
-        schedule: []
+
       }
     },
     created: function() {
       this.get_tickets();
-      this.schedules();
+
     },
     mounted: function() {
 
 
     },
     methods: {
-      schedules: function() {
-        axios.get('/schedules')
-          .then(response => {
-            // JSON responses are automatically parsed.
-            this.schedule = _.groupBy(response.data, function(car) {
-              return car.state;
-            });
-
-          })
-          .catch(e => {
-
-          });
-      },
       get_tickets: function() {
         axios.get("/all_tickets")
           .then((response) => {
@@ -97,14 +73,6 @@
             //this.loadable();
             this.pushem();
           });
-      },
-      livestream: function() {
-        if (this.current_play_state == 'play') {
-          var status = 'pause';
-        } else {
-          var status = 'play';
-        }
-        this.$store.dispatch('SET_PLAY', status);
       },
       verify: function(start) {
         moment.locale('en');
@@ -277,38 +245,6 @@
           return this.verify(event.date);
         });
         return ll;
-      },
-      now_playing: function() {
-        if (this.schedule[this.current_state]) {
-          var myDate = new Date();
-          var schedule_arry = this.schedule[this.current_state];
-          if (myDate.getDay() == 6) {
-            //saturday
-            //filter by saturday
-            schedule_arry = _.filter(schedule_arry, (sch) => {
-              return sch.period == "saturday";
-            });
-
-          } else if (myDate.getDay() == 0) {
-            //sunday
-            //filter by sunday
-            schedule_arry = _.filter(schedule_arry, (sch) => {
-              return sch.period == "sunday";
-            });
-
-          } else {
-            //otherdays
-            schedule_arry = _.filter(schedule_arry, (sch) => {
-              return sch.period != "sunday" && sch.period != "saturday";
-            });
-          }
-          for (var i = 0; i < schedule_arry.length; i++) {
-            var schedu = schedule_arry[i];
-            if (this.between(schedu.start, schedu.end) == "Now") {
-              return schedu
-            }
-          }
-        }
       }
     }
   }
