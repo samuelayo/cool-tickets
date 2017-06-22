@@ -1074,13 +1074,6 @@ a.button.super.subtle:active {
     margin-right: 0;
 }
 
-@font-face {
-    font-family: "FoundationIconsGeneral";
-    font-style: normal;
-    font-weight: normal;
-    src: url("http://ebu.intermountainhealthcare.org/ebiz/public/short-term/fonts/foundation-icons-general.eot?#iefix") format("embedded-opentype"), url("http://ebu.intermountainhealthcare.org/ebiz/public/short-term/fonts/foundation-icons-general.woff") format("woff"), url("http://ebu.intermountainhealthcare.org/ebiz/public/short-term/fonts/foundation-icons-general.ttf") format("truetype"), url("http://ebu.intermountainhealthcare.org/ebiz/public/short-term/fonts/foundation-icons-general.svg#FoundationIconsGeneral") format("svg");
-}
-
 .glyph.social::before,
 .glyph.general::before,
 .glyph.general.enclosed::before {
