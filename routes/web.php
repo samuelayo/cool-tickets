@@ -168,11 +168,13 @@ Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware'=>'auth'], 
 
 
  Route::any('{all}', 
-function($all)
+function(Request $request, $all)
 {
    $agent = new Agent();
         if($agent->isMobile()){
-             return (new App\Http\Controllers\HomeController)->mobile();
+             $url = '/m#/'.$request->path();
+        
+             return redirect($url);
         }
           return (new App\Http\Controllers\HomeController)->index();
     // Stuffffffff
