@@ -172,13 +172,9 @@ function($all)
 {
    $agent = new Agent();
         if($agent->isMobile()){
-             return [
-                'uses' => 'HomeController@mobile'
-            ];
+             return (new App\Http\Controllers\HomeController)->mobile();
         }
-         return [
-                'uses' => 'HomeController@index'
-            ];
+          return (new App\Http\Controllers\HomeController)->index();
     // Stuffffffff
    
 
