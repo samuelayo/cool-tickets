@@ -228,7 +228,7 @@
     }
     .vue-map-container {
 
-    margin-top: 264px !important;
+    margin-top: 328px !important;
 }
      
 </style>
