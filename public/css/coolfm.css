@@ -1885,3 +1885,7 @@ tbody {
     font-family: 'Circular-Bold';
     padding: 1em;
 }
+
+.tr_content .col-md-4 img {
+    border-radius: 50% !important;
+}
