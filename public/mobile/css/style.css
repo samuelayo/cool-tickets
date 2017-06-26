@@ -6652,3 +6652,9 @@ Intro Section
 .cd-primary-nav>ul a {
     width: 97%;
 }
+
+.cd-secondary-nav ul,
+.cd-secondary-nav li,
+.cd-secondary-nav a {
+    padding-left: 0;
+}
