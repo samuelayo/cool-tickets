@@ -58,9 +58,9 @@ if(localStorage.getItem('username')!=undefined){
 <!-- Resource jQuery --> 
 
 
-<script type="text/javascript" src="/mobile/dist/static/js/manifest.5d7fc49deb406493b118.js"></script>
+<script type="text/javascript" src="/mobile/dist/static/js/manifest.086689f9f9b4d6609020.js"></script>
     <script type="text/javascript" src="/mobile/dist/static/js/vendor.174a1994a95c2da26a76.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.f4ef2ec32791b21b7068.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/app.efc8a99dace7861d20d1.js"></script>
  <!--<script src="http://localhost:8080/app.js"></script> -->
 
 <script src="https://js.paystack.co/v1/inline.js"></script>
