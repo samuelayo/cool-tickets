@@ -20,8 +20,6 @@ window.sharon = require('sharon');
 //vuex store
 import store from './store'
 
-window.io = io('https://coolfm.ng/socket');
-
 var infiniteScroll = require('vue-infinite-scroll');
 Vue.use(infiniteScroll)
 
