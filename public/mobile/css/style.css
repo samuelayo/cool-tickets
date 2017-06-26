@@ -6617,18 +6617,6 @@ Intro Section
     font-weight: 600 !important
 }
 
-.table-fill {
-    border-radius: 3px;
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    border-collapse: collapse;
-    height: 320px;
-    margin: auto;
-    max-width: 100%;
-    padding: 24px;
-    width: 100%;
-    animation: float 5s infinite;
-}
-
 .cd-primary-nav>ul {
     margin-top: 1.1em;
     border-radius: 5px;
@@ -6657,4 +6645,16 @@ Intro Section
 .cd-secondary-nav li,
 .cd-secondary-nav a {
     padding-left: 0;
+}
+
+.table-fill {
+    border-radius: 3px;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    border-collapse: collapse;
+    height: 320px;
+    margin: auto;
+    max-width: 100%;
+    padding: 24px;
+    width: 100%;
+    animation: float 5s infinite;
 }
