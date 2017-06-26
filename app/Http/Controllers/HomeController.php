@@ -89,7 +89,7 @@ class HomeController extends Controller
     public function mobile(){
         $trending = BlogPost::where('view_count', '>', 1000)->where('view_count', '>', 5000)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
         $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->take(3)->get();
-        $fresh = BlogPost::take(5)->with('category')->get();
+        $fresh = BlogPost::with('category')->orderBy('created_at', 'DESC')->get();
         $categories = Category::all();
         $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
         return view('mobileview.index', compact('trending', 'newones', 'fresh', 'categories', 'ads'));
@@ -99,7 +99,7 @@ class HomeController extends Controller
     public function app_sess(){
         $trending = BlogPost::where('view_count', '>', 1000)->where('view_count', '>', 5000)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
         $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
-        $fresh = BlogPost::take(10)->with('category')->orderBy('created_at', 'DESC')->get();
+        $fresh = BlogPost::with('category')->orderBy('created_at', 'DESC')->get();
         $categories = Category::all();
         $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
         return json_encode([

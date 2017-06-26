@@ -59,7 +59,7 @@
           .then(response => {
             var list = response.data;
             list = list.sort(function(a, b) {
-              return a.comments.length - a.comments.length;
+              return a.comments.length - b.comments.length;
             });
             this.hot = list;
 

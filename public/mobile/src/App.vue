@@ -1,63 +1,69 @@
 <template>
   <div id="app">
-    <header class="cd-auto-hide-header">
-      <div class="logo">
-        <router-link v-bind:to="'/'"><img src="https://www.coolfm.ng/img/logo.svg" alt="Logo"></router-link>
+    <header>
+      <div class="cd-auto-hide-header">
+        <div class="logo">
+          <router-link v-bind:to="'/'"><img src="https://www.coolfm.ng/img/logo.svg" alt="Logo"></router-link>
+        </div>
+
+        <nav class="cd-primary-nav">
+          <a href="#cd-navigation" class="nav-trigger">
+            <span>
+            <em aria-hidden="true"></em>
+
+          </span>
+          </a>
+          <!-- .nav-trigger -->
+
+          <ul id="cd-navigation">
+            <li><a href="#">OAPs</a></li>
+            <li>
+              <router-link v-bind:to="'/forums'">Forums</router-link>
+            </li>
+            <li>
+              <router-link v-bind:to="'/events'">Events</router-link>
+            </li>
+            <li><a href="javascript:void()" style="color: grey;">Switch Channels</a></li>
+            <li><a href="javascript:void()" @click="change_state('Lagos', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos')">Coolfm Lagos</a></li>
+            <li><a href="javascript:void()" @click="change_state('Kano', 'http://icestream.coolwazobiainfo.com:8000/coolfm-kano')">Coolfm Kano</a></li>
+            <li><a href="javascript:void()" @click="change_state('Abuja', 'http://icestream.coolwazobiainfo.com:8000/coolfm-abuja')">Coolfm Abuja</a></li>
+            <li><a href="javascript:void()" @click="change_state('Ph', 'http://icestream.coolwazobiainfo.com:8000/coolfm-ph')">Coolfm Port-Harcourt</a></li>
+
+          </ul>
+        </nav>
+        <!-- .cd-primary-nav -->
+
+
+
+        <table class="table-fill" style="height: 40px !important; border: none !important;" v-if="now_playing">
+          <tbody class="table-hover" style="color: black;-moz-box-shadow: inset 0 0 10px #ddd;-webkit-box-shadow: inset 0 0 10px #ddd;box-shadow: inset 0 0 10px #ddd;">
+            <tr>
+              <td class="text-left" style="letter-spacing: 3px;color: rgb(255, 255, 255);display: inline-block;font-style: normal !important;padding: 1.1em 2.9em 18px 2em;font-size: 0.8em;margin-top: 1.5em;margin-left: 1em;width: 62px;text-align: center;border-radius: 50%;background: rgba(255,255,255,.1);"><i :class="'ion-'+current_play_state" @click="livestream()" style="font-size: 1.5em;"></i></td>
+              <td class="text-left" style="padding: 2em;line-height: 1.2;background: none;font-weight: 100;text-align: left;text-transform: capitalize;color: #fff;font-family: 'Circular-lIGHT';">{{now_playing.title}} </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <nav class="cd-secondary-nav">
+          <ul>
+            <li v-for="category in categories">
+              <router-link v-bind:to="{ name: 'blogcategory', params: {'name': category.name, 'id': category.id }}">
+                <a class="" href="#">{{category.name}}
+    			</a>
+              </router-link>
+            </li>
+
+          </ul>
+        </nav>
+        <!-- .cd-secondary-nav -->
       </div>
-
-      <nav class="cd-primary-nav">
-        <a href="#cd-navigation" class="nav-trigger">
-          <span>
-          <em aria-hidden="true"></em>
-
-        </span>
-        </a>
-        <!-- .nav-trigger -->
-
-        <ul id="cd-navigation">
-          <li><a href="#">OAPs</a></li>
-          <li>
-            <router-link v-bind:to="'/forums'">Forums</router-link>
-          </li>
-          <li>
-            <router-link v-bind:to="'/events'">Events</router-link>
-          </li>
-          <li ><a href="javascript:void()" style="color: grey;">Switch Channels</a></li>
-          <li><a href="javascript:void()" @click="change_state('Lagos', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos')">Coolfm Lagos</a></li>
-          <li><a href="javascript:void()" @click="change_state('Kano', 'http://icestream.coolwazobiainfo.com:8000/coolfm-kano')">Coolfm Kano</a></li>
-          <li><a href="javascript:void()" @click="change_state('Abuja', 'http://icestream.coolwazobiainfo.com:8000/coolfm-abuja')">Coolfm Abuja</a></li>
-          <li><a href="javascript:void()" @click="change_state('Ph', 'http://icestream.coolwazobiainfo.com:8000/coolfm-ph')">Coolfm Port-Harcourt</a></li>
-
-        </ul>
-      </nav>
-      <!-- .cd-primary-nav -->
-
-      <nav class="cd-secondary-nav">
-        <ul>
-          <li v-for="category in categories">
-            <router-link v-bind:to="{ name: 'blogcategory', params: {'name': category.name, 'id': category.id }}">
-              <a class="" href="#">{{category.name}}
-  			</a>
-            </router-link>
-          </li>
-
-        </ul>
-      </nav>
-      <!-- .cd-secondary-nav -->
     </header>
-
-<table class="table-fill" style="height: 40px !important; border: none !important;" v-if="now_playing"><br><br><br><br><br><br> <tbody class="table-hover" style="box-shadow: rgba(0, 0, 0, 0.5) 12px 10px 111px -13px;color: black;border-radius: 65px !important;"><tr><td class="text-left" style="letter-spacing: 3px;color: rgb(255, 255, 255);display: inline-block;font-style: normal !important;padding: 1.1em 2.9em 15px 2em;font-size: 0.8em;box-shadow: rgba(0, 0, 0, 0.66) 10px 7px 148px -13px;margin-top: 1.3em;margin-left: 1em;width: 62px;text-align: center;border-radius: 50%;background-image: linear-gradient(135deg, rgb(171, 220, 255) 0%, rgb(3, 150, 255) 100%);border: 2px solid rgb(249, 249, 249);"><i :class="'ion-'+current_play_state" @click="livestream()" style="font-size: 1.5em;"></i></td> <td class="text-left" style="padding: 2em;line-height: 1;">{{now_playing.title}} </td></tr></tbody></table>
-
-
-
-
-
-
+    <br><br><br><br><br><br><br><br><br>
     <router-view></router-view>
     <footer style="display: none;">
       <audio id="coolradio">
-      <source :src="current_stream" />
-      </audio>
+        <source :src="current_stream" />
+        </audio>
     </footer>
   </div>
 </template>
@@ -171,73 +177,72 @@
 
     },
     computed: {
-      current_stream: function(){
-         if(document.getElementById("coolradio") !=undefined)
-        {
+      current_stream: function() {
+        if (document.getElementById("coolradio") != undefined) {
           var audio = document.getElementById("coolradio");
           audio.src = this.$store.state.current_stream;
         }
         return this.$store.state.current_stream;
       },
-      now_playing: function(){
-              if(this.schedule[this.current_state]){
-                var myDate = new Date();
-                 var schedule_arry = this.schedule[this.current_state];
-                if(myDate.getDay() == 6){
-                       //saturday
-                       //filter by saturday
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period == "saturday";
-                            });
+      now_playing: function() {
+        if (this.schedule[this.current_state]) {
+          var myDate = new Date();
+          var schedule_arry = this.schedule[this.current_state];
+          if (myDate.getDay() == 6) {
+            //saturday
+            //filter by saturday
+            schedule_arry = _.filter(schedule_arry, (sch) => {
+              return sch.period == "saturday";
+            });
 
-                    }else if(myDate.getDay() == 0 ){
-                        //sunday
-                        //filter by sunday
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period == "sunday";
-                            });
+          } else if (myDate.getDay() == 0) {
+            //sunday
+            //filter by sunday
+            schedule_arry = _.filter(schedule_arry, (sch) => {
+              return sch.period == "sunday";
+            });
 
-                    }else{
-                        //otherdays
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period != "sunday" && sch.period != "saturday";
-                            });
-                    }
-                for(var i =0; i < schedule_arry.length; i++){
-                    var schedu = schedule_arry[i];
-                    if(this.between(schedu.start, schedu.end)=="Now"){
-                        return schedu
-                    }
-                }
-              }
-          },
-          current_state: function(){
-              return this.$store.state.current_state;
-          },
-          current_play_state: function(){
-            return this.$store.state.play;
+          } else {
+            //otherdays
+            schedule_arry = _.filter(schedule_arry, (sch) => {
+              return sch.period != "sunday" && sch.period != "saturday";
+            });
           }
+          for (var i = 0; i < schedule_arry.length; i++) {
+            var schedu = schedule_arry[i];
+            if (this.between(schedu.start, schedu.end) == "Now") {
+              return schedu
+            }
+          }
+        }
+      },
+      current_state: function() {
+        return this.$store.state.current_state;
+      },
+      current_play_state: function() {
+        return this.$store.state.play;
+      }
 
     },
     methods: {
-         change_state: function(status, stream){
-            this.$store.dispatch('SET_STATE', status);
-            this.$store.dispatch('SET_STREAM', stream);
+      change_state: function(status, stream) {
+        this.$store.dispatch('SET_STATE', status);
+        this.$store.dispatch('SET_STREAM', stream);
       },
       schedules: function() {
         axios.get('/schedules')
           .then(response => {
             // JSON responses are automatically parsed.
             this.schedule = _.groupBy(response.data, function(car) {
-                                return car.state;
-                                });
+              return car.state;
+            });
 
           })
           .catch(e => {
 
           });
       },
-       between: function(start, end) {
+      between: function(start, end) {
 
 
         var format = 'hh:mm:ss'
@@ -256,24 +261,24 @@
 
         }
       },
-      livestream: function(){
-              if(this.current_play_state == 'play'){
-                var status = 'pause';
-              }else{
-                var status = 'play';
-              }
-              this.$store.dispatch('SET_PLAY', status);
-            },
-             timeago: function (time){
-                return moment(time).fromNow();
-            },
-            hottimeago: function(obj){
-                if(obj.comments != undefined && obj.comments.length != 0){
-                    var last = obj.comments[obj.comments.length-1];
-                    return this.timeago(last.updated_at);
-                }
-                return "No activity yet";
-            }
+      livestream: function() {
+        if (this.current_play_state == 'play') {
+          var status = 'pause';
+        } else {
+          var status = 'play';
+        }
+        this.$store.dispatch('SET_PLAY', status);
+      },
+      timeago: function(time) {
+        return moment(time).fromNow();
+      },
+      hottimeago: function(obj) {
+        if (obj.comments != undefined && obj.comments.length != 0) {
+          var last = obj.comments[obj.comments.length - 1];
+          return this.timeago(last.updated_at);
+        }
+        return "No activity yet";
+      }
     }
   }
 </script>
