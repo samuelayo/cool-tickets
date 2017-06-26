@@ -349,7 +349,7 @@
             this.all_users();
            
             this.fetchComments();
-    
+            this.CommentMade();
         },
     
         methods: {
@@ -399,7 +399,7 @@
     
                         document.getElementById('close').click();
                         //this.comments = response.data;
-                        this.$socket.emit('coolfmlagos_CommentMade', { data: response.data });
+                        io.emit('CommentMade', { data: response.data });
                         this.comment.body = '';
                     });
             },
@@ -411,17 +411,16 @@
             },
             timeago: function(time) {
                 return moment(time).fromNow();
-            }
-        },
-        sockets: {
-            CommentMade: function(d) {
-                alert('done');
+            },
+            CommentMade: function(){
+               socket.on('CommentMade', (d)=>{
+                   alert("hi");
                 if (d.data.type == "blog" && d.data.id == this.id) {
                     this.comments = d.data.all_comments;
                 }
-            },
-            connect: function() {
-                alert('connected');
+
+               })
+                
             }
         },
         watch: {
