@@ -30,7 +30,7 @@
               <span style="color: #007adf; font-size: 15px;font-size: 15px;
                              vertical-align: super;">+ {{ho.comments.length-4}}</span>
             </div>
-            <hr>
+
           </li>
 
         </ul>

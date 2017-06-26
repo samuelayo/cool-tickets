@@ -65,7 +65,13 @@
         </div>
 
 
-        <h3 class=" xs-text-2 xs-mb1"> <a style="background: #43e97b !important;" href="#" target="_blank" class="button button--title xs-col-12 xs-text-left xs-mb1"> Charts</a></h3><br>
+        <h3 class=" xs-text-2 xs-mb1"><a href="#" target="_blank" class="" style="
+      font-size: 1.1em;
+      line-height: 2;
+      color: #000;
+      font-family: 'Circular-Black';
+      letter-spacing: -.5px;
+  "> Charts </a></h3>
         <span class="centered">
                               <div class="btn-group btn-toggle">
                                 <button :class="'btn btn-'+selectedcat[0]+' chart'" @click="change_chart(0)">Nigerian</button>
@@ -100,7 +106,13 @@
         </div>
 
 
-        <h3 class=" xs-text-2 xs-mb1"> <a style="background: #f83600 !important" href="#" target="_blank" class="button button--title xs-col-12 xs-text-left xs-mb1"> Forum</a></h3><br>
+       <h3 class=" xs-text-2 xs-mb1"><a href="#" target="_blank" class="" style="
+      font-size: 1.1em;
+      line-height: 2;
+      color: #000;
+      font-family: 'Circular-Black';
+      letter-spacing: -.5px;
+  "> Forum </a></h3>
         <div id="news" class="card xs-mb2 xs-p2">
           <div id="news-header" class="clearfix">
             <div class="col xs-col-5">
@@ -110,10 +122,10 @@
           </div>
           <ul id="news-list" class="xs-p0">
             <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled" v-for="(ho, index) in hot" v-if="index < hotlimit" style="width: 100%;">
-              <div class="col xs-col-7 xs-text-left xs-text-6 text-gray-lightest">Last Activity : {{hottimeago(ho)}}</div><br>
-              <a href="#" class="link-gray">
+              <div class="col xs-col-7 xs-text-left xs-text-6 text-gray-lightest">Last Activity : {{hottimeago(ho)}}</div><br><br>
+               <router-link :to="{ name: 'single_forum', params: { id: ho.id, name: respace(ho.topic) }}" style="color: grey;">
                    {{ho.topic}}
-                    </a> <br><br>
+                    </router-link> <br><br>
               <small style="color:red;">
                                  In this conversation
                                  </small><br>
@@ -126,7 +138,7 @@
                 <span style="color: #007adf; font-size: 15px;font-size: 15px;
             vertical-align: super;">+ {{ho.comments.length-4}}</span>
               </div>
-              <hr>
+
             </li>
 
 

@@ -326,6 +326,7 @@ body {
     font-size: 1rem;
     background: #f9f9f9;
     line-height: 1.5;
+    font-family: 'Circular-book';
     color: #000;
 }
 .cd-secondary-nav ul,
