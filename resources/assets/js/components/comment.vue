@@ -387,12 +387,12 @@
             createComment: function() {
                 axios.post("/post/" + this.id + "/comment", this.comment)
                     .then((response) => {
-    
+                        this.comment.body = '';
                         //this.comments = response.data;
-                        io.emit('coolfmlagos_CommentMade', {
+                        io.emit('CommentMade', {
                             data: response.data
                         });
-                        this.comment.body = '';
+                        
                     });
             },
             childreply: function(id) {
