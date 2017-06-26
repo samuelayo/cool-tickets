@@ -414,10 +414,10 @@
             }
         },
         sockets: {
-            coolfmlagos_CommentMade: function(d) {
+            CommentMade: function(d) {
                 alert('done');
                 if (d.data.type == "blog" && d.data.id == this.id) {
-                    this.comments = d.all_comments;
+                    this.comments = d.data.all_comments;
                 }
             },
             connect: function() {

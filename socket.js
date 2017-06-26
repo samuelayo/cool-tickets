@@ -22,7 +22,7 @@ io.on('connection', function(socket) {
         console.log('user disconnected');
     });
 
-    socket.on('coolfmlagos_CommentMade', function(mydata) {
+    socket.on('CommentMade', function(mydata) {
         console.log(mydata);
     });
 });
