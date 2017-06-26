@@ -381,7 +381,7 @@
                     .then((response) => {
                         
                         //this.comments = response.data;
-                        this.$socket.emit('coolfmlagos_CommentMade', { data: response.data });
+                        io.emit('coolfmlagos_CommentMade', { data: response.data });
                         this.comment.body = '';
                     });
             },
@@ -415,7 +415,7 @@
             CommentMade: function(){
                 alert("made");
                 console.log(io);
-               socket.on('CommentMade', (d)=>{
+               io.on('CommentMade', (d)=>{
                    alert("hi");
                 if (d.data.type == "blog" && d.data.id == this.id) {
                     this.comments = d.data.all_comments;
