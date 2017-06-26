@@ -413,6 +413,7 @@
                 return moment(time).fromNow();
             },
             CommentMade: function(){
+                alert("made");
                socket.on('CommentMade', (d)=>{
                    alert("hi");
                 if (d.data.type == "blog" && d.data.id == this.id) {

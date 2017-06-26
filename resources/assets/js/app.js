@@ -25,8 +25,6 @@ window.io = io('https://coolfm.ng/socket');
 var infiniteScroll = require('vue-infinite-scroll');
 Vue.use(infiniteScroll)
 
-import VueSocketio from 'vue-socket.io';
-Vue.use(VueSocketio, 'https://coolfm.ng/socket');
 
 Vue.component('clip-loader', require('vue-spinner/src/ClipLoader.vue'));
 

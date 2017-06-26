@@ -416,18 +416,6 @@ created: function(){
                 return moment(time).fromNow();
             }
   },
-  sockets: {
-            coolfmlagos_CommentMade: function(d){
-              alert('done');
-              if(d.type=="forum" && d.id==this.id){
-                this.comments = d.all_comments;
-              }
-       
-      },
-      connect: function(){
-          alert('connected');
-        }
-        },
         watch: {
           id: function(){
             this.all_users();
