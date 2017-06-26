@@ -379,9 +379,10 @@
             createComment: function() {
                 axios.post("/post/" + this.id + "/comment", this.comment)
                     .then((response) => {
+                        
+                        //this.comments = response.data;
+                        this.$socket.emit('coolfmlagos_CommentMade', { data: response.data });
                         this.comment.body = '';
-                        this.comments = response.data;
-                         this.$socket.emit('coolfmlagos_CommentMade', { data: response.data });
                     });
             },
             childreply: function(id) {
@@ -394,11 +395,12 @@
                 comment.parent_id = this.replyid;
                 axios.post("/post/" + this.id + "/comment", this.comment)
                     .then((response) => {
-                        this.comment.body = '';
+                        
     
                         document.getElementById('close').click();
-                        this.comments = response.data;
+                        //this.comments = response.data;
                         this.$socket.emit('coolfmlagos_CommentMade', { data: response.data });
+                        this.comment.body = '';
                     });
             },
             getChildren: function(id) {
