@@ -291,4 +291,35 @@
     height: 100px;
     width: 100%;
   }
+
+  .cd-primary-nav>ul {
+    margin-top: 1.1em;
+    border-radius: 5px;
+    width: 95% !important;
+    margin-left: .6em;
+}
+
+.cd-primary-nav>ul:after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: 125px;
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid #fff;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+.cd-primary-nav>ul a {
+    width: 97%;
+}
+
+.cd-secondary-nav ul,
+.cd-secondary-nav li,
+.cd-secondary-nav a {
+    padding-left: 0;
+}
+
 </style>
