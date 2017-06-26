@@ -1,10 +1,3 @@
-body {
-    font-size: 1rem;
-    background: #f9f9f9;
-    line-height: 1.5;
-    color: #000;
-}
-
 #adunit,
 #adunit2 {
     max-width: 322px;
@@ -50,12 +43,6 @@ body {
 #bf-svg {
     height: 13px;
     width: auto;
-}
-
-.buzz-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
 }
 
 .partner-sash {

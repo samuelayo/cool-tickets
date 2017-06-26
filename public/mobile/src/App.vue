@@ -316,10 +316,22 @@
     width: 97%;
 }
 
+.buzz-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+body {
+    font-size: 1rem;
+    background: #f9f9f9;
+    line-height: 1.5;
+    color: #000;
+}
 .cd-secondary-nav ul,
 .cd-secondary-nav li,
 .cd-secondary-nav a {
-    padding-left: 0;
+    padding-right: 0;
 }
 
 </style>
