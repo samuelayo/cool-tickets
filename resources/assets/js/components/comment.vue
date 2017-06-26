@@ -6,34 +6,34 @@
             <div class="row margin-bottom-10">
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="
-        border-radius: 40px;
-        height: 50px;
-        color: #fff !important;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-    -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-    box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-        padding-top: .7em !important;
-        background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
-    ">
+            border-radius: 40px;
+            height: 50px;
+            color: #fff !important;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+        -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+        box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+            padding-top: .7em !important;
+            background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+        ">
                         <span style="
-        border-right: 1px solid #fff;
-        margin-right: 1em;
-        padding-right: 1em;
-    " class="ion-social-facebook"> </span> Sign in with Facebook</a>
+            border-right: 1px solid #fff;
+            margin-right: 1em;
+            padding-right: 1em;
+        " class="ion-social-facebook"> </span> Sign in with Facebook</a>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="
-        border-radius: 40px;
-        height: 50px;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-    -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-    box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-        color: #fff !important;
-        padding-top: .7em !important;
-        background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
-                                                                                                  "> <span class="ion-social-twitter" style="
-        border-right: 1px solid #fff;
-        margin-right: 1em;
-        padding-right: 1em;
-    "></span> Sign in with Twitter</a>
+            border-radius: 40px;
+            height: 50px;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+        -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+        box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+            color: #fff !important;
+            padding-top: .7em !important;
+            background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+                                                                                                      "> <span class="ion-social-twitter" style="
+            border-right: 1px solid #fff;
+            margin-right: 1em;
+            padding-right: 1em;
+        "></span> Sign in with Twitter</a>
                 </div>
             </div>
     
@@ -42,31 +42,31 @@
         <form action="" @submit.prevent="edit ? editComment(comment.id) : createComment()" v-if="loggedin">
             <div class="form-group col-md-12">
                 <div class="form-group col-md-12"> <textarea name="comment" id="textarea" placeholder="Write your responses" rows="3" class="form-control" style="
-       padding: 1em;
-        border: none;
-        width: 100%;
-        border-radius: 10px;
-        font-family: Circular-light;
-        font-size: 1.5em;
-        box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px;
-        background-image: url(http://i.imgur.com/8BNiTwp.png);
-        background-repeat: no-repeat;
-        text-indent: 2em;
-        background-position: 2% 15%;
-    " v-model="comment.body"></textarea> <br> <button style="
-        font-family: 'Circular-Book';
-        width: 200px;
-        text-transform: capitalize !important;
-        height: 49px;
-        background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%)!important;
-        color: #fff;
-        font-size: 1.1em;
-        -webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-        -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-        box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-        border: none;
-        border-radius: 45px;
-    " class="btn btn-primary" type="submit">Add Comment</button></div>
+           padding: 1em;
+            border: none;
+            width: 100%;
+            border-radius: 10px;
+            font-family: Circular-light;
+            font-size: 1.5em;
+            box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px;
+            background-image: url(http://i.imgur.com/8BNiTwp.png);
+            background-repeat: no-repeat;
+            text-indent: 2em;
+            background-position: 2% 15%;
+        " v-model="comment.body"></textarea> <br> <button style="
+            font-family: 'Circular-Book';
+            width: 200px;
+            text-transform: capitalize !important;
+            height: 49px;
+            background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%)!important;
+            color: #fff;
+            font-size: 1.1em;
+            -webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+            -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+            box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+            border: none;
+            border-radius: 45px;
+        " class="btn btn-primary" type="submit">Add Comment</button></div>
     
             </div>
         </form>
@@ -85,21 +85,21 @@
     
                             <p>
                                 <span style="float: right;">
-                                      <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(comment.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span>                            &nbsp; reply</a>
+                                          <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(comment.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span>                            &nbsp; reply</a>
                                 </span>
                                 <span class="" style="
-        display: block;
-        font-size: .8em;
-        margin-bottom: 4px;
-        color: #607490 !important;
-    "> {{username(comment.creator_id)}}</span>
+            display: block;
+            font-size: .8em;
+            margin-bottom: 4px;
+            color: #607490 !important;
+        "> {{username(comment.creator_id)}}</span>
                                 <span style="
-        display: block;
-        font-size: .6em;
-        color: rgba(0,0,0,.44)!important;
-        margin-bottom: 12.5px;
-        font-family: 'Circular-Book';
-    ">{{timeago(comment.created_at)}}</span> {{comment.body}}
+            display: block;
+            font-size: .6em;
+            color: rgba(0,0,0,.44)!important;
+            margin-bottom: 12.5px;
+            font-family: 'Circular-Book';
+        ">{{timeago(comment.created_at)}}</span> {{comment.body}}
                             </p>
                             <div class="comment-meta">
     
@@ -118,21 +118,21 @@
                                     <div class="media-body">
                                         <p>
                                             <span style="float: right;">
-                                      <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(com.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span>                                        &nbsp; reply</a>
+                                          <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(com.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span>                                        &nbsp; reply</a>
                                             </span>
                                             <span class="" style="
-        display: block;
-        font-size: .8em;
-        margin-bottom: 4px;
-        color: #607490 !important;
-    "> {{username(com.creator_id)}}</span>
+            display: block;
+            font-size: .8em;
+            margin-bottom: 4px;
+            color: #607490 !important;
+        "> {{username(com.creator_id)}}</span>
                                             <span style="
-        display: block;
-        font-size: .6em;
-        color: rgba(0,0,0,.44)!important;
-        margin-bottom: 12.5px;
-        font-family: 'Circular-Book';
-    ">{{timeago(com.created_at)}}</span> {{com.body}}
+            display: block;
+            font-size: .6em;
+            color: rgba(0,0,0,.44)!important;
+            margin-bottom: 12.5px;
+            font-family: 'Circular-Book';
+        ">{{timeago(com.created_at)}}</span> {{com.body}}
                                         </p>
                                         <div class="comment-meta">
     
@@ -151,21 +151,21 @@
                                                 <div class="media-body">
                                                     <p>
                                                         <span style="float: right;">
-                                      <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(co.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span>                                                    &nbsp; reply</a>
+                                          <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(co.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span>                                                    &nbsp; reply</a>
                                                         </span>
                                                         <span class="" style="
-        display: block;
-        font-size: .8em;
-        margin-bottom: 4px;
-        color: #607490 !important;
-    "> {{username(co.creator_id)}}</span>
+            display: block;
+            font-size: .8em;
+            margin-bottom: 4px;
+            color: #607490 !important;
+        "> {{username(co.creator_id)}}</span>
                                                         <span style="
-        display: block;
-        font-size: .6em;
-        color: rgba(0,0,0,.44)!important;
-        margin-bottom: 12.5px;
-        font-family: 'Circular-Book';
-    ">{{timeago(co.created_at)}}</span> {{co.body}}
+            display: block;
+            font-size: .6em;
+            color: rgba(0,0,0,.44)!important;
+            margin-bottom: 12.5px;
+            font-family: 'Circular-Book';
+        ">{{timeago(co.created_at)}}</span> {{co.body}}
                                                     </p>
                                                     <div class="comment-meta">
     
@@ -187,21 +187,21 @@
                                                             <div class="media-body">
                                                                 <p>
                                                                     <span style="float: right;">
-                                      <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(c.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span>                                                                &nbsp; reply</a>
+                                          <a class="" role="button" class="btn btn-primary" style="color: black !important; border: none !important;" @click="childreply(c.id)"  v-if="loggedin"><span class="ion-ios-undo-outline"> </span>                                                                &nbsp; reply</a>
                                                                     </span>
                                                                     <span class="" style="
-        display: block;
-        font-size: .8em;
-        margin-bottom: 4px;
-        color: #607490 !important;
-    "> {{username(c.creator_id)}}</span>
+            display: block;
+            font-size: .8em;
+            margin-bottom: 4px;
+            color: #607490 !important;
+        "> {{username(c.creator_id)}}</span>
                                                                     <span style="
-        display: block;
-        font-size: .6em;
-        color: rgba(0,0,0,.44)!important;
-        margin-bottom: 12.5px;
-        font-family: 'Circular-Book';
-    ">{{timeago(c.created_at)}}</span> {{c.body}}
+            display: block;
+            font-size: .6em;
+            color: rgba(0,0,0,.44)!important;
+            margin-bottom: 12.5px;
+            font-family: 'Circular-Book';
+        ">{{timeago(c.created_at)}}</span> {{c.body}}
                                                                 </p>
                                                                 <div class="comment-meta">
     
@@ -264,34 +264,34 @@
                 <div>
     
                     <textarea name="comment" id="textarea" ref="textarea" placeholder="Write your responses" rows="3" class="form-control" style="
-       padding: 1em;
-        border: none;
-        width: 100%;
-        margin-top: 1.2em;
-        border-radius: 10px;
-        font-family: Circular-light;
-        font-size: 1.5em;
-        box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px;
-        background-image: url(http://i.imgur.com/8BNiTwp.png);
-        background-repeat: no-repeat;
-        text-indent: 2em;
-        background-position: 2% 15%;
-    " v-model="comment.body"></textarea>
+           padding: 1em;
+            border: none;
+            width: 100%;
+            margin-top: 1.2em;
+            border-radius: 10px;
+            font-family: Circular-light;
+            font-size: 1.5em;
+            box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px;
+            background-image: url(http://i.imgur.com/8BNiTwp.png);
+            background-repeat: no-repeat;
+            text-indent: 2em;
+            background-position: 2% 15%;
+        " v-model="comment.body"></textarea>
     
                     <br> <button style="
-        font-family: 'Circular-Book';
-        width: 200px;
-        text-transform: capitalize !important;
-        height: 49px;
-        background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%)!important;
-        color: #fff;
-        font-size: 1.1em;
-        -webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-        -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-        box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
-        border: none;
-        border-radius: 45px;
-    " class="btn btn-primary" type="submit" v-show="!edit" @click="childsubmit()">Add Comment</button></div>
+            font-family: 'Circular-Book';
+            width: 200px;
+            text-transform: capitalize !important;
+            height: 49px;
+            background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%)!important;
+            color: #fff;
+            font-size: 1.1em;
+            -webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+            -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+            box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
+            border: none;
+            border-radius: 45px;
+        " class="btn btn-primary" type="submit" v-show="!edit" @click="childsubmit()">Add Comment</button></div>
             </div>
         </div>
     </div>
@@ -323,7 +323,7 @@
         }
         return out
     }
-   var io = io('https://coolfm.ng/socket');
+    var io = io('https://coolfm.ng/socket');
     export default {
         props: ['id'],
         data: function() {
@@ -345,11 +345,19 @@
     
         created: function() {},
         mounted: function() {
-
+    
             this.all_users();
-           
+    
             this.fetchComments();
-            this.CommentMade();
+    
+    
+            io.on('CommentMade', (d) => {
+                alert("hi");
+                if (d.data.type == "blog" && d.data.id == this.id) {
+                    this.comments = d.data.all_comments;
+                }
+    
+            })
         },
     
         methods: {
@@ -379,9 +387,11 @@
             createComment: function() {
                 axios.post("/post/" + this.id + "/comment", this.comment)
                     .then((response) => {
-                        
+    
                         //this.comments = response.data;
-                        io.emit('coolfmlagos_CommentMade', { data: response.data });
+                        io.emit('coolfmlagos_CommentMade', {
+                            data: response.data
+                        });
                         this.comment.body = '';
                     });
             },
@@ -395,11 +405,13 @@
                 comment.parent_id = this.replyid;
                 axios.post("/post/" + this.id + "/comment", this.comment)
                     .then((response) => {
-                        
+    
     
                         document.getElementById('close').click();
                         //this.comments = response.data;
-                        io.emit('CommentMade', { data: response.data });
+                        io.emit('CommentMade', {
+                            data: response.data
+                        });
                         this.comment.body = '';
                     });
             },
@@ -412,17 +424,10 @@
             timeago: function(time) {
                 return moment(time).fromNow();
             },
-            CommentMade: function(){
-                alert("made");
-                console.log(io);
-               io.on('CommentMade', (d)=>{
-                   alert("hi");
-                if (d.data.type == "blog" && d.data.id == this.id) {
-                    this.comments = d.data.all_comments;
-                }
-
-               })
-                
+            CommentMade: function() {
+    
+    
+    
             }
         },
         watch: {
