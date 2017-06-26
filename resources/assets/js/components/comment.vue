@@ -414,6 +414,7 @@
             },
             CommentMade: function(){
                 alert("made");
+                console.log(io);
                socket.on('CommentMade', (d)=>{
                    alert("hi");
                 if (d.data.type == "blog" && d.data.id == this.id) {
