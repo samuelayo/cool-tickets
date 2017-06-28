@@ -7,7 +7,7 @@
       <br>
 
       <div id="now-buzzing" class="xs-mb3">
-       <div v-if="oap.fullimage" :style="'background-size: cover; width: 15% !important; background-image: url('+oap.fullimage+');'" >
+       <div v-if="oap.fullimage" :style="'background-size: cover; height: 350px; background-image: url('+oap.fullimage+');'" >
 
   </div>
 
