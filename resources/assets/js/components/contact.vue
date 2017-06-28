@@ -64,7 +64,7 @@
                                     <div>
                                         267A Etim Inyang Cres<br /> Victoria island annex, <br /> Lagos, Nigeria <br/>
                                         <!-- #(703) 1234 1234<br /> -->
-                                        webteam@coolwazobiainfo.com<br />
+                                      
                                     </div>
                                 </div>
 
@@ -74,7 +74,7 @@
                                     <div>
                                         Plot 64, Farm Center Road,<br /> near Marhaba Cinema, after NUJ Press Center,<br /> Kano, Nigeria <br/>
                                         #( 064) 460954, 460955<br />
-                                        webteam@coolwazobiainfo.com<br />
+                                        
                                     </div>
                                 </div>
 
@@ -85,7 +85,7 @@
                                     <div>
                                         Plot 592, Independence Avenue,<br /> South City center, P.M.B.51, <br /> Garki Abuja, Nigeria <br/>
                                         #( 09)4618800, 4618140<br /> 
-                                        webteam@coolwazobiainfo.com<br />
+                                   
                                     </div>
                                 </div>
 
@@ -96,7 +96,7 @@
                                     <div>
                                         Km.16, East-West Highway,<br /> Near Syringe Factory, Rumuosi, P.O.Box 307, Choba-Rumuosi,<br /> Port Harcourt, Nigeria <br/>
                                         #( 084)467301-3(3 Lines)<br /> 
-                                        webteam@coolwazobiainfo.com<br />
+                                       
                                     </div>
                                 </div>
 

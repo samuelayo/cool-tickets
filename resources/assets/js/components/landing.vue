@@ -376,7 +376,7 @@
                 fresh: window.Laravel.fresh,
                 hot:[],
                  flickityOptions: {
-                initialIndex: 3,
+                initialIndex: 0,
                 prevNextButtons: true,
                 pageDots: false,
                 wrapAround: true
