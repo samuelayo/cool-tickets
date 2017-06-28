@@ -3,7 +3,7 @@
     <header>
       <div class="cd-auto-hide-header">
         <div class="logo">
-          <router-link v-bind:to="'/'"><img src="https://www.coolfm.ng/img/logo.svg" alt="Logo"></router-link>
+          <router-link v-bind:to="'/'"><img src="/mobile/img/logo.png" alt="Logo"></router-link>
         </div>
 
         <nav class="cd-primary-nav">
@@ -16,7 +16,7 @@
           <!-- .nav-trigger -->
 
           <ul id="cd-navigation">
-            <li><a style="border-top: none;" href="#">OAPs</a></li>
+            <li><router-link v-bind:to="'/oaps'" style="border-top: none;">OAPs</router-link>
             <li>
               <router-link v-bind:to="'/forums'">Forums</router-link>
             </li>
@@ -36,7 +36,7 @@
 
 
         <table class="table-fill" style="height: 40px !important; border: none !important;" v-if="now_playing">
-          <tbody class="table-hover" style="color: black;-moz-box-shadow: inset 0 0 10px #ddd !important;-webkit-box-shadow: inset 0 0 10px #ddd !important;box-shadow: inset 0 0 10px #ddd !important;">
+          <tbody class="table-hover" style="color: black;">
             <tr>
               <td class="text-left" style="letter-spacing: 3px;color: rgb(255, 255, 255);display: inline-block;font-style: normal !important;padding: 1.1em 2.9em 18px 2em;font-size: 0.8em;margin-top: 1.5em;margin-left: 1em;width: 62px;text-align: center;border-radius: 50%;background: rgba(255,255,255,.1);"><i :class="'ion-'+current_play_state" @click="livestream()" style="font-size: 1.5em;"></i></td>
               <td class="text-left" style="padding: 2em;line-height: 1.2;background: none;font-weight: 100;text-align: left;text-transform: capitalize;color: #fff;font-family: 'Circular-lIGHT';">{{now_playing.title}} </td>

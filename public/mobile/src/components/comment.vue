@@ -4,6 +4,28 @@
 
   <div class="post-comments col-md-12">
 
+  <div id="login" v-if="!loggedin">
+              <div class="row margin-bottom-10" style="text-align: center;">
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                  <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="border-radius: 30px !important;">Login with Facebook</a>
+
+
+                  <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="border-radius: 30px !important;">Login with Twitter</a>
+              </div>
+          </div>
+
+
+
+    </div>
+
+<form action="" @submit.prevent="edit ? editComment(comment.id) : createComment()" v-if="loggedin">
+     <div class="form-group col-md-12">
+        <label for="comment">Your Comment</label>
+        <textarea name="comment"  v-model="comment.body" ref="textarea" style="padding: 1em; border: none; width: 100%; border-radius: 10px; font-family: Circular-light; box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px; text-indent: 2em; z-index: auto; position: relative; line-height: 29.4px; font-size: 20.58px; transition: none; background: transparent !important;"  class="form-control" id="textarea" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary" v-show="!edit" style="font-family: Circular-Book; width: 200px; text-transform: capitalize !important; height: 49px; background-image: linear-gradient(to top, rgb(0, 198, 251) 0%, rgb(0, 91, 234) 100%) !important; color: white !important; font-size: 1.1em; box-shadow: rgba(0, 0, 0, 0.36) -1px 9px 94px -6px; border: none; border-radius: 45px;">Add Comment</button>
+      </div>
+    </form>
+    <br>
     <div class="row">
       <div class="media" v-for="comment in getChildren(null)" >
         <!-- first comment -->
@@ -136,37 +158,16 @@
 		<h2>Send reply</h2>
 		 <div>
         <label for="comment">Your Comment</label>
-        <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary" v-show="!edit" @click="childsubmit()">Add Comment</button>
+        <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" style="padding: 1em; border: none; width: 100%; border-radius: 10px; font-family: Circular-light; box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px; text-indent: 2em; z-index: auto; position: relative; line-height: 29.4px; font-size: 20.58px; transition: none; background: transparent !important;" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary" v-show="!edit" @click="childsubmit()" style="font-family: Circular-Book; width: 200px; text-transform: capitalize !important; height: 49px; background-image: linear-gradient(to top, rgb(0, 198, 251) 0%, rgb(0, 91, 234) 100%) !important; color: white !important; font-size: 1.1em; box-shadow: rgba(0, 0, 0, 0.36) -1px 9px 94px -6px; border: none; border-radius: 45px;">Add Comment</button>
       </div>
 	</div>
 </div>
 
 
-   <form action="" @submit.prevent="edit ? editComment(comment.id) : createComment()" v-if="loggedin">
-     <div class="form-group col-md-12">
-        <label for="comment">Your Comment</label>
-        <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary" v-show="!edit">Add Comment</button>
-      </div>
-    </form>
-
-    <div id="login" v-if="!loggedin">
-  <p style="text-align: center;" ><span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> Please login to comment</span>  <span style="border-bottom: 1px solid #ddd;
-    vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
-              <div class="row margin-bottom-10" style="text-align: center;">
-              <div class="col-md-6 col-sm-6 col-xs-6">
-                  <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook">Login with Facebook</a>
-
-
-                  <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter">Login with Twitter</a>
-              </div>
-          </div>
 
 
 
-    </div>
 
   </div>
 </template>
@@ -320,15 +321,22 @@ created: function(){
 }
 
 .post-comments .comment-meta {
-  border-bottom: 1px solid #eee;
-  margin-bottom: 5px;
+    border-bottom: none;
+    margin-bottom: 5px;
 }
 
 .post-comments .media {
-  border-left: 1px dotted #000;
-  border-bottom: 1px dotted #000;
-  margin-bottom: 5px;
-  padding-left: 10px;
+    border-left: none;
+    border-bottom: none;
+    margin-bottom: 5px;
+    padding-left: 1em;
+    border-radius: 10px;
+    padding: 1em;
+    background: #fff;
+    /* padding-left: 10px; */
+    box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px;
+    /* text-indent: 2em; */
+    z-index: auto;
 }
 
 .post-comments .media-heading {

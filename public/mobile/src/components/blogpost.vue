@@ -33,7 +33,7 @@
                     margin-right: .5em;
                     border-right: 1px solid #fff;
                     padding-right: .6em;
-                    border-radius: 43px;
+
                 "></span> Share On Twitter</a>
             <p id="share-m"><span class="ion-android-open" style="font-size: 1.7em; font-weight: 900; vertical-align: sub;"></span> 0 <span style="font-weight: 100;">SHARES</span></p>
           </div>

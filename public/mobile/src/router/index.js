@@ -6,6 +6,8 @@ import blogcategory from '@/components/blogcategory'
 import forum from '@/components/forum'
 import single_forum from '@/components/single_forum'
 import events from '@/components/events'
+import oaps from '@/components/oaps'
+import single_oap from '@/components/single_oap'
 
 
 Vue.use(Router)
@@ -43,6 +45,17 @@ export default new Router({
             path: '/events',
             component: events,
             name: 'events'
+        },
+        {
+            path: '/oaps',
+            component: oaps,
+            name: 'oaps'
+        },
+        {
+            path: '/single_oap/:id/:name',
+            component: single_oap,
+            name: 'single_oap',
+            props: true
         }
     ]
 })
