@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script data-cfasync="false" src="/js/socket.io-1.3.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="/img/facicon.png" type="image/x-icon"/>
@@ -55,7 +55,7 @@
 <!-- <script src="/js/socket.io-1.3.4.js"></script> -->
   <!-- jQuery -->
   
-<script data-cfasync="false" src="/js/app.js"></script>
+<script src="/js/app.js"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://js.paystack.co/v1/inline.js"></script>
