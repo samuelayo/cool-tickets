@@ -55,7 +55,7 @@
 <!-- <script src="/js/socket.io-1.3.4.js"></script> -->
   <!-- jQuery -->
   
-<script src="/js/app.js"></script>
+<script data-cfasync="false" src="/js/app.js"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://js.paystack.co/v1/inline.js"></script>
