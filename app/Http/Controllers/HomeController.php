@@ -35,7 +35,7 @@ class HomeController extends Controller
     {
         $trending = BlogPost::where('view_count', '>', 1000)->where('view_count', '>', 5000)->orderBy('view_count', 'DESC')->with('category')->take(15)->get();
         $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
-        $fresh = BlogPost::take(10)->with('category')->orderBy('created_at', 'desc')->get();
+        $fresh = BlogPost::with('category')->orderBy('created_at', 'desc')->take(10)->get();
         $categories = Category::all();
         $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
         return view('landing', compact('trending', 'newones', 'fresh', 'categories', 'ads'));
