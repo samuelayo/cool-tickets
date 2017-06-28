@@ -323,7 +323,7 @@
         }
         return out
     }
-    var io = io('https://coolfm.ng/socket');
+
     export default {
         props: ['id'],
         data: function() {

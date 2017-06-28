@@ -10,6 +10,7 @@ window.$ = window.jQuery = require('jquery');
 
 require('bootstrap-sass');
 
+import io from 'socket.io-client';
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -24,6 +25,7 @@ window.moment = require('moment');
 window.tinymce = require('tinymce');
 window.plyr = require('plyr')
 window.accounting = require('accounting');
+window.io = io('https://coolfm.ng/socket');
 
 
 
