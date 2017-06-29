@@ -245,7 +245,10 @@
         ch[id] = 'nigerian';
         this.selectedcat = ch;
         this.currentchart = id;
-        $('.single-item').slick('unslick');
+        var check = $('.single-item');
+        if(check.hasClass( "slick-initialized slick-slider" )){
+            $('.single-item').slick('unslick');
+        }
         $('.single-item').slick();
       },
       gethots: function() {
