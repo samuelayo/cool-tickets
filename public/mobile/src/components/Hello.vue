@@ -193,10 +193,7 @@
       this.gethots();
       $('.single-item').slick();
     },
-    components: {
-    swiper,
-    swiperSlide
-  },
+
     methods: {
 
       week: function() {

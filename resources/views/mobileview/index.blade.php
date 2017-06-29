@@ -14,8 +14,7 @@
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-				
+			
   
 </head>
 
@@ -59,11 +58,11 @@ if(localStorage.getItem('username')!=undefined){
   if( !window.jQuery ) document.write('<script src="/mobile/js/jquery-3.0.0.min.js"><\/script>');
 </script>
 <!-- Resource jQuery --> 
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>	
 
-
-<script type="text/javascript" src="/mobile/dist/static/js/manifest.516dcc98bb139634e642.js"></script>
+<script type="text/javascript" src="/mobile/dist/static/js/manifest.d89b1e057228fe8830a1.js"></script>
     <script type="text/javascript" src="/mobile/dist/static/js/vendor.90f8bcd152931f272819.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.907feb31a37ab2e0b99b.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/app.ce27256b8c56d48ef139.js"></script>
  <!--<script src="http://localhost:8080/app.js"></script> -->
 
 <script src="https://js.paystack.co/v1/inline.js"></script>
