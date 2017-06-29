@@ -191,8 +191,10 @@
 
       this.getcharts();
       this.gethots();
-      $( document ).ready(function() {
-          $('.single-item').slick();
+      $( document ).ready(()=>{
+        if(this.all_chart[this.currentchart][this.currentchartweek]){
+            $('.single-item').slick();
+        }
       });
 
     },
