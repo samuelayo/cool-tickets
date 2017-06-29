@@ -80,21 +80,9 @@
                           </span><br><br>
 
         <div id="now-buzzing" class="xs-mb3">
-          <table class="table-fill">
-            <thead>
-
-            </thead>
-            <tbody class="table-hover">
-              <tr v-for="(chart, index) in all_chart[currentchart][currentchartweek]" v-if="index <= chartlimit">
-                <td class="text-left">{{chart.position}}</td>
-                <td class="text-left">{{chart.songs.song_title}} by {{chart.songs.artistname}} </td>
-              </tr>
-
-            </tbody>
-          </table><br>
-          <a id="more-buzz" class="button button--secondary xs-col-12" href="javascript::void" @click="fullchartlimit()">
-           + More
-        </a>
+        <flickity ref="flickity" :options="flickityOptions">
+          <div class="carousel-cell" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" :style="'background-image: url('+chart.songs.image+'); background-size:cover; background-position:center; left: 73.57%;'">1</div>
+        </flickity>
         </div>
 
          <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
@@ -165,6 +153,7 @@
 </template>
 
 <script>
+  import Flickity from 'vue-flickity';
   export default {
     name: 'hello',
     data() {
@@ -184,13 +173,24 @@
         hotlimit: 2,
         newlimit: 2,
         chartlimit: 5,
-        trendlength: 2
+        trendlength: 2,
+        flickityOptions: {
+                initialIndex: 1,
+                prevNextButtons: true,
+                pageDots: false,
+                wrapAround: true
+
+                // any options from Flickity can be used
+            }
       }
     },
     mounted: function() {
 
       this.getcharts();
       this.gethots();
+    },
+    components: {
+        Flickity
     },
     methods: {
 
