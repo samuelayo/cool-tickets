@@ -13,7 +13,7 @@
        <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+
 			
   
 </head>
@@ -58,7 +58,7 @@ if(localStorage.getItem('username')!=undefined){
   if( !window.jQuery ) document.write('<script src="/mobile/js/jquery-3.0.0.min.js"><\/script>');
 </script>
 <!-- Resource jQuery --> 
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>	
+
 
 <script type="text/javascript" src="/mobile/dist/static/js/manifest.799456da24f308819aca.js"></script>
     <script type="text/javascript" src="/mobile/dist/static/js/vendor.5f14f8da2cf91e6c8cab.js"></script>
