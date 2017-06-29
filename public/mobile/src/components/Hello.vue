@@ -61,7 +61,7 @@
                               </span><br><br>
         <div id="now-buzzing" class="xs-mb3">
           <div id="slider" v-if="all_chart[currentchart][currentchartweek]">
-            <slider animation="fade">
+            <slider animation="fade" :auto="false">
               <slider-item v-for="(chart, index) in all_chart[currentchart][currentchartweek]">
                 <div>
                   <img :src="chart.songs.image">
