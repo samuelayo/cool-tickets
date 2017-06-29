@@ -81,7 +81,7 @@
 
         <div id="now-buzzing" class="xs-mb3">
         <flickity ref="flickity" :options="flickityOptions" v-if="all_chart[currentchart][currentchartweek]">
-          <div class="carousel-cell" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" :style="'background-image: url('+chart.songs.image+'); background-size:cover; background-position:center; left: 73.57%;'">1</div>
+          <div class="carousel-cell" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" :style="'background-image: url('+chart.songs.image+'); background-size:cover; background-position:center; left: 73.57%; width: 70% !important;'"></div>
         </flickity>
         </div>
 
