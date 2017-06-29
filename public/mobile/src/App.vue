@@ -40,7 +40,7 @@
             <tr>
               <td class="text-left" style="letter-spacing: 3px;color: rgb(255, 255, 255);display: inline-block;font-style: normal !important;padding: 1.1em 2.9em 18px 2em;font-size: 0.8em;margin-top: 1.5em;margin-left: 1em;width: 62px;text-align: center;border-radius: 50%;background: rgba(255,255,255,.1);"><i :class="'ion-'+current_play_state" @click="livestream()" style="font-size: 1.5em;"></i></td>
               <td class="text-left" style="padding: 1.3em;line-height: 1.2;background: none;font-weight: 100;text-align: left;text-transform: capitalize;color: #fff;font-family: 'Circular-lIGHT';">
-              <span style="display: none; opacity: 0.6;">Now</span>
+              <span style="display: block; opacity: 0.6;">Now</span>
               {{now_playing.title}} </td>
             </tr>
           </tbody>
