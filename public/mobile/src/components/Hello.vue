@@ -82,13 +82,10 @@
         <div id="now-buzzing" class="xs-mb3">
 
 
- <swiper :options="swiperOption" ref="mySwiper" v-if="all_chart[currentchart][currentchartweek]">
-    <!-- slides -->
-    <swiper-slide v-for="(chart, index) in all_chart[currentchart][currentchartweek]"><img :src="chart.songs.image"></swiper-slide>
 
-    <!-- Optional controls -->
-<div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
+  <div class="single-item" v-if="all_chart[currentchart][currentchartweek]">
+  <div v-for="(chart, index) in all_chart[currentchart][currentchartweek]"><img :src="chart.songs.image"></div>
+</div>
         </div>
 
          <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
@@ -159,7 +156,7 @@
 </template>
 
 <script>
-  import { swiper, swiperSlide } from 'vue-awesome-swiper'
+
   export default {
     name: 'hello',
     data() {
@@ -194,6 +191,7 @@
 
       this.getcharts();
       this.gethots();
+      $('.single-item').slick();
     },
     components: {
     swiper,

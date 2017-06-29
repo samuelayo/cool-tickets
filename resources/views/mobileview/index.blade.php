@@ -13,7 +13,9 @@
        <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>
-
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+				
   
 </head>
 
@@ -59,9 +61,9 @@ if(localStorage.getItem('username')!=undefined){
 <!-- Resource jQuery --> 
 
 
-<script type="text/javascript" src="/mobile/dist/static/js/manifest.6734ca5124cf2142200d.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/vendor.f6b38766fe2cef38131c.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.e4632d41334a9cdeca6d.js"></script>
+<script type="text/javascript" src="/mobile/dist/static/js/manifest.516dcc98bb139634e642.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/vendor.90f8bcd152931f272819.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/app.907feb31a37ab2e0b99b.js"></script>
  <!--<script src="http://localhost:8080/app.js"></script> -->
 
 <script src="https://js.paystack.co/v1/inline.js"></script>
