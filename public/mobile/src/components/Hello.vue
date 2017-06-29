@@ -191,7 +191,10 @@
 
       this.getcharts();
       this.gethots();
-      $('.single-item').slick();
+      $( document ).ready(function() {
+          $('.single-item').slick();
+      });
+
     },
 
     methods: {
@@ -240,7 +243,8 @@
         ch[id] = 'nigerian';
         this.selectedcat = ch;
         this.currentchart = id;
-
+        $('.single-item').slick('unslick');
+        $('.single-item').slick();
       },
       gethots: function() {
         axios.get('/hotforum')
@@ -332,4 +336,11 @@
     }
   }
 </script>
-
+<style>
+button.slick-prev.slick-arrow {
+    display: none !important;
+}
+button.slick-next.slick-arrow {
+    display: none !important;
+}
+</style>
