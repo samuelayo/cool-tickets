@@ -80,11 +80,15 @@
                           </span><br><br>
 
         <div id="now-buzzing" class="xs-mb3">
-        <flickity ref="flickity" :options="flickityOptions" v-if="all_chart[currentchart][currentchartweek]">
-          <div class="carousel-cell" v-for="(chart, index) in all_chart[currentchart][currentchartweek]" :style="'background-image: url('+chart.songs.image+');'">
 
-          </div>
-        </flickity>
+        <div v-swiper:mySwiper="swiperOption"  v-if="all_chart[currentchart][currentchartweek]">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" v-for="(chart, index) in all_chart[currentchart][currentchartweek]">
+        <img :src="chart.songs.image">
+      </div>
+    </div>
+  </div>
+
         </div>
 
          <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
@@ -155,7 +159,7 @@
 </template>
 
 <script>
-  import Flickity from 'vue-flickity';
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
   export default {
     name: 'hello',
     data() {
@@ -176,14 +180,15 @@
         newlimit: 2,
         chartlimit: 5,
         trendlength: 2,
-        flickityOptions: {
-                initialIndex: 1,
-                prevNextButtons: true,
-                pageDots: false,
-                wrapAround: true
+        swiperOption: {
+          autoplay: 5000,
+          initialSlide: 1,
+          loop: true,
+          pagination: '.swiper-pagination',
+          onSlideChangeEnd: swiper => {
 
-                // any options from Flickity can be used
-            }
+          }
+        }
       }
     },
     mounted: function() {
@@ -192,8 +197,9 @@
       this.gethots();
     },
     components: {
-        Flickity
-    },
+    swiper,
+    swiperSlide
+  },
     methods: {
 
       week: function() {

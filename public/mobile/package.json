@@ -20,6 +20,7 @@
     "sharon": "^1.6.0",
     "tinymce": "^4.6.1",
     "vue": "^2.2.6",
+    "vue-awesome-swiper": "^2.5.0",
     "vue-flickity": "^1.0.8",
     "vue-infinite-scroll": "^2.0.1",
     "vue-router": "^2.3.1",
