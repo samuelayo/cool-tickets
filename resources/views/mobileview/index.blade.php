@@ -12,6 +12,7 @@
        <link href="/mobile/dist/static/css/app.da2345c53348c79d76316f38da525201.css" rel="stylesheet">
        <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
+<link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>
 
   
 </head>
