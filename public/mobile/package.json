@@ -1,8 +1,8 @@
 {
   "name": "mobile",
   "version": "1.0.0",
-  "description": "coolfm mobile site",
-  "author": "samuel ogundipe <ayoogundipe2005@gmail.com>",
+  "description": "Cool FM mobile site",
+  "author": "samuelayo <ayoogundipe2005@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -19,17 +19,18 @@
     "moment": "^2.18.1",
     "sharon": "^1.6.0",
     "tinymce": "^4.6.1",
-    "vue": "^2.2.6",
     "vue-awesome-swiper": "^2.5.0",
     "vue-easy-slider": "^3.1.0",
     "vue-flickity": "^1.0.8",
     "vue-infinite-scroll": "^2.0.1",
-    "vue-router": "^2.3.1",
-    "vuex": "^2.3.1"
+    "vue": "^2.3.3",
+    "vuex": "^2.3.1",
+    "vue-router": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
+    "sw-precache-webpack-plugin": "^0.9.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.3.2",
@@ -76,10 +77,10 @@
     "ora": "^1.2.0",
     "rimraf": "^2.6.0",
     "url-loader": "^0.5.8",
-    "vue-loader": "^11.3.4",
-    "vue-style-loader": "^2.0.5",
-    "vue-template-compiler": "^2.2.6",
-    "webpack": "^2.3.3",
+    "vue-loader": "^12.1.0",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.3.3",
+    "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"

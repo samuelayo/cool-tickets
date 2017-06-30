@@ -1,6 +1,6 @@
-# mobile
+# testpwa
 
-> coolfm mobile site
+> A Vue.js project
 
 ## Build Setup
 

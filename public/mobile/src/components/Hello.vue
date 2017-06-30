@@ -16,7 +16,7 @@
           font-family: 'Circular-Black';
           letter-spacing: -.5px;
       "> Latest News</a></h3>
-          <div id="vertical-feed" class="" v-for="(fre, index) in fresh" v-if="index <= freshlimit">
+          <div id="vertical-feed" class="" v-for="(fre, index) in fresh" v-if="index <= freshlimit" :key="index">
             <div class="vertical-specific-feed" id="mod-vertical-specific-feed-1">
               <div class="xs-text-left text-gray">
                 <ul class="list-unstyled">
@@ -62,7 +62,7 @@
         <div id="now-buzzing" class="xs-mb3">
           <div id="slider" v-if="all_chart[currentchart][currentchartweek]">
             <slider animation="fade" :auto="false">
-              <slider-item v-for="(chart, index) in all_chart[currentchart][currentchartweek]">
+              <slider-item v-for="(chart, index) in all_chart[currentchart][currentchartweek]" :key="index">
                 <div>
                   <img :src="chart.songs.image">
                 </div>
@@ -88,7 +88,7 @@
             </div>
           </div>
           <ul id="news-list" class="xs-p0">
-            <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled" v-for="(ho, index) in hot" v-if="index < hotlimit" style="width: 100%;">
+            <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled" v-for="(ho, index) in hot" v-if="index < hotlimit" style="width: 100%;" :key="index">
               <div class="col xs-col-7 xs-text-left xs-text-6 text-gray-lightest">Last Activity : {{hottimeago(ho)}}</div><br><br>
               <router-link :to="{ name: 'single_forum', params: { id: ho.id, name: respace(ho.topic) }}" style="color: grey;">
                 {{ho.topic}}
@@ -271,10 +271,7 @@
 </script>
 
 <style>
-  button.slick-prev.slick-arrow {
+ .indicators.indi-center {
     display: none !important;
-  }
-  button.slick-next.slick-arrow {
-    display: none !important;
-  }
+}
 </style>
