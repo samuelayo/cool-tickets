@@ -1592,7 +1592,8 @@ tr:hover {
     padding-right: 5%;
 }
 
-.cd-primary-nav>ul {
+
+/*.cd-primary-nav>ul {
     position: absolute;
     z-index: 2;
     list-style: none;
@@ -1602,7 +1603,7 @@ tr:hover {
     background-color: #ffffff;
     display: none;
     box-shadow: 0 14px 20px rgba(0, 0, 0, 0.2);
-}
+}*/
 
 .cd-primary-nav>ul a {
     /* target primary-nav links */
