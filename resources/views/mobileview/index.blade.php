@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="/mobile/css/style.css">
       <link href="/fonts/circular-font.css" rel="stylesheet">
       <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
+      <link rel="manifest" href="/mobile/manifest.json">
 	<!--<link rel="stylesheet" href="/mobile/dist/static/fonts/MaterialDesign-Webfont-master/css/materialdesignicons.css"> m-->
        <link href="/mobile/dist/static/css/app.4ce9a4dd8fc7517d6235a12c8f75de45.css" rel="stylesheet">
        <script src="/dist/sweetalert.min.js"></script>

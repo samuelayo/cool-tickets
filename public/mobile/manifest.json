@@ -1,0 +1,15 @@
+{
+    "short_name": "Cool FM",
+    "name": "Cool FM mobile site",
+    "description": "Progressive web application  for cool FM",
+    "icons": [{
+        "src": "/img/logo.svg",
+        "sizes": "25x8",
+        "type": "image/svg"
+    }],
+    "start_url": "/m#?utm_source=web_app_manifest",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#29BDBB",
+    "background_color": "#29BDBB"
+}
