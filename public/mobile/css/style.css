@@ -23,6 +23,10 @@
     line-height: 1rem;
 }
 
+.card img {
+    padding: 1em;
+}
+
 #msu,
 #news,
 #connect,
