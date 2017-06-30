@@ -9,7 +9,7 @@
       <link href="/fonts/circular-font.css" rel="stylesheet">
       <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
 	<!--<link rel="stylesheet" href="/mobile/dist/static/fonts/MaterialDesign-Webfont-master/css/materialdesignicons.css"> m-->
-       <link href="/mobile/dist/static/css/app.da2345c53348c79d76316f38da525201.css" rel="stylesheet">
+       <link href="/mobile/dist/static/css/app.4ce9a4dd8fc7517d6235a12c8f75de45.css" rel="stylesheet">
        <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>
