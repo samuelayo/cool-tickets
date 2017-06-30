@@ -11,6 +11,16 @@ window.lodash = require('lodash');
 window.sharon = require('sharon');
 window.tinymce = require('tinymce');
 
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js').then(function(reg) {
+        console.log('Successfully registered service worker', reg);
+    }).catch(function(err) {
+        console.warn('Error whilst registering service worker', err);
+    });
+}
+
+
 var infiniteScroll = require('vue-infinite-scroll');
 Vue.use(infiniteScroll)
 window.accounting = require('accounting');
