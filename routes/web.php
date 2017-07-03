@@ -55,7 +55,8 @@ Route::get('apiauth/{provider}/callback', 'Auth\LoginController@apihandleProvide
         });
 
         Route::post('post/{id}/comment',function(\App\Models\BlogPost $id, Request $request){
-          $user = auth()->user();
+
+          $user = auth()->user() ? auth()->user() : \App\User::find($request->get('user_id'));
           $id->comment([
               'body' => $request->get('body'),
             'parent_id' => $request->get('parent_id', null)
@@ -88,7 +89,7 @@ Route::get('apiauth/{provider}/callback', 'Auth\LoginController@apihandleProvide
 
         Route::post('myforum/{id}/comment',function($id, Request $request){
 
-          $user = auth()->user();
+          $user = auth()->user() ? auth()->user() : \App\User::find($request->get('user_id'));
           \App\Models\Forum::where('id',$id)->first()->comment([
               'body' => $request->get('body'),
             'parent_id' => $request->get('parent_id', null)
