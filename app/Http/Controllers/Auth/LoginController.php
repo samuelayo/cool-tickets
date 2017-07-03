@@ -62,6 +62,22 @@ class LoginController extends Controller
         return redirect('/');
     }
 
+
+    //replicate for api access 
+        public function apiredirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+     public function apihandleProviderCallback($provider)
+    {
+        $user = Socialite::driver($provider)->user();
+
+        $authUser = $this->findOrCreateUser($user, $provider);
+        
+        return $authUser;    
+    }
+
     /**
      * If a user has registered before using social auth, return the user
      * else, create a new user object.

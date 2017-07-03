@@ -44,7 +44,8 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('/allpodcasts', 'HomeController@allpodcasts');
     Route::get('/podcast/{week}', 'HomeController@weekpodcast');
     Route::get('blog_category/{id}', 'HomeController@blog_category');
-
+    Route::get('apiauth/{provider}', 'Auth\LoginController@apiredirectToProvider');
+Route::get('apiauth/{provider}/callback', 'Auth\LoginController@apihandleProviderCallback');
 
 
 
