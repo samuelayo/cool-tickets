@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
@@ -58,15 +58,20 @@ class LoginController extends Controller
         $user = Socialite::driver($provider)->user();
 
         $authUser = $this->findOrCreateUser($user, $provider);
+        if ($request->session()->has('loginurl')) {
+            return  $request->session()->get('loginurl');
+        }
         Auth::login($authUser, true);
         return redirect('/');
     }
 
 
     //replicate for api access 
-        public function apiredirectToProvider($provider)
+        public function apiredirectToProvider(Request $request, $provider)
     {
+        $request->session()->put('loginurl', $request->url());
         return Socialite::driver($provider)->redirect();
+
     }
 
      public function apihandleProviderCallback($provider)
