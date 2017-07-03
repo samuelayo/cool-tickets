@@ -59,7 +59,10 @@ class LoginController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $provider);
         if ($request->session()->has('loginurl')) {
-            return  $request->session()->get('loginurl');
+            if (strpos( $request->session()->get('loginurl'), '/apiauth/') !== false) {
+               return $authUser;
+            }
+            
         }
         Auth::login($authUser, true);
         return redirect('/');
