@@ -60,6 +60,7 @@ class LoginController extends Controller
         $authUser = $this->findOrCreateUser($user, $provider);
         if ($request->session()->has('loginurl')) {
             if (strpos( $request->session()->get('loginurl'), '/apiauth/') !== false) {
+                $request->session()->forget('loginurl');
                return $authUser;
             }
             
