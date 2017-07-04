@@ -12,7 +12,7 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-      'post/{id}/comment',
-      'myforum/{id}/comments'
+      'post/*/comment',
+      'myforum/*/comments'
     ];
 }
