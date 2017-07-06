@@ -276,7 +276,7 @@ import comment from './comment.vue'
         },
         computed: {
             homepage_chart: function() {
-                var homeads = _.map(window.Laravel.ads, function(o) {
+                var homeads = _.filter(window.Laravel.ads, function(o) {
                     if (o.advert_category.type == "homepage_main") return o;
                 });
                 return homeads;

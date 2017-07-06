@@ -138,11 +138,12 @@
 
     
 
-<ins class="adsbygoogle"
+<center><ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-4448078976745099"
      data-ad-slot="5185770514"
-     data-ad-format="auto"></ins>
+     data-ad-format="auto"></ins></center>
+     <br>
 
     <transition>
       <router-view></router-view>

@@ -26,7 +26,11 @@
                 </div>
             </div>
         </div>
-
+        <ins class="adsbygoogle panel panel-default shadowed"
+                    style="display:block; margin-right: 1em;"
+                    data-ad-client="ca-pub-4448078976745099"
+                    data-ad-slot="5545697316"
+                    data-ad-format="auto"></ins>
         <div class="row">
             <h4 style="text-align: center;"><strong>TRENDING</strong></h4><br>
             <div id="advert-side" class="panel panel-default shadowed" style="margin-right: 1em;">
@@ -70,7 +74,7 @@
         },
         created: function (){
             this.gethots();
-                
+            (window.adsbygoogle = window.adsbygoogle || []).push({});    
         },
          methods: {
             timeago: function (time){
