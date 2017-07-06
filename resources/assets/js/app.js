@@ -20,6 +20,9 @@ window.sharon = require('sharon');
 //vuex store
 import store from './store'
 
+// import VueAdsense from 'vue-adsense'
+// Vue.component('adsense', VueAdsense)
+
 var infiniteScroll = require('vue-infinite-scroll');
 Vue.use(infiniteScroll)
 
@@ -39,6 +42,8 @@ Vue.use(VueGoogleMaps, {
         libraries: 'places'
     }
 })
+
+
 
 import app from './components/app'
 import landing from './components/landing'

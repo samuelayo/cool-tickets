@@ -18,32 +18,32 @@
   
   
     <div class="container-fluid topnav" style="
-        height: 40px !important;
-         background-image: url('https://i.imgur.com/PRammPf.png') ; border-bottom: 3px solid #f9f9f9; box-shadow: inset 0 0 0 1000px rgba(0, 79, 253, 0.4); ;
-                                               ">
+          height: 40px !important;
+           background-image: url('https://i.imgur.com/PRammPf.png') ; border-bottom: 3px solid #f9f9f9; box-shadow: inset 0 0 0 1000px rgba(0, 79, 253, 0.4); ;
+                                                 ">
       <p style="
-        text-align:center;
-        width: 100%;
-        padding: 1em;
-        font-size: 1.5em; color:#fff;
-        font-family: 'Circular-light';
-              ">All your favorite events, All the time.
+          text-align:center;
+          width: 100%;
+          padding: 1em;
+          font-size: 1.5em; color:#fff;
+          font-family: 'Circular-light';
+                ">All your favorite events, All the time.
         <router-link to="/events"><button style="
-        border-radius: 40px;
-        border: 1px solid blue;
-        background: rgba(240, 248, 255, 0.97);
-        /* -webkit-box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75); */
-        -moz-box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75);
-        /* box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75); */
-        border: 1px solid blue;
-        color: blue;
-        height: 36px;
-        font-size: .7em !important;
-        width: 149px;
-        margin-left: 2em;
-        font-family: 'Circular-Book';
-        vertical-align: middle;
-    ">Learn more</button></router-link>
+          border-radius: 40px;
+          border: 1px solid blue;
+          background: rgba(240, 248, 255, 0.97);
+          /* -webkit-box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75); */
+          -moz-box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75);
+          /* box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75); */
+          border: 1px solid blue;
+          color: blue;
+          height: 36px;
+          font-size: .7em !important;
+          width: 149px;
+          margin-left: 2em;
+          font-family: 'Circular-Book';
+          vertical-align: middle;
+      ">Learn more</button></router-link>
       </p>
     </div>
   
@@ -64,28 +64,28 @@
           </div>
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
+                                  <span class="sr-only">Toggle navigation</span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                              </button>
           </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse htop" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <!--<li>
-                    <a class="active" href="#">On Air</a>
-                  </li>
-                  <li>
-                    <a href="#">Schedules</a>
-                  </li> -->
+                      <a class="active" href="#">On Air</a>
+                    </li>
+                    <li>
+                      <a href="#">Schedules</a>
+                    </li> -->
             <li style="padding: 0px;padding-top: 0px !important;padding-left: 0px !important;padding-right: 0px !important;">
               <gcse:search></gcse:search>
             </li>
             <li>
               <a data-toggle="dropdown">Categories
-                                  <span class="caret"></span></a>
+                                    <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li v-for="cat in categories">
                   <router-link :to="{ name: 'blogcategory', params: { id: cat.id, name:cat.name }}">{{cat.name}}</router-link>
@@ -104,7 +104,7 @@
   
             <li>
               <a data-toggle="dropdown">Company
-                                  <span class="caret"></span></a>
+                                    <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
                   <router-link to="/aboutus">About Us</router-link>
@@ -119,7 +119,7 @@
   
   
               <a class="switch" data-toggle="dropdown">Switch Channel
-                                  <span class="caret"></span></a>
+                                    <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="javascript:void()" @click="change_state('Lagos', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos')">Coolfm Lagos</a></li>
                 <li><a href="javascript:void()" @click="change_state('Kano', 'http://icestream.coolwazobiainfo.com:8000/coolfm-kano')">Coolfm Kano</a></li>
@@ -134,17 +134,52 @@
       </div>
       <!-- /.container-fluid -->
     </nav>
-  
-    <div class="container-fluid topnav" style="
-        height: 40px !important;
-        ">
-      <p style="text-align: center;width: 100%;padding: 1em;font-size: 1.4em;padding-top: .5em;color: rgb(51, 51, 51);font-family: Circular-Book;"> Get the latest gists straight to your mail box <input placeholder="Enter Your Email" style="margin-left: 1em; border-radius: 55px; border: 1px solid rgb(221, 221, 221); font-size: 0.85em; padding-left: 1em; width: 400px; outline: none; height: 45px;">      <button background-color:="" style="border-radius: 55px;color: #fff;background: rgb(0, 0, 0);border: 1px solid #000;width: 42px;height: 40px;-moz-box-shadow: 0px 2px 4px 0px #000000;-webkit-box-shadow: 0px 2px 4px 0px #000000;box-shadow: 0px 2px 4px 0px #000000;font-size: 14px;font-family: circular-bold;margin-bottom: 1em;">  <span class="ion-paper-airplane" style="font-size: 1.5em;color: #fff;"></span> </button></p>
-    </div>
-    <br>
     <!-- the router outlet, where all matched components would ber viewed -->
+
+    
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4448078976745099"
+     data-ad-slot="5185770514"
+     data-ad-format="auto"></ins>
+
     <transition>
       <router-view></router-view>
     </transition>
+    <div class="row product" style="width: 92%;margin:0 auto;border:1px solid #ddd;padding:1em;margin-bottom: 7em;margin-top:2em;background:#fff;">
+      <div class="col-md-5 col-md-offset-0"><img src="https://images.unsplash.com/photo-1463453091185-61582044d556?dpr=1&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg=" style="width:100%;height:auto;"></div>
+      <div class="col-md-7" style="">
+        <h2 style="font-size: 3em;color: #000;/* letter-spacing: -.5px; */font-family: 'Circular-black';"> Get the latest news &amp; giveaways straight to your inbox. Join our teeming community of fans .</h2>
+  
+        <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500);"></div>
+  
+        <!-- Begin MailChimp Signup Form -->
+        <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+  
+        <div id="mc_embed_signup">
+          <form action="//coolfm.us16.list-manage.com/subscribe/post?u=11b9dec20b5f95351d12ef4ff&amp;id=22862615ab" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+              <h2>Subscribe to our mailing list</h2>
+              <div class="mc-field-group">
+                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+              </div>
+              <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_11b9dec20b5f95351d12ef4ff_22862615ab" tabindex="-1" value=""></div>
+              <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+            </div>
+          </form>
+        </div>
+  
+        <!--End mc_embed_signup-->
+  
+      </div>
+    </div>
     <br>
     <br>
     <br>
@@ -153,32 +188,32 @@
       <div class="container">
   
         <span class="navbar-text" style="margin-top:1%">
-                
-                <!--<div id="timeline">
-                  <div id="playhead"></div>
-                </div><span style="vertical-align: -webkit-baseline-middle;">&nbsp <span id="len">5.50</span></span>-->
+                  
+                  <!--<div id="timeline">
+                    <div id="playhead"></div>
+                  </div><span style="vertical-align: -webkit-baseline-middle;">&nbsp <span id="len">5.50</span></span>-->
         <audio id="ourplay" ref="ourplay" controls> 
-                <source :src="current_stream"/>
-              </audio>
+                  <source :src="current_stream"/>
+                </audio>
         </span>
   
   
         <p class="navbar-text pull-right">
           <span><p></p>
-                <span id="playname">
-                Cool FM live stream
-                </span>
+                  <span id="playname">
+                  Cool FM live stream
+                  </span>
           <span id="live" style="
-         margin-left: 1em;
-         color: red;
-         padding: .19em;
-         font-weight: 400;
-         font-size: 0.8em;
-         letter-spacing: 3px;
-         border: 1.2px solid red;
-         padding-left: .5em;
-         padding-right: .5em;
-      ">LIVE</span>
+           margin-left: 1em;
+           color: red;
+           padding: .19em;
+           font-weight: 400;
+           font-size: 0.8em;
+           letter-spacing: 3px;
+           border: 1.2px solid red;
+           padding-left: .5em;
+           padding-right: .5em;
+        ">LIVE</span>
           </span>
         </p>
       </div>
@@ -187,6 +222,26 @@
     </div>
   </div>
 </template>
+
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
+  
+</script>
+
+<script type='text/javascript'>
+  (function($) {
+    window.fnames = new Array();
+    window.ftypes = new Array();
+    fnames[0] = 'EMAIL';
+    ftypes[0] = 'email';
+    fnames[1] = 'FNAME';
+    ftypes[1] = 'text';
+    fnames[2] = 'LNAME';
+    ftypes[2] = 'text';
+    fnames[3] = 'BIRTHDAY';
+    ftypes[3] = 'birthday';
+  }(jQuery));
+  var $mcj = jQuery.noConflict(true);
+</script>
 
 <script>
   export default {
@@ -207,6 +262,40 @@
   
     },
     mounted: function() {
+      /// ///
+
+  function loadScript(url){
+
+    return new Promise(function(resolve, reject) {
+
+        var script = document.createElement("script")
+        script.type = "text/javascript";
+
+        if (script.readyState){  //IE
+            script.onreadystatechange = function(){
+                if (script.readyState == "loaded" ||
+                        script.readyState == "complete"){
+                    script.onreadystatechange = null;
+                    resolve();
+                }
+            };
+        } else {  //Others
+            script.onload = function(){
+                resolve();
+            };
+        }
+
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(script);
+
+    });
+}
+///
+loadScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function() {
+  (window.adsbygoogle = window.adsbygoogle || []).push({})
+});
+ ///
+      
       (function() {
         var cx = '004277073545021023643:yuy8iwmq_ky';
         var gcse = document.createElement('script');
@@ -308,9 +397,9 @@
   
   
   /**.cse .gsc-control-cse, .gsc-control-cse{
-        padding: 0 0 0 0 !important;
-        margin: -1em !important;
-      }**/
+          padding: 0 0 0 0 !important;
+          margin: -1em !important;
+        }**/
   
   .cse .gsc-control-cse,
   .gsc-control-cse {
@@ -401,4 +490,14 @@
     width: 14px !important;
     display: none !important;
   }
+  
+  #mc_embed_signup {
+    background: #fff;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+  }
+  
+  
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+  	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
