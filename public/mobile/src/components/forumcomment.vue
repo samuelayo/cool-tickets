@@ -5,15 +5,24 @@
   <div class="post-comments col-md-12">
 
   <div id="login" v-if="!loggedin">
-              <div class="row margin-bottom-10" style="text-align: center;">
-              <div class="col-md-6 col-sm-6 col-xs-6">
-                  <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="border-radius: 30px !important;">Login with Facebook</a>
-
-
-                  <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="border-radius: 30px !important;">Login with Twitter</a>
-              </div>
-          </div>
-
+           <div class="row margin-bottom-10" style="text-align: center;">  <p style="
+    text-align: left;
+    font-family: 'Circular-Bold';
+    margin-bottom: 1em;
+    margin-top: 2em;
+    font-size: 1em;
+">Responses </p><div class="col-md-6 col-sm-6 col-xs-6" style="
+    background: #ebf4f9;
+    padding: .4em;
+    border-radius: 50px;
+    border: 1px solid #e4e4f3;
+"><span class="ion-ios-loop" style="
+    opacity: .5;
+    font-family: 'Circular-book';
+    margin-right: 6em;
+    vertical-align: middle;
+    font-size: .9em;
+"> Respond with</span> <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="border-radius: 50%;width: 30px;padding: .3em;margin-right: .5em;height: 30px;color: #4863ae;background: none;"><span class="ion-social-facebook"></span> </a> <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="border-radius: 50%;width: 30px;height: 30px;padding: .3em;background: none;color: #46c0fb;"><span class="ion-social-twitter"></span></a></div></div>
 
 
     </div>
@@ -580,5 +589,16 @@ created: function(){
 .label-info {
    background-color: none;
    color: #000;
+}
+
+.button--facebook {
+    background-color: #0f65ef !important;
+    border-radius: 50px !important;
+    color: #fff !important;
+}
+.button--twitter {
+    background-color: #55acee !important;
+    color: #fff !important;
+    border-radius: 66px !important;
 }
 </style>

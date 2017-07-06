@@ -2,7 +2,7 @@
     <div id="sidebar" class="xs-m4">
         <div id="now-buzzing" class="xs-mb3">
 
-            <div id="now-buzzing" class="xs-mb3" v-if="forum">
+            <div id="now-buzzing" class="xs-mb3" v-if="forum.user">
                 <h3 class=" xs-text-2 xs-mb1"> <a id="categ" href="#" target="_blank" class="button  xs-col-12 xs-text-left xs-mb1"> {{forum.category_name.name}}</a> </h3>
                 <h1 class="title">{{forum.topic}}
                 </h1>
@@ -11,9 +11,6 @@
                     <p v-html="forum.description">
                     </p>
                     <br>
-                    <br>
-                    <center>Comments </center>
-                    <forumcomment :id="forum.id"></forumcomment>
                     <div id="connect" class="xs-mb3">
                         <a href="#" target="_blank" class="button button--facebook xs-col-12 xs-text-left xs-mb1"> <span class="mdi-facebook-box
                        "></span> Share On Facebook </a>
@@ -24,6 +21,7 @@
                        font-weight: 900;
                        vertical-align: sub;" class="ion-android-open"> </span> 200 <span style="font-weight: 100;">SHARES</span> </p>
                     </div>
+                    <forumcomment :id="forum.id"></forumcomment>
                 </div>
             </div>
             <br>

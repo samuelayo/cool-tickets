@@ -28,7 +28,7 @@
 
           <p v-html="post.content" style="width: 100% !important;">
           </p>
-          <comment v-if="post.id" :id="post.id"></comment>
+          <br>
           <div id="connect" class="xs-mb3"><a onclick="sharon.facebook()" class="button button--facebook xs-col-12 xs-text-left xs-mb1 border-radius: 43px;"><span class="ion-social-facebook" style="margin-right: .5em;border-right: 1px solid #fff;padding-right: 1em;margin-left: 0.1em;"></span> Share On Facebook </a>          <a onclick="sharon.twitter()" class="button button--twitter button--icon xs-col-12 xs-text-left xs-mb1"><span class="ion-social-twitter" style="
                     margin-right: .5em;
                     border-right: 1px solid #fff;
@@ -38,6 +38,7 @@
             <p id="share-m"><span class="ion-android-open" style="font-size: 1.7em; font-weight: 900; vertical-align: sub;"></span> 0 <span style="font-weight: 100;">SHARES</span></p>
           </div>
 
+           <comment v-if="post.id" :id="post.id"></comment>
         </div>
       </div>
 
