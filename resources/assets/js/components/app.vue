@@ -129,9 +129,9 @@
       <div class="col-md-5 col-md-offset-0" style="
           padding-left: 0;
           box-shadow: none !important;
-      "><img src="https://images.unsplash.com/photo-1463453091185-61582044d556?dpr=1&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=&amp;bg=" style="width: 100%;border-radius: 40px;border-right: 15px solid #f9f9f9;/* -webkit-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */-moz-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37);/* box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */height: auto;"></div>
+      "><img src="https://i.imgur.com/nCbmJox.png" style="width: 100%;border-radius: 40px;border-right: 15px solid #f9f9f9;/* -webkit-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */-moz-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37);/* box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */height: auto;"></div>
       <div id="newsletter" class="col-md-7" style="border-radius: 14px;margin-left: -1em;">
-        <h2 style="font-size: 3em;width: 95%;color: rgb(0, 0, 0);margin-left: .5em;margin-top: 1em;font-family: 'Circular-book';"> Get the latest news &amp; giveaways straight to your inbox. Join our teeming community of fans .</h2>
+        <h2 style="font-size: 2em;width: 95%;color: rgb(0, 0, 0);margin-left: .5em;margin-top: 1em;font-family: 'Circular-book';"> Get the latest news &amp; giveaways straight to your inbox. Join our teeming community of fans .</h2>
         <div class="swiper-slide" style="background-image: url(&quot;https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500&quot;);"></div>
         <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
         <div id="mc_embed_signup">
@@ -470,6 +470,13 @@
     height: 3.5em;
   }
   
+  div#newsletter input {
+    font-family: 'Circular-Book';
+    color: #000;
+    font-size: 1.1em;
+    outline: none;
+}
+
   div#newsletter label {
     font-family: 'Circular-bold' !important;
   }
