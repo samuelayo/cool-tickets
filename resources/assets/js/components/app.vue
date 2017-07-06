@@ -160,7 +160,6 @@
         <div id="mc_embed_signup">
           <form action="//coolfm.us16.list-manage.com/subscribe/post?u=11b9dec20b5f95351d12ef4ff&amp;id=22862615ab" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div id="mc_embed_signup_scroll">
-              <h2>Subscribe to our mailing list</h2>
               <div class="mc-field-group">
                 <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>
                 <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
