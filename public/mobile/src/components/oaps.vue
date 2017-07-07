@@ -2,6 +2,7 @@
   <!-- .cd-auto-hide-header -->
 
   <div class="oapss">
+<center><clip-loader v-if="loading" color="blue"></clip-loader></center>
 
 
     <div id="sidebar" class="xs-m4">
