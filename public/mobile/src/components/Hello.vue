@@ -42,7 +42,11 @@
             </a>
         </div>
         <div>
-        <center><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4448078976745099" data-ad-slot="5185770514" data-ad-format="auto"></ins></center>
+        <center><ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4448078976745099"
+                    data-ad-slot="5545697316"
+                    data-ad-format="auto"></ins></center>
           <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
             <a v-if="homepage_chart[1]" :href="homepage_chart[1].url">
               <img :src="'/'+homepage_chart[1].image_url" width="100%" height="100%"></img>
