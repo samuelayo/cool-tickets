@@ -79,6 +79,9 @@
         categories: Laravel.categories
       }
     },
+    mounted: function(){
+
+    },
     created: function() {
       this.schedules();
       setTimeout(function() {

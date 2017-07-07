@@ -19,7 +19,7 @@
 "><span class="ion-ios-loop" style="
     opacity: .5;
     font-family: 'Circular-book';
-    margin-right: 6em;
+    margin-right: 3em;
     vertical-align: middle;
     font-size: .9em;
 "> Respond with</span> <a :href="'/auth/facebook?curr='+$route.path" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="border-radius: 50%;width: 30px;padding: .3em;margin-right: .5em;height: 30px;color: #4863ae;background: none;"><span class="ion-social-facebook"></span> </a> <a :href="'/auth/twitter?curr='+$route.path" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="border-radius: 50%;width: 30px;height: 30px;padding: .3em;background: none;color: #46c0fb;"><span class="ion-social-twitter"></span></a></div></div>
@@ -29,7 +29,7 @@
 
 <form action="" @submit.prevent="edit ? editComment(comment.id) : createComment()" v-if="loggedin">
      <div class="form-group col-md-12">
-        <label for="comment">Your Comment</label>
+        <label for="comment">Your Response</label>
         <textarea name="comment"  v-model="comment.body" ref="textarea" style="padding: 1em; border: none; width: 100%; border-radius: 10px; font-family: Circular-light; box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px; text-indent: 2em; z-index: auto; position: relative; line-height: 29.4px; font-size: 20.58px; transition: none; background: transparent !important;"  class="form-control" id="textarea" rows="3"></textarea>
         <button type="submit" class="btn btn-primary" v-show="!edit" style="font-family: Circular-Book; width: 200px; text-transform: capitalize !important; height: 49px; background-image: linear-gradient(to top, rgb(0, 198, 251) 0%, rgb(0, 91, 234) 100%) !important; color: white !important; font-size: 1.1em; box-shadow: rgba(0, 0, 0, 0.36) -1px 9px 94px -6px; border: none; border-radius: 45px;">Add Comment</button>
       </div>

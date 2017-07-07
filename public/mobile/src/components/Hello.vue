@@ -40,6 +40,7 @@
             </a>
         </div>
         <div>
+        <center><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4448078976745099" data-ad-slot="5185770514" data-ad-format="auto"></ins></center>
           <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
             <a v-if="homepage_chart[1]" :href="homepage_chart[1].url">
               <img :src="'/'+homepage_chart[1].image_url" width="100%" height="100%"></img>
@@ -70,6 +71,11 @@
             </slider>
           </div>
         </div>
+         <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4448078976745099"
+                    data-ad-slot="5545697316"
+                    data-ad-format="auto"></ins>
         <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
           <a v-if="sidebar_chart[0]" :href="sidebar_chart[0].url">
             <img :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%"></img>
@@ -150,6 +156,31 @@
     mounted: function() {
       this.getcharts();
       this.gethots();
+       function loadScript(url) {
+        return new Promise(function(resolve, reject) {
+          var script = document.createElement("script")
+          script.type = "text/javascript";
+          if (script.readyState) { //IE
+            script.onreadystatechange = function() {
+              if (script.readyState == "loaded" ||
+                script.readyState == "complete") {
+                script.onreadystatechange = null;
+                resolve();
+              }
+            };
+          } else { //Others
+            script.onload = function() {
+              resolve();
+            };
+          }
+          script.src = url;
+          document.getElementsByTagName("head")[0].appendChild(script);
+        });
+      }
+      ///adsense
+      loadScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function() {
+        (window.adsbygoogle = window.adsbygoogle || []).push({})
+      });
     },
     methods: {
       week: function() {

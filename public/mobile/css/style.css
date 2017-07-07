@@ -6062,7 +6062,7 @@ td.text-right {
     position: relative;
     height: 2px;
     width: 22px;
-    background-color: #000;
+    background-color: #fff !important;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
