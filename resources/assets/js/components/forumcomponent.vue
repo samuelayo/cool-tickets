@@ -4,7 +4,10 @@
         <div class="row">
             <!-- create a topic -->
             <div v-if="loggedin" class="container" style="margin-top:1em;background:#f7f9fa;height: 561px;width: 98%;border: 1px solid #ddd;">
-                <div class="row product" style="background-image:url('https://www.dropbox.com/cms/content/dam/dropbox/www/en-us/help/170222_CX_HelpCenter_Production_Header.svg');background-repeat:no-repeat;background-position:bottom;">
+                <div class="row product" style="background-image: url(https://photos-2.dropbox.com/t/2/AADAMp5GlLtCvCNnU7isCUj5hE6tKL0sHp0GrlICfX…igC/EeQoFXKLg_2EEDtRjk9wIC4e2cjXibFA6hkwOSRUB54?size=2048x1536&size_mode=3);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #f3f2f5;">
                     <div class="col-md-7 col-md-offset-3" style="margin-bottom:2em;">
                         <h2 style="text-align:center;margin-top:2em;font-size: 45px;font-family: 'Circular-light';">Hey, What's on your mind?</h2>
                         <h6 style="text-align:center;margin-top:0;font-size: 18px;opacity: 0.3;">Discuss &amp; discover topics that interest you.</h6>
@@ -195,3 +198,13 @@
         }
     }
 </script>
+<style>
+btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+    background: #ddd !important;
+}
+</style>
