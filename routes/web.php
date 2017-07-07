@@ -103,8 +103,8 @@ Route::group(['middleware'=>'cors'], function(){
                           'id'=>$id,
                           'all_comments'=>$all_comments
                         ]);
-          Redis::publish('coolfm-lagos',json_encode($data));
-          return $all_comments;
+          //Redis::publish('coolfm-lagos',json_encode($data));
+          return $data;
         });
 
         Route::get('hotforum', function(){

@@ -21,7 +21,7 @@
         " class="ion-social-facebook"> </span> Sign in with Facebook</a>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
-                    <a :href="'/auth/twitter?curr='+$route.path"  class="btn btn-lg  waves-effect waves-light btn-block twitter" style="
+                    <a :href="'/auth/twitter?curr='+$route.path" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="
             border-radius: 40px;
             height: 50px;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
         -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
@@ -324,10 +324,14 @@
         return out
     }
 
+    var ds = deepstream('52.14.80.85:6020').login();
+    var record = ds.record.getRecord('post-comment');
+    
     export default {
         props: ['id'],
         data: function() {
             return {
+                
                 users: [],
                 load_limit: 4,
                 edit: false,
@@ -343,21 +347,21 @@
             }
         },
     
-        created: function() {},
-        mounted: function() {
+        created: function() {
+            record.subscribe('comments', (value)=> {
+                
+                if(value.data.all_comments.length !=0 && value.data.all_comments[0].commentable_id == this.id){
+                    this.comments = value.data.all_comments;
+                }
+                
+            })
     
+        },
+        mounted: function() {
             this.all_users();
     
             this.fetchComments();
     
-    
-            io.on('CommentMade', (d) => {
-                alert("hi");
-                if (d.data.type == "blog" && d.data.id == this.id) {
-                    this.comments = d.data.all_comments;
-                }
-    
-            })
         },
     
         methods: {
@@ -367,6 +371,8 @@
                         this.comments = response.data;
                         this.loading = false;
                     });
+            },
+            broadcasted: function() {
             },
             all_users: function() {
                 axios.get("/all_users")
@@ -389,10 +395,7 @@
                     .then((response) => {
                         this.comment.body = '';
                         //this.comments = response.data;
-                        io.emit('CommentMade', {
-                            data: response.data
-                        });
-                        
+                        record.set('comments', response.data);
                     });
             },
             childreply: function(id) {
@@ -405,14 +408,10 @@
                 comment.parent_id = this.replyid;
                 axios.post("/post/" + this.id + "/comment", this.comment)
                     .then((response) => {
-    
+                        this.comment.body = '';
     
                         document.getElementById('close').click();
-                        //this.comments = response.data;
-                        io.emit('CommentMade', {
-                            data: response.data
-                        });
-                        this.comment.body = '';
+                        record.set('comments', response.data);
                     });
             },
             getChildren: function(id) {
@@ -423,11 +422,6 @@
             },
             timeago: function(time) {
                 return moment(time).fromNow();
-            },
-            CommentMade: function() {
-    
-    
-    
             }
         },
         watch: {
@@ -435,6 +429,12 @@
                 this.all_users();
                 this.fetchComments();
             }
+        },
+        computed: {
+            record: function() {
+                return this.ds.record.getRecord('forum-comment');
+            }
+    
         }
     
     
