@@ -1,5 +1,6 @@
 <template>
   <div id="sidebar" class="xs-m4">
+  <center><clip-loader v-if="loading" color="blue"></clip-loader></center>
 
     <div id="now-buzzing" class="xs-mb3">
 

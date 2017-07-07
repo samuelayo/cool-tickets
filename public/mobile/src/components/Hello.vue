@@ -1,6 +1,7 @@
 <template>
   <!-- .cd-auto-hide-header -->
   <div class="hello">
+       <center><clip-loader v-if="loading" color="blue"></clip-loader></center>
     <div id="sidebar" class="xs-m4">
       <div id="now-buzzing" class="xs-mb3">
         <div id="now-buzzing" class="xs-mb3">
@@ -131,6 +132,7 @@
     name: 'hello',
     data() {
       return {
+        loading: true,
         trending: window.Laravel.trending,
         newones: window.Laravel.newones,
         fresh: window.Laravel.fresh,
@@ -211,6 +213,7 @@
             this.alternativechart = _.groupBy(this.alternativechart, function(car) {
               return car.week;
             });
+            this.loading = false;
           })
           .catch(e => {
           });

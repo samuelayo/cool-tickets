@@ -1,6 +1,6 @@
 <template>
   <div class="">
-
+<center><clip-loader v-if="loading" color="blue"></clip-loader></center>
 
   <div class="post-comments col-md-12">
 
@@ -216,7 +216,8 @@ var socket = io('https://coolfm.ng/socket');
           id: '',
         },
         replyid: 0,
-        loggedin: localStorage.getItem('username')?true:false
+        loggedin: localStorage.getItem('username')?true:false,
+        loading: true
       }
     },
 
@@ -257,6 +258,7 @@ created: function(){
       axios.get("/myforum/"+this.id+"/comments")
         .then((response)=>{
           this.comments = response.data;
+          this.loading = false;
       });
     },
     broadcasted: function(){

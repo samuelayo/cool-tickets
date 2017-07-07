@@ -1,6 +1,6 @@
 <template>
   <div id="sidebar" class="xs-m4">
-
+    <center><clip-loader v-if="loading" color="blue"></clip-loader></center>
     <div id="now-buzzing" class="xs-mb3">
 
 
@@ -128,7 +128,8 @@
         related_posts: [],
         hotlimit: 2,
         hot: [],
-        totalshares: 0
+        totalshares: 0,
+        loading: true
       }
     },
     created: function() {
@@ -143,6 +144,7 @@
           var str = this.post.keypoints;
           this.keypoints = str.match(/<p>.*?<\/p>/g);
           this.fetch_related();
+          this.loading = false;
         })
         .catch(e => {
 

@@ -19,13 +19,14 @@
     "moment": "^2.18.1",
     "sharon": "^1.6.0",
     "tinymce": "^4.6.1",
+    "vue": "^2.3.3",
     "vue-awesome-swiper": "^2.5.0",
     "vue-easy-slider": "^3.1.0",
     "vue-flickity": "^1.0.8",
     "vue-infinite-scroll": "^2.0.1",
-    "vue": "^2.3.3",
-    "vuex": "^2.3.1",
-    "vue-router": "^2.3.1"
+    "vue-router": "^2.3.1",
+    "vue-spinner": "^1.0.2",
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

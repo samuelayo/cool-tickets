@@ -1,5 +1,6 @@
 <template>
 <div id="sidebar" class="xs-m4">
+     <center><clip-loader v-if="loading" color="blue"></clip-loader></center>
    <div id="now-buzzing" class="xs-mb3">
       <br>
       <div id="now-buzzing" class="xs-mb3">
@@ -37,7 +38,8 @@ export default{
 
             posts: [],
             busy: false,
-            count: 5
+            count: 5,
+            loading: true
         }
     },
     created: function(){
@@ -50,6 +52,7 @@ export default{
             axios.get("/blog_category/"+this.id)
             .then((response)=>{
             this.posts = response.data;
+            this.loading = false;
             });
       },
       loadMore: function() {

@@ -1,5 +1,6 @@
 <template>
     <div id="sidebar" class="xs-m4">
+    <center><clip-loader v-if="loading" color="blue"></clip-loader></center>
         <div id="now-buzzing" class="xs-mb3">
 
             <div id="now-buzzing" class="xs-mb3" v-if="forum.user">
@@ -40,7 +41,8 @@
             return {
 
                 forum: {},
-                hot: []
+                hot: [],
+                loading: true
             }
         },
         created: function() {
@@ -60,6 +62,7 @@
                             return a.comments.length - a.comments.length;
                         });
                         this.hot = list;
+                        this.loading = false;
 
                     })
                     .catch(e => {

@@ -11,6 +11,7 @@ window.lodash = require('lodash');
 window.sharon = require('sharon');
 window.tinymce = require('tinymce');
 
+Vue.component('clip-loader', require('vue-spinner/src/ClipLoader.vue'));
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./service-worker.js').then(function(reg) {

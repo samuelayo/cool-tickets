@@ -1,5 +1,6 @@
 <template>
   <div id="now-buzzing" class="xs-mb3">
+       <center><clip-loader v-if="loading" color="blue"></clip-loader></center>
 <br>
 
 
@@ -54,6 +55,7 @@
         all_events: [],
         ticket_price: [],
         ticket_qty: [],
+        loading: true
 
       }
     },
@@ -72,6 +74,7 @@
             this.all_events = response.data;
             //this.loadable();
             this.pushem();
+            this.loading = false;
           });
       },
       verify: function(start) {
