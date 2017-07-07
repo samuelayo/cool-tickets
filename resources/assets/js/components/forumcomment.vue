@@ -324,7 +324,7 @@
         return out
     }
 
-    var ds = deepstream('52.14.80.85:6020').login();
+    var ds = deepstream('ws://coolfm.ng:6020').login();
     var record = ds.record.getRecord('forum-comment');
     
     export default {
