@@ -5,7 +5,7 @@
             <!-- create a topic --> 
             <div v-if="loggedin" class="container" style="margin-top:1em;background:#fff;height: 561px;width: 98%;border: 1px solid #ddd;">
                 <div class="row product" style="background-image: url('/img/doodle-fix.svg');
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
     background-position: center;
     border: 1px solid #f3f2f5;">
                     <div class="col-md-7 col-md-offset-3" style="margin-bottom:2em;">
