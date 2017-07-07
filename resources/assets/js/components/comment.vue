@@ -324,7 +324,7 @@
         return out
     }
 
-    var ds = deepstream('wss://coolfm.ng/socket').login();
+    var ds = deepstream('wss://coolfm.ng:6020').login();
     var record = ds.record.getRecord('post-comment');
     
     export default {
