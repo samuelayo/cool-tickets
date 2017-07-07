@@ -22,7 +22,7 @@
     margin-right: 6em;
     vertical-align: middle;
     font-size: .9em;
-"> Respond with</span> <a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="border-radius: 50%;width: 30px;padding: .3em;margin-right: .5em;height: 30px;color: #4863ae;background: none;"><span class="ion-social-facebook"></span> </a> <a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="border-radius: 50%;width: 30px;height: 30px;padding: .3em;background: none;color: #46c0fb;"><span class="ion-social-twitter"></span></a></div></div>
+"> Respond with</span> <a :href="'/auth/facebook?curr='+$route.path" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="border-radius: 50%;width: 30px;padding: .3em;margin-right: .5em;height: 30px;color: #4863ae;background: none;"><span class="ion-social-facebook"></span> </a> <a :href="'/auth/twitter?curr='+$route.path" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="border-radius: 50%;width: 30px;height: 30px;padding: .3em;background: none;color: #46c0fb;"><span class="ion-social-twitter"></span></a></div></div>
 
 
     </div>
