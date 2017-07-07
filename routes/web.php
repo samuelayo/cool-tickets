@@ -45,8 +45,8 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('/podcast/{week}', 'HomeController@weekpodcast');
     Route::get('blog_category/{id}', 'HomeController@blog_category');
     Route::get('apiauth/{provider}', 'Auth\LoginController@apiredirectToProvider');
-Route::get('apiauth/{provider}/callback', 'Auth\LoginController@apihandleProviderCallback');
-
+    Route::get('apiauth/{provider}/callback', 'Auth\LoginController@apihandleProviderCallback');
+    Route::post('forum_create', 'HomeController@forum_create');
 
 
     Route::get('/charts', 'HomeController@charts');
@@ -72,6 +72,8 @@ Route::get('apiauth/{provider}/callback', 'Auth\LoginController@apihandleProvide
           return $data;
         });
 
+        //forum categories.
+        Route::get('/forum_category', 'HomeController@forum_category');
 
         
 

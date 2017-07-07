@@ -7,6 +7,8 @@ use App\Models\OAP;
 use App\Models\Podcast;
 use App\Models\Charts;
 use App\Models\Category;
+use App\Models\Forumcategory;
+use App\Models\Forum;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -85,6 +87,21 @@ class HomeController extends Controller
                      'fresh'=>$fresh);
     }
 
+    public function forum_category(){
+        return Forumcategory::all();
+    }
+
+    public function forum_create(Request $request){
+        $content = $request->get('content');
+        $category = $request->get('category'); 
+        $test = new Forum();
+        $test->topic = $content;
+        $test->description = $content;
+        $test->category = $category;
+        $test->user_id = auth()->user()->id;
+        $test->save(); 
+        return $test;
+    }
 
     public function mobile(){
         $trending = BlogPost::where('view_count', '>', 1000)->where('view_count', '>', 5000)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();

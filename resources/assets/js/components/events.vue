@@ -4,7 +4,7 @@
         <div class="item  col-xs-4 col-lg-4" v-for="(evn, index) in searchable">
     
             <div id="event-single" class="thumbnail">
-                <img class="group list-group-image" :src="evn.image"  alt="" />
+                <img class="group list-group-image" :src="evn.image" alt="" />
                 <div class="caption">
                     <h4 id="event-title" class="group inner list-group-item-heading">
                         {{evn.title}}</h4>
@@ -26,20 +26,20 @@
                             <form>
                                 <div class="dropdown">
                                     <select id="select" type="button" class="btn btn-select" v-model="ticket_price[index].id" @change="check(index)" data-toggle="dropdown">
-                                                     
-                                                                <option v-for="typ in evn.tickets" :value="typ.id">{{typ.name}}</option>
-                                                       
-                                                    </select>
+                                                         
+                                                                    <option v-for="typ in evn.tickets" :value="typ.id">{{typ.name}}</option>
+                                                           
+                                                        </select>
                                 </div>
                             </form>
     
                             <form>
                                 <div class="dropdown">
                                     <select id="select" type="button" class="btn btn-select" @change="check(index)" v-model="ticket_qty[index]" data-toggle="dropdown">
-                                                        
-                                                                <option v-for="(i, index) in 10">{{i}}</option>
-                                                        
-                                                    </select>
+                                                            
+                                                                    <option v-for="(i, index) in 10">{{i}}</option>
+                                                            
+                                                        </select>
                                 </div>
                             </form> <button id="floater" class="btn btn-success" @click="buyticket(index)">Buy Tickets</button>
                         </div>
@@ -62,7 +62,7 @@
             return {
                 all_events: [],
                 ticket_price: [],
-                ticket_qty: [], 
+                ticket_qty: [],
                 loading: true,
             }
         },
@@ -70,7 +70,11 @@
             this.get_tickets();
         },
         mounted: function() {
-    
+            var status = {
+                title: 'Cool FM Nigeria | Events',
+                description: `Buy your event tickets from coolfm 96.9fm`
+            }
+            this.$store.dispatch('SET_SEO', status);
     
         },
         methods: {
@@ -243,16 +247,18 @@
                 });
                 return ll;
             }
-           
+    
         }
     }
 </script>
 
 <style scoped>
     /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-    *{
+    
+    * {
         font-family: 'Circular-Book'
     }
+    
     .glyphicon {
         margin-right: 5px;
     }
