@@ -2,7 +2,7 @@
     <div id="forumcomponent">
         <clip-loader v-if="loading" color="blue"></clip-loader>
         <div class="row">
-            <!-- create a topic -->
+            <!-- create a topic --> 
             <div v-if="loggedin" class="container" style="margin-top:1em;background:#fff;height: 561px;width: 98%;border: 1px solid #ddd;">
                 <div class="row product" style="background-image: url('/img/doodles.svg');
     background-repeat: no-repeat;
