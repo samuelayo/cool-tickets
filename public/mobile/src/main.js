@@ -11,6 +11,9 @@ window.lodash = require('lodash');
 window.sharon = require('sharon');
 window.tinymce = require('tinymce');
 
+import vmodal from 'vue-js-modal'
+Vue.use(vmodal)
+
 Vue.component('clip-loader', require('vue-spinner/src/ClipLoader.vue'));
 
 if ('serviceWorker' in navigator) {

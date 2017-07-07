@@ -159,20 +159,22 @@
   <!-- post-comments -->
 
 
-<a href="#openModal" id="open" style="display: none;">Open Modal</a>
+ <modal name="hello-world">
 
-<div id="openModal" class="modalDialog">
-	<div>
-		<a href="#close" id="close" title="Close" class="close">X</a>
-		<h2>Send reply</h2>
-		 <div>
-        <label for="comment">Your Comment</label>
-        <textarea name="comment"  v-model="comment.body" ref="textarea"  class="form-control" id="textarea" style="padding: 1em; border: none; width: 100%; border-radius: 10px; font-family: Circular-light; box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px; text-indent: 2em; z-index: auto; position: relative; line-height: 29.4px; font-size: 20.58px; transition: none; background: transparent !important;" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary" v-show="!edit" @click="childsubmit()" style="font-family: Circular-Book; width: 200px; text-transform: capitalize !important; height: 49px; background-image: linear-gradient(to top, rgb(0, 198, 251) 0%, rgb(0, 91, 234) 100%) !important; color: white !important; font-size: 1.1em; box-shadow: rgba(0, 0, 0, 0.36) -1px 9px 94px -6px; border: none; border-radius: 45px;">Add Comment</button>
+      <div>
+        <h2>Send reply</h2>
+        <div>
+          <label for="comment">Your Comment</label>
+          <textarea name="comment" v-model="comment.body" ref="textarea" class="form-control" id="textarea" style="padding: 1em; border: none; width: 100%; border-radius: 10px; font-family: Circular-light; box-shadow: rgba(0, 0, 0, 0.07) -1px 9px 53px -6px; text-indent: 2em; z-index: auto; position: relative; line-height: 29.4px; font-size: 20.58px; transition: none; background: transparent !important;"
+            rows="3"></textarea>
+          <button type="submit" class="btn btn-primary" v-show="!edit" @click="childsubmit()" style="font-family: Circular-Book; width: 200px; text-transform: capitalize !important; height: 49px; background-image: linear-gradient(to top, rgb(0, 198, 251) 0%, rgb(0, 91, 234) 100%) !important; color: white !important; font-size: 1.1em; box-shadow: rgba(0, 0, 0, 0.36) -1px 9px 94px -6px; border: none; border-radius: 45px;">Add Comment</button>
+        </div>
+
+
       </div>
-	</div>
-</div>
 
+
+    </modal>
 
 
 
@@ -296,7 +298,7 @@ created: function(){
     childreply:function(id){
 
       this.replyid = id;
-      document.getElementById('open').click();
+      this.$modal.show('hello-world');
     },
     childsubmit: function(){
       var comment = this.comment;
@@ -305,7 +307,7 @@ created: function(){
         .then((response)=>{
           this.comment.body= '';
 
-          document.getElementById('close').click();
+          this.$modal.hide('hello-world');
       });
     },
     getChildren: function (id) {

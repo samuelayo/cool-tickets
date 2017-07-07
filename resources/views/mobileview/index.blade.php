@@ -10,7 +10,7 @@
       <link href="/fonts/ionicons/css/ionicons.css" rel="stylesheet">
       <link rel="manifest" href="/mobile/manifest.json">
 	<!--<link rel="stylesheet" href="/mobile/dist/static/fonts/MaterialDesign-Webfont-master/css/materialdesignicons.css"> m-->
-       <link href="/mobile/dist/static/css/app.90c7eaa46e484cfc9e1fe59b3d3127ad.css" rel="stylesheet">
+       <link href="/mobile/dist/static/css/app.33d54a7ede391f87b6fbd0477af1f042.css" rel="stylesheet">
        <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>
@@ -61,9 +61,9 @@ if(localStorage.getItem('username')!=undefined){
 <!-- Resource jQuery --> 
 
 
- <script type="text/javascript" src="/mobile/dist/static/js/manifest.0ed099a1a3a8b0c1b773.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/vendor.251482cff9983ae68376.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.0c2b0ebc44167e04f6ca.js"></script>
+ <script type="text/javascript" src="/mobile/dist/static/js/manifest.6bece9e4faa6a7946fc5.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/vendor.bc90a4f9cdb5d7b8f3f0.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/app.85226beb2a24fcae0ed5.js"></script>
 <!--<script src="http://localhost:8080/app.js"></script> -->
 
 <script src="https://js.paystack.co/v1/inline.js"></script>
