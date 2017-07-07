@@ -3,8 +3,8 @@
         <clip-loader v-if="loading" color="blue"></clip-loader>
         <div class="row">
             <!-- create a topic -->
-            <div v-if="loggedin" class="container" style="margin-top:1em;background:#f7f9fa;height: 561px;width: 98%;border: 1px solid #ddd;">
-                <div class="row product" style="background-image: url(https://photos-2.dropbox.com/t/2/AADAMp5GlLtCvCNnU7isCUj5hE6tKL0sHp0GrlICfX…igC/EeQoFXKLg_2EEDtRjk9wIC4e2cjXibFA6hkwOSRUB54?size=2048x1536&size_mode=3);
+            <div v-if="loggedin" class="container" style="margin-top:1em;background:#fff;height: 561px;width: 98%;border: 1px solid #ddd;">
+                <div class="row product" style="background-image: url('/img/doodles.svg');
     background-repeat: no-repeat;
     background-position: center;
     border: 1px solid #f3f2f5;">
