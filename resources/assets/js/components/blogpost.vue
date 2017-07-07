@@ -84,9 +84,11 @@
     
     
                              <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
-                            <comment type="blog" :id="post.id" user="s"></comment>
+                            
                             </div>
                             <div>
+                                <br>
+                                <comment type="blog" :id="post.id" user="s"></comment>
                                 <br>
                                 <div id="more" class="col-md-12">
                                     <div class="row">

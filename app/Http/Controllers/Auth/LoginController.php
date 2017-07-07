@@ -39,8 +39,9 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
-        public function redirectToProvider($provider)
+        public function redirectToProvider(Request $request, $provider)
     {
+        $request->session()->put('redirecturl', $request->input('curr'));
         return Socialite::driver($provider)->redirect();
     }
 
@@ -65,7 +66,7 @@ class LoginController extends Controller
             
         }
         Auth::login($authUser, true);
-        return redirect('/');
+        return redirect($request->session()->get('redirecturl'));
     }
 
 

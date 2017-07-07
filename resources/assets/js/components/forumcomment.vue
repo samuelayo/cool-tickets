@@ -3,7 +3,7 @@
   <clip-loader v-if="loading" color="blue"></clip-loader>
  
  <div id="login" v-if="!loggedin">
-      <div class="row margin-bottom-10"><div class="col-md-6 col-sm-6 col-xs-6"><a href="/auth/facebook" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="
+      <div class="row margin-bottom-10"><div class="col-md-6 col-sm-6 col-xs-6"><a :href="'/auth/facebook?curr='+$route.path" class="btn btn-lg waves-effect waves-light  btn-block facebook" style="
     border-radius: 40px;
     height: 50px;
     color: #fff !important;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
@@ -16,7 +16,7 @@ box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
     border-right: 1px solid #fff;
     margin-right: 1em;
     padding-right: 1em;
-" class="ion-social-facebook"> </span> Sign in with Facebook</a></div> <div class="col-md-6 col-sm-6 col-xs-6"><a href="/auth/twitter" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="
+" class="ion-social-facebook"> </span> Sign in with Facebook</a></div> <div class="col-md-6 col-sm-6 col-xs-6"><a :href="'/auth/twitter?curr='+$route.path" class="btn btn-lg  waves-effect waves-light btn-block twitter" style="
     border-radius: 40px;
     height: 50px;-webkit-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
 -moz-box-shadow: -1px 9px 94px -6px rgba(0,0,0,0.36);
