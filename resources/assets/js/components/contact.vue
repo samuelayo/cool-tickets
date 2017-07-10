@@ -1,5 +1,8 @@
 <template>
     <div class="container">
+    <div class="alert alert-info">
+  <strong>Notice!</strong> For music request, please select music from the contact form and also submit a link to your song. We wish you the very best!
+</div>
         <div class="row">
             <div class="col-md-6">
                 <div class="well well-sm">
@@ -32,6 +35,7 @@
                                             <option value="" disabled selected hidden>Which Department would you like to contact?</option>
                                             <option value="saleslagos@coolwazobiainfo.com">Sales</option>
                                             <option value="newslagos@coolwazobiainfo.com">News</option>
+                                            <option value="musiclagos@coolwazobiainfo.com">Music</option>
                                             <option value="webteam@coolwazobiainfo.com">Web Team</option>
                                             <option value="webteam@coolwazobiainfo.com">Social Media</option>
                                             <option value="adminlagos@coolwazobiainfo.com">General Enquiries</option>
