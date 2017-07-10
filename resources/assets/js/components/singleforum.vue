@@ -54,10 +54,12 @@
             <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
                        <p style="
     text-align: left;
+    margin-left: 1.5em;
+    font-size: 1.5em;
     font-family: 'Circular-Bold';
     margin-bottom: 1em;
     margin-top: 2em;
-    font-size: 1em;
+ 
 ">Responses </p>
                      <forumcomment :id="forum.id" ></forumcomment>
             </div>

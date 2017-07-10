@@ -72,6 +72,42 @@
               <slider-item v-for="(chart, index) in all_chart[currentchart][currentchartweek]" :key="index">
                 <div>
                   <img :src="chart.songs.image">
+                  <p style="
+    margin-top: -17em;
+    margin-left: 1em;
+"><span style="
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    padding-top: .4em;
+    padding-bottom: .4em;
+    background: rgba(0,0,0,.2);
+    padding-left: 1em;
+    padding-right: 1em;
+">{{chart.position}}</span></p>
+
+<p style="
+    margin-top: 8.5em;
+    margin-left: 1em;
+    border-left: 1px solid #fff;
+"><span style="
+    color: #fff;
+    border-radius: 50%;
+    padding-top: .4em;
+    padding-bottom: .4em;
+    line-height: 0;
+    padding-right: 1em;
+    display: block;
+">{{chart.songs.artistname}}</span><span style="
+    color: #fff;
+    border-radius: 50%;
+    padding-top: .4em;
+    padding-bottom: .4em;
+    background: rgba(0,0,0,.2);
+    display: block;
+    font-size: 1.2em;
+    font-family: 'Circular-Bold';
+">{{chart.songs.song_title}}</span></p>
                 </div>
               </slider-item>
             </slider>
