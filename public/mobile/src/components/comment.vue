@@ -163,7 +163,7 @@
         <!-- first comment -->
 
         <!--- show more button -->
-        <div class="media" v-if="commlimit !=1000000000000000"><div id="collapseThree" class="panel-collapse collapse in"><div class="media-body"><p><a @click="morecomm()">Show More</a></p> </div></div> <br></div>
+        <div class="media" v-if="commlimit !=1000000000000000"><div id="collapseThree" class="panel-collapse collapse in"><div class="media-body"><center><p><a @click="morecomm()">+ Show More</a></p></center> </div></div></div>
         <!-- end show more button -->
 
       </div>
