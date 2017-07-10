@@ -567,12 +567,14 @@ p.copyright {
     position: relative;
     min-height: 220px;
     max-width: 100%;
-    font-weight: 900;
+    width: 80%;
+    font-weight: 100;
     padding: 1em;
     font-size: 1.4em;
+    margin-left: 10em;
+    padding-right: 0em;
     color: #000;
-    margin: 0 auto;
-    line-height: 1.7;
+    line-height: 1.9;
 }
 
 .item-content {

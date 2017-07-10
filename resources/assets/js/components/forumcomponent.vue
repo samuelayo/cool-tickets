@@ -44,7 +44,7 @@
                                         <th>Topic </th>
                                         <th>Last Activity</th>
                                         <th>Replies</th>
-                                        <th>In this conversation</th>
+               
                                         <th>Category</th>
                                     </tr>
                                     <tr v-for="forum in forums">
@@ -53,17 +53,6 @@
                                         </td>
                                         <td>{{hottimeago(forum)}}</td>
                                         <td>{{forum.comments.length}}</td>
-                                        <td>
-                                            <span id="convert">
-                                             <adimage src="/img/4671_1.png" width="100%" height="100%" sclass="conversation"></adimage>
-                                             <adimage src="/img/s.png" width="100%" height="100%" sclass="conversation2"></adimage>
-                                             <adimage src="/img/33.png" width="100%" height="100%" sclass="conversation2"></adimage>
-                                             <adimage src="/img/3e.png" width="100%" height="100%" sclass="conversation2"></adimage>
-                                             <!--    <img class="conversation" src="img/4671_1.png"/> -->
-                                             <!--     <img class="conversation2" src="img/s.png"/> -->
-                                             <span style="color: #007adf;">+ {{forum.comments.length-4}}</span>
-                                            </span>
-                                        </td>
                                         <td>{{forum.category_name.name}}</td>
                                     </tr>
                                 </table>

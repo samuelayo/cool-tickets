@@ -1,177 +1,184 @@
 
 <template>
-    <div id="blogpost">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    
-        <clip-loader v-if="loading" color="blue"></clip-loader>
-        <div class="row" v-if="!loading">
-            <!-- advert -->
-            <div class="col-md-12">
-                <a v-if="homepage_chart[0]" :href="homepage_chart[0].url">
-                    <adimage :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></adimage>
-                </a>
-                <!--<img src="img/cool_adv.png" width="100%", height="100%"/>-->
-            </div>
-    
-            <!-- 3 grid for trending, rising and hot topics -->
-            <div class="col-md-12"><br><br><br>
-                <div class="col-md-9">
-                    <div class="panel panel-default shadowed">
-                        <h1 class="title">{{post.title}}</h1>
-    
-                        <div class="article">
-                            <P id="p-sh" class="p-body">Story Highlights</P>
-                            <P class="p-body" v-for="(keypoint, index) in keypoints" :key="index" v-html="keypoint"></P>
-    
+   <div id="blogpost">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <clip-loader v-if="loading" color="blue"></clip-loader>
+    <div class="row" v-if="!loading">
+        <!-- advert -->
+        <div class="col-md-12">
+            <a v-if="homepage_chart[0]" :href="homepage_chart[0].url">
+                <adimage :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></adimage>
+            </a>
+            <!--<img src="img/cool_adv.png" width="100%", height="100%"/>-->
+        </div>
+
+        <!-- 3 grid for trending, rising and hot topics -->
+        <div class="col-md-12"><br><br><br>
+            <div class="col-md-9">
+                <div class="panel panel-default shadowed">
+                    <h1 class="title">{{post.title}}</h1>
+
+                    <div class="article">
+                        <P id="p-sh" class="p-body">Story Highlights</P>
+                        <P class="p-body" v-for="(keypoint, index) in keypoints" :key="index" v-html="keypoint"></P>
+
+                    </div>
+
+
+                    <div class="item-content ">
+                        <div class="item-meta">
+                            <div class="author" :style="'background: url('+post.user.image+'); background-size: cover; '">
+                            </div>
+                            <div class="title-meta">
+                                <h6>WRITTEN BY</h6>
+                            </div>
+                            <div class="title-meta">
+                                <h5>{{post.user.name}}</h5>
+                                <h6>CATEGORY</h6>
+                            </div>
+                            <div class="title-meta">
+                                <h5>{{post.category.name}}</h5> <br>
+                                <h5 style="color:#999;">{{timeago(post.created_at)}}</h5>
+                            </div>
                         </div>
-    
-    
-                        <div class="item-content ">
-                            <div class="item-meta">
-                                <div class="author" :style="'background: url('+post.user.image+'); background-size: cover; '">
-                                </div>
-                                <div class="title-meta">
-                                    <h6>WRITTEN BY</h6>
-                                </div>
-                                <div class="title-meta">
-                                    <h5>{{post.user.name}}</h5>
-                                    <h6>CATEGORY</h6>
-                                </div>
-                                <div class="title-meta">
-                                    <h5>{{post.category.name}}</h5> <br>
-                                    <h5 style="color:#999;">{{timeago(post.created_at)}}</h5>
-                                </div>
+
+                        <div class="item-body">
+
+                            <p v-html="post.content">
+
+                            </p>
+
+
+
+                            <!--- slider test -->
+                            <div class="slider" v-if="(sliderimages && sliderimages.length !=0)">
+                                <ul>
+                                    <li class="slide" v-for="(slide, index) in sliderimages" :id="'no-js-slider-'+index">
+                                        <img :src="'/uploads/'+slide" class="imsg">
+                                        <a class="prev" v-if="index ==0 " :href="'#no-js-slider-'+(sliderimages.length -1)">prev</a>
+                                        <a class="prev" v-if="index !=0 " :href="'#no-js-slider-'+(index-1)">prev</a>
+                                        <a class="next" v-if="index != (sliderimages.length -1)" :href="'#no-js-slider-'+(index+1)">next</a>
+                                    </li>
+                                </ul>
                             </div>
-    
-                            <div class="item-body">
-
-                                <p v-html="post.content">
-    
-                                </p>
-                                
-
-
-                                <!--- slider test -->
-<div class="slider" v-if="(sliderimages && sliderimages.length !=0)">
-  <ul>
-    <li class="slide" v-for="(slide, index) in sliderimages" :id="'no-js-slider-'+index">
-      <img :src="'/uploads/'+slide" class="imsg">
-      <a class="prev"  v-if="index ==0 " :href="'#no-js-slider-'+(sliderimages.length -1)">prev</a>
-      <a class="prev"  v-if="index !=0 " :href="'#no-js-slider-'+(index-1)">prev</a>
-      <a class="next" v-if="index != (sliderimages.length -1)" :href="'#no-js-slider-'+(index+1)">next</a>
-    </li>
-  </ul>
-</div>
-<!-- slider end -->
+                            <!-- slider end -->
 
 
 
-                                <div class="col-md-12">
-                                    <!--<img src="img/cool_adv.png" width="100%", height="100%"/>-->
-                                </div>
-    
+                            <div class="col-md-12">
+                                <!--<img src="img/cool_adv.png" width="100%", height="100%"/>-->
                             </div>
-                            <!-- DISCUSS COMPONENT  -->
-    
-                            <ul class="social-network social-circle">
-    
-                                <li><a style="border: 1px solid #3B5998; color: #3B5998 !important; background: #3B5998;" href="#" class="icoFacebook" title="Facebook" onclick="sharon.facebook()"><i class="fa fa-facebook" ></i></a></li>
-                                <li><a style="border: 1px solid #33ccff; color: #33ccff !important; background: #33ccff;" href="#" class="icoTwitter" title="Twitter" onclick="sharon.twitter()"><i class="fa fa-twitter"></i></a></li>
-                                <li><a style="border: 1px solid #BD3518; color: #BD3518 !important; background: #BD3518;" href="#" class="icoGoogle" title="Google +" onclick="sharon.plus()"><i class="fa fa-google-plus"></i></a></li>
-    
-                            </ul>
-    
-    
-    
-                             <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
-                            
-                            </div>
-                            <div>
-                                <br>
-                                <comment type="blog" :id="post.id" user="s"></comment>
-                                <br>
-                                <div id="more" class="col-md-12">
-                                    <div class="row">
-                                        <div>
-                                            <h5 class="header-title"> RELATED POSTS</h5>
-                                            <div id="more-news" class="col-md-3" v-for="rel in related_posts" :style="'background-image: url('+rel.image+'); background-size:cover; background-position:center; margin-bottom: 1em;'" v-if="rel.id != post.id">
-                                                <router-link v-bind:to="{ name: 'blogpost', params: { id: rel.id, title: rel.title }}">
-                                                    <p>{{rel.title}}</p>
-                                                </router-link>
-                                            </div>
-                                        </div>
-    
-                                        <div> </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <!-- end chart details --><br><br>
-    
-                                <br><br>
-                                <!-- freshly pressed -->
-    
-    
-    
-                                <div class="container-fluid">
-    
-    
-    
-                                    <div v-if="shows.length != 0">
-                                        <h5 class="header-title"> SHOWS</h5>
-    
-                                        <div style="background: #333;"><br>
-                                            <h5 style="color: yellow;" class="header-title-white"> SHOWS</h5>
-    
-                                            <p style="margin-left: 3em;">
-                                                <iframe width="95%" height="600" :src="shows[0].link" frameborder="0" allowfullscreen></iframe>
-                                            </p>
-                                            <h1 class="video-title">{{shows[0].title}}</h1>
-                                            <p class="video-meta">{{shows[0].user.name}} / {{timeago(shows[0].created_at)}}</p>
-                                            <p class="video-caption">{{shows[0].description}}</p>
-                                            <br><br>
-                                            <h5 class="header-title-white"> UP NEXT </h5>
-                                            <!-- Flickity HTML init -->
-    
-                                            <flickity ref="flickity" :options="flickityOptions">
-                                                <div class="carousel-cell" v-for="(sho, index) in shows" v-if="index !=0" @click="showme(sho)">
-                                                    <p><span class="catgory">{{sho.title}}</span> <br>{{sho.description}}</p>
-                                                </div>
-                                            </flickity>
-    
-    
-    
-                                            <br><br>
-    
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- -->
-    
-    
-    
-                                <!-- trending posts -->
-    
+
+                        </div>
+                        <!-- DISCUSS COMPONENT  -->
+
+                        <ul class="social-network social-circle">
+
+                            <li><a style="border: 1px solid #3B5998; color: #3B5998 !important; background: #3B5998;" href="#" class="icoFacebook" title="Facebook" onclick="sharon.facebook()"><i class="fa fa-facebook" ></i></a></li>
+                            <li><a style="border: 1px solid #33ccff; color: #33ccff !important; background: #33ccff;" href="#" class="icoTwitter" title="Twitter" onclick="sharon.twitter()"><i class="fa fa-twitter"></i></a></li>
+                            <li><a style="border: 1px solid #BD3518; color: #BD3518 !important; background: #BD3518;" href="#" class="icoGoogle" title="Google +" onclick="sharon.plus()"><i class="fa fa-google-plus"></i></a></li>
+
+                        </ul>
+
+
+
+                        <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
+
+                        </div>
+                        <div>
+                            <br>
+
+                            <div id="more" class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-12 tr_content">
-    
+                                    <div>
+                                        <h5 class="header-title"> RELATED POSTS</h5>
+                                        <div id="more-news" class="col-md-3" v-for="rel in related_posts" :style="'background-image: url('+rel.image+'); background-size:cover; background-position:center; margin-bottom: 1em;'" v-if="rel.id != post.id">
+                                            <router-link v-bind:to="{ name: 'blogpost', params: { id: rel.id, title: rel.title }}">
+                                                <p>{{rel.title}}</p>
+                                            </router-link>
+                                        </div>
+                                    </div>
+
+                                    <div> </div>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- end chart details --><br><br>
+
+                            <br><br>
+                            <!-- freshly pressed -->
+
+
+
+                            <div class="container-fluid">
+
+
+
+                                <div v-if="shows.length != 0">
+                                    <h5 class="header-title"> SHOWS</h5>
+
+                                    <div style="background: #333;"><br>
+                                        <h5 style="color: yellow;" class="header-title-white"> SHOWS</h5>
+
+                                        <p style="margin-left: 3em;">
+                                            <iframe width="95%" height="600" :src="shows[0].link" frameborder="0" allowfullscreen></iframe>
+                                        </p>
+                                        <h1 class="video-title">{{shows[0].title}}</h1>
+                                        <p class="video-meta">{{shows[0].user.name}} / {{timeago(shows[0].created_at)}}</p>
+                                        <p class="video-caption">{{shows[0].description}}</p>
+                                        <br><br>
+                                        <h5 class="header-title-white"> UP NEXT </h5>
+                                        <!-- Flickity HTML init -->
+
+                                        <flickity ref="flickity" :options="flickityOptions">
+                                            <div class="carousel-cell" v-for="(sho, index) in shows" v-if="index !=0" @click="showme(sho)">
+                                                <p><span class="catgory">{{sho.title}}</span> <br>{{sho.description}}</p>
+                                            </div>
+                                        </flickity>
+
+
+
+                                        <br><br>
+
                                     </div>
                                 </div>
-                                <!-- -->
-    
-    
                             </div>
+                            <!-- -->
+
+
+
+                            <!-- trending posts -->
+
+                            <div class="row">
+                                <div class="col-md-12 tr_content">
+
+                                </div>
+                            </div>
+                            <!-- -->
+
+
                         </div>
                     </div>
                 </div>
-    
-    
-                <!--- trending component -->
-                <sidebar></sidebar>
+
+                <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
+                    <br>
+                    <center><p>Responses:</p></center>
+                    <comment type="blog" :id="post.id" user="s"></comment>
+                    <br>
+                </div>
+
             </div>
+
+
+            <!--- trending component -->
+            <sidebar></sidebar>
         </div>
     </div>
-    
-    </div>
+</div>
+
+</div>
 </template>
 
 <script>

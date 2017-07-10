@@ -52,7 +52,7 @@
                </div>
             </div>
             <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
-  
+                        <center><p>Responses:</p></center>
                      <forumcomment :id="forum.id" ></forumcomment>
             </div>
             <br><!-- advert -->
