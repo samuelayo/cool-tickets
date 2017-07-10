@@ -159,7 +159,7 @@
     <br>
     <br>
     <br>
-    <div class="navbar navbar-default navbar-fixed-bottom" style="background-color: rgba(255, 255, 255, 9)">
+    <div class="navbar navbar-default navbar-fixed-bottom" style="background-color: rgba(255, 255, 255, 9) !important">
       <div class="container">
         <span class="navbar-text" style="margin-top:1%">
                         
