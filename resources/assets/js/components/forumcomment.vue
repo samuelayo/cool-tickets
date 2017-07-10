@@ -263,7 +263,7 @@
     
                 <div>
     
-                    <textarea name="comment" id="textarea" ref="textarea" placeholder="&nbsp; Write your responses" rows="3" class="form-control" style="
+                    <textarea name="comment" id="textarea" ref="textarea" placeholder=" Write your responses" rows="3" class="form-control" style="
            padding: 1em;
             border: none;
             width: 100%;
