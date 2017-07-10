@@ -163,10 +163,10 @@
           .then(response => {
             // JSON responses are automatically parsed.
             //alert('related');
-            this.schedule = _.groupBy(response.data, function(car) {
+            var answer = _.groupBy(response.data, function(car) {
               return car.state;
             });
-
+            this.schedule = answer;
 
           })
           .catch(e => {
@@ -193,7 +193,7 @@
 
             var list = response.data;
             list = list.sort(function(a, b) {
-              return getValue(a.comments.length) - getValue(a.comments.length);
+              return a.comments.length - a.comments.length;
             });
             this.hot = list;
 
