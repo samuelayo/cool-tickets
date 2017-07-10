@@ -41,7 +41,7 @@
     
         <form action="" @submit.prevent="edit ? editComment(comment.id) : createComment()" v-if="loggedin">
             <div class="form-group col-md-12">
-                <div class="form-group col-md-12"> <textarea name="comment" id="textarea" placeholder=" Write your responses" rows="3" class="form-control" style="
+                <div class="form-group col-md-12"> <textarea name="comment" id="textarea" placeholder=" Write your response" rows="3" class="form-control" style="
            padding: 1em;
             border: none;
             width: 100%;
