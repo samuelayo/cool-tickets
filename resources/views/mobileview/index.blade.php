@@ -14,6 +14,7 @@
        <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel='stylesheet prefetch' href='https://npmcdn.com/flickity@2/dist/flickity.css'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/deepstream.io-client-js/2.2.1/deepstream.js"></script>
 
 			
   
@@ -54,16 +55,16 @@ if(localStorage.getItem('username')!=undefined){
 <body>
 <div id="app"></div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
+
 <script>
   if( !window.jQuery ) document.write('<script src="/mobile/js/jquery-3.0.0.min.js"><\/script>');
 </script>
 <!-- Resource jQuery --> 
 
 
- <script type="text/javascript" src="/mobile/dist/static/js/manifest.6bece9e4faa6a7946fc5.js"></script>
+ <script type="text/javascript" src="/mobile/dist/static/js/manifest.c0794c99b5a5784ae084.js"></script>
     <script type="text/javascript" src="/mobile/dist/static/js/vendor.bc90a4f9cdb5d7b8f3f0.js"></script>
-    <script type="text/javascript" src="/mobile/dist/static/js/app.85226beb2a24fcae0ed5.js"></script>
+    <script type="text/javascript" src="/mobile/dist/static/js/app.b8f5be745f1e82109be9.js"></script>
 <!--<script src="http://localhost:8080/app.js"></script> -->
 
 <script src="https://js.paystack.co/v1/inline.js"></script>

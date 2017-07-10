@@ -189,7 +189,7 @@
 
 
 <script>
-var socket = io('https://coolfm.ng/socket');
+
  function getNestedChildren(arr, parent) {
     var out = []
     for(var i in arr) {
@@ -204,6 +204,8 @@ var socket = io('https://coolfm.ng/socket');
     }
     return out
 }
+  var ds = deepstream('wss://coolfm.ng:6020').login();
+    var record = ds.record.getRecord('post-comment');
 
   export default{
     props: ['id'],
@@ -253,6 +255,13 @@ created: function(){
     this.all_users();
     this.fetchComments();
     this.broadcasted();
+    record.subscribe('comments', (value)=> {
+
+                if(value.data.all_comments.length !=0 && value.data.all_comments[0].commentable_id == this.id){
+                    this.comments = value.data.all_comments;
+                }
+
+            })
   },
 
   methods: {
@@ -265,12 +274,7 @@ created: function(){
     },
     broadcasted: function(){
 
-      socket.on('coolfm-lagos:CommentMade', (d)=>{
-        if(d.type=="blog" && d.id==this.id){
-          this.comments = d.all_comments;
-        }
 
-      });
     },
     all_users: function(){
        axios.get("/all_users")
@@ -292,6 +296,7 @@ created: function(){
       axios.post("/post/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
+          record.set('comments', response.data);
 
       });
     },
@@ -306,7 +311,7 @@ created: function(){
       axios.post("/post/"+this.id+"/comment", this.comment)
         .then((response)=>{
           this.comment.body= '';
-
+          record.set('comments', response.data);
           this.$modal.hide('hello-world');
       });
     },

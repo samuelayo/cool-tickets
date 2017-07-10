@@ -1375,7 +1375,7 @@ tr:hover {
 .plyr--audio .plyr__controls {
     padding: 10px;
     border-radius: inherit;
-    background: #fff;
+    background: rgba(225, 225, 225, .0);
     border: none !important;
     color: #565D64;
 }

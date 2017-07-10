@@ -266,7 +266,7 @@
                     <textarea name="comment" id="textarea" ref="textarea" placeholder="&nbsp Write your responses" rows="3" class="form-control" style="
            padding: 1em;
             border: none;
-            width: 100%;
+            width: 100%; 
             margin-top: 1.2em;
             border-radius: 10px;
             font-family: Circular-light;
