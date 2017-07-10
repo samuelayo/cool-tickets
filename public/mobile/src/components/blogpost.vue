@@ -184,6 +184,9 @@
         }
         return "No activity yet";
       },
+       respace: function(str) {
+        return str.replace(/ /g, "_");
+      },
       hotclick: function() {
         this.hotlimit = 4;
       },
