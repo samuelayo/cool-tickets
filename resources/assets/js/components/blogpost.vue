@@ -71,15 +71,15 @@
                             </div>
 
                         </div>
-                        <!-- DISCUSS COMPONENT  -->
+                        <!-- SHARE COMPONENT  -->
 
-                        <ul class="social-network social-circle">
+                        <center><ul class="social-network social-circle">
 
                             <li><a style="border: 1px solid #3B5998; color: #3B5998 !important; background: #3B5998;" href="#" class="icoFacebook" title="Facebook" onclick="sharon.facebook()"><i class="fa fa-facebook" ></i></a></li>
                             <li><a style="border: 1px solid #33ccff; color: #33ccff !important; background: #33ccff;" href="#" class="icoTwitter" title="Twitter" onclick="sharon.twitter()"><i class="fa fa-twitter"></i></a></li>
                             <li><a style="border: 1px solid #BD3518; color: #BD3518 !important; background: #BD3518;" href="#" class="icoGoogle" title="Google +" onclick="sharon.plus()"><i class="fa fa-google-plus"></i></a></li>
 
-                        </ul>
+                        </ul></center>
 
 
 
@@ -92,7 +92,7 @@
                             <div id="more" class="col-md-12">
                                 <div class="row">
                                     <div>
-                                        <h5 class="header-title"> RELATED POSTS</h5>
+                                        <h5 class="header-title" v-if="related_posts[0]"> RELATED POSTS</h5>
                                         <div id="more-news" class="col-md-3" v-for="rel in related_posts" :style="'background-image: url('+rel.image+'); background-size:cover; background-position:center; margin-bottom: 1em;'" v-if="rel.id != post.id">
                                             <router-link v-bind:to="{ name: 'blogpost', params: { id: rel.id, title: rel.title }}">
                                                 <p>{{rel.title}}</p>
@@ -164,7 +164,13 @@
 
                 <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
                     <br>
-                    <center><p>Responses:</p></center>
+                    <p style="
+    text-align: left;
+    font-family: 'Circular-Bold';
+    margin-bottom: 1em;
+    margin-top: 2em;
+    font-size: 1em;
+">Responses </p>
                     <comment type="blog" :id="post.id" user="s"></comment>
                     <br>
                 </div>

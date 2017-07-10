@@ -52,7 +52,13 @@
                </div>
             </div>
             <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
-                        <center><p>Responses:</p></center>
+                       <p style="
+    text-align: left;
+    font-family: 'Circular-Bold';
+    margin-bottom: 1em;
+    margin-top: 2em;
+    font-size: 1em;
+">Responses </p>
                      <forumcomment :id="forum.id" ></forumcomment>
             </div>
             <br><!-- advert -->
