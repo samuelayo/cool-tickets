@@ -90,9 +90,9 @@
       <ul id="news-list" class="xs-p0">
         <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled" v-for="(ho, index) in hot" v-if="index < hotlimit">
           <div class="col xs-col-7 xs-text-left xs-text-6 text-gray-lightest">Last Activity : {{hottimeago(ho)}}</div><br>
-          <a href="#" class="link-gray">
+          <router-link :to="{ name: 'single_forum', params: { id: ho.id, name: respace(ho.topic) }}" style="color: grey;">
                              {{ho.topic}}
-                            </a> <br><br>
+                            </router-link> <br><br>
           <small style="color:red;">
                                          In this conversation
                                          </small><br>

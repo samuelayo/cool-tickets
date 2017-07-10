@@ -310,7 +310,7 @@
 
       },
       username: function(userid) {
-        console.log('fired');
+
         for (var i = 0; i < this.users.length; i++) {
           if (this.users[i].id == userid) {
 

@@ -9,7 +9,7 @@
 
                  <div>
                      <br> 
-                     <div id="more" class="col-md-12 shadowed"> 
+                     <div id="more" class="col-md-12"> 
                       <div class="row">
                         <div v-for="(oa, index) in oaps" v-if="index < split_oaps()" > 
                         <router-link :to="{ name: 'single_oap', params: { id: oa.id, name:oa.name }}"> 
@@ -34,7 +34,7 @@
 
                  <div>
                      <br> 
-                     <div id="more" class="col-md-12 shadowed"> 
+                     <div id="more" class="col-md-12"> 
                        <div class="row">
                             <div v-for="(oa, index) in oaps" v-if="index >= split_oaps()" >   
                               <router-link :to="{ name: 'single_oap', params: { id: oa.id, name:oa.name }}"> 
