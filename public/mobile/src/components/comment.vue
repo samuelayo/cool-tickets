@@ -45,7 +45,7 @@
       </form>
       <br>
       <div class="row">
-        <div class="media" v-for="(comment, index) in getChildren(null)" v-if="index  > commlimit">
+        <div class="media" v-for="(comment, index) in getChildren(null)" v-if="index  < commlimit">
           <!-- first comment -->
 
           <div class="media-heading">
@@ -295,7 +295,7 @@
 
       },
       morecomm: function() {
-        if (this.commlimit >= 200) {
+        if (this.commlimit <= 200) {
           this.commlimit = this.commlimit + 10;
         } else {
           this.commlimit = 1000000000000000;
