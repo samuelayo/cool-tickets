@@ -757,10 +757,10 @@ p.copyright {
 }
 
 #app {
-    width: 92% !important;
+    width: 76% !important;
     margin: 0 auto;
-    background: #fff;
-    border: 1px solid rgba(105, 96, 96, 0.07);
+    /* background: #fff; */
+    /* border: 1px solid rgba(105, 96, 96, 0.07); */
 }
 
 .c-btn {
