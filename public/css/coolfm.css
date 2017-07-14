@@ -1421,6 +1421,28 @@ tr:hover {
     color: red !important;
 }
 
+span#tag-cat {
+    background: blue;
+    color: #fff;
+    border-radius: 40px;
+    padding: .1em;
+    padding-left: .4em;
+    padding-right: .4em;
+}
+
+#tag-cat:after {
+    content: '';
+    position: absolute;
+    top: 14.3%;
+    left: 11%;
+    margin-left: 1px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid blue;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
 .plyr__progress--played,
 .plyr__volume--display {
     z-index: 1;
