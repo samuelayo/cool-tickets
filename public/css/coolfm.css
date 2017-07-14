@@ -1422,25 +1422,16 @@ tr:hover {
 }
 
 span#tag-cat {
-    background: blue;
+    background: red;
     color: #fff;
-    border-radius: 40px;
+    border-radius: 0px 6px;
     padding: .1em;
+    margin-left: 0em;
     padding-left: .4em;
+    -webkit-box-shadow: 4px 7px 0px -4px rgba(196, 2, 2, 1);
+    -moz-box-shadow: 4px 7px 0px -4px rgba(196, 2, 2, 1);
+    box-shadow: 4px 7px 0px -4px rgba(196, 2, 2, 1);
     padding-right: .4em;
-}
-
-#tag-cat:after {
-    content: '';
-    position: absolute;
-    top: 14.3%;
-    left: 11%;
-    margin-left: 1px;
-    width: 0;
-    height: 0;
-    border-top: 8px solid blue;
-    border-right: 8px solid transparent;
-    border-left: 8px solid transparent;
 }
 
 .plyr__progress--played,

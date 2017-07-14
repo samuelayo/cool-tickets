@@ -125,7 +125,7 @@
     <transition>
       <router-view></router-view>
     </transition>
-    <div class="row product" style="width: 92%;border-radius: 30px;margin: 2em auto 7em;border: none;padding: 0;background: #fff;box-shadow: none !important;">
+    <div class="row product" style="width: 92%;border-radius: 30px;margin: 2em auto 7em;border: none;padding: 0; box-shadow: none !important;">
       <div class="col-md-5 col-md-offset-0" style="
           padding-left: 0;
           box-shadow: none !important;
