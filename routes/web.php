@@ -133,7 +133,7 @@ Route::group(['middleware'=>'cors'], function(){
         Route::get('all_tickets', 'Admin\EventsController@allticktes');
         Route::get('ticket/{id}/redeem', 'Admin\EventsController@redeem');
     });
-Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware'=>'auth'], function () {
+    Route::group(['namespace' => 'Admin', 'prefix'=>'admin', 'middleware'=>['auth','isadmin']], function () {
     // Controllers Within The "App\Http\Controllers\Admin" Namespace
     Route::get('/', function(){
      redirect('/admin/blogpost')->route();
