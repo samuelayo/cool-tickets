@@ -1427,6 +1427,7 @@ span#tag-cat {
     border-radius: 0px 6px;
     padding: .1em;
     margin-left: 0em;
+    white-space: nowrap;
     padding-left: .4em;
     -webkit-box-shadow: 4px 7px 0px -4px rgba(196, 2, 2, 1);
     -moz-box-shadow: 4px 7px 0px -4px rgba(196, 2, 2, 1);
