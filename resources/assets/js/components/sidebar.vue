@@ -44,7 +44,7 @@
                                 <img :src="trend.image" width="100%" height="100%" />
                             </div>
                             <div class="col-md-8">
-                                <h4  class="category-tag"> <span id="tag-cat">{{trend.category.name}}</span> </h4>
+                                <h4  class="category-tag" style="margin-top: 1em;"> <span id="tag-cat">{{trend.category.name}}</span> </h4>
                                 <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: respace(trend.title) }}" style="margin-top: 1em;">
                                     <h4>{{trend.title}}</h4>
                                 </router-link>
