@@ -28,7 +28,17 @@
 
           <p v-html="post.content" style="width: 100% !important;">
           </p>
+
           <br>
+          
+          <slider animation="fade" :auto="false" v-if="(sliderimages && sliderimages.length !=0)">
+              <slider-item v-for="(slide, index) in sliderimages" :key="index">
+                  <img :src="'/uploads/'+slide" class="imsg">
+              </slider-item>
+          </slider>
+
+          <br>
+
           <div id="connect" class="xs-mb3"><a onclick="sharon.facebook()" class="button button--facebook xs-col-12 xs-text-left xs-mb1 border-radius: 43px;"><span class="ion-social-facebook" style="margin-right: .5em;border-right: 1px solid #fff;padding-right: 1em;margin-left: 0.1em;"></span> Share On Facebook </a>          <a onclick="sharon.twitter()" class="button button--twitter button--icon xs-col-12 xs-text-left xs-mb1"><span class="ion-social-twitter" style="
                     margin-right: .5em;
                     border-right: 1px solid #fff;
@@ -119,11 +129,16 @@
 
 <script>
   import comment from './comment'
+  import {
+    Slider,
+    SliderItem
+  } from 'vue-easy-slider'
   export default {
     name: 'blogpost',
     data: function() {
       return {
         post: {},
+        sliderimages: [],
         keypoints: [],
         related_posts: [],
         hotlimit: 2,
@@ -143,6 +158,7 @@
           this.loading = false;
           var str = this.post.keypoints;
           this.keypoints = str.match(/<p>.*?<\/p>/g);
+          this.sliderimages = JSON.parse(this.post.extra_images);
           this.fetch_related();
           this.loading = false;
         })
@@ -153,7 +169,9 @@
 
     },
     components: {
-      comment
+      comment,
+      Slider,
+      SliderItem
     },
     methods: {
       fetch_related: function() {

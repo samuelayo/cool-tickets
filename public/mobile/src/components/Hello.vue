@@ -167,7 +167,7 @@
   import {
     Slider,
     SliderItem
-  } from 'vue-easy-slider'
+  } from 'vue-easy-slider' 
   export default {
     name: 'hello',
     data() {
