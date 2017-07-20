@@ -53,14 +53,19 @@
 
                             <!--- slider test -->
                             <div class="slider" v-if="(sliderimages && sliderimages.length !=0)">
-                                <ul>
+                            <slider animation="fade" :auto="false">
+                                <slider-item v-for="(slide, index) in sliderimages" :key="index">
+                                <img :src="'/uploads/'+slide" class="imsg">
+                                </slider-item>
+                            </slider>
+                                <!-- <ul>
                                     <li class="slide" v-for="(slide, index) in sliderimages" :id="'no-js-slider-'+index">
                                         <img :src="'/uploads/'+slide" class="imsg">
                                         <a class="prev" v-if="index ==0 " :href="'#no-js-slider-'+(sliderimages.length -1)">prev</a>
                                         <a class="prev" v-if="index !=0 " :href="'#no-js-slider-'+(index-1)">prev</a>
                                         <a class="next" v-if="index != (sliderimages.length -1)" :href="'#no-js-slider-'+(index+1)">next</a>
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
                             <!-- slider end -->
 
@@ -190,6 +195,10 @@
 </template>
 
 <script>
+import {
+    Slider,
+    SliderItem
+  } from 'vue-easy-slider'
 import comment from './comment.vue'
     import sidebar from './sidebar.vue'
     import Flickity from 'vue-flickity';
@@ -221,11 +230,10 @@ import comment from './comment.vue'
                     // JSON responses are automatically parsed.
                     this.post = response.data;
                     this.loading = false;
+
+                    this.sliderimages = JSON.parse(response.data.extra_images);
                     var str = this.post.keypoints;
                     this.keypoints = str.match(/<p>.*?<\/p>/g);
-                    this.sliderimages = JSON.parse(this.post.extra_images);
-                    document.body.scrollTop = document.documentElement.scrollTop = 0;
-    
                     var status = {
                         title: 'Cool FM Nigeria | ' + this.post.title,
                         description: this.post.content
@@ -246,7 +254,9 @@ import comment from './comment.vue'
         components: {
             sidebar,
             Flickity,
-            comment
+            comment,
+            Slider,
+            SliderItem
         },
        
         methods: {
