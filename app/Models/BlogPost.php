@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use App\Uuids;
 use BrianFaust\Commentable\HasComments;
+use Spatie\Feed\FeedItem;
 
-
-class BlogPost extends Model 
+class BlogPost extends Model implements FeedItem
 {
     use HasComments;
     use CrudTrait;
@@ -35,6 +35,41 @@ class BlogPost extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+     public function getFeedItemId()
+    {
+        return $this->id;
+    }
+
+    public function getFeedItemTitle() : string
+    {
+        return $this->title;
+    }
+
+    public function getFeedItemSummary() : string
+    {
+        return strip_tags($this->content);
+    }
+
+    public function getFeedItemUpdated()
+    {
+        return $this->updated_at;
+    }
+
+    public function getFeedItemLink() : string
+    {
+        //return action('NewsItemController@detail', [$this->url]);
+        return '/blogpost/'.$this->id.'/'.str_replace(' ', '_', $this->title);
+    }
+    
+    public function getFeedItemAuthor() : string
+    {
+        return 'Admin';
+    }
+
+    public function getFeedItems()
+{
+   return \App\Models\BlogPost::all();
+}
 
     /*
     |--------------------------------------------------------------------------

@@ -196,7 +196,7 @@ return [
         Adumskis\LaravelAdvert\AdvertServiceProvider::class,
         //qr code 
         Backpack\PermissionManager\PermissionManagerServiceProvider::class,
-   
+        Spatie\Feed\FeedServiceProvider::class,
     ],
 
     /*

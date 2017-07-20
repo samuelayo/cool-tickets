@@ -19,6 +19,7 @@
         "picqer/php-barcode-generator": "^0.2.1",
         "predis/predis": "^1.1",
         "simplesoftwareio/simple-qrcode": "^1.5",
+        "spatie/laravel-feed": "^1.4",
         "webpatser/laravel-uuid": "^2.0"
     },
     "require-dev": {
