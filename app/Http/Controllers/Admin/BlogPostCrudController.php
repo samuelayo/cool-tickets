@@ -27,9 +27,10 @@ class BlogPostCrudController extends CrudController
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
-        */
-
+        */  
         $this->crud->setFromDb();
+
+        
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
@@ -59,6 +60,11 @@ class BlogPostCrudController extends CrudController
         'type' => 'hidden',
         'value' => auth()->user()->id
         ]);
+        // $this->crud->addField([
+        // 'name' => 'view_count',
+        // 'type' => 'text',
+        // 'value' => 0
+        // ]);
 
         $this->crud->addField([  // Select
                                 'label' => "Category",
@@ -69,6 +75,24 @@ class BlogPostCrudController extends CrudController
                                 'model' => "App\Models\Category" // foreign key model
                                 ], 
                                 'update/create/both');
+        $this->crud->addField([ // select_from_array
+    'name' => 'published',
+    'label' => "Status",
+    'type' => 'select_from_array',
+    'options' => ['0' => 'Draft', '1' => 'Publish'],
+    'allows_null' => false,
+    // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+]);
+        $this->crud->addField([   // DateTime
+    'name' => 'schedule',
+    'label' => 'Schedule Post',
+    'type' => 'datetime_picker',
+    // optional:
+    'datetime_picker_options' => [
+        'format' => 'DD/MM/YYYY HH:mm',
+        'language' => 'en'
+    ]
+]);
   
       $this->crud->addFields([
 [ // image
@@ -80,6 +104,7 @@ class BlogPostCrudController extends CrudController
                 'aspect_ratio' => 1.8, // ommit or set to 0 to allow any aspect ratio
             ]
 ]);
+
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack

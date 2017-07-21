@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Console;
-
+use App\Models\BlogPost;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -26,6 +27,17 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+       $schedule->call(function () {
+        $unpublished = BlogPost::where('published', 0)->get();
+
+        foreach ($unpublished as $key) {
+            if($key->schedule != NULL && $key->schedule <= Carbon::now()){
+                $key->published = 1;
+                $key->save();
+            }
+        }
+       })->everyMinute();
+ 
     }
 
     /**
