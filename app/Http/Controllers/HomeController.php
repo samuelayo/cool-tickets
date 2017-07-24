@@ -37,13 +37,13 @@ class HomeController extends Controller
     {
         //get all categories
         $allcate = Category::all();
-        $coll = [];
+        $trending = [];
         foreach($allcate as $cat){
             $post = BlogPost::where('category', $cat->id)->where('published', 1)->orderBy('created_at', 'DESC')->first();
-            array_push($coll, $post);
+            array_push($trending, $post);
         }
        // $trending = BlogPost::where('view_count', '>', 1000)->where('view_count', '>', 5000)->where('published', 1)->orderBy('view_count', 'DESC')->with('category')->take(15)->get();
-       $trending = $coll;   
+       //$trending = $coll;   
         //$newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->where('published', 1)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
         $newones = BlogPost::where('category', 'cd7a5600-5734-11e7-9c98-2f5901ffbcf1')->where('published', 1)->orderBy('created_at', 'DESC')->get();
         
