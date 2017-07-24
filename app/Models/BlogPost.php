@@ -68,7 +68,7 @@ class BlogPost extends Model implements FeedItem
 
     public function getFeedItems()
 {
-   return \App\Models\BlogPost::all();
+   return \App\Models\BlogPost::where('published', 1)->get();
 }
 
     /*

@@ -35,8 +35,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $trending = BlogPost::where('view_count', '>', 1000)->where('view_count', '>', 5000)->where('published', 1)->orderBy('view_count', 'DESC')->with('category')->take(15)->get();
-        $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->where('published', 1)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
+        //get all categories
+        $allcate = Category::all();
+        $coll = [];
+        foreach($allcate as $cat){
+            $post = BlogPost::where('category', $cat->id)->where('published', 1)->orderBy('created_at', 'DESC')->first();
+            array_push($coll, $post);
+        }
+       // $trending = BlogPost::where('view_count', '>', 1000)->where('view_count', '>', 5000)->where('published', 1)->orderBy('view_count', 'DESC')->with('category')->take(15)->get();
+       $trending = $coll;   
+        //$newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->where('published', 1)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
+        $newones = BlogPost::where('category', 'cd7a5600-5734-11e7-9c98-2f5901ffbcf1')->where('published', 1)->orderBy('created_at', 'DESC')->get();
+        
         $fresh = BlogPost::with('category')->where('published', 1)->orderBy('created_at', 'desc')->take(10)->get();
         $categories = Category::all();
         $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
