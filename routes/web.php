@@ -139,9 +139,9 @@ Route::group(['middleware'=>'cors'], function(){
      redirect('/admin/blogpost')->route();
     });
     
-    
+    Route::any('elfinder/connector', '\Barryvdh\Elfinder\ElfinderController@showConnector');
      CRUD::resource('elfinder', '\Barryvdh\Elfinder\ElfinderController');
-     Route::any('elfinder/connector', '\Barryvdh\Elfinder\ElfinderController@showConnector');
+     
     Route::get('dashboard', function(){
      redirect('/admin/blogpost')->route();
     });
