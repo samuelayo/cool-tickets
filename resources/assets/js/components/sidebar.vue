@@ -75,7 +75,31 @@
         },
         created: function (){
             this.gethots();
-            (window.adsbygoogle = window.adsbygoogle || []).push({});    
+           function loadScript(url) {
+        return new Promise(function(resolve, reject) {
+          var script = document.createElement("script")
+          script.type = "text/javascript";
+          if (script.readyState) { //IE
+            script.onreadystatechange = function() {
+              if (script.readyState == "loaded" ||
+                script.readyState == "complete") {
+                script.onreadystatechange = null;
+                resolve();
+              }
+            };
+          } else { //Others
+            script.onload = function() {
+              resolve();
+            };
+          }
+          script.src = url;
+          document.getElementsByTagName("head")[0].appendChild(script);
+        });
+      }
+      ///adsense
+      loadScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function() {
+        (window.adsbygoogle = window.adsbygoogle || []).push({})
+      });
         },
          methods: {
             timeago: function (time){
