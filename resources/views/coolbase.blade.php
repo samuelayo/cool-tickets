@@ -29,7 +29,7 @@
 <script src="/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/deepstream.io-client-js/2.2.1/deepstream.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/deepstream.io-client-js/2.2.1/deepstream.js" type="text/javascript"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,10 +57,10 @@
 <!-- <script src="/js/socket.io-1.3.4.js"></script> -->
   <!-- jQuery -->
   
-<script src="/js/app.js"></script>
+<script src="/js/app.js" type="text/javascript"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
+<script src="https://js.paystack.co/v1/inline.js" type="text/javascript"></script>
 <!--<script src="https://js.paystack.co/v1/paystack.js"></script>-->
 
 <style>
