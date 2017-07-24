@@ -44,7 +44,7 @@ class HomeController extends Controller
             }
             
         }
-        $newones = BlogPost::where('category', 'cd7a5600-5734-11e7-9c98-2f5901ffbcf1')->where('published', 1)->orderBy('created_at', 'DESC')->get();
+        $newones = BlogPost::where('category', 'cd7a5600-5734-11e7-9c98-2f5901ffbcf1')->where('published', 1)->orderBy('created_at', 'DESC')->take(6)->get();
         $fresh = BlogPost::with('category')->where('published', 1)->orderBy('created_at', 'desc')->take(10)->get();
         $categories = Category::all();
         $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
