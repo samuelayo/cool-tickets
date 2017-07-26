@@ -9,7 +9,7 @@ const store = new Vuex.Store({
         description: '',
         current_state: 'Lagos',
         current_stream: 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos',
-        twitterimage: ''
+        twitterimage: '/img/logo.svg'
     },
     actions: {
         SET_SEO({ commit }, status) {
@@ -29,7 +29,7 @@ const store = new Vuex.Store({
             state.title = status.title;
             state.description = status.description;
             if(status.twitterimage != undefined){
-                
+
                 state.twitterimage = status.twitterimage;
             }
         },

@@ -20,7 +20,7 @@
                     <h1 class="title">{{post.title}}</h1>
 
                     <div class="article">
-                        <P id="p-sh" class="p-body">Story Highlights</P>
+                        <P id="p-sh" class="p-body" v-if="keypoint.length != 0">Story Highlights</P>
                         <P class="p-body" v-for="(keypoint, index) in keypoints" :key="index" v-html="keypoint"></P>
 
                     </div>
@@ -323,7 +323,8 @@ import comment from './comment.vue'
                         this.sliderimages = JSON.parse(this.post.extra_images);
                         var status = {
                             title: 'Cool FM Nigeria | ' + this.post.title,
-                            description: this.post.content
+                            description: this.post.content,
+                             twitterimage: '/'+this.post.image
                         }
                         this.$store.dispatch('SET_SEO', status);
                     })
