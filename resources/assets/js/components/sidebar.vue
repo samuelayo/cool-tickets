@@ -50,7 +50,7 @@
                                 </router-link>
                                 <i style="color: blue;" class="ion-android-open" aria-hidden="true"></i>
 
-                                <a href="#">7500 shares</a>
+                                <a href="#">{{trend.view_count | money }} shares</a>
                             </div>
                         </div>
                     </div>

@@ -291,7 +291,7 @@
                               <h4>{{trend.title}}</h4>
                            </router-link>
                            <i style="color: blue;" class="ion-android-open" aria-hidden="true"></i>
-                           <a href="#">7500 shares</a>
+                           <a href="#">{{trend.view_count | money }} shares</a>
                         </div>
                      </div>
                   </div>
@@ -310,7 +310,7 @@
                      <h4 class="rising_head" style="color: white;"><router-link :to="{ name: 'blogcategory', params: { id: newpost.category.id, name:newpost.category.name }}">{{newpost.category.name}}</router-link></h4>
                      <h3 class="rising_topic" style="color: white;">{{newpost.title}}</h3>
                   </router-link>
-                  <span class="rising_share" style="color: white;"><i aria-hidden="true" class="ion-android-open" style="font-size:1.57em;vertical-align:middle;"></i> <a href="#" style="color: white;">7500 shares</a></span>
+                  <span class="rising_share" style="color: white;"><i aria-hidden="true" class="ion-android-open" style="font-size:1.57em;vertical-align:middle;"></i> <a href="#" style="color: white;">{{newpost.view_count | money }} shares</a></span>
                </div>
             </div>
          </div>
