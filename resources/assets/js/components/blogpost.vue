@@ -81,7 +81,7 @@
                         <center><ul class="social-network social-circle">
 
                             <li><a style="border: 1px solid #3B5998; color: #3B5998 !important; background: #3B5998;" href="#" class="icoFacebook" title="Facebook" onclick="sharon.facebook()"><i class="fa fa-facebook" ></i></a></li>
-                            <li><a style="border: 1px solid #33ccff; color: #33ccff !important; background: #33ccff;" href="#" class="icoTwitter" title="Twitter" onclick="sharon.twitter()"><i class="fa fa-twitter"></i></a></li>
+                            <li><a style="border: 1px solid #33ccff; color: #33ccff !important; background: #33ccff;" href="#" class="icoTwitter" title="Twitter" @click="twitter()"><i class="fa fa-twitter"></i></a></li>
                             <li><a style="border: 1px solid #BD3518; color: #BD3518 !important; background: #BD3518;" href="#" class="icoGoogle" title="Google +" onclick="sharon.plus()"><i class="fa fa-google-plus"></i></a></li>
 
                         </ul></center>
@@ -285,6 +285,13 @@ import comment from './comment.vue'
     
                     });
     
+            },
+            twitter: function(){
+                sharon.twitter({
+                  title: this.post.content,
+                  hashtags: ['Coolblog'],
+                  url: window.location.href
+                });
             },
             fetch_related: function() {
     
