@@ -56,8 +56,6 @@ class HomeController extends Controller
             }
                 $newones->splice(0, 5);
             //$newones = array_splice($newones, 5);
-         }else{
-            $newones = $newones2;
          }
          
 
