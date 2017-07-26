@@ -51,7 +51,7 @@ class HomeController extends Controller
          $newones2 = BlogPost::where('promoted', 1)->where('published', 1)->orderBy('created_at', 'DESC')->take(6)->get();
          if(!$newones->isEmpty()){
             if(!$newones2->isEmpty()){
-                $newones->push($newones2);
+                //$newones->push($newones2);
                 //$newones->sortBy('created_at');
                 //$newones->splice(0, 5);
             }  
