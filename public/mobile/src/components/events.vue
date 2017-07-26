@@ -182,7 +182,7 @@
                 email = inputValue;
                 var self = this;
                 var handler = PaystackPop.setup({
-                  key: 'pk_test_e5b2f82bc75abecde0e0fe9c004b2eb8551c7549',
+                  key: 'pk_live_96225c07868c79dfa4651c2d085c65e8d26ddfe0',
                   email,
                   amount: this.ticket_price[index].price * 100,
                   ref: "cool_ticket_" + this.ticket_price[index].price + this.ticket_qty[index] + Math.round(+new Date() / 1000),
