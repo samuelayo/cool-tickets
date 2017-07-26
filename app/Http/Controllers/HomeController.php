@@ -52,7 +52,8 @@ class HomeController extends Controller
          if(!$newones->isEmpty()){
             if(!$newones2->isEmpty()){
 
-                $newones = array_merge($newones->toArray(), $newones2->toArray());
+                $newones = array_merge($newones2->toArray(), $newones->toArray());
+                $newones = array_slice($newones,0,6);
                 //$newones->push($newones2);
                 //$newones->sortBy('created_at');
                 //$newones->splice(0, 5);
