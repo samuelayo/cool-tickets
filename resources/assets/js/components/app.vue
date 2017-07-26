@@ -15,6 +15,7 @@
     <meta name="twitter:description" :content="description" />
     <meta name="twitter:title" :content="title" />
     <meta name="twitter:site" content="@coolfmnigeria" />
+    <meta name="twitter:image" :content="twitterimage" />
     <div class="container-fluid topnav" style="
                 height: 40px !important;
                  background-image: url('https://i.imgur.com/PRammPf.png') ; border-bottom: 3px solid #f9f9f9; box-shadow: inset 0 0 0 1000px rgba(0, 79, 253, 0.4); ;
@@ -307,6 +308,9 @@
       },
       description: function() {
         return this.$store.state.description;
+      },
+      twitterimage: function(){
+        return this.$store.state.twitterimage;
       },
       current_stream: function() {
         if (this.$refs.ourplay != undefined) {

@@ -236,7 +236,8 @@ import comment from './comment.vue'
                     this.keypoints = str.match(/<p>.*?<\/p>/g);
                     var status = {
                         title: 'Cool FM Nigeria | ' + this.post.title,
-                        description: this.post.content
+                        description: this.post.content,
+                        twitterimage: '/'+this.post.image
                     }
                     this.$store.dispatch('SET_SEO', status);
                 })
