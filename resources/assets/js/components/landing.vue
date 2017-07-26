@@ -253,7 +253,7 @@
       <flickity ref="flickity" :options="flickityOptions">
          <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:center; left: 73.57%'">
             <p>
-               <span class="catgory">{{fres.category.name}}</span> <br>
+               <span class="catgory"><router-link :to="{ name: 'blogcategory', params: { id: fres.category.id, name:fres.category.name }}">{{fres.category.name}}</router-link></span> <br>
                <router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: respace(fres.title) }}" style="font-family: 'Circular-Black; font-size: 1.0em;'">{{fres.title}}</router-link>
             </p>
          </div>
@@ -286,7 +286,7 @@
                            <img :src="trend.image" width="100%" height="100%"/>
                         </div>
                         <div class="col-md-8">
-                           <h4  class="category-tag" style="margin-top: 1em;"> <span id="tag-cat">{{trend.category.name}}</span> </h4>
+                           <h4  class="category-tag" style="margin-top: 1em;"> <span id="tag-cat"><router-link :to="{ name: 'blogcategory', params: { id: trend.category.id, name:trend.category.name }}">{{trend.category.name}}</router-link></span> </h4>
                            <router-link v-bind:to="{ name: 'blogpost', params: { id: trend.id, title: respace(trend.title) }}" style="margin-top: 1em;">
                               <h4>{{trend.title}}</h4>
                            </router-link>
@@ -307,7 +307,7 @@
             <div class="panel panel-default shadowed" v-for="newpost in newones">
                <div  class="rising" :style="'background-image: url('+newpost.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);'">
                   <router-link v-bind:to="{ name: 'blogpost', params: { id: newpost.id, title: respace(newpost.title) }}">
-                     <h4 class="rising_head" style="color: white;">{{newpost.category.name}}</h4>
+                     <h4 class="rising_head" style="color: white;"><router-link :to="{ name: 'blogcategory', params: { id: newpost.category.id, name:newpost.category.name }}">{{newpost.category.name}}</router-link></h4>
                      <h3 class="rising_topic" style="color: white;">{{newpost.title}}</h3>
                   </router-link>
                   <span class="rising_share" style="color: white;"><i aria-hidden="true" class="ion-android-open" style="font-size:1.57em;vertical-align:middle;"></i> <a href="#" style="color: white;">7500 shares</a></span>

@@ -38,7 +38,7 @@
                                 <h6>CATEGORY</h6>
                             </div>
                             <div class="title-meta">
-                                <h5>{{post.category.name}}</h5> <br>
+                                <h5><router-link :to="{ name: 'blogcategory', params: { id:post.category.id, name:post.category.name }}">{{post.category.name}}</router-link></h5> <br>
                                 <h5 style="color:#999;">{{timeago(post.created_at)}}</h5>
                             </div>
                         </div>
