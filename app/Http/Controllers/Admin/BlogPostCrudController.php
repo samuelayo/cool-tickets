@@ -94,6 +94,15 @@ class BlogPostCrudController extends CrudController
     ]
 ]);
   
+
+ $this->crud->addField([   // DateTime
+    'name' => 'promoted',
+    'label' => 'Promote?',
+    'type' => 'select_from_array',
+    'options' => ['0' => 'No', '1' => 'Yes'],
+    'allows_null' => false,
+]);
+
       $this->crud->addFields([
 [ // image
                 'label' => "Extra Images",

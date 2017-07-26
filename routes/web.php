@@ -140,11 +140,11 @@ Route::group(['middleware'=>'cors'], function(){
     });
     
     Route::any('elfinder/connector', '\Barryvdh\Elfinder\ElfinderController@showConnector');
-     Route::get('elfinder/popup', '\Barryvdh\Elfinder\ElfinderController@showPopup');
-        Route::get('elfinder/tinymce', '\Barryvdh\Elfinder\ElfinderController@showTinyMCE');
-        Route::get('elfinder/tinymce4', '\Barryvdh\Elfinder\ElfinderController@showTinyMCE4');
-       Route::get('elfinder/ckeditor', '\Barryvdh\Elfinder\ElfinderController@showCKeditor4');
-     CRUD::resource('elfinder', '\Barryvdh\Elfinder\ElfinderController');
+    Route::get('elfinder/popup', '\Barryvdh\Elfinder\ElfinderController@showPopup');
+    Route::get('elfinder/tinymce', '\Barryvdh\Elfinder\ElfinderController@showTinyMCE');
+    Route::get('elfinder/tinymce4', '\Barryvdh\Elfinder\ElfinderController@showTinyMCE4');
+    Route::get('elfinder/ckeditor', '\Barryvdh\Elfinder\ElfinderController@showCKeditor4');
+    CRUD::resource('elfinder', '\Barryvdh\Elfinder\ElfinderController');
      
     Route::get('dashboard', function(){
      redirect('/admin/blogpost')->route();
