@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\ContactMail;
 use Mail;
 
+
 class HomeController extends Controller
 {
     /**
@@ -33,6 +34,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $allcate = Category::all();
@@ -45,6 +47,20 @@ class HomeController extends Controller
             
         }
         $newones = BlogPost::where('category', 'cd7a5600-5734-11e7-9c98-2f5901ffbcf1')->where('published', 1)->orderBy('created_at', 'DESC')->take(6)->get();
+        
+         $newones2 = BlogPost::where('promoted', 1)->where('published', 1)->orderBy('created_at', 'DESC')->take(6)->get();
+         if(!$newones->isEmpty()){
+            if(!$newones2->isEmpty()){
+                $newones->push($newones2);
+                $newones->sortBy('created_at');
+            }
+                $newones->splice(0, 5);
+            //$newones = array_splice($newones, 5);
+         }else{
+            $newones = $newones2;
+         }
+         
+
         $fresh = BlogPost::with('category')->where('published', 1)->orderBy('created_at', 'desc')->take(10)->get();
         $categories = Category::all();
         $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
