@@ -53,8 +53,8 @@ class HomeController extends Controller
             if(!$newones2->isEmpty()){
                 $newones->push($newones2);
                 $newones->sortBy('created_at');
-            }
                 $newones->splice(0, 5);
+            }  
             //$newones = array_splice($newones, 5);
          }
          
