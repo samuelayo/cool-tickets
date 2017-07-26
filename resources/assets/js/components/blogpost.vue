@@ -288,8 +288,8 @@ import comment from './comment.vue'
             },
             twitter: function(){
                 sharon.twitter({
-                  title: this.post.content,
-                  hashtags: ['Coolblog'],
+                  title: this.post.title,
+                  hashtags: ['Coolblog', 'Coolnews'],
                   url: window.location.href
                 });
             },
