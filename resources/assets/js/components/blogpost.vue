@@ -20,7 +20,7 @@
                     <h1 class="title">{{post.title}}</h1>
 
                     <div class="article">
-                        <P id="p-sh" class="p-body" v-if="keypoints.length != 0">Story Highlights</P>
+                        <P id="p-sh" class="p-body" >Story Highlights</P>
                         <P class="p-body" v-for="(keypoint, index) in keypoints" :key="index" v-html="keypoint"></P>
 
                     </div>
