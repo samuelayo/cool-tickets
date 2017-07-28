@@ -122,41 +122,7 @@
             <img :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%"></img>
           </a>
         </div>
-        <h3 class=" xs-text-2 xs-mb1"><a href="#" target="_blank" class="" style="
-          font-size: 1.1em;
-          line-height: 2;
-          color: #000;
-          font-family: 'Circular-Black';
-          letter-spacing: -.5px;
-      "> Forum </a></h3>
-        <div id="news" class="card xs-mb2 xs-p2">
-          <div id="news-header" class="clearfix">
-            <div class="col xs-col-5">
-            </div>
-          </div>
-          <ul id="news-list" class="xs-p0">
-            <li class="xs-text-5 xs-mt1 xs-mb2 list-unstyled" v-for="(ho, index) in hot" v-if="index < hotlimit" style="width: 100%;" :key="index">
-              <div class="col xs-col-7 xs-text-left xs-text-6 text-gray-lightest">Last Activity : {{hottimeago(ho)}}</div><br><br>
-              <router-link :to="{ name: 'single_forum', params: { id: ho.id, name: respace(ho.topic) }}" style="color: grey;">
-                {{ho.topic}}
-              </router-link> <br><br>
-              <small style="color:red;">
-                                     In this conversation
-                                     </small><br>
-              <p></p>
-              <div id="convert">
-                <img class="conversation" src="img/4671_1.png" />
-                <img class="conversation2" src="img/s.png" />
-                <img class="conversation2" src="img/33.png" />
-                <img class="conversation2" src="img/3e.png" />
-                <span style="color: #007adf; font-size: 15px;font-size: 15px;
-                vertical-align: super;">+ {{ho.comments.length-4}}</span>
-              </div>
-            </li>
-          </ul>
-          <a href="javascript::void" class="xs-block xs-text-5 bold" style="float:left; color: blue;" @click="hotclick()">+ Show more</a>
-          <br>
-        </div>
+             
       </div>
     </div>
   </div>
@@ -197,7 +163,7 @@
     },
     mounted: function() {
       this.getcharts();
-      this.gethots();
+
        function loadScript(url) {
         return new Promise(function(resolve, reject) {
           var script = document.createElement("script")
@@ -264,18 +230,7 @@
         this.selectedcat = ch;
         this.currentchart = id;
       },
-      gethots: function() {
-        axios.get('/hotforum')
-          .then(response => {
-            var list = response.data;
-            list = list.sort(function(a, b) {
-              return a.comments.length - b.comments.length;
-            });
-            this.hot = list;
-          })
-          .catch(e => {
-          });
-      },
+     
       timeago: function(time) {
         return moment(time).fromNow();
       },
