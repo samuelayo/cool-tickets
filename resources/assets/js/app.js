@@ -52,8 +52,6 @@ import oaps from './components/oaps'
 import singleoaps from './components/singleoaps'
 import all_podcasts from './components/allpodcast'
 import chartcurrated from './components/chartcurrated'
-import forumcomponent from './components/forumcomponent'
-import singleforum from './components/singleforum'
 import blogcategory from './components/blogcategory'
 import events from './components/events'
 import contact from './components/contact'
@@ -64,15 +62,12 @@ import aboutus from './components/aboutus'
 
 const routes = [
     //route for the home route of the webpage
-
     { path: '/', component: landing },
     { path: '/blogpost/:id/:title', component: blogpost, name: 'blogpost', props: true },
     { path: '/single_oap/:id/:name', component: singleoaps, name: 'single_oap' },
     { path: '/all_oaps', component: oaps, name: 'all_oaps' },
     { path: '/all_podcasts/:week', component: all_podcasts, name: 'all_podcasts', props: true },
     { path: '/chartcurrated/:currentchartweek', component: chartcurrated, name: 'chartcurrated', props: true },
-    { path: '/forums', component: forumcomponent, name: 'forumcomponent' },
-    { path: '/forum/:id/:name', component: singleforum, name: 'forum', props: true },
     { path: '/blogcategory/:name/:id', component: blogcategory, name: 'blogcategory', props: true },
     { path: '/events', component: events, name: 'events' },
     { path: '/contact-us', component: contact, name: 'contact-us' },

@@ -90,9 +90,6 @@
               <router-link to="/all_oaps">OAPs</router-link>
             </li>
             <li>
-              <router-link to="/forums">Forum</router-link>
-            </li>
-            <li>
               <a data-toggle="dropdown">Company
                                           <span class="caret"></span></a>
               <ul class="dropdown-menu">
