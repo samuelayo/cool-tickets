@@ -317,12 +317,12 @@
          <!-- end rising -->
          <div class="col-md-3">
             <br><br>
-            <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Forum</h4>
+            <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;"></h4>
             <br>
             <div class="panel panel-default shadowed">
                <div class="row" >
                   <br>
-                  <div class="col-md-12 ht_content" v-for="(ho, x) in hot" v-if="x < 6">
+                 <!--  <div class="col-md-12 ht_content" v-for="(ho, x) in hot" v-if="x < 6">
                      <small style="color: grey;">Last activity: {{hottago(ho)}}</small>
                      <router-link :to="{ name: 'forum', params: { id: ho.id, name: respace(ho.topic) }}">
                         <h4>{{ho.topic}}</h4>
@@ -338,7 +338,7 @@
                         <span style="color: #007adf;">+ {{ho.comments.length-4}}</span>
                      </div>
                      <hr>
-                  </div>
+                  </div> -->
                     <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url" >
                      <adimage :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="1" style="padding: 1em;"></adimage>
                   </a>
