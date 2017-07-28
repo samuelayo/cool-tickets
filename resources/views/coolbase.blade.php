@@ -31,7 +31,7 @@ display:none;
   margin: -75px 0 0 -75px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #16a085;
+  border-top-color: red;
   -webkit-animation: spin 1.7s linear infinite;
           animation: spin 1.7s linear infinite;
   z-index: 11;
@@ -45,7 +45,7 @@ display:none;
   bottom: 5px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #e74c3c;
+  border-top-color: blue;
   -webkit-animation: spin-reverse .6s linear infinite;
           animation: spin-reverse .6s linear infinite;
 }
@@ -58,7 +58,7 @@ display:none;
   bottom: 15px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #f9c922;
+  border-top-color: red;
   -webkit-animation: spin 1s linear infinite;
           animation: spin 1s linear infinite;
 }
@@ -104,7 +104,7 @@ display:none;
   top: 0;
   width: 51%;
   height: 100%;
-  background: #222;
+  background: #fff;
   z-index: 10;
 }
 
