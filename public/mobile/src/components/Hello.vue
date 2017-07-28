@@ -30,7 +30,7 @@
                     </router-link>
                     <p id="share-m"> <span style="    font-size: 1.7em;
             font-weight: 900;
-            vertical-align: sub;" class="ion-android-open"> </span> &nbsp {{shares('/blogpost/'+fre.id+'/'+respace(fre.title))}} <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span> <span style="font-weight: 100;">{{timeago(fre.created_at)}}</span>                    </p>
+            vertical-align: sub;" class="ion-android-open"> </span> &nbsp {{fre.view_count}} <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span> <span style="font-weight: 100;">{{timeago(fre.created_at)}}</span>                    </p>
                   </li>
                 </ul>
               </div>
