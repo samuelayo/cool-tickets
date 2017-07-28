@@ -3,8 +3,6 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import blogpost from '@/components/blogpost'
 import blogcategory from '@/components/blogcategory'
-import forum from '@/components/forum'
-import single_forum from '@/components/single_forum'
 import events from '@/components/events'
 import oaps from '@/components/oaps'
 import single_oap from '@/components/single_oap'
@@ -28,17 +26,6 @@ export default new Router({
             path: '/blogcategory/:name/:id',
             component: blogcategory,
             name: 'blogcategory',
-            props: true
-        },
-        {
-            path: '/forums',
-            component: forum,
-            name: 'forum'
-        },
-        {
-            path: '/forum/:id/:name',
-            component: single_forum,
-            name: 'single_forum',
             props: true
         },
         {

@@ -18,9 +18,6 @@
           <ul id="cd-navigation">
             <li><router-link v-bind:to="'/oaps'" style="border-top: none;">OAPs</router-link>
             <li>
-              <router-link v-bind:to="'/forums'">Forums</router-link>
-            </li>
-            <li>
               <router-link v-bind:to="'/events'">Events</router-link>
             </li>
             <li><a href="javascript:void()" style="color: grey;">Switch Channels</a></li>
