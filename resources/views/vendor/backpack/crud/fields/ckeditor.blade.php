@@ -34,9 +34,13 @@
 
 {{-- FIELD JS - will be loaded in the after_scripts section --}}
 @push('crud_fields_scripts')
+<?php
+
+?>
 <script>
     jQuery(document).ready(function($) {
         $('textarea[name="{{ $field['name'] }}"].ckeditor').ckeditor({
+           "toolbar": "Full",
             "filebrowserBrowseUrl": "{{ url(config('backpack.base.route_prefix').'/elfinder/ckeditor') }}",
             "extraPlugins" : '{{ isset($field['extra_plugins']) ? implode(',', $field['extra_plugins']) : 'oembed,widget' }}'
         });

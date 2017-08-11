@@ -82,6 +82,12 @@ class BlogPost extends Model implements FeedItem
     public function category(){
         return $this->belongsTo('App\Models\Category', 'category', 'id');
     }
+    
+   
+
+    public function get_cat(){
+        return \App\Models\Category::where('id', $this->category)->first()->name;
+    }
 
      public function user(){
         return $this->belongsTo('App\User', 'user_id', 'id');

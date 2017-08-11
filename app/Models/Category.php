@@ -37,7 +37,7 @@ class Category extends Model
     public function blogpost(){
         return $this->hasMany('App\Models\BlogPost', 'id', 'category');
     }
-
+   
     
     /*
     |--------------------------------------------------------------------------

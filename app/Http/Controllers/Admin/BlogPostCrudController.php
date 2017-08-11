@@ -113,6 +113,30 @@ class BlogPostCrudController extends CrudController
                 'aspect_ratio' => 1.8, // ommit or set to 0 to allow any aspect ratio
             ]
 ]);
+$this->crud->addColumn('created_at');
+//
+  $this->crud->addColumn(
+[
+   // run a function on the CRUD model and show its return value
+   'name' => "category name",
+   'label' => "Blog Category", // Table column heading
+   'type' => "model_function",
+   'function_name' => 'get_cat', // the method in your Model
+]
+  );
+
+//   $this->crud->removeColumn(['label'=>'Category']);
+// $this->crud->setColumnDetails('category',
+//  [
+//    // 1-n relationship
+//    'label' => "Category", // Table column heading
+//    'type' => "select",
+//    'name' => 'category', // the column that contains the ID of that connected entity;
+//    'entity' => 'blogposts', // the method that defines the relationship in your Model
+//    'attribute' => "id", // foreign key attribute that is shown to user
+//    'model' => "\App\Models\Category::class", // foreign key model
+// ]
+// ); 
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
