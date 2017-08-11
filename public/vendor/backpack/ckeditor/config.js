@@ -26,7 +26,7 @@ CKEDITOR.editorConfig = function(config) {
         {
             name: 'paragraph',
             items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv',
-                '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'
+                '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-'
             ]
         },
         { name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
