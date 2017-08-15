@@ -21,13 +21,13 @@
                   <div class="row clearmargin clearpadding row-image-txt" style="height:178px; width: 98%;">
         <div v-if="now_playing" class="col-xs-12 col-sm-6 col-md-6 clearmargin clearpadding col-sm-push-6" :style="'background: url('+now_playing.image+');background-size:100%;height:242px;background-position:center;width:50%;'">
             <div></div>
-            <p style="margin-top:.5EM;margin-left:.3em;font-family:'News Cycle';width:100%;text-shadow:-1px -1px 25px rgb(1,1,1);padding:1em; color: white;">Live from {{current_state}}</p>
+            <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';width:100%;text-shadow:-1px -1px 25px rgb(1,1,1);padding:1em; color: white;">Live from {{current_state}}</p>
             <div style="cursor:pointer;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;height:3em;width:9em;border-radius:40px;font-size:1.09em;color:#fff;margin-top:7em;margin-left:1em;text-align:center;background-color:rgba(5,5,6,0.35);"><i :class="'ion-ios-'+play+''" @click="playthis(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);" style="padding-left:1em;margin-top: 0.2em !important;"></i>
-                <p style="margin-top:.5EM;margin-left:.3em;font-family:'News Cycle';">Listen Live</p>
+                <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';">Listen Live</p>
                 <p class="help-block"> </p>
             </div>
             <div style="cursor:pointer;display:inline-flex;align-items:center;height:3em;width:9em;border-radius:40px;font-size:1.09em;color:#fff;margin-top:7em;margin-left:1em;float:right;margin-right:1em;text-align:center;background-color:#0d87f7;">
-                <p style="margin-top:.5EM;margin-left:.3em;font-family:'News Cycle';text-align:center;width:100%;">Share </p>
+                <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';text-align:center;width:100%;">Share </p>
                 <p class="help-block"> </p>
             </div>
         </div>
