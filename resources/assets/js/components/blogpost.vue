@@ -45,7 +45,7 @@
 
                         <div class="item-body">
 
-                            <p v-html="post.content">
+                            <p id="blogpost" v-html="post.content">
 
                             </p>
 
@@ -195,6 +195,31 @@
 </template>
 
 <script>
+function nodeScriptReplace(node) {
+        if ( nodeScriptIs(node) === true ) {
+                node.parentNode.replaceChild( nodeScriptClone(node) , node );
+        }
+        else {
+                var i        = 0;
+                var children = node.childNodes;
+                while ( i < children.length ) {
+                        nodeScriptReplace( children[i++] );
+                }
+        }
+
+        return node;
+}
+function nodeScriptIs(node) {
+        return node.tagName === 'SCRIPT';
+}
+function nodeScriptClone(node){
+        var script  = document.createElement("script");
+        script.text = node.innerHTML;
+        for( var i = node.attributes.length-1; i >= 0; i-- ) {
+                script.setAttribute( node.attributes[i].name, node.attributes[i].value );
+        }
+        return script;
+}
 import {
     Slider,
     SliderItem
@@ -233,6 +258,7 @@ import comment from './comment.vue'
 
                     this.sliderimages = JSON.parse(response.data.extra_images);
                     var str = this.post.keypoints;
+                    setTimeout(nodeScriptReplace(document.getElementById("blogpost")), 300);
                     this.keypoints = str.match(/<p>.*?<\/p>/g);
                     var status = {
                         title: 'Cool FM Nigeria | ' + this.post.title,
@@ -258,6 +284,9 @@ import comment from './comment.vue'
             comment,
             Slider,
             SliderItem
+        },
+        mounted: function(){
+            
         },
        
         methods: {

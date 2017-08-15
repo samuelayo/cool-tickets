@@ -10,66 +10,40 @@
       <div id="fb-streaming-row">
          <div class="row">
             <div class="col-lg-12">
-               <div class="container-fluid">
-                  <br><br>
-                  <div class="col-lg-7">
-                     <p v-if="now_playing" class="on-air-title" >Live from {{current_state}}</p>
-                     <div  v-if="now_playing" style="width: 95%; height: 163px; background-image: linear-gradient(to right,  black 0%, #222 100%);">
 
-        <p v-if="now_playing" style="padding-left: 1.7em; padding-top: 1.8em; letter-spacing: 1px; color: #fff;line-height: 0; font-family: 'Circular-Book'; font-size: 1.1em;opacity: .6;width: 78%;">NOW</p>
-        <p  v-if="now_playing" style="padding-left: .6em; padding-top: .4em; color: #fff; line-height: 1; font-family: 'Circular-Book'; font-size: 3.1em;width: 78%;">{{now_playing.title}}</p><br>
+
+               <div class="container-fluid">
+
+                  <br><br>
+
+
+
+                  <div class="row clearmargin clearpadding row-image-txt" style="height:178px; width: 98%;">
+        <div v-if="now_playing" class="col-xs-12 col-sm-6 col-md-6 clearmargin clearpadding col-sm-push-6" :style="'background: url('+now_playing.image+');background-size:100%;height:242px;background-position:center;width:50%;'">
+            <div></div>
+            <p style="margin-top:.5EM;margin-left:.3em;font-family:'News Cycle';width:100%;text-shadow:-1px -1px 25px rgb(1,1,1);padding:1em; color: white;">Live from {{current_state}}</p>
+            <div style="cursor:pointer;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;height:3em;width:9em;border-radius:40px;font-size:1.09em;color:#fff;margin-top:7em;margin-left:1em;text-align:center;background-color:rgba(5,5,6,0.35);"><i :class="'ion-ios-'+play+''" @click="playthis(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);" style="padding-left:1em;margin-top: 0.2em !important;"></i>
+                <p style="margin-top:.5EM;margin-left:.3em;font-family:'News Cycle';">Listen Live</p>
+                <p class="help-block"> </p>
+            </div>
+            <div style="cursor:pointer;display:inline-flex;align-items:center;height:3em;width:9em;border-radius:40px;font-size:1.09em;color:#fff;margin-top:7em;margin-left:1em;float:right;margin-right:1em;text-align:center;background-color:#0d87f7;">
+                <p style="margin-top:.5EM;margin-left:.3em;font-family:'News Cycle';text-align:center;width:100%;">Share </p>
+                <p class="help-block"> </p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-sm-pull-6" style="/*padding:20px;*/margin-bottom:0;height:242px;width:50%;background:#000;">
+            <h1 v-if="now_playing" style="font-size:1em;text-align:center; color: white;">{{now_playing.title}}<span style="opacity:.4;float:right;padding-right:1em;"> Ending {{timeleft(now_playing.end)}}</span> <span style="opacity:1;float:left;color:red;margin-right:1em;">Now </span></h1>
+            <hr style="opacity:.2;">
+            <h1 v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='LATER')" style="font-size:1em;text-align:center; color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;">{{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
+            </div>
     </div>
-                     <div v-if="now_playing" :style="'background: url('+now_playing.image+'); background-size: cover;'" class="streaming">
-                        <div class="col-md-12">
-                           <div class="col-md-8">
-                              <div id="live-play" class="col-md-12">
-                                 <button class="c-btn c-btn--pill-l c-btn--on-air" role="button"><span class="c-btn__icon"> <span class="u-font-size--s"> <span style="font-size: 1.8em; vertical-align: middle;" :class="'ion-ios-'+play+''" @click="playthis(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);"></span>&nbsp; Listen Live</span></span></button> &nbsp; Ending {{timeleft(now_playing.end)}}
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                    
-                  </div>
-                  <div  class="col-lg-5">
-                   <p  style="color: rgb(51, 51, 51); text-align: center; font-size: 1.71667rem; margin-top: .9em;">Schedule</p>
-                   <br>
-                     <!-- <div class="onair">
-                        </div> -->
-                        <div class="col-md-12" style="-webkit-box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4);
-                     -moz-box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4);
-                     box-shadow: 10px 10px 101px -31px rgba(0,0,0,0.4); padding:0;" >
-                     <div class="waves">
-                        <div class="wave wave_1"></div>
-                        <div class="wave wave_2"></div>
-                        <div class="wave wave_3"></div>
-                        <div class="wave wave_4"></div>
-                        <div class="wave wave_5"></div>
-                     </div>
-                     <div class="playlist ">
-                        <ul style="list-style-type: none;">
-                           <li v-for="(schedule, index) in formated_schedules">
-                              <div class="col-md-12">
-                                 <div id="center"  class="col-md-2">
-                                    <p class="player-status-live" v-if="(between(schedule.start, schedule.end)=='NOW')">{{between(schedule.start, schedule.end)}}</p>
-                                    <p class="player-status-live" v-if="(between(schedule.start, schedule.end)=='LATER')" style="color: grey;">{{between(schedule.start, schedule.end)}}</p>
-                                 </div>
-                                 <div class="col-md-10" >
-                                    <h5 style="font-family: 'Circular-Black'">{{schedule.title}}</h5>
-                                    <p style="color: grey;">
-                                       {{schedule.description}}
-                                    </p>
-                                    <p>
-                                       <small style="color:red" v-if="index==0">Ending: {{timeleft(schedule.end)}} </small>
-                                       <small style="color:red" v-if="index!=0">Running Time: {{schedule.start}} - {{schedule.end}} </small>
-                                    </p>
-                                 </div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                     </div>
-                  </div>
+    <div></div>
+
+
                </div>
+
+
+
             </div>
          </div>
       </div>
