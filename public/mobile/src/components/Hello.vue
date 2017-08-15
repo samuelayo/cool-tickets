@@ -43,10 +43,10 @@
         </div>
         <div>
         <center><ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-4448078976745099"
-                    data-ad-slot="5545697316"
-                    data-ad-format="auto"></ins></center>
+     style="display:block"
+     data-ad-client="ca-pub-8585125296175362"
+     data-ad-slot="2016565894"
+     data-ad-format="auto"></ins></center>
           <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
             <a v-if="homepage_chart[1]" :href="homepage_chart[1].url">
               <img :src="'/'+homepage_chart[1].image_url" width="100%" height="100%"></img>
@@ -112,17 +112,13 @@
             </slider>
           </div>
         </div>
-         <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-4448078976745099"
-                    data-ad-slot="5545697316"
-                    data-ad-format="auto"></ins>
+         <ins class="adsbygoogle panel panel-default shadowed" style="display:block" data-ad-client="ca-pub-8585125296175362" data-ad-slot="2204090548" data-ad-format="auto"></ins>
         <div id="msu" class="card xs-mt4 md-mt0 xs-p2 xs-mb3">
           <a v-if="sidebar_chart[0]" :href="sidebar_chart[0].url">
             <img :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%"></img>
           </a>
         </div>
-             
+
       </div>
     </div>
   </div>
@@ -133,7 +129,7 @@
   import {
     Slider,
     SliderItem
-  } from 'vue-easy-slider' 
+  } from 'vue-easy-slider'
   export default {
     name: 'hello',
     data() {
@@ -230,7 +226,7 @@
         this.selectedcat = ch;
         this.currentchart = id;
       },
-     
+
       timeago: function(time) {
         return moment(time).fromNow();
       },
