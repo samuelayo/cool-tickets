@@ -22,19 +22,16 @@
         <div v-if="now_playing" class="col-xs-12 col-sm-6 col-md-6 clearmargin clearpadding col-sm-push-6" :style="'background: url('+now_playing.image+');background-size:100%;height:242px;background-position:center;width:50%;'">
             <div></div>
             <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';width:100%;text-shadow:-1px -1px 25px rgb(1,1,1);padding:1em; color: white;">Live from {{current_state}}</p>
-            <div style="cursor:pointer;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;height:3em;width:9em;border-radius:40px;font-size:1.09em;color:#fff;margin-top:7em;margin-left:1em;text-align:center;background-color:rgba(5,5,6,0.35);"><i :class="'ion-ios-'+play+''" @click="playthis(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);" style="padding-left:1em;margin-top: 0.2em !important;"></i>
+            <div style="cursor:pointer;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;height:3em;width:9em;border-radius:40px;font-size:1.09em;color:#fff;margin-top:7em;margin-left:1em;text-align:center;background-color:rgba(5,5,6,0.35);"><i :class="'ion-ios-'+play+''" @click="playthis(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);" style="padding-left:1em;"></i>
                 <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';">Listen Live</p>
                 <p class="help-block"> </p>
             </div>
-            <div style="cursor:pointer;display:inline-flex;align-items:center;height:3em;width:9em;border-radius:40px;font-size:1.09em;color:#fff;margin-top:7em;margin-left:1em;float:right;margin-right:1em;text-align:center;background-color:#0d87f7;">
-                <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';text-align:center;width:100%;">Share </p>
-                <p class="help-block"> </p>
-            </div>
+           
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-sm-pull-6" style="/*padding:20px;*/margin-bottom:0;height:242px;width:50%;background:#000;">
-            <h1 v-if="now_playing" style="font-size:1em;text-align:center; color: white;">{{now_playing.title}}<span style="opacity:.4;float:right;padding-right:1em;"> Ending {{timeleft(now_playing.end)}}</span> <span style="opacity:1;float:left;color:red;margin-right:1em;">Now </span></h1>
+            <h1 v-if="now_playing" style="font-size:1em;text-align:center; color: white; font-family: Circular-black;">{{now_playing.title}}<span style="opacity:.4;float:right;padding-right:1em;"> Ending {{timeleft(now_playing.end)}}</span> <span style="opacity:1;float:left;color:red;margin-right:1em;">Now </span></h1>
             <hr style="opacity:.2;">
-            <h1 v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='LATER')" style="font-size:1em;text-align:center; color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;">{{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
+            <h1 v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='Later')" style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;">{{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
             </div>
     </div>
     <div></div>
@@ -293,9 +290,10 @@
             <br><br>
             <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;"></h4>
             <br>
+            <br>
             <div class="panel panel-default shadowed">
                <div class="row" >
-                  <br>
+                  
                  <!--  <div class="col-md-12 ht_content" v-for="(ho, x) in hot" v-if="x < 6">
                      <small style="color: grey;">Last activity: {{hottago(ho)}}</small>
                      <router-link :to="{ name: 'forum', params: { id: ho.id, name: respace(ho.topic) }}">
@@ -465,7 +463,7 @@
                 return 'NOW';
                 } else {
 
-                return 'LATER';
+                return 'Later';
 
                 }
             },
@@ -758,7 +756,7 @@
    line-height: 1.1;
    width: auto !important;
    padding: 1em;
-   margin-top: 1.9em;
+   margin-top: 1.4em;
    color: #fff !important;
 }
 </style>
