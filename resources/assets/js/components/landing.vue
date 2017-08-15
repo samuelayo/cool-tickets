@@ -18,7 +18,7 @@
 
 
 
-                  <div class="row clearmargin clearpadding row-image-txt" style="height:178px; width: 98%;">
+                  <div class="row clearmargin clearpadding row-image-txt" style="height:178px; width: 98%;" v-if="now_playing">
         <div v-if="now_playing" class="col-xs-12 col-sm-6 col-md-6 clearmargin clearpadding col-sm-push-6" :style="'background: url('+now_playing.image+');background-size:100%;height:242px;background-position:center;width:50%;'">
             <div></div>
             <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';width:100%;text-shadow:-1px -1px 25px rgb(1,1,1);padding:1em; color: white;">Live from {{current_state}}</p>
@@ -38,7 +38,7 @@
             </div>
     </div>
     <div></div>
-
+<center v-if="!now_playing">Loading...</center>
 
                </div>
 
