@@ -258,7 +258,7 @@ import comment from './comment.vue'
 
                     this.sliderimages = JSON.parse(response.data.extra_images);
                     var str = this.post.keypoints;
-                    setTimeout(nodeScriptReplace(document.getElementById("blogpost")), 1000);
+                   
                     this.keypoints = str.match(/<p>.*?<\/p>/g);
                     var status = {
                         title: 'Cool FM Nigeria | ' + this.post.title,
@@ -266,7 +266,9 @@ import comment from './comment.vue'
                         twitterimage: this.post.image
                     }
                     this.$store.dispatch('SET_SEO', status);
+                    nodeScriptReplace(document.getElementById("blogpost"));
                 })
+               
                 .catch(e => {
     
                 });
