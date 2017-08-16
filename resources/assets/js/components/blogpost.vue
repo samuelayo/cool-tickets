@@ -266,7 +266,7 @@ import comment from './comment.vue'
                         twitterimage: this.post.image
                     }
                     this.$store.dispatch('SET_SEO', status);
-                    nodeScriptReplace(document.getElementById("blogpost"));
+                    
                 })
                
                 .catch(e => {
@@ -274,11 +274,9 @@ import comment from './comment.vue'
                 });
             this.getshows();
     
-    
-    
-    
-    
-    
+        },
+        updated: function(){
+            nodeScriptReplace(document.getElementById("blogpost"));
         },
         components: {
             sidebar,
