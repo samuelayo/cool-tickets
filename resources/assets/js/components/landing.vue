@@ -6,46 +6,7 @@
       </a>
    </div>
    <!-- Header -->
-   <div class="intro-header">
-      <div id="fb-streaming-row">
-         <div class="row">
-            <div class="col-lg-12">
-
-
-               <div class="container-fluid">
-
-                  <br><br>
-
-
-
-                  <div class="row clearmargin clearpadding row-image-txt" style="height:178px; width: 98%; margin: 0 auto;" v-if="now_playing">
-        <div v-if="now_playing" class="col-xs-12 col-sm-6 col-md-6 clearmargin clearpadding col-sm-push-6" :style="'background: url('+now_playing.image+');background-size:100%;height:242px;background-position:center;width:50%;'">
-            <div></div>
-            <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';width:100%;text-shadow:-1px -1px 25px rgb(1,1,1);padding:1em; color: white;">Live from {{current_state}}</p>
-            <div style="cursor:pointer;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;height:3em;width:9em;border-radius:40px;font-size:1.09em;color:#fff;margin-top:7em;margin-left:1em;text-align:center;background-color:rgba(5,5,6,0.35);"><i :class="'ion-ios-'+play+''" @click="playthis(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);" style="padding-left:1em;"></i>
-                <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';">Listen Live</p>
-                <p class="help-block"> </p>
-            </div>
-           
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-sm-pull-6" style="/*padding:20px;*/margin-bottom:0;height:242px;width:50%;background:#000;">
-            <h1 v-if="now_playing" style="font-size:1em;text-align:center; color: white; font-family: Circular-black;">{{now_playing.title}}<span style="opacity:.4;float:right;padding-right:1em;"> Ending {{timeleft(now_playing.end)}}</span> <span style="opacity:1;float:left;color:red;margin-right:1em;">Now </span></h1>
-            <hr style="opacity:.2;">
-            <h1 v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='Later')" style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;">{{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
-            </div>
-    </div>
-    <div></div>
-<center v-if="!now_playing">Loading...</center>
-
-               </div>
-
-
-
-            </div>
-         </div>
-      </div>
-      <!-- /.container-fluid -->
-   </div>
+   
    <!-- /.intro-header -->
    <!-- Page Content -->
    <!-- podcast details -->
@@ -209,29 +170,11 @@
    </div>
    <!-- end chart details -->
    <br>
-   <br>
+
    <span v-if="!all_chart[currentchart][currentchartweek]">
    <br>
    </span>
-   <!-- freshly pressed -->
-   <div class="container-fluid">
-      <h3>
-         FRESHLY PRESSED
-      </h3>
-      <br>
-      <br>
-      <!-- Flickity HTML init -->
-      <flickity ref="flickity" :options="flickityOptions">
-         <div  class="carousel-cell box_text"  v-for="fres in fresh" :style="'background-image: url('+fres.image+'); background-size:cover; background-position:center; left: 73.57%'">
-            <p>
-               <span class="catgory"><router-link :to="{ name: 'blogcategory', params: { id: fres.category.id, name:fres.category.name }}">{{fres.category.name}}</router-link></span> <br>
-               <router-link v-bind:to="{ name: 'blogpost', params: { id: fres.id, title: respace(fres.title) }}" style="font-family: 'Circular-Black; font-size: 1.0em;'">{{fres.title}}</router-link>
-            </p>
-         </div>
-      </flickity>
-      <!-- if you don't want to use the buttons Flickity provides -->
-   </div>
-   <!-- -->
+  
    <div class="row">
       <!-- advert -->
       <div class="col-md-12">
@@ -350,6 +293,7 @@
                 newones: window.Laravel.newones, 
                 fresh: window.Laravel.fresh,
                 hot:[],
+                sv: "data:image/svg+xml,%3Csvg width=40 height=40 viewBox=0 0 40 40 xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23363636' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E",
                  flickityOptions: {
                 initialIndex: 0,
                 prevNextButtons: true,
@@ -357,7 +301,7 @@
                 wrapAround: true
                     // any options from Flickity can be used
                 },
-                schedule: [],
+               
                 podcasts: [],
                 currentweek: this.week(),
                 currentchartweek: this.week(),
@@ -377,7 +321,7 @@
                 description: `Cool FM Lagos 96.9 is one of the most poopular radio station broadcasting from Lagos, Nigeria. This radio station is operating in English language and playing lots of popular music 24 hours both air and live online. Currently it is playing music genres like Top 40/Pop, Adult Contemporary etc. Cool fm lagos 96.9`
             }
             this.$store.dispatch('SET_SEO', status);
-            this.schedules();
+           
             
             this.getpodcasts();
             this.getcharts();
@@ -429,18 +373,7 @@
                 value  = new moment(value+":00", "HH:mm:ss a");
                 return moment(value).fromNow();
             },
-            schedules: function(){
-                 axios.get('/schedules')
-                .then(response => {
-                // JSON responses are automatically parsed.
-                 this.schedule = _.groupBy(response.data, function(car) {
-                                return car.state;
-                                });
-                })
-                .catch(e => {
-                
-                });
-            },
+            
             running: function(start, end){
                 var format = 'hh:mm:ss'
                 var start = new moment(start+":00", format);
@@ -614,91 +547,7 @@
             }
       },
       computed: {
-          formated_schedules: function (){
-              var form_sche = [];
-               var schedule_arry = this.schedule[this.current_state];
-               var array_s = [];
-               var myDate = new Date();
-               if(schedule_arry){
-                   if(myDate.getDay() == 6){
-                       //saturday
-                       //filter by saturday
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period == "saturday";
-                            });
-                        array_s = schedule_arry.sort(function(a,b){
-                            return a.start > b.start; 
-                        });
-                    }else if(myDate.getDay() == 0 ){
-                        //sunday
-                        //filter by sunday
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period == "sunday";
-                            });
-                         array_s = schedule_arry.sort(function(a,b){
-                            return a.start > b.start; 
-                        });
-                    }else{
-                        //otherdays
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period != "sunday" && sch.period != "saturday";
-                            });
-                       
-                        array_s = schedule_arry.sort(function(a,b){
-                            return a.start > b.start; 
-                        });
-                    }
-                    
-               }
-                
-                array_s = array_s.filter(function(num){
-                        var format = 'hh:mm:ss'
-                        var time = moment();
-                        var beforeTime = moment(num.start, format);
-                        var afterTime = moment(num.end, format);
-                        if (time.isBetween(beforeTime, afterTime)) {
-                            return num
-                        }
-                        
-                        if(beforeTime.isAfter(time)){
-                            return num
-                        }
-                })
-                return array_s.slice(0, 4);
-            
-          },
-          now_playing: function(){
-              if(this.schedule[this.current_state]){
-                var myDate = new Date();
-                 var schedule_arry = this.schedule[this.current_state];
-                if(myDate.getDay() == 6){
-                       //saturday
-                       //filter by saturday
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period == "saturday";
-                            });
-                      
-                    }else if(myDate.getDay() == 0 ){
-                        //sunday
-                        //filter by sunday
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period == "sunday";
-                            });
-                         
-                    }else{
-                        //otherdays
-                        schedule_arry = _.filter(schedule_arry, (sch) => {
-                                return sch.period != "sunday" && sch.period != "saturday";
-                            });
-                    }
-                for(var i =0; i < schedule_arry.length; i++){
-                    var schedu = schedule_arry[i];
-                    if(this.between(schedu.start, schedu.end)=="NOW"){
-                        return schedu
-                    }
-                }
-              }
-          },
+         
           rearrange_podcasts: function(){
               var grouped = _.groupBy(this.podcasts, function(car) {
                                 return car.week;
