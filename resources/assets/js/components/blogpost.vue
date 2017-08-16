@@ -258,7 +258,7 @@ import comment from './comment.vue'
 
                     this.sliderimages = JSON.parse(response.data.extra_images);
                     var str = this.post.keypoints;
-                    setTimeout(nodeScriptReplace(document.getElementById("blogpost")), 300);
+                    setTimeout(nodeScriptReplace(document.getElementById("blogpost")), 1000);
                     this.keypoints = str.match(/<p>.*?<\/p>/g);
                     var status = {
                         title: 'Cool FM Nigeria | ' + this.post.title,
