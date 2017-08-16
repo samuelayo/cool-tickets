@@ -10,6 +10,7 @@ CKEDITOR.editorConfig = function(config) {
 
     // The toolbar groups arrangement, optimized for two toolbar rows.
     config.toolbar = 'Full';
+    config.allowedContent = true;
 
     config.toolbar_Full = [
         { name: 'document', items: ['Source', '-', 'Save', 'NewPage', 'DocProps', 'Preview', 'Print', '-', 'Templates'] },
