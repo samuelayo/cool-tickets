@@ -10,16 +10,17 @@ CKEDITOR.editorConfig = function(config) {
 
     // The toolbar groups arrangement, optimized for two toolbar rows.
     config.toolbar = 'Full';
-    config.allowedContent = {
-    $1: {
-        // Use the ability to specify elements as an object.
-        elements: CKEDITOR.dtd,
-        attributes: true,
-        styles: true,
-        classes: true,
-        scripts: true
-    }
-};
+    config.allowedContent =  {
+                script: true,
+                div: true,
+                $1: {
+                    // This will set the default set of elements
+                    elements: CKEDITOR.dtd,
+                    attributes: true,
+                    styles: true,
+                    classes: true
+                }
+            };
 
     config.toolbar_Full = [
         { name: 'document', items: ['Source', '-', 'Save', 'NewPage', 'DocProps', 'Preview', 'Print', '-', 'Templates'] },
