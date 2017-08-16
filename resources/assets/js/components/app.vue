@@ -80,7 +80,7 @@
                   </h1>
                   <hr style="opacity:.2;">
                   <div v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='Later')">
-                  <h1 style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;"><i class="ion-ios-time-outline"></i>&nbsp {{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
+                  <h1 style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;"><i class="ion-ios-time"></i>&nbsp {{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
                   <hr style="opacity:.2;">
                   </div>
                 </div>
@@ -713,7 +713,7 @@
   
   .pulse {
     width: 13px;
-    height: 13px;
+    height: 12px;
     display: inline-flex;
     border-radius: 50%;
     background: #fb0027;
