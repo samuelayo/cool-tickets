@@ -19,7 +19,7 @@
     <div class="container-fluid topnav" style="
                         height: 40px !important;
                         background-color: blue !important; border-bottom: none !important;
-    width: 97.7% !important; box-shadow: inset 0 0 0 1000px rgba(0, 79, 253, 0.4); ;
+    width: auto !important; box-shadow: inset 0 0 0 1000px rgba(0, 79, 253, 0.4); ;
                                                                ">
       <p style="
                         text-align:center;
@@ -55,7 +55,7 @@
   
   
             <div class="container-fluid">
-              <div class="row clearmargin clearpadding row-image-txt" style="height:178px; width: 100%; margin: 0 auto;" v-if="now_playing">
+              <div class="row clearmargin clearpadding row-image-txt" style="height:178px; width: auto;" v-if="now_playing">
                 <div v-if="now_playing" class="col-xs-12 col-sm-6 col-md-6 clearmargin clearpadding col-sm-push-6" :style="'background: url('+now_playing.image+');background-size:100%;height:242px;background-position:center;width:50%;'">
                   <div></div>
                   <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';width:100%;text-shadow:-1px -1px 25px rgb(1,1,1);padding:1em; color: white;"><i class="ion-location"></i>&nbsp Live from {{current_state}}</p>
@@ -74,11 +74,15 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-sm-pull-6 panning" style='margin-bottom:0;height:242px;width:50%;
             background-color: rgb(21, 21, 21);
     background-image: url("/diagonal-stripes 2.svg");
+    animation: panning 50s infinite linear;
             '>
                   <h1 v-if="now_playing" style="font-size:1em;text-align:center; color: white; font-family: Circular-black;">{{now_playing.title}}<span style="opacity:.4;float:right;padding-right:1em;"> Ending {{timeleft(now_playing.end)}}</span> <span style="opacity:1;float:left;color:red;margin-right:1em;"><span class="pulse"></span> Now </span>
                   </h1>
                   <hr style="opacity:.2;">
-                  <h1 v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='Later')" style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;"><i class="ion-ios-time-outline"></i>&nbsp {{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
+                  <div v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='Later')">
+                  <h1 style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;"><i class="ion-ios-time-outline"></i>&nbsp {{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
+                  <hr style="opacity:.2;">
+                  </div>
                 </div>
               </div>
               <div></div>
