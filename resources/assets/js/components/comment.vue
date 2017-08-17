@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="fb-comments" :data-href="'/blogpost/'+id" data-width="100%" data-num-posts="6"></div>
+        <div class="fb-comments" :data-href="'https://coolfm.ng/blogpost/'+id+'/post'" data-width="100%" data-num-posts="6"></div>
         <div id="fb-root"></div>
     </div>
 </template>
