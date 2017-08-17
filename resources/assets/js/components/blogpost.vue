@@ -92,20 +92,8 @@
 
                         </div>
                         <div>
-                            <br>
-
-                            <div id="more" class="col-md-12">
-                                <div class="row">
-                                    <div>
-                                        <h5 class="header-title" v-if="related_posts[0]"> RELATED POSTS</h5>
-                                        <div id="more-news" class="col-md-3" v-for="rel in related_posts" :style="'background-image: url('+rel.image+'); background-size:cover; background-position:center; margin-bottom: 1em;'" v-if="rel.id != post.id">
-                                            <router-link v-bind:to="{ name: 'blogpost', params: { id: rel.id, title: rel.title }}">
-                                                <p>{{rel.title}}</p>
-                                            </router-link>
-                                        </div>
-                                    </div>
-
-                                    <div> </div>
+                           
+                            
                                 </div>
                             </div>
                             <br>
@@ -167,20 +155,7 @@
                     </div>
                 </div>
 
-                <div class="panel" style="width:60%; background:none; margin:0 auto; border: none !important;">
-                    <br>
-                    <p style="
-                        text-align: left;
-                        margin-left: 1.5em;
-                        font-size: 1.5em;
-                        font-family: 'Circular-Bold';
-                        margin-bottom: 1em;
-                        margin-top: 2em;
-                     
-                    ">Responses </p>
-                    <comment type="blog" :id="post.id" user="s"></comment>
-                    <br>
-                </div>
+              
 
             </div>
 
@@ -224,7 +199,7 @@ import {
     Slider,
     SliderItem
   } from 'vue-easy-slider'
-import comment from './comment.vue'
+
     import sidebar from './sidebar.vue'
     import Flickity from 'vue-flickity';
     export default {
@@ -281,7 +256,6 @@ import comment from './comment.vue'
         components: {
             sidebar,
             Flickity,
-            comment,
             Slider,
             SliderItem
         },
