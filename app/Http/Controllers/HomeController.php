@@ -168,5 +168,9 @@ class HomeController extends Controller
         $sentmail = Mail::to($receiverAddress)->send(new ContactMail($content));
         return $content;
     }
+
+    public function fbcomment(Request $request, $id){
+        return View('comment', compact('id'));
+    }
     
 }

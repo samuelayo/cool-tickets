@@ -48,6 +48,7 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('apiauth/{provider}/callback', 'Auth\LoginController@apihandleProviderCallback');
     Route::post('forum_create', 'HomeController@forum_create');
 
+    Route::get('/fbcomment/{id}', 'HomeController@fbcomment');
 
     Route::get('/charts', 'HomeController@charts');
     Route::get('post/{id}/comments', function($id){
