@@ -170,7 +170,8 @@ class HomeController extends Controller
     }
 
     public function fbcomment(Request $request, $id){
-        return View('comment', compact('id'));
+        $contents = View('comment', compact('id'));
+        return response($contents)->header('X-Frame-Options', "SAMEORIGIN", false);
     }
     
 }
