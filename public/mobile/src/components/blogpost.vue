@@ -30,7 +30,7 @@
           </p>
 
           <br>
-          
+
           <slider animation="fade" :auto="false" v-if="(sliderimages && sliderimages.length !=0)">
               <slider-item v-for="(slide, index) in sliderimages" :key="index">
                   <img :src="'/uploads/'+slide" class="imsg">
@@ -47,39 +47,6 @@
                 "></span> Share On Twitter</a>
             <p id="share-m"><span class="ion-android-open" style="font-size: 1.7em; font-weight: 900; vertical-align: sub;"></span> {{post.view_count}} <span style="font-weight: 100;">SHARES</span></p>
           </div>
-
-           <comment v-if="post.id" :id="post.id"></comment>
-        </div>
-      </div>
-
-      <div id="now-buzzing" class="xs-mb3">
-        <h3 style="color: black;
-                    font-size: 1.4em  !important;
-                    font-weight: 900;
-                    letter-spacing: -1px;" class="xs-mb1">
-          Related Posts
-        </h3>
-      </div>
-
-      <div id="vertical-feed" class="">
-        <div class="vertical-specific-feed" id="mod-vertical-specific-feed-1">
-          <div class="xs-text-left text-gray">
-            <ul class="list-unstyled">
-              <li class="xs-col-12 xs-mb2" v-for="rel in related_posts" v-if="(post.id && rel.id != post.id)">
-
-                <router-link class="bold text-gray" v-bind:to="{ name: 'blogpost', params: { id: rel.id, title: rel.title }}">
-                  <img class="buzz-image xs-block xs-mb05" :src="rel.image">
-
-                  <P id="post-cat-m"> {{rel.category.name}} </P>
-                  <h4 class="xs-text-4 lg-text-3">{{rel.title}}</h4>
-                </router-link>
-                <p id="share-m"> <span style="    font-size: 1.7em;
-                    font-weight: 900;
-                    vertical-align: sub;" class="ion-android-open"> </span> &nbsp {{rel.view_count}} <span style="font-weight: 100;">SHARES</span> <span style="font-weight: 100; opacity: .3;">/</span> <span style="font-weight: 100;">3 HOURS AGO</span> </p>
-
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
       <br>
@@ -87,7 +54,7 @@
     </div>
 
     <br>
-    
+
 
 
 
@@ -95,7 +62,7 @@
 </template>
 
 <script>
-  import comment from './comment'
+
   import {
     Slider,
     SliderItem
@@ -114,7 +81,7 @@
         loading: true
       }
     },
-    created: function() {     
+    created: function() {
       axios.get('/posts/' + this.$route.params.id)
         .then(response => {
           // JSON responses are automatically parsed.
@@ -133,7 +100,6 @@
 
     },
     components: {
-      comment,
       Slider,
       SliderItem
     },
