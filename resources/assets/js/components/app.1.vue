@@ -64,7 +64,7 @@
         margin: 0.6em;
         margin-right: 0.4em;
         width: 27px;
-        border-radius: 50%;"><i :class="'ion-ios-'+play+''" @click="playthat(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);" style="margin-left: -1em;"></i></span>
+        border-radius: 50%;"><i :class="'ion-ios-'+play+''" @click="playthis(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);" style="margin-left: -1em;"></i></span>
                     <p style="margin-top:.8EM;margin-left:.3em;font-family:'Circular-medium';padding-top: 0.2em;">Listen Live</p>
                     <p class="help-block"> </p>
                   </div>
@@ -80,11 +80,6 @@
                   <hr style="opacity:.2;">
                   <div v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='Later')">
                   <h1 style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;"><i class="ion-ios-time"></i>&nbsp {{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
-                  <hr style="opacity:.2;">
-                  </div>
-
-                  <div v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='Ended')">
-                  <h1 style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;"><i class="ion-android-remove-circle"></i>&nbsp {{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
                   <hr style="opacity:.2;">
                   </div>
                 </div>
@@ -359,14 +354,6 @@
         }
         document.getElementById('playname').innerHTML = name;
       },
-      playthat: function(id, type, src, name){
-                if(type=='podcast' && this.play=='pause'){
-                    this.play='play';
-                }else if(type=='livestream'){
-                    this.play = (this.play=='pause')?'play':'pause';
-                }
-                this.playthis(id, type, src, name);
-            },
       change_state: function(status, stream) {
         this.$store.dispatch('SET_STATE', status);
         this.$store.dispatch('SET_STREAM', stream);
@@ -396,12 +383,10 @@
         if (time.isBetween(beforeTime, afterTime)) {
   
           return 'NOW';
-        } else if(beforeTime.isAfter(time)) {
+        } else {
   
           return 'Later';
   
-        }else{
-          return 'Ended';
         }
       },
        timeleft: function(value){
@@ -429,13 +414,8 @@
         return this.$store.state.current_stream;
       },
       formated_schedules: function() {
-        //set array to hold before items
         var form_sche = [];
-        //set array t hold after items
-        var after_sche = [];
-        //set schedule to current schedule
         var schedule_arry = this.schedule[this.current_state];
-        //array_s is am empty array to hold the final value
         var array_s = [];
         var myDate = new Date();
         if (schedule_arry) {
@@ -476,21 +456,15 @@
           var beforeTime = moment(num.start, format);
           var afterTime = moment(num.end, format);
           if (time.isBetween(beforeTime, afterTime)) {
-            //return num
-            form_sche.push(num);
+            return num
           }
   
           if (beforeTime.isAfter(time)) {
-              form_sche.push(num);
-          }
-
-          if (afterTime.isBefore(time)) {
-              after_sche.push(num);
+            return num
           }
         })
-        //return array_s.slice(0, 4);
-
-        return form_sche.concat(after_sche.reverse()).slice(0, 4);
+        return array_s.slice(0, 4);
+  
       },
       now_playing: function() {
         if (this.schedule[this.current_state]) {

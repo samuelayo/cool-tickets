@@ -511,6 +511,16 @@ header div.thumbnail-peekaboo {
 	background-size:contain;
 	box-shadow:-12px 0 0 12px #000;
 }
+ .quote {font-size: 1.5em;
+    text-align: left;
+    line-height: 1.4;
+    color: #0054b5;
+    padding: 1em;
+    border-left: 1px solid #d6e4f5;
+    font-family: georgia;
+    font-weight: 800;
+    font-style: italic;
+}
 .thumb:last-of-type {
   box-shadow:0 0 0 12px #000;
 }

@@ -301,7 +301,6 @@
                 wrapAround: true
                     // any options from Flickity can be used
                 },
-               
                 podcasts: [],
                 currentweek: this.week(),
                 currentchartweek: this.week(),
@@ -367,7 +366,6 @@
                     //     return moment().isoWeek()+1;
                     // }
                     return moment().isoWeek();
-                    
                 },
             timeleft: function(value){
                 value  = new moment(value+":00", "HH:mm:ss a");
