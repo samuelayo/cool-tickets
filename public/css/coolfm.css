@@ -8,6 +8,10 @@ html {
     overflow-x: hidden;
 }
 
+body {
+    color: #000 !important;
+}
+
 body,
 h1,
 h2,
@@ -539,6 +543,7 @@ p.copyright {
     line-height: 2;
     font-weight: 100;
 }
+
 .title {
     font-size: 3.6em;
     letter-spacing: -1.4px;
