@@ -18,14 +18,6 @@
             <div class="col-md-9">
                 <div class="panel panel-default shadowed">
                     <h1 class="title">{{post.title}}</h1>
-
-                    <div class="article">
-                        <P id="p-sh" class="p-body" >Story Highlights</P>
-                        <P class="p-body" v-for="(keypoint, index) in keypoints" :key="index" v-html="keypoint"></P>
-
-                    </div>
-
-
                     <div class="item-content ">
                         <div class="item-meta">
                             <div class="author" :style="'background: url('+post.user.image+'); background-size: cover; '">
@@ -92,13 +84,14 @@
 
                         </div>
                         <div>
-                           
-                            
+                            <br>
+                            <div id="more" class="col-md-12">
+                                <div class="row">
+                                    <div> </div>
                                 </div>
                             </div>
                             <br>
                             <!-- end chart details --><br><br>
-
                             <br><br>
                             <!-- freshly pressed -->
 
@@ -199,7 +192,7 @@ import {
     Slider,
     SliderItem
   } from 'vue-easy-slider'
-
+import comment from './comment.vue'
     import sidebar from './sidebar.vue'
     import Flickity from 'vue-flickity';
     export default {
@@ -256,6 +249,7 @@ import {
         components: {
             sidebar,
             Flickity,
+            comment,
             Slider,
             SliderItem
         },
