@@ -2,11 +2,13 @@
     <div id="sidebar">
         <clip-loader v-if="loading" color="blue"></clip-loader>
         <div class="col-md-3">
-           
-            <!-- sidebar ad -->
-            <ins class="adsbygoogle panel panel-default shadowed" style="display:block" data-ad-client="ca-pub-8585125296175362" data-ad-slot="2204090548" data-ad-format="auto"></ins>
-    
-    
+<!-- post sidebar -->
+<ins class="adsbygoogle panel panel-default shadowed"
+     style="display:block"
+     data-ad-client="ca-pub-4448078976745099"
+     data-ad-slot="3011460081"
+     data-ad-format="auto"></ins>
+
             <div class="row">
                 <h4 style="text-align: center;"><strong>TRENDING</strong></h4><br>
                 <div id="advert-side" class="panel panel-default shadowed" style="margin-right: 1em;">
