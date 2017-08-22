@@ -42,7 +42,7 @@
 
 
 
-                    <a href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> <span class="badge badge-play"><small><a href="javascript:void(0)"  @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play"></span></a></small></span> <span> <p style="
+                    <a href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> <span class="badge badge-play" style="background: blue;"><small><a href="javascript:void(0)"  @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play"></span></a></small></span> <span> <p style="
     font-size: 1.1em;
     background: #ececec;
    
@@ -72,7 +72,7 @@
 
 
 
-                    <a href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> <span class="badge badge-play"><small><a href="javascript:void(0)"  @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play"></span></a></small></span> <span> <p style="
+                    <a href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> <span class="badge badge-play" style="background: blue;"><small><a href="javascript:void(0)"  @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play"></span></a></small></span> <span> <p style="
     font-size: 1.1em;
     background: #ececec;
 
