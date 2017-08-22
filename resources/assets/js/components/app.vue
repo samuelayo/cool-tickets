@@ -179,7 +179,13 @@
     <!-- the router outlet, where all matched components would ber viewed -->
     <center>
       <!-- homepage ad -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8585125296175362" data-ad-slot="2016565894" data-ad-format="auto"></ins>
+<!-- homepage ad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4448078976745099"
+     data-ad-slot="5185770514"
+     data-ad-format="auto"></ins>
+
     </center>
     <br>
     <transition>

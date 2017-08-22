@@ -215,12 +215,12 @@ h5 {
     font-size: 12px;
 }
 
-.badge-play {
+/*.badge-play {
     position: absolute;
     left: 16px;
     background: rgba(0, 0, 0, .3) !important;
     top: 45px;
-    /* background: #ff00ae; */
+
     text-align: center;
     border-radius: 50%;
     color: white;
@@ -230,6 +230,15 @@ h5 {
     padding-right: 1em;
     padding-top: .75em;
     padding-bottom: .6em;
+    font-size: 27px;
+}*/
+
+.badge-play {
+    position: absolute;
+    left: 24px;
+    top: 104px;
+    color: white;
+    width: 36px;
     font-size: 27px;
 }
 

@@ -32,29 +32,61 @@
          <div class="col-md-12" v-if="rearrange_podcasts[currentweek]">
             <div class="col-md-6">
                <div class="row" >
-                  <br><br>
+                  <br>
                   <div   class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="index <= 3">
-                     <a  href="javascript:void(0)" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a> 
-                     <span class="badge badge-play"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
+                     <!-- <a  href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> 
+                     <span class="badge badge-play" style="left: 0px !important;"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
                      <span>
-                        <center><small><a class="listen" href="#"><span class="ion-ios-play"></span> 1000 Listens</a></small> </center>
-                        <center><small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small></center>
+                        <small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small>
                         <center><small><a href="#">{{pod.part}}</a></small></center>
-                     </span>
+                     </span> -->
+
+
+
+                    <a href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> <span class="badge badge-play"><small><a href="javascript:void(0)"  @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play"></span></a></small></span> <span> <p style="
+    font-size: 1.1em;
+    background: #ececec;
+    margin-top: -1em;
+    padding: 1em;
+    line-height: 1.2;
+    font-family: Garamond;
+"><small><a href="" style="color: rgb(0, 0, 0);">
+        
+            
+            {{pod.title}}
+            
+        
+        </a></small></p> <center><small><a href="#">{{pod.part}}</a></small></center></span>
                   </div>
                </div>
             </div>
             <div class="col-md-6">
                <div class="row">
-                  <br><br>
-                  <div  class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="(index > 3 && index <=6)" >
-                     <a href="javascript:void(0)" class="ratio img-responsive img-circle" :style="'background-image: url('+pod.image+'); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);'"></a>
-                     <span class="badge badge-play"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
+                  <br>
+                  <div   class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="index <= 6">
+                     <!-- <a  href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> 
+                     <span class="badge badge-play" style="left: 0px !important;"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
                      <span>
-                        <center><small><a class="listen" href="#"><span class="ion-ios-play"></span> 1000 Listens</a></small> </center>
-                        <center><small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small></center>
+                        <small><a style="color: #4facfe;" href=""> {{pod.title}} </a> </small>
                         <center><small><a href="#">{{pod.part}}</a></small></center>
-                     </span>
+                     </span> -->
+
+
+
+                    <a href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> <span class="badge badge-play"><small><a href="javascript:void(0)"  @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play"></span></a></small></span> <span> <p style="
+    font-size: 1.1em;
+    background: #ececec;
+    margin-top: -1em;
+    padding: 1em;
+    line-height: 1.2;
+    font-family: Garamond;
+"><small><a href="" style="color: rgb(0, 0, 0);">
+        
+            
+            {{pod.title}}
+            
+        
+        </a></small></p> <center><small><a href="#">{{pod.part}}</a></small></center></span>
                   </div>
                </div>
             </div>
@@ -267,10 +299,12 @@
 <!-- sidebar ad -->
 
 <!-- side -->
+
+<!-- sidebar ad -->
 <ins class="adsbygoogle"
      style="display:block"
-     data-ad-client="ca-pub-8585125296175362"
-     data-ad-slot="5239890374"
+     data-ad-client="ca-pub-4448078976745099"
+     data-ad-slot="5545697316"
      data-ad-format="auto"></ins>
 
                </div>
