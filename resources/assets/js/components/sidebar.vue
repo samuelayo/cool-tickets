@@ -7,7 +7,8 @@
      style="display:block"
      data-ad-client="ca-pub-4448078976745099"
      data-ad-slot="3011460081"
-     data-ad-format="auto"></ins>
+     data-ad-format="auto" style="height: auto;
+width: 100%;"></ins>
 
             <div class="row">
                 <h4 style="text-align: center;"><strong>TRENDING</strong></h4><br>
