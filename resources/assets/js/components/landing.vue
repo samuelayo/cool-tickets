@@ -55,7 +55,7 @@
             {{pod.title}}
             
         
-        </a></small></p> <center><small><a href="#">{{pod.part}}</a></small></center></span>
+        </a></small></p></span>
                   </div>
                </div>
             </div>
@@ -85,7 +85,7 @@
             {{pod.title}}
             
         
-        </a></small></p> <center><small><a href="#">{{pod.part}}</a></small></center></span>
+        </a></small></p> </span>
                   </div>
                </div>
             </div>
@@ -101,7 +101,7 @@
          vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
  -->
          <div v-if="rearrange_podcasts[currentweek]" style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center">
-  <span style="font-size: 40px; background-color: #F3F5F6; padding: 0 10px;">
+  <span style="font-size: 23px; background-color: #F3F5F6; padding: 0 10px;">
     Show more <!--Padding is optional-->
   </span>
 </div>
