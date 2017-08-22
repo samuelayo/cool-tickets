@@ -34,6 +34,7 @@ class Kernel extends ConsoleKernel
             if($key->schedule != NULL && $key->schedule <= Carbon::now()){
                 $key->published = 1;
                 $key->save();
+                $key->created_at = Carbon::now();
             }
         }
        })->everyMinute();
