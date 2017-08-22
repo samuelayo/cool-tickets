@@ -201,11 +201,7 @@
       </div>
    </div>
    <!-- end chart details -->
-   <br>
-
-   <span v-if="!all_chart[currentchart][currentchartweek]">
-   <br>
-   </span>
+ 
   
    <div class="row">
       <!-- advert -->
