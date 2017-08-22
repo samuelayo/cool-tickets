@@ -291,7 +291,7 @@
 
                     <a class="twitter-timeline" href="https://twitter.com/CoolFMNigeria" data-height="300">Tweets by CoolFMNigeria</a> 
 
-                    <iframe src="http://www.youtube.com/embed/?listType=user_uploads&list=CoolFM969" width="100%" height="100%" tyle="padding: 1em;"></iframe>  
+                    <iframe src="https://www.youtube.com/embed/?listType=user_uploads&list=CoolFM969" width="100%" height="100%" tyle="padding: 1em;"></iframe>  
                     <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url" >
                      <adimage :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="1" style="padding: 1em;"></adimage>
                   </a>
