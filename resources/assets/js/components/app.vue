@@ -276,6 +276,13 @@
       this.schedules();
     },
     mounted: function() {
+
+      
+      setInterval(()=>{ 
+        var sch = this.schedule;
+        this.schedule = [];
+        this.schedule = sch;
+       }, 3000);
       /// loadscript function that returns promise and resolves to confirm a scrip has been loaded///
       function loadScript(url) {
         return new Promise(function(resolve, reject) {
