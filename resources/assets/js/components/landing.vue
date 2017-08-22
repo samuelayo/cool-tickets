@@ -290,6 +290,8 @@
                   <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcoolfmnigeria%2F&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="450px" style="border:none;overflow:hidden;padding: 1em;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 
                     <a class="twitter-timeline" href="https://twitter.com/CoolFMNigeria" data-height="300">Tweets by CoolFMNigeria</a> 
+
+                    <iframe src="http://www.youtube.com/embed/?listType=user_uploads&list=CoolFM969" width="100%" height="100%" tyle="padding: 1em;"></iframe>  
                     <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url" >
                      <adimage :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="1" style="padding: 1em;"></adimage>
                   </a>
