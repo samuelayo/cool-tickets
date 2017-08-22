@@ -210,7 +210,7 @@
       <!-- 3 grid for trending, rising and hot topics -->
       <div class="col-md-12">
          <div class="col-md-3">
-            <br><br>
+           
             <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Trending</h4>
             <br>
             <div class="panel panel-default shadowed">
@@ -243,7 +243,7 @@
          </div>
          <!-- rising -->
          <div class="col-md-6">
-            <br><br>
+          
             <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;">Rising</h4>
             <br>
             <div class="panel panel-default shadowed" v-for="newpost in newones">
@@ -258,7 +258,7 @@
          </div>
          <!-- end rising -->
          <div class="col-md-3">
-            <br><br>
+    
             <h4 style="text-align: center; text-transform: uppercase; font-weight: 700;"></h4>
             <br>
             <br>
