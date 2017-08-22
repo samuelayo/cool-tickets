@@ -95,7 +95,7 @@
    </div>
  
    <!-- end chart details -->
-   <router-link :to="{ name: 'all_podcasts', params: { week: currentweek}}">
+   <router-link v-if="rearrange_podcasts[currentweek]" :to="{ name: 'all_podcasts', params: { week: currentweek}}">
       <!-- <p style="text-align: center;" v-if="rearrange_podcasts[currentweek]"><span style="border-bottom: 1px solid #ddd;
          vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> <a href=""><span style="color: #666; text-align: center;  font-style: italic; padding: 1em;     vertical-align: -webkit-baseline-middle;"> Show more</span></a>  <span style="border-bottom: 1px solid #ddd;
          vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
@@ -113,7 +113,7 @@
          <adimage  :src="'/'+homepage_chart[1].image_url" width="100%" height="100%" style="padding: 1em;"></adimage>
       </a>
    </div>
-   <br>
+  
    <!-- chart details -->
    <div class="container-fluid"  v-if="all_chart[currentchart][currentchartweek]">
       <div class="row">
