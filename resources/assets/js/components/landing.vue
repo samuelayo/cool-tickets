@@ -17,7 +17,7 @@
                PODCASTS
                &nbsp;
                &nbsp;
-               <span style="color:#B2BEB5">
+               <span style="color:#B2BEB5; display: none;">
                <small>
                <a href="javascript:void(0)" @click="pweekpod"> <span class="ion-ios-arrow-left"></span> </a><span style="    text-transform: uppercase;
                   letter-spacing: 1px;"> Week {{currentweek}} </span> <a href="javascript:void(0)" @click="nweekpod"> <span class="ion-ios-arrow-right"></span> </a>
