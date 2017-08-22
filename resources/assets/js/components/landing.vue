@@ -45,7 +45,7 @@
                     <a href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> <span class="badge badge-play"><small><a href="javascript:void(0)"  @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play"></span></a></small></span> <span> <p style="
     font-size: 1.1em;
     background: #ececec;
-    margin-top: -1em;
+   
     padding: 1em;
     line-height: 1.2;
     font-family: Garamond;
@@ -75,7 +75,7 @@
                     <a href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> <span class="badge badge-play"><small><a href="javascript:void(0)"  @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play"></span></a></small></span> <span> <p style="
     font-size: 1.1em;
     background: #ececec;
-    margin-top: -1em;
+
     padding: 1em;
     line-height: 1.2;
     font-family: Garamond;
@@ -96,9 +96,15 @@
  
    <!-- end chart details -->
    <router-link :to="{ name: 'all_podcasts', params: { week: currentweek}}">
-      <p style="text-align: center;" v-if="rearrange_podcasts[currentweek]"><span style="border-bottom: 1px solid #ddd;
+      <!-- <p style="text-align: center;" v-if="rearrange_podcasts[currentweek]"><span style="border-bottom: 1px solid #ddd;
          vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> <a href=""><span style="color: #666; text-align: center;  font-style: italic; padding: 1em;     vertical-align: -webkit-baseline-middle;"> Show more</span></a>  <span style="border-bottom: 1px solid #ddd;
          vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
+ -->
+         <div v-if="rearrange_podcasts[currentweek]" style="width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center">
+  <span style="font-size: 40px; background-color: #F3F5F6; padding: 0 10px;">
+    Show more <!--Padding is optional-->
+  </span>
+</div>
    </router-link>
 
    <!-- advert -->
