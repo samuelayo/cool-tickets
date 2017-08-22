@@ -265,11 +265,13 @@
                   <br>
                   <br>
 <!-- sidebar ad -->
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-4448078976745099"
-                    data-ad-slot="5545697316"
-                    data-ad-format="auto"></ins>
+
+<!-- side -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8585125296175362"
+     data-ad-slot="5239890374"
+     data-ad-format="auto"></ins>
 
                </div>
             </div>
