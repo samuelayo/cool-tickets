@@ -12,7 +12,6 @@
    <!-- podcast details -->
    <div class="container-fluid" v-if="rearrange_podcasts[currentweek]">
       <div class="row">
-         <br><br><br>
          <div style="margin-left: 1em;" class="col-md-12" >
             <h3>
                PODCASTS
@@ -63,7 +62,7 @@
             <div class="col-md-6">
                <div class="row">
                   <br>
-                  <div   class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="index <= 6">
+                  <div   class="col-sm-3" v-for="(pod, index) in rearrange_podcasts[currentweek]" v-if="(index >3 && index <= 6)">
                      <!-- <a  href="javascript:void(0)" class="ratio img-responsive" :style="'background-image: url('+pod.image+'); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1000px inset;'"></a> 
                      <span class="badge badge-play" style="left: 0px !important;"><small><a href="javascript:void(0)" @click="playthis(pod.id, 'podcast', pod.path, pod.title)"><span class="ion-ios-play" ></span></a></small>  </span>     
                      <span>
@@ -94,18 +93,14 @@
          <!-- -->
       </div>
    </div>
-   <span v-if="rearrange_podcasts[currentweek]">
-   <br>
-   <br>
-   <br>
-   </span>
+ 
    <!-- end chart details -->
    <router-link :to="{ name: 'all_podcasts', params: { week: currentweek}}">
       <p style="text-align: center;" v-if="rearrange_podcasts[currentweek]"><span style="border-bottom: 1px solid #ddd;
          vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> <a href=""><span style="color: #666; text-align: center;  font-style: italic; padding: 1em;     vertical-align: -webkit-baseline-middle;"> Show more</span></a>  <span style="border-bottom: 1px solid #ddd;
          vertical-align: super; color: #f9f9f9; "> dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfddfdfdfddfdfd dfdfdfddfdfd dfdfdfddfdfd </span> </p>
    </router-link>
-   <br><br>
+
    <!-- advert -->
    <div class="col-md-12">
       <a  v-if="homepage_chart[1]" :href="homepage_chart[1].url">
@@ -117,8 +112,7 @@
    <div class="container-fluid"  v-if="all_chart[currentchart][currentchartweek]">
       <div class="row">
          <div style="margin-left: 1em;" class="col-md-12">
-            <br>
-            <br>  
+    
             <h3>
                CHARTS
                &nbsp;
