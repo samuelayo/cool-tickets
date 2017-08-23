@@ -1399,7 +1399,7 @@ tr:hover {
 }
 
 .plyr {
-    min-width: 700px !important;
+    min-width: 200px !important;
 }
 
 .plyr--audio .plyr__controls {

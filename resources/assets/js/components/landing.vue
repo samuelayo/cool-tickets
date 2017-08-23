@@ -5,7 +5,7 @@
     <div class="carousel-cell">
       <div class="panel panel-default">
         <div class="panel-body">
-         <div data-type="youtube"  data-video-id="yXS2y1ziqWw"></div>
+         <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
         </div>
       </div>
     </div>
@@ -13,16 +13,7 @@
      <div class="carousel-cell">
       <div class="panel panel-default">
         <div class="panel-body">
-         <div data-type="youtube"  data-video-id="yXS2y1ziqWw"></div>
-        </div>
-      </div>
-    </div>
-
-
-     <div class="carousel-cell">
-      <div class="panel panel-default">
-        <div class="panel-body">
-         <div data-type="youtube"  data-video-id="yXS2y1ziqWw"></div>
+          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
         </div>
       </div>
     </div>
@@ -31,7 +22,16 @@
      <div class="carousel-cell">
       <div class="panel panel-default">
         <div class="panel-body">
-         <div data-type="youtube"  data-video-id="yXS2y1ziqWw"></div>
+          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="carousel-cell">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
         </div>
       </div>
     </div>
@@ -716,7 +716,10 @@
       }
     }
 </script>
-<style>
+<style scoped>
+.plyr{
+   min-width: 200px !important
+}
 #live-play {
    margin-top: 22em;
    color: #fff;
