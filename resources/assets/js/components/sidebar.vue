@@ -4,11 +4,10 @@
         <div class="col-md-3">
 <!-- post sidebar -->
 <ins class="adsbygoogle panel panel-default shadowed"
-     style="display:block"
+     style="display:block; height: auto;"
      data-ad-client="ca-pub-4448078976745099"
      data-ad-slot="3011460081"
-     data-ad-format="auto" style="height: auto;
-"></ins>
+     data-ad-format="auto"></ins>
 
             <div class="row">
                 <h4 style="text-align: center;"><strong>TRENDING</strong></h4><br>
