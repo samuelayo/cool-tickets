@@ -462,11 +462,10 @@
         methods: {
           gup: function( name, url ) {
 
-    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-    var regexS = "[\\?&]"+name+"=([^&#]*)";
-    var regex = new RegExp( regexS );
-    var results = regex.exec( url );
-    results == null ? null : results[1];
+   name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(url);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     console.log(results);
     return results;
     //gup('v', show.link)
