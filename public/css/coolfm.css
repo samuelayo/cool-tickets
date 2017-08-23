@@ -548,7 +548,7 @@ p.copyright {
     width: 66%;
     height: 200px;
     margin-right: 10px;
-    background: #000;
+    background: #fff;
     color: #fff;
     border-radius: 5px;
     counter-increment: carousel-cell;
