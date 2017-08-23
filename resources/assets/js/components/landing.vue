@@ -282,8 +282,26 @@
                      </div>
                      <hr>
                   </div> -->
-
+                  <p style="
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    font-family: 'Circular-Black', &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid #ddd;
+          "><i class="ion-social-facebook" style="color:#fff; padding-left:.7em; padding-right:.5em; padding-top:.1em; padding-bottom:.1em; margin-right:.5em; background:blue; border-radius:50%;"> </i> Like us on Facebook</p>
                   <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcoolfmnigeria%2F&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="450px" style="border:none;overflow:hidden;padding: 1em;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+                  <p style="
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    font-family: 'Circular-Black', &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding-top: 1em;
+    "><i class="ion-android-hand" style="color:#fff; padding-left:.6em; padding-right:.34em; padding-top:.1em; padding-bottom:.27em; margin-right:.3em; background:red; border-radius:50%;"> </i> Join our fan community</p>
 
                   <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCoolFMFanPage%2F&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="450px" style="border:none;overflow:hidden;padding: 1em;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
                   
@@ -295,8 +313,29 @@
      data-ad-slot="5948614612"
      data-ad-format="auto"></ins>
 
+      <p style="
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    font-family: 'Circular-Black', &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding-top: 1em;
+    "><i class="ion-social-twitter" style="color:#fff; padding-left:.6em; padding-right:.34em; padding-top:.19em; padding-bottom:.29em; margin-right:.3em; background:#3498db; vertical-align:top; border-radius:50%; font-size:.9em;"> </i> JOIN THE CONVERSATION</p>
+
                     <a class="twitter-timeline" href="https://twitter.com/CoolFMNigeria" data-height="300" data-width="100%" style="padding: 1em;">Tweets by CoolFMNigeria</a> 
                     <br>
+                    <p style="
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    font-family: 'Circular-Black', &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding-top: 1em;
+    "><i class="ion-social-youtube" style="color:red; padding-left:.6em; padding-right:.34em; padding-top:.19em; padding-bottom:.29em; margin-right:.3em;  vertical-align:top; border-radius:50%;"> </i> TOP VIDEOS</p>
                     <iframe src="https://www.youtube.com/embed/?listType=user_uploads&list=CoolFM969" width="100%" height="100%" style="border:none;overflow:hidden;padding: 1em;"></iframe>  
                     <a  v-if="sidebar_chart[0]" :href="sidebar_chart[0].url" >
                      <adimage :src="'/'+sidebar_chart[0].image_url" width="100%" height="100%" isd="1" style="padding: 1em;"></adimage>
