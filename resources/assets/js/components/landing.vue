@@ -479,7 +479,7 @@
                         // JSON responses are automatically parsed.
                         this.shows = response.data;
                         
-    
+                        plyr.setup();
                     })
                     .catch(e => {
     
