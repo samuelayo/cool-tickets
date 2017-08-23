@@ -6,7 +6,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
          <div data-type="youtube"  :data-video-id="gup('v', show.link)" style="min-width: 200px !important"></div>
-         <iframe width="100%" height="100%" :src="show.link" frameborder="0" allowfullscreen></iframe>
+         <iframe width="100%" height="100%" :src="'https://www.youtube.com/embed/'+gup('v', show.link)" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </div>
