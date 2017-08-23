@@ -1,24 +1,57 @@
 <template>
 <div id="landing">
    <div class="col-md-12">
+   <flickity ref="flickity" :options="flickityOptions">
+    <div class="carousel-cell">
+      <div class="panel panel-default">
+        <div class="panel-body">
+         <div data-type="youtube"  data-video-id="yXS2y1ziqWw"></div>
+        </div>
+      </div>
+    </div>
+
+     <div class="carousel-cell">
+      <div class="panel panel-default">
+        <div class="panel-body">
+         <div data-type="youtube"  data-video-id="yXS2y1ziqWw"></div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="carousel-cell">
+      <div class="panel panel-default">
+        <div class="panel-body">
+         <div data-type="youtube"  data-video-id="yXS2y1ziqWw"></div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="carousel-cell">
+      <div class="panel panel-default">
+        <div class="panel-body">
+         <div data-type="youtube"  data-video-id="yXS2y1ziqWw"></div>
+        </div>
+      </div>
+    </div>
+    
+
+</flickity>
+<br>
       <a  v-if="homepage_chart[0]" :href="homepage_chart[0].url">
          <adimage  :src="'/'+homepage_chart[0].image_url" width="100%" height="100%"></adimage>
+         <br>
       </a>
+
    </div>
    <!-- Header -->
    
    <!-- /.intro-header -->
    <!-- Page Content -->
    <!-- podcast details -->
-<br>
-<br>
-<!-- <flickity ref="flickity" :options="flickityOptions">
-    <div class="carousel-cell">1</div>
-    <div class="carousel-cell">2</div>
-    <div class="carousel-cell">3</div>
-    <div class="carousel-cell">4</div>
-    <div class="carousel-cell">5</div>
-</flickity> -->
+
+
    <div class="container-fluid" v-if="rearrange_podcasts[currentweek]">
       <div class="row">
          <div style="margin-left: 1em;" class="col-md-12" >
