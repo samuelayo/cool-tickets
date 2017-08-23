@@ -108,7 +108,7 @@
                                         <h5 style="color: yellow;" class="header-title-white"> SHOWS</h5>
 
                                         <p style="margin-left: 3em;">
-                                            <iframe width="95%" height="600" :src="shows[0].link" frameborder="0" allowfullscreen></iframe>
+                                            <iframe width="95%" height="600" :src="'https://www.youtube.com/embed/'+gup('v', shows[0].link)" frameborder="0" allowfullscreen></iframe>
                                         </p>
                                         <h1 class="video-title">{{shows[0].title}}</h1>
                                         <p class="video-meta">{{shows[0].user.name}} / {{timeago(shows[0].created_at)}}</p>
@@ -258,6 +258,16 @@ import comment from './comment.vue'
         },
        
         methods: {
+            gup: function( name, url ) {
+
+               name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(url);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+                console.log(results);
+                return results;
+                //gup('v', show.link)
+            },
             timeago: function(time) {
                 return moment(time).fromNow();
             },
