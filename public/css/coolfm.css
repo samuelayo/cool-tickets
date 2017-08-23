@@ -1380,6 +1380,10 @@ tr:hover {
     line-height: 1.2;
 }
 
+.plyr__video-embed{
+    padding-bottom: 42.25% !important;
+}
+
 .plyr__progress--buffer,
 .plyr__progress--played,
 .plyr__volume--display {
