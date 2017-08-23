@@ -2,10 +2,36 @@
 <div id="landing">
    <div class="col-md-12" >
    <flickity ref="flickity" :options="flickityOptions" v-if="shows">
-    <div class="carousel-cell" v-for="show in shows">
+    <div class="carousel-cell">
       <div class="panel panel-default">
         <div class="panel-body">
-         <div data-type="youtube"  :data-video-id="gup('v', show.link)" style="min-width: 200px !important"></div>
+         <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
+        </div>
+      </div>
+    </div>
+
+     <div class="carousel-cell">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="carousel-cell">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="carousel-cell">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
         </div>
       </div>
     </div>
@@ -469,8 +495,8 @@
     var regex = new RegExp( regexS );
     var results = regex.exec( url );
     return results == null ? null : results[1];
+    //gup('v', show.link)
 },
-
             timeago: function (time){
                 return moment(time).fromNow();
             },
@@ -479,7 +505,7 @@
                     .then(response => {
                         // JSON responses are automatically parsed.
                         this.shows = response.data;
-                        this.fetch_related();
+                        
     
                     })
                     .catch(e => {
