@@ -1,42 +1,14 @@
 <template>
 <div id="landing">
    <div class="col-md-12" >
-   <flickity ref="flickity" :options="flickityOptions" v-if="shows">
-    <div class="carousel-cell">
+   <flickity ref="flickity" :options="flickityOptions" v-if="shows.length !=0">
+    <div class="carousel-cell" v-for="show in shows">
       <div class="panel panel-default">
         <div class="panel-body">
-         <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
+         <div data-type="youtube"  :data-video-id="gup('v', show.link)" style="min-width: 200px !important"></div>
         </div>
       </div>
     </div>
-
-     <div class="carousel-cell">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
-        </div>
-      </div>
-    </div>
-
-
-     <div class="carousel-cell">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
-        </div>
-      </div>
-    </div>
-
-
-     <div class="carousel-cell">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
-        </div>
-      </div>
-    </div>
-    
-
 </flickity>
 <br>
       <a  v-if="homepage_chart[0]" :href="homepage_chart[0].url">
@@ -494,7 +466,9 @@
     var regexS = "[\\?&]"+name+"=([^&#]*)";
     var regex = new RegExp( regexS );
     var results = regex.exec( url );
-    return results == null ? null : results[1];
+    results == null ? null : results[1];
+    console.log(results);
+    return results;
     //gup('v', show.link)
 },
             timeago: function (time){
