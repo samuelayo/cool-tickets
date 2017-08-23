@@ -1452,7 +1452,7 @@ tr:hover {
 .plyr--audio .plyr__controls button:hover,
 .plyr__play-large {
     background: none;
-    color: red !important;
+    color: white !important;
 }
 
 span#tag-cat {

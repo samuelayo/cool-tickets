@@ -430,6 +430,7 @@
                     // any options from Flickity can be used
                 },
                 podcasts: [],
+                shows: [],
                 currentweek: this.week(),
                 currentchartweek: this.week(),
                 nigerianchart:[],
@@ -449,7 +450,7 @@
             }
             this.$store.dispatch('SET_SEO', status);
            
-            
+             this.getshows();
             this.getpodcasts();
             this.getcharts();
             this.gethots();
@@ -489,6 +490,19 @@
         methods: {
             timeago: function (time){
                 return moment(time).fromNow();
+            },
+            getshows: function() {
+                axios.get('/shows/')
+                    .then(response => {
+                        // JSON responses are automatically parsed.
+                        this.shows = response.data;
+                        this.fetch_related();
+    
+                    })
+                    .catch(e => {
+    
+                    });
+    
             },
             week: function (){
                     // var myDate = new Date();
