@@ -1,37 +1,11 @@
 <template>
 <div id="landing">
-   <div class="col-md-12">
-   <flickity ref="flickity" :options="flickityOptions">
-    <div class="carousel-cell">
+   <div class="col-md-12" >
+   <flickity ref="flickity" :options="flickityOptions" v-if="shows">
+    <div class="carousel-cell" v-for="show in shows">
       <div class="panel panel-default">
         <div class="panel-body">
-         <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
-        </div>
-      </div>
-    </div>
-
-     <div class="carousel-cell">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
-        </div>
-      </div>
-    </div>
-
-
-     <div class="carousel-cell">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
-        </div>
-      </div>
-    </div>
-
-
-     <div class="carousel-cell">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div data-type="youtube"  data-video-id="yXS2y1ziqWw" style="min-width: 200px !important"></div>
+         <div data-type="youtube"  :data-video-id="gup('v', show.link)" style="min-width: 200px !important"></div>
         </div>
       </div>
     </div>
@@ -488,6 +462,15 @@
       });         
         },
         methods: {
+          gup: function( name, url ) {
+
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( url );
+    return results == null ? null : results[1];
+},
+
             timeago: function (time){
                 return moment(time).fromNow();
             },
