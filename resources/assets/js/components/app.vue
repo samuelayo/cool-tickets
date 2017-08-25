@@ -336,7 +336,7 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(gcse, s);
       })();
-      //this.player = plyr.setup();
+      this.player = plyr.setup();
     },
     computed: {
       playorpause: function() {
