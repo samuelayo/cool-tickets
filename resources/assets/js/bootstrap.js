@@ -22,8 +22,8 @@ window.Vue = require('vue');
 
 window.moment = require('moment');
 
-window.tinymce = require('tinymce');
-window.plyr = require('plyr')
+//window.tinymce = require('tinymce');
+//window.plyr = require('plyr')
 window.accounting = require('accounting');
 
 

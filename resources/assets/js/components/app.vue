@@ -16,7 +16,7 @@
     <meta name="twitter:title" :content="title" />
     <meta name="twitter:site" content="@coolfmnigeria" />
     <meta name="twitter:image" :content="twitterimage" />
-    <div class="container-fluid topnav" style="
+    <!--<div class="container-fluid topnav" style="
                         height: 40px !important;
                         background-color: blue !important; border-bottom: none !important;
     width: auto !important; box-shadow: inset 0 0 0 1000px rgba(0, 79, 253, 0.4); ;
@@ -42,12 +42,12 @@
                         margin-left: 2em;
                         font-family: 'Circular-Book';
                         vertical-align: middle;
-                    ">Learn more</button></router-link>
+                    "><img src="/img/logo.svg" width="150" alt="Cool Fm"></button></router-link>
       </p>
-    </div>
+    </div> -->
   
   
-    <div class="intro-header">
+  <!--  <div class="intro-header">
       <div id="fb-streaming-row">
         <div class="row">
           <div class="col-lg-12">
@@ -99,8 +99,8 @@
           </div>
         </div>
       </div>
-      <!-- /.container-fluid -->
-    </div>
+       
+    </div>-->
   
   
   
@@ -125,14 +125,9 @@
           </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse htop" id="bs-example-navbar-collapse-1">
+     <!--   <div class="collapse navbar-collapse htop" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <!--<li>
-                                    <a class="active" href="#">On Air</a>
-                                  </li>
-                                  <li>
-                                    <a href="#">Schedules</a>
-                                  </li> -->
+            
             <li style="padding: 0px;padding-top: 0px !important;padding-left: 0px !important;padding-right: 0px !important;">
               <gcse:search></gcse:search>
             </li>
@@ -171,7 +166,7 @@
               </ul>
             </li>
           </ul>
-        </div>
+        </div> -->
         <!-- /.navbar-collapse -->
       </div>
       <!-- /.container-fluid -->
@@ -223,39 +218,8 @@
     </div>
     <br>
     <br>
-    <br>
-    <br>
-    <div class="navbar navbar-default navbar-fixed-bottom" style="background-color: rgba(255, 255, 255, .9) !important">
-      <div class="container">
-        <span class="navbar-text" style="margin-top:1%">
-                                
-                                <!--<div id="timeline">
-                                  <div id="playhead"></div>
-                                </div><span style="vertical-align: -webkit-baseline-middle;">&nbsp <span id="len">5.50</span></span>-->
-        <audio id="ourplay" ref="ourplay" controls> 
-                                <source :src="current_stream"/>
-                              </audio>
-        </span>
-        <p class="navbar-text pull-right">
-          <span><p></p>
-                                <span id="playname">
-                                Cool FM live stream
-                                </span>
-          <span id="live" style="
-                         margin-left: 1em;
-                         color: red;
-                         padding: .19em;
-                         font-weight: 400;
-                         font-size: 0.8em;
-                         letter-spacing: 3px;
-                         border: 1.2px solid red;
-                         padding-left: .5em;
-                         padding-right: .5em;
-                      ">LIVE</span>
-          </span>
-        </p>
-      </div>
-    </div>
+   
+    
   </div>
 </template>
 
@@ -273,16 +237,16 @@
       }
     },
     created: function() {
-      this.schedules();
+      //this.schedules();
     },
     mounted: function() {
 
       
-      setInterval(()=>{ 
-        var sch = this.schedule;
-        this.schedule = [];
-        this.schedule = sch;
-       }, 3000);
+      // setInterval(()=>{ 
+      //   var sch = this.schedule;
+      //   this.schedule = [];
+      //   this.schedule = sch;
+      //  }, 3000);
       /// loadscript function that returns promise and resolves to confirm a scrip has been loaded///
       function loadScript(url) {
         return new Promise(function(resolve, reject) {

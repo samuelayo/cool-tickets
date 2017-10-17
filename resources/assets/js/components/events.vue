@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-    
+        <center v-if="(searchable.length == 0 && loading == false)"><span  style="color: black; font-size: 38px;">No events available at this moment</span></center>
         <br>
         <br>
         <br>
