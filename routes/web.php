@@ -184,11 +184,11 @@ Route::group(['middleware'=>'cors'], function(){
 function(Request $request, $all)
 {
    $agent = new Agent();
-        if($agent->isMobile()){
-             $url = '/m#/'.$request->path();
+        // if($agent->isMobile()){
+        //      $url = '/m#/'.$request->path();
         
-             return redirect($url);
-        }
+        //      return redirect($url);
+        // }
           return (new App\Http\Controllers\HomeController)->index();
     // Stuffffffff
    

@@ -626,7 +626,7 @@
   }
   
   #mc_embed_signup {
-    background: #fff;
+    background: none;
     clear: left;
     font: 14px Helvetica, Arial, sans-serif;
   }
