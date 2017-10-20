@@ -28,10 +28,10 @@ Route::get('/ads', function(){
 });
 
 
-Route::group(['prefix'=>'m'], function () {
-  Route::get('/', 'HomeController@mobile');
+// Route::group(['prefix'=>'m'], function () {
+//   Route::get('/', 'HomeController@mobile');
 
-});
+// });
 
 Route::post('sendmail', 'HomeController@sendMail');
 Route::group(['middleware'=>'cors'], function(){

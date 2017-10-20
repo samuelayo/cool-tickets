@@ -17,12 +17,12 @@ class mobile
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-        $agent = new Agent();
-        if($agent->isMobile()){
+        // $agent = new Agent();
+        // if($agent->isMobile()){
             
-            $url = '/m/'.$request->path();
-            return redirect($url);
-        }
+        //     $url = '/m/'.$request->path();
+        //     return redirect($url);
+        // }
         return $response;
     }
 }
