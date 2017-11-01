@@ -14,14 +14,14 @@
                         {{evn.description}}
                     </p>
                     <div id="ticket-panel" class="row">
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-md-6 col-md-6">
     
                             <p><span>Ticket Type</span></p>
                             <p><span>Ticket Quantity</span></p>
                             <p id="price" class="lead">
                                 N{{ticket_price[index].price | money }}<small class="days-left">{{daysRemaining(evn.date)}}</small></p>
                         </div>
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-md-6 col-md-6">
     
                             <form>
                                 <div class="dropdown">
