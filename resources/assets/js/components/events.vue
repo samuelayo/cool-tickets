@@ -412,7 +412,7 @@ div#products {
     }
     
     #floater {
-        float: right;
+        
     }
     
     #event-single {
