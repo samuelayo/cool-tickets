@@ -67,11 +67,7 @@ class EventsController extends \App\Http\Controllers\Controller
             $eventticket->price = $request->get('ticket_price')[$i];
             $eventticket->amount = $request->get('amount')[$i];
             $eventticket->event = $newevent->id;
-            $imageName = rand(0, 18000).rand(19000, 39000). '.' . 
-            $request->file('ticket_image')[$i]->guessClientExtension();
-            $request->file('ticket_image')[$i]->move(
-                base_path() . '/public/uploads/events/tickets/', $imageName
-            );
+            $imageName = rand(0, 18000).rand(19000, 39000). '.';
             $eventticket->image = '/uploads/events/tickets/'.$imageName;
             $eventticket->save();
         }

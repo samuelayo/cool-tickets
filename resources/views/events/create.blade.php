@@ -51,13 +51,13 @@
                   </div>
                 </div>
                
-               <div class="form-group">
+                <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Event Image</label>
 
                   <div class="col-sm-10">
                     <input type="file" name="image" class="form-control" id="inputEmail3"  required>
                   </div>
-                </div>
+                </div> 
 
 
                <div class="form-group">
@@ -73,13 +73,13 @@
                         <div class="col-md-6">
                           <input type="number"  name="ticket_price[]" class="form-control" placeholder="Price" required/>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                         <input type="number"  name="amount[]" class="form-control" placeholder="Amount of tickets available" required/>
                         </div>
-                        <div class="col-md-8">
+                      <!--  <div class="col-md-8">
                            
                             <input type="file"  name="ticket_image[]" class="form-control" id="inputEmail3"  required>
-                        </div>
+                        </div> -->
                         
                       </div>
                     </div>
