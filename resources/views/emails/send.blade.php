@@ -487,7 +487,7 @@
                                                                                                             <p class="center"> <img style="width: 90px; " src="https://www.coolfm.ng/img/logo.png"> </p>
 
 
-                                                                                                            <p style="width: 100%;"> <img src="https://coolfm.ng/uploads/{{$ticketpurchased->id}}.jpg"/></p>
+                                                                                                            <p style="width: 100%;"> <!--<img src="https://coolfm.ng/uploads/{{$ticketpurchased->id}}.jpg"/>--> {{$ticketpurchased->id}}</p>
 
                                                                                                         </td>
                                                                                                     </tr>

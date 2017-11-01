@@ -170,6 +170,7 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('events/create', 'EventsController@create');
     Route::post('events/create', 'EventsController@createpost');
     Route::get('events/{id}/delete', 'EventsController@delete_event');
+    Route::get('events/{id}/tlist', 'EventsController@tlist');
     CRUD::resource('adscategory', 'AdsCategoryCrudController');
     Route::get('ads', 'AdsEngineController@list');
     Route::get('adslist', 'AdsEngineController@adslist');

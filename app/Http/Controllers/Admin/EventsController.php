@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\Events;
@@ -17,6 +16,29 @@ class EventsController extends \App\Http\Controllers\Controller
     public function list(){
         $all = Events::orderBy('created_at', 'desc')->paginate(20);
         return View('events.list', compact('all'));
+    }
+
+    // public function ticket_list(){
+    //     $all = Events::where( DB::raw('YEAR(created_at)'), '=', date('Y'))->orderBy('created_at', 'desc')->paginate(100);
+    //     return View('events.list', compact('all'));
+    // } 
+
+     public function tlist(Events $id){
+     
+        $all = Eventickets::where('event', $id->id)->get();
+       
+        $get_all = new \Illuminate\Database\Eloquent\Collection;
+
+        foreach($all as $one){
+          
+            $tickets = TicketPurchased::where('ticket_id', $one->id)->with('ticket')->get();
+            //$tickets['name'] = $one->name;
+            $get_all =  $get_all->merge($tickets);
+           
+        }
+         //event(new EventTicketPurchased($get_all[0], $get_all[0]->ticket, $id));
+    
+        return View('events.tlist', compact('get_all', 'id'));
     }
 
     public function create(){
