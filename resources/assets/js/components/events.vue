@@ -21,7 +21,7 @@
                             <p id="price" class="lead">
                                 N{{ticket_price[index].price | money }}<small class="days-left">{{daysRemaining(evn.date)}}</small></p>
                         </div>
-                        <div class="col-md-6 col-md-6">
+                        <div class="col-md-6 col-md-6 holdown">
     
                             <form>
                                 <div class="dropdown">
@@ -258,7 +258,15 @@
     * {
         font-family: 'Circular-Book'
     }
+    .holdown{
+    float: right;
     
+    }
+    @media (max-width:499px){
+        .holdown{
+            margin-top: -8.4em;
+        }
+    }
     .glyphicon {
         margin-right: 5px;
     }
@@ -274,7 +282,7 @@
     
     #select {
         background: #fff !important;
-        float: right;
+        
         outline: none !important;
         width: 88px;
         border: 1px solid #ddd;
@@ -295,7 +303,7 @@ div#products {
 
     #select-quantity {
         background: #fff !important;
-        float: right;
+       
         width: 88px;
         outline: none !important;
         margin-bottom: 10px;
