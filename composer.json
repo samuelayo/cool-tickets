@@ -16,7 +16,7 @@
         "laravel/framework": "5.4.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
-        "picqer/php-barcode-generator": "^0.2.1",
+        "picqer/php-barcode-generator": "^0.2.2",
         "predis/predis": "^1.1",
         "simplesoftwareio/simple-qrcode": "^1.5",
         "spatie/laravel-feed": "^1.4",

@@ -36,7 +36,7 @@ class EventsController extends \App\Http\Controllers\Controller
             $get_all =  $get_all->merge($tickets);
            
         }
-         //event(new EventTicketPurchased($get_all[0], $get_all[0]->ticket, $id));
+         event(new EventTicketPurchased($get_all[0], $get_all[0]->ticket, $id));
     
         return View('events.tlist', compact('get_all', 'id'));
     }
@@ -50,7 +50,9 @@ class EventsController extends \App\Http\Controllers\Controller
         $newevent->title = $request->get('title');
         $newevent->date = $request->get('date');
         $newevent->description = $request->get('description');
-        
+        $newevent->venue = $request->get('venue');
+        $newevent->organizer = $request->get('organizer');
+
         $imageName = rand(0, 18000).rand(19000, 39000). '.' . 
         $request->file('image')->guessClientExtension();
         $request->file('image')->move(

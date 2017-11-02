@@ -32,14 +32,23 @@ class TicketPurchased
         $this->event = $event;
      
     
-        $qrCode = new \Arcanedev\QrCode\QrCode;
-        $qrCode->setText($ticketdetails->id);
-        $qrCode->setSize(200);
-        $filename = 'uploads/'.$ticketdetails->id.'.jpg';
-        $qrCode->save($filename);
-        
+        // $qrCode = new \Arcanedev\QrCode\QrCode;
+        // $qrCode->setText($ticketdetails->id);
+        // $qrCode->setSize(200);
+        // $filename = 'uploads/'.$ticketdetails->id.'.jpg';
+        // $qrCode->save($filename);
+        $generator = new \Picqer\Barcode\BarcodeGeneratorPNG();
+        $idevn = explode('-',$ticketdetails->id);
+       //$img =  '<img src="data:image/png;base64,' . base64_encode($generator->getBarcode($idevn[0].$idevn[1].$idevn[2], $generator::TYPE_CODE_128)) . '">';
+        //dd($img);
 
- 
+   
+
+   
+    $fileName = 'uploads/'.$ticketdetails->id.'.png';
+    $imageData = $generator->getBarcode($idevn[0].$idevn[1].$idevn[2], $generator::TYPE_CODE_128); 
+    file_put_contents($fileName, $imageData);
+
 
         Mail::send('emails.send', ['ticketpurchased' => $ticketdetails, 'original'=>$original, 'event'=>$event], function ($message) use ($ticketdetails)
         {

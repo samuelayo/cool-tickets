@@ -1,887 +1,135 @@
 <!DOCTYPE html>
-<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
+<html >
 <head>
-    <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
-    <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Cool Ticket </title>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">  
 
-
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Your ticket has arrived</title>
-    <style>
-        <!-- .ExternalClass p {
-            MARGIN: 0px;
-        }
-        /*////// RESET STYLES //////*/
-        
-        body,
-        #bodyTable,
-        #bodyCell,
-        #outermost {
-            height: 100% !important;
-            margin: 0;
-            font-family: 'Karla', sans-serif;
-            padding: 0;
-            width: 100% !important;
-        }
-        
-        table {
-            border-collapse: collapse;
-        }
-        
-        img {
-            display: block;
-        }
-        
-        img,
-        a img {
-            border: 0;
-            outline: none;
-            text-decoration: none;
-        }
-        
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            margin: 0;
-            padding: 0;
-            text-align: left;
-            color: #1B2432;
-            /* grey-10 */
-            font-family: 'Karla', sans-serif;
-            line-height: 150%;
-        }
-        
-        h1 {
-            font-size: 28px;
-            font-weight: 400;
-            line-height: 125%;
-        }
-        
-        h2 {
-            font-size: 22px;
-        }
-        
-        h3 {
-            font-weight: 400;
-            line-height: 125%;
-        }
-        
-        p {
-            margin: 1em 0;
-        }
-        
-        div,
-        p {
-            line-height: 150%;
-            font-family: 'Karla', sans-serif;
-            font-size: 16px;
-            color: #676D76;
-            /* grey-8 */
-        }
-        
-        .center {
-            text-align: center;
-            margin-left: 15.6em;
-        }
-        /*////// CLIENT-SPECIFIC STYLES //////*/
-        
-        .ReadMsgBody {
-            width: 100%;
-        }
-        
-        .ExternalClass {
-            width: 100%;
-        }
-        /* Force Hotmail/Outlook.com to display emails at full width. */
-        
-        .ExternalClass,
-        .ExternalClass p,
-        .ExternalClass span,
-        .ExternalClass font,
-        .ExternalClass td,
-        .ExternalClass div {
-            line-height: 100%;
-        }
-        /* Force Hotmail/Outlook.com to display line heights normally. */
-        
-        table,
-        td {
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-        }
-        /* Remove spacing between tables in Outlook 2007 and up. */
-        
-        #outlook a {
-            padding: 0;
-        }
-        /* Force Outlook 2007 and up to provide a "view in browser" message. */
-        
-        img {
-            -ms-interpolation-mode: bicubic;
-        }
-        /* Force IE to smoothly render resized images. */
-        
-        body,
-        table,
-        td,
-        p,
-        a,
-        li,
-        blockquote {
-            -ms-text-size-adjust: 100%;
-            -webkit-text-size-adjust: 100%;
-        }
-        /* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
-        /*////// FRAMEWORK STYLES //////*/
-        
-        .flexibleContainerCell {
-            padding-top: 30px;
-            padding-right: 30px;
-            padding-left: 30px;
-            line-height: 0px;
-            border-image-width: 0;
-        }
-        
-        .flexibleContainerCellFullWidth {
-            padding-top: 30px;
-            padding-right: 0px;
-            padding-left: 0px;
-            line-height: 0px;
-            border-image-width: 0;
-        }
-        
-        .flexibleImage {
-            height: auto;
-        }
-        
-        .bottomShim {
-            padding-bottom: 30px;
-        }
-        
-        .imageContent,
-        .imageContentLast {
-            padding-bottom: 30px;
-        }
-        
-        .nestedContainerCell {
-            padding-top: 30px;
-            padding-right: 30px;
-            padding-left: 30px;
-        }
-        /*////// GENERAL STYLES //////*/
-        
-        body,
-        #bodyTable {
-            background-color: #FFFFFF;
-        }
-        
-        #bodyCell {
-            padding-top: 0px;
-            padding-bottom: 40px;
-        }
-        
-        #emailBody {
-            background-color: #FFFFFF;
-            border: 1px solid #DDDDDD;
-            /*border-top: none;*/
-            border-collapse: separate;
-            border-radius: 3px;
-        }
-        
-        .textContent,
-        .textContentLast {
-            color: #676D76;
-            /* grey-8 */
-            font-family: 'Karla', sans-serif;
-            font-size: 16px;
-            line-height: 150%;
-            text-align: Left;
-            padding-bottom: 30px;
-        }
-        
-        .textContent .small,
-        .textContentLast .small {
-            color: #A1A4AA;
-            /* grey-6 */
-            font-size: 10px;
-        }
-        
-        .textContent .label,
-        .textContentLast .label {
-            color: #676D76;
-            /* grey-8 */
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-        
-        .textContent a,
-        .textContentLast a,
-        a {
-            color: #1AAFD0;
-            /* teal */
-            text-decoration: underline;
-            font-weight: 900;
-        }
-        
-        .textContent a.large,
-        .textContentLast a.large {
-            color: #1AAFD0;
-            /* teal */
-            font-size: 22px;
-            text-decoration: underline;
-            font-weight: 400;
-        }
-        
-        .nestedContainer {
-            background-color: #E5E5E5;
-            border: 1px solid #CCCCCC;
-        }
-        
-        .emailButton {
-            background-color: #6a67ce;
-            border-collapse: separate;
-            border-radius: 3px;
-        }
-        
-        .buttonContent {
-            color: #FFFFFF;
-            font-family: 'Karla', sans-serif;
-            font-size: 18px;
-            line-height: 100%;
-            padding: 13px;
-            text-align: center;
-        }
-        
-        .buttonContent a {
-            color: #FFFFFF;
-            display: block;
-            text-decoration: none;
-        }
-        
-        .socialLink {
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-            color: #1E8CD4;
-            font-weight: normal;
-            text-decoration: none;
-            margin-right: 5px;
-        }
-        
-        .share-icon {
-            -ms-interpolation-mode: bicubic;
-            border: 0;
-            height: auto;
-            line-height: 100%;
-            outline: none;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        a.asanaButton {
-            border: 1px solid #6a67ce;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            padding-left: 25px;
-            padding-right: 25px;
-            border-radius: 3px;
-            color: #FFFFFF;
-            text-decoration: none;
-            background-color: #6a67ce;
-            text-decoration: none;
-        }
-        
-        table.green {
-            background-color: #3BE8B0;
-            /* green */
-        }
-        
-        table.purple {
-            background-color: #6A67CE;
-            /* purple */
-        }
-        
-        table.color tr td.textContent {
-            padding: 30px;
-            color: #ffffff;
-            width: auto;
-        }
-        
-        table.color tr td.textContent h3 {
-            color: #ffffff;
-            font-size: 36px;
-            font-weight: 300;
-            margin-bottom: 10px;
-            line-height: 36px;
-            border-radius: 3px;
-        }
-        
-        table.color tr td.textContent p {
-            color: #ffffff;
-        }
-        
-        table.twitter,
-        table.card {
-            border: 1px solid #DDDDDD;
-            border-radius: 3px;
-        }
-        
-        table.twitter tr td.textContent,
-        table.card tr td.textContent {
-            padding: 30px;
-            width: auto;
-        }
-        
-        .preview {
-            width: 600px;
-            display: block;
-            margin: 0px;
-            margin-bottom: 15px;
-            text-align: right;
-        }
-        
-        .footerText {
-            font-size: 11px;
-            color: #A1A4AA;
-        }
-        
-        .preview .footerText {
-            color: #FFFFFF;
-        }
-        
-        .preview .footerText a {
-            color: #A1A4AA;
-            text-decoration: underline;
-        }
-        /*////// MOBILE STYLES //////*/
-        
-        @media only screen and (max-width: 480px) {
-            /*////// CLIENT-SPECIFIC STYLES //////*/
-            body {
-                width: 100% !important;
-                min-width: 100% !important;
-            }
-            /* Force iOS Mail to render the email at full width. */
-            /*////// FRAMEWORK STYLES //////*/
-            /*
-          CSS selectors are written in attribute
-          selector format to prevent Yahoo Mail
-          from rendering media query styles on
-          desktop.
-        */
-            table[id="emailBody"],
-            table[class="flexibleContainer"] {
-                width: 100% !important;
-            }
-            /*
-          The following style rule makes any
-          image classed with 'flexibleImage'
-          fluid when the query activates.
-          Make sure you add an inline max-width
-          to those images to prevent them
-          from blowing out.
-        */
-            img[class="flexibleImage"] {
-                height: auto !important;
-                width: 100% !important;
-            }
-            /*
-          Make buttons in the email span the
-          full width of their container, allowing
-          for left- or right-handed ease of use.
-        */
-            table[class="emailButton"] {
-                width: 100% !important;
-            }
-            td[class="buttonContent"] {
-                padding: 0 !important;
-            }
-            td[class="buttonContent"] a {
-                padding: 15px !important;
-            }
-            td[class="textContentLast"],
-            td[class="imageContentLast"] {
-                padding-top: 30px !important;
-                text-align: left !important;
-            }
-            /*////// GENERAL STYLES //////*/
-            td[id="bodyCell"] {
-                padding-top: 10px !important;
-                padding-right: 10px !important;
-                padding-left: 10px !important;
-            }
-        }
-        
-        .flexibleContainer {
-            display: block !important;
-            width: 100% !important;
-            max-width: 600px !important;
-        }
-        
-        img {
-            max-width: 600px !important;
-        }
-        
-        .flexibleContainer {
-            display: block !important;
-            width: 100% !important;
-            max-width: 600px !important;
-        }
-        
-        img {
-            max-width: 600px !important;
-        }
-    </style>
 </head>
-
-<body>
-
-
-    <!-- easy editor -->
-
-    <div id="outermost" class="ee_noresize" style="color:#676D76;      font-family: 'Karla', sans-serif;font-size:16px; height:100%; line-height:150%; margin:0; padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0; width:100%" height="100%" width="100%">
-        <center>
-
-
-            <table width="600" align="center" cellpadding="0" cellspacing="0" border="0" class="ee_noresize" style="border-collapse: collapse; table-layout: auto;">
-                <tbody>
-                    <tr>
-                        <td style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; mso-table-lspace:0; mso-table-rspace:0">
-
-
-                            <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="border-collapse: collapse;      font-family: 'Karla', sans-serif; height: 100%; margin: 0px; padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px; width: 100%;  background-color: rgb(255, 255, 255);table-layout: auto;"
-                                class="ee_noresize" bgcolor="#ffffff">
-
-
-                                <tbody>
-                                    <tr>
-                                        <td align="center" valign="top" id="bodyCell" style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;      font-family: 'Karla', sans-serif;height:100%; margin:0; mso-table-lspace:0; mso-table-rspace:0; padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0; padding-bottom:0; padding-top:0; width:100%"
-                                            class="ee_noresize" height="100%" width="100%">
-
-                                            <table border="0" cellpadding="0" cellspacing="0" class="ee_noresize" style="border-collapse: collapse; margin: 0px; max-width: 600px; padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px; width: 100%; table-layout: auto;" width="100%">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="left" valign="top" style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; margin:0; max-width:600px; mso-table-lspace:0; mso-table-rspace:0; padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0; width:100%" height="100%"
-                                                            width="100%" class="ee_noresize ee_dropzone">
-
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="ee_noresize ee_element" style="border-top: none;border-right: none;border-bottom: none;border-left: none; border-collapse: collapse; width: 600px; table-layout: auto;" data-eewidth="600"
-                                                                ee-type="container">
-                                                                <!-- MODULE ROW // -->
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td align="center" valign="top" class="ee_noresize" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px; width: 600px;">
-                                                                            <!-- CENTERING TABLE // -->
-                                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="ee_noresize" style="border-collapse: collapse; width: 100%; table-layout: auto;">
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td align="center" valign="top" class="ee_noresize" style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; mso-table-lspace:0; mso-table-rspace:0">
-                                                                                            <!-- FLEXIBLE CONTAINER // -->
-                                                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="flexibleContainer ee_noresize" style="border-collapse: collapse; max-width: 600px; width: 100%; table-layout: auto;">
-                                                                                                <tbody>
-                                                                                                    <tr>
-                                                                                                        <td valign="top" width="100%" class="flexibleContainerCellFullWidth ee_dropzone ee_noresize" style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; border-image-width:0; line-height:0; mso-table-lspace:0; mso-table-rspace:0; padding-left:0; padding-right:0; padding-top:30px; width:100%"
-                                                                                                            align="left">
-                                                                                                            <p class="center"> <img style="width: 90px; " src="https://www.coolfm.ng/img/logo.png"> </p>
-
-
-                                                                                                            <p style="width: 100%;"> <!--<img src="https://coolfm.ng/uploads/{{$ticketpurchased->id}}.jpg"/>--> {{$ticketpurchased->id}}</p>
-
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                            <!-- // FLEXIBLE CONTAINER -->
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                            <!-- // CENTERING TABLE -->
-                                                                        </td>
-                                                                    </tr>
-                                                                    <!-- // MODULE ROW -->
-                                                                </tbody>
-                                                            </table>
-
-
-                                                            <table border="0 " cellpadding="0 " cellspacing="0 " class="ee_noresize " style="border-collapse: collapse; max-width: 600px; width: 100%; table-layout: auto; " width="100% ">
-
-                                                                <!-- Container width bar -->
-
-                                                            </table>
-                                                            <!-- // FLEXIBLE CONTAINER -->
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- // CENTERING TABLE -->
-                                        </td>
-                                    </tr>
-                                    <!-- // MODULE ROW -->
-                                </tbody>
-                            </table>
-
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- // CENTERING TABLE -->
+<style>
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+</style>
+<body style="background-color:#719fd4;font-family:'futura', sans-serif;font-weight:600;" >
+<br>
+<div class="ticket" style="width:400px;height:auto;background-color:white;margin-top:25px;margin-bottom:25px;margin-right:auto;margin-left:auto;position:relative;" >
+	
+	<div class="title" style="padding-top:50px;padding-bottom:10px;padding-right:25px;padding-left:25px;" >
+			<p style="font-style:italic;font-weight:100; color: black;" > E-Ticket</p><p class="cinema" style="color:#0055b3;font-size:19px; font-family: futura; line-height:0; font-weight: 100; text-transform:uppercase;" >{{$event->organizer}} </p>
+		<p class="movie-title" style="font-size:30px;font-weight:900; font-family: futura; color: black; line-height:0; text-transform:uppercase;" >{{$event->title}}</p>
+	</div>
+	<div class="poster">
+		<img src="https://tickets.coolfm.ng{{$event->image}}" style="max-width:100%;height:auto;" alt="event img" />
+	</div>
+	<div class="info" style="padding-top:15px;padding-bottom:15px;padding-right:25px;padding-left:25px;" >
+	<table style="width:100%;font-size:18px;margin-bottom:15px;" >
+		<tr style="margin-bottom:10px;" >
+			<th style="text-align:left;font-weight:400;text-transform:lowercase; color: black;" >TICKET GRADE</th><th style="padding-left:1em;text-align:left;font-weight:400;text-transform:lowercase; font-family: futura; color: black;" >Quantity</th>
+			<th style="text-align:left;font-weight:400;text-transform:lowercase; color: black;" >DAYS TO GO</th> 	
+	
+		</tr>
+		<tr style="margin-bottom:10px;" >
+			<td style="width:33%;font-size:21px; font-family: futura; color: black; text-transform: uppercase;" >{{$original->name}}</td><td style="padding-left:1em;color:#06d88b;width:33%;font-size:21px; font-family: futura; color: black; " >{{$ticketpurchased->qty}}</td>
+			<td class="bigger" style="width:33%;font-size:48px;font-weight:900;color:red; font-family: futura;" >
+            <?php 
+            $date=strtotime($event->date);
+            $diff=$date-time();//time returns current time in seconds
+            $days=floor($diff/(60*60*24));
+            echo $days;
+            ?>
+           </td>
+			
+		</tr>
+	</table>
+	<table style="width:100%;font-size:18px;margin-bottom:15px;" >
+		<tr style="margin-bottom:10px;" >
+			<th style="text-align:left;font-weight:400;text-transform:lowercase; color: black;" >PRICE</th>
+			<th style="text-align:left;font-weight:400;text-transform:lowercase; color: black;" >DATE</th>
+			<th style="text-align:left;font-weight:400;text-transform:lowercase; color: black;" >TIME</th>
+		</tr>
+		<tr style="margin-bottom:10px;" >
+			<td style="width:33%;font-size:21px; font-family: futura; color: black; text-transform: uppercase;" >
+            N{{number_format($ticketpurchased->total_amt)}}
+               
+            
             </td>
-            </tr>
+			<td style="width:33%;font-size:21px; font-family: futura; color: black; text-transform: uppercase;" >
+            <?php 
+            $new =  explode(' ', $event->date);
+            
+            $date = new DateTime($new[0]);
 
-            </tbody>
-            </table>
-
-            <table border="0 " cellpadding="0 " cellspacing="0 " id="emailBody " style="border-top: 1px solid rgb(221, 221, 221);border-right: 1px solid rgb(221, 221, 221);border-bottom: 1px solid rgb(221,
-                                                                                                                221, 221);border-left: 1px solid rgb(221, 221, 221); border-collapse: separate; border-radius: 3px; max-width: 600px; width: 100%; background-color:
-                                                                                                                rgb(255, 255, 255);table-layout: auto; " class="ee_noresize " width="100% " bgcolor="#ffffff ">
-
-                <tbody>
-                    <tr>
-                        <td align="left " valign="top " class="ee_dropzone ee_noresize " style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px; ">
-
-                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize ee_element " style="border-top: none;border-right: none;border-bottom: none;border-left:
-                                                                                                                none; border-collapse: collapse; width: 598px; table-layout: auto; " data-eewidth="598 " ee-type="container ">
-                                <!-- MODULE ROW // -->
-                                <tbody>
-                                    <tr>
-                                        <td align="center " valign="top " class="ee_noresize " style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px; width: 598px; ">
-                                            <!-- CENTERING TABLE // -->
-                                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize " style="border-collapse: collapse; width: 100%; table-layout: auto; ">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="center " valign="top " class="ee_noresize " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; mso-table-lspace:0; mso-table-rspace:0 ">
-                                                            <!-- FLEXIBLE CONTAINER // -->
-                                                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="flexibleContainer ee_noresize " style="border-collapse: collapse; max-width:
-                                                                                                                600px; width: 100%; table-layout: auto; ">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td valign="top " width="100% " class="flexibleContainerCell ee_dropzone ee_noresize " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;
-                                                                                                                border-image-width:0; line-height:0; max-width:540px; mso-table-lspace:0; mso-table-rspace:0; padding-left:30px; padding-right:30px; padding-top:30px "
-                                                                            align="left ">
-
-
-
-
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                            <!-- // FLEXIBLE CONTAINER -->
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- // CENTERING TABLE -->
-                                        </td>
-                                    </tr>
-                                    <!-- // MODULE ROW -->
-                                </tbody>
-                            </table>
-
-                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize ee_element " style="border-top: none;border-right: none;border-bottom: none;border-left:
-                                                                                                                none; border-collapse: collapse; width: 598px; table-layout: auto; " data-eewidth="598 " ee-type="container ">
-                                <!-- MODULE ROW // -->
-                                <tbody>
-                                    <tr>
-                                        <td align="center " valign="top " class="ee_noresize " style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px; width: 598px; ">
-                                            <!-- CENTERING TABLE // -->
-                                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize " style="border-collapse: collapse; width: 100%; table-layout: auto; ">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="center " valign="top " class="ee_noresize " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; mso-table-lspace:0; mso-table-rspace:0 ">
-                                                            <!-- FLEXIBLE CONTAINER // -->
-                                                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="flexibleContainer ee_noresize " style="border-collapse: collapse; max-width:
-                                                                                                                600px; width: 100%; table-layout: auto; ">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td valign="top " width="100% " class="flexibleContainerCellFullWidth ee_dropzone ee_noresize " style="-ms-text-size-adjust:100%;
-                                                                                                                -webkit-text-size-adjust:100%; border-image-width:0; line-height:0; mso-table-lspace:0; mso-table-rspace:0; padding-left:0; padding-right:0; padding-top:30px;
-                                                                                                                width:100% " align="left ">
-                                                                            <table border="0 " cellpadding="0 " cellspacing="0 " class="ee_element ee_noresize " width="600 " style="border-collapse: collapse;
-                                                                                                                table-layout: auto; " data-eewidth="600 " ee-type="element ">
-                                                                                <tbody>
-
-                                                                                </tbody>
-                                                                            </table>
-                                                                            <!-- // CONTENT TABLE -->
-
-
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                            <!-- // FLEXIBLE CONTAINER -->
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- // CENTERING TABLE -->
-                                        </td>
-                                    </tr>
-                                    <!-- // MODULE ROW -->
-                                </tbody>
-                            </table>
-
-                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize ee_element " style="border-top: none;border-right: none;border-bottom: none;border-left:
-                                                                                                                none; border-collapse: collapse; width: 598px; table-layout: auto; " data-eewidth="598 " ee-type="container ">
-                                <!-- MODULE ROW // -->
-                                <tbody>
-                                    <tr>
-                                        <td align="center " valign="top " class="ee_noresize " style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px; width: 598px; ">
-                                            <!-- CENTERING TABLE // -->
-                                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize " style="border-collapse: collapse; width: 100%; table-layout: auto; ">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="center " valign="top " class="ee_noresize " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; mso-table-lspace:0; mso-table-rspace:0 ">
-                                                            <!-- FLEXIBLE CONTAINER // -->
-                                                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="flexibleContainer ee_noresize " style="border-collapse: collapse; max-width:
-                                                                                                                600px; width: 100%; table-layout: auto; ">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td valign="top " width="100% " class="flexibleContainerCell ee_dropzone ee_noresize " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;
-                                                                                                                border-image-width:0; line-height:0; max-width:540px; mso-table-lspace:0; mso-table-rspace:0; padding-left:30px; padding-right:30px; padding-top:30px "
-                                                                            align="left ">
-
-
-                                                                            <!-- CONTENT TABLE // -->
-                                                                            <!--
-  The content table is the first element
-    that's entirely separate from the structural
-    framework of the email.
--->
-                                                                            <table border="0 " cellpadding="0 " cellspacing="0 " class="ee_element ee_noresize " width="540 " style="border-collapse: collapse;
-                                                                                                                table-layout: auto; " data-eewidth="540 " ee-type="element ">
-                                                                                <tbody>
-
-                                                                                    <tr>
-                                                                                        <td valign="top " class="textContent ee_noresize " width="auto " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;
-                                                                                                                color:#676D76; font-family:Helvetica; font-size:16px; line-height:150%; mso-table-lspace:0; mso-table-rspace:0; padding-bottom:30px; text-align:center "
-                                                                                            align="Left ">
-                                                                                            <div class="ee_editable ">
-                                                                                                <p style="color: #000; font-family: 'Karla', sans-serif;font-size: 17px;letter-spacing: -.5px; font-weight:
-                                                                                                                700; "><b>Event Title
-</b></p>
-                                                                                                <td>
-                                                                                                    <p style="color: #000; font-family: 'Karla', sans-serif;font-size: 17px;letter-spacing: -.5px; font-weight:
-                                                                                                                700; margin-top: -.68em; float: right; padding-right: 3em; ">{{$event->title}}</p>
-                                                                                                </td>
-
-                                                                                            </div>
-                                                                                        </td>
-                                                                                    </tr>
-
-                                                                                    <tr>
-                                                                                        <td valign="top " class="textContent ee_noresize " width="auto " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;
-                                                                                                                color:#676D76; font-family:Helvetica; font-size:16px; line-height:150%; mso-table-lspace:0; mso-table-rspace:0; padding-bottom:30px; text-align:center "
-                                                                                            align="Left ">
-                                                                                            <div class="ee_editable ">
-                                                                                                <p style="color: #000; font-family: 'Karla', sans-serif;font-size: 17px;letter-spacing: -.5px; font-weight:
-                                                                                                                700; "><b>Ticket Type
-</b></p>
-                                                                                                <td>
-                                                                                                    <p style="color: #000; font-family: 'Karla', sans-serif;font-size: 17px;letter-spacing: -.5px; font-weight:
-                                                                                                                700; margin-top: -.68em; float: right; padding-right: 3em; ">{{$original->name}}</p>
-                                                                                                </td>
-
-                                                                                            </div>
-                                                                                        </td>
-                                                                                    </tr>
-
-                                                                                    <tr>
-                                                                                        <td valign="top " class="textContent ee_noresize " width="auto " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;
-                                                                                                                color:#676D76; font-family:Helvetica; font-size:16px; line-height:150%; mso-table-lspace:0; mso-table-rspace:0; padding-bottom:30px; text-align:center "
-                                                                                            align="Left ">
-                                                                                            <div class="ee_editable ">
-                                                                                                <p style="color: #000; font-family: 'Karla', sans-serif;font-size: 17px;letter-spacing: -.5px; font-weight:
-                                                                                                                700; "><b>Quantity
-</b></p>
-                                                                                                <td>
-                                                                                                    <p style="color: #000; font-family: 'Karla', sans-serif;font-size: 17px;letter-spacing: -.5px; font-weight:
-                                                                                                                700; margin-top: -.68em; float: right; padding-right: 3em; ">{{$ticketpurchased->qty}}</p>
-                                                                                                </td>
-
-                                                                                            </div>
-                                                                                        </td>
-                                                                                    </tr>
-
-
-                                                                                    <tr>
-                                                                                        <td valign="top " class="textContent ee_noresize " width="auto " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;
-                                                                                                                color:#676D76; font-family:Helvetica; font-size:16px; line-height:150%; mso-table-lspace:0; mso-table-rspace:0; padding-bottom:30px; text-align:center "
-                                                                                            align="Left ">
-                                                                                            <div class="ee_editable ">
-                                                                                                <p style="color: #000; font-family: 'Karla', sans-serif;font-size: 17px;letter-spacing: -.5px; font-weight:
-                                                                                                                700; "><b>Amount
-</b></p>
-                                                                                                <td>
-                                                                                                    <p style="color: #000; font-family: 'Karla', sans-serif;font-size: 17px;letter-spacing: -.5px; font-weight:
-                                                                                                                700; margin-top: -.68em; float: right; padding-right: 3em; ">N{{number_format($ticketpurchased->total_amt, 2)}}</p>
-                                                                                                </td>
-
-                                                                                            </div>
-                                                                                        </td>
-                                                                                    </tr>
-
-
-                                                                                </tbody>
-                                                                            </table>
-                                                                            <!-- // CONTENT TABLE -->
-
-
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                            <!-- // FLEXIBLE CONTAINER -->
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- // CENTERING TABLE -->
-                                        </td>
-                                    </tr>
-                                    <!-- // MODULE ROW -->
-                                </tbody>
-                            </table>
-
-                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize ee_element " style="border-top: none;border-right: none;border-bottom: none;border-left:
-                                                                                                                none; border-collapse: collapse; width: 598px; table-layout: auto; " data-eewidth="598 " ee-type="container ">
-                                <!-- MODULE ROW // -->
-                                <tbody>
-                                    <tr>
-                                        <td align="center " valign="top " class="ee_noresize " style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px; width: 598px; ">
-                                            <!-- CENTERING TABLE // -->
-                                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize " style="border-collapse: collapse; width: 100%; table-layout: auto; ">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="center " valign="top " class="ee_noresize " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; mso-table-lspace:0; mso-table-rspace:0 ">
-                                                            <!-- FLEXIBLE CONTAINER // -->
-                                                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="flexibleContainer ee_noresize " style="border-collapse: collapse; max-width:
-                                                                                                                600px; width: 100%; table-layout: auto; ">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td valign="top " width="100% " class="flexibleContainerCell ee_dropzone ee_noresize " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;
-                                                                                                                border-image-width:0; line-height:0; max-width:540px; mso-table-lspace:0; mso-table-rspace:0; padding-left:30px; padding-right:30px; padding-top:30px "
-                                                                            align="left ">
-
-
-
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                            <!-- // FLEXIBLE CONTAINER -->
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- // CENTERING TABLE -->
-                                        </td>
-                                    </tr>
-                                    <!-- // MODULE ROW -->
-                                </tbody>
-                            </table>
-
-
-                        </td>
-                    </tr>
-
-
-                </tbody>
-            </table>
-            <!-- // EMAIL CONTAINER -->
-
-
-            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize ee_element " style="border-top: none;border-right: none;border-bottom: none;border-left: none; border-collapse:
-                                                                                                                collapse; width: 600px; table-layout: auto; " data-eewidth="600 " ee-type="container ">
-                <!-- MODULE ROW // -->
-                <tbody>
-                    <tr>
-                        <td align="center " valign="top " class="ee_noresize " style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px; width: 600px; ">
-                            <!-- CENTERING TABLE // -->
-                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="ee_noresize " style="border-collapse: collapse; width: 100%; table-layout: auto; ">
-                                <tbody>
-                                    <tr>
-                                        <td align="center " valign="top " class="ee_noresize " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; mso-table-lspace:0; mso-table-rspace:0 ">
-                                            <!-- FLEXIBLE CONTAINER // -->
-                                            <table border="0 " cellpadding="0 " cellspacing="0 " width="100% " class="flexibleContainer ee_noresize " style="border-collapse: collapse; max-width: 600px;
-                                                                                                                width: 100%; table-layout: auto; ">
-                                                <tbody>
-                                                    <tr>
-                                                        <td valign="top " width="100% " class="flexibleContainerCell ee_dropzone ee_noresize " style="-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;
-                                                                                                                border-image-width:0; line-height:0; max-width:540px; mso-table-lspace:0; mso-table-rspace:0; padding-left:30px; padding-right:30px; padding-top:30px "
-                                                            align="left ">
-
-
-                                                            <div class="center " style="color:#676D76; margin-left: 3em; font-family:Helvetica; font-size:16px; line-height:150%; margin-bottom:60px; text-align:center;
-                                                                                                                width:100% " align="center " width="100% ">
-
-                                                                <center>
-
-                                                                    <div class="footerText ee_editable ee_noresize " style="color:#A1A4AA; font-family:Helvetica; font-size:11px; line-height:150%
-                                                                                                                "> You are signed up for this email as {{$ticketpurchased->email}}. <a  href="# " style="color: rgb(26, 175, 208); text-decoration: underline; ">Cool FM ticketing service</a>.
-                                                                        <br> Plot 267A, Etim Inyang Crescent, Victoria Island Annex, Lagos</div>
-                                                                    <br>
-
-                                                                    <a  href="#" class="socialLink " style="-ms-text-size-adjust:100%;
-                                                                                                                -webkit-text-size-adjust:100%; color:#1E8CD4; font-weight:normal; margin-right:5px; text-decoration:none ">
-                                                                        <img class="share-icon ee_noresize " src="https://d3qngc7ypzt3ty.cloudfront.net/blog/icon-tweet.png " style="-ms-interpolation-mode:bicubic;
-                                                                                                                border-top:0;border-right:0;border-bottom:0;border-left:0; display:inline-block; height:auto; line-height:100%; outline:none; text-decoration:none "
-                                                                            height="auto ">
-                                                                    </a>
-                                                                    <a  href="#" class="socialLink " style="-ms-text-size-adjust:100%;
-                                                                                                                -webkit-text-size-adjust:100%; color:#1E8CD4; font-weight:normal; margin-right:5px; text-decoration:none ">
-                                                                        <img class="share-icon ee_noresize " src="https://d3qngc7ypzt3ty.cloudfront.net/blog/icon-facebook.png " style="-ms-interpolation-mode:bicubic;
-                                                                                                                border-top:0;border-right:0;border-bottom:0;border-left:0; display:inline-block; height:auto; line-height:100%; outline:none; text-decoration:none "
-                                                                            height="auto ">
-                                                                    </a>
-                                                                </center>
-
-                                                            </div>
-
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- // FLEXIBLE CONTAINER -->
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- // CENTERING TABLE -->
-                        </td>
-                    </tr>
-                    <!-- // MODULE ROW -->
-                </tbody>
-            </table>
-
+            echo $date->format('d/m/Y');
+            ?>
             </td>
-            </tr>
-            </tbody>
-            </table>
-
-            </td>
-            </tr>
+			<td style="width:33%;font-size:21px; font-family: futura; color: black; text-transform: uppercase;" ><center><?php echo substr($new[1], 0, -3).' '.$new[2]; ?></center></td>
+		</tr>
+	</table>
 
 
-            </tbody>
-            </table>
+	<table style="width:100%;font-size:18px;margin-bottom:15px;" >
+		<tr style="margin-bottom:10px;" >
+			<th style="text-align:left;font-weight:400;text-transform:lowercase; font-family: futura; color: black;" >VENUE</th>
+			
+	
+		</tr>
+		<tr style="margin-bottom:10px;" >
+			<td class="location" style="width:33%;font-size:20px;font-weight:700; font-family: futura; color: black; text-transform: uppercase;" >{{$event->venue}}</td>
+		
+			
+		</tr>
+	</table>
+	</div>
+	<div class="holes-lower" style="position:relative;margin-top:25px;margin-bottom:0px;margin-right:25px;margin-left:25px;border-width:1px;border-style:dashed;border-color:#aaa;" ></div>
+	<div class="serial" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;" >
+    <img src="https://tickets.coolfm.ng/{{$ticketpurchased->id}}.png"/>
+    <br>
+    <span style="opacity: .3; color: black;">{{$ticketpurchased->id}}</span>
+		<table class="barcode" style="width:100%;font-size:18px;border-collapse:collapse;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;" ><tr style="margin-bottom:10px;" ></tr></table>
+		<table class="numbers" style="width:100%;font-size:18px;border-collapse:collapse;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;" >
+		<!-- <tr style="margin-bottom:10px;" >
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >9</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >1</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >7</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >3</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >7</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >5</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >4</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >4</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >4</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >5</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >4</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >1</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >4</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >7</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >8</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >7</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >3</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >4</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >1</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >4</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >5</td>
+				<td style="width:3px;height:50px;font-size:16px;text-align:center;" >2</td>
+			</tr> -->
+		</table>
+	</div>
+</div>
 
 
-            </td>
-            </tr>
-            </tbody>
-            </table>
+<div  class="ticket" style="background-color:transparent;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;color:#fff;width:400px;height:auto;margin-top:25px;margin-bottom:25px;margin-right:auto;margin-left:auto;position:relative;" ><div class="info" style="padding-top:15px;padding-bottom:15px;padding-right:25px;padding-left:25px;" ><table style="padding-top:1em;padding-bottom:1em;padding-right:1em;padding-left:1em;width:100%;font-size:18px;margin-bottom:15px;" >
+		<tr style="margin-bottom:10px;" >
+			<th style="font-weight:100;padding-top:1em;font-size:15px;line-height:1.2;text-align:left;text-transform:lowercase;" ><p style="border-bottom-width:1px;border-bottom-style:dashed;border-bottom-color:#f9f9f9;text-transform:uppercase;padding-bottom:1em;font-weight:800;letter-spacing:2px;font-size:13px;" >↡ IMPORTANT </p> 
+				<p style="border-bottom-width:1px;border-bottom-style:dashed;border-bottom-color:#f9f9f9;padding-top:1em;padding-bottom:1em;" >The mail containing this E-Ticket will serve as your evidence of payment at the venue of the event and/or can be swapped with a hard copy invite at various vendor points as may be stated by show organiser. </p> <p style="padding-top:1em;" >For inquiries, complaints and more information you can shoot us a mail at </p> </th>	
+			
+	
+		</tr>
+		<tr style="margin-bottom:10px;" >
+			<td style="font-size:15px;font-weight:400;width:33%; font-family: futura;" >tickets@coolfm.com.ng</td>
+		
+			
+		</tr>
+	</table></div></div>
 
 
-        </center>
-
-    </div><img src="http://connect.asana.com/1L9Q-3PBPS-G3T7Q1/o.gif " width="1 " height="1 " alt=" " style="display:block; "></img>
-    <font color="#3A0BEF59 "></font>
 </body>
-
 </html>

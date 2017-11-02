@@ -36,6 +36,16 @@
                     <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="Title/Name of Event" required>
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Organizer of event</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" name="organizer" class="form-control" id="inputEmail3" placeholder="Organizer of Event e.g (Cool FM)" required>
+                  </div>
+                  
+                </div>
+
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label" name="description" placeholder="description">Description</label>
 
@@ -48,6 +58,14 @@
 
                   <div class="col-sm-10">
                     <input type="text" name="date" class="form-control" id="daepicker" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label" name="date" placeholder="Venue of the event">Venue</label>
+
+                  <div class="col-sm-10">
+                    <textarea  name="venue" class="form-control" required></textarea>
                   </div>
                 </div>
                

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0231507ed7d32dc1a7eccfdb89122b1a",
-    "content-hash": "597eaf60dfc7dc38e7bb77bf805876fe",
+    "hash": "f9d0fa133fb1190d7b34b3c3cbdc908e",
+    "content-hash": "82bc80a974af69fc6617dd11b6ece65f",
     "packages": [
         {
             "name": "adumskis/laravel-advert",
@@ -17,7 +17,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adumskis/laravel-advert/zipball/9ebc22742940ec8d7c1db2c71dbc1a33ae8c0747",
+                "url": "https://api.github.com/repos/adumskis/laravel-advert/zipball/963818608938f2d61dca5e0539c8647c64e572e3",
                 "reference": "9ebc22742940ec8d7c1db2c71dbc1a33ae8c0747",
                 "shasum": ""
             },
@@ -3238,16 +3238,16 @@
         },
         {
             "name": "picqer/php-barcode-generator",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/picqer/php-barcode-generator.git",
-                "reference": "5328d821b076727163a3ad25373973055faadead"
+                "reference": "f754cbd592f3131af144dfcc6a3090fd0f6d1793"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/picqer/php-barcode-generator/zipball/5328d821b076727163a3ad25373973055faadead",
-                "reference": "5328d821b076727163a3ad25373973055faadead",
+                "url": "https://api.github.com/repos/picqer/php-barcode-generator/zipball/f754cbd592f3131af144dfcc6a3090fd0f6d1793",
+                "reference": "f754cbd592f3131af144dfcc6a3090fd0f6d1793",
                 "shasum": ""
             },
             "require": {
@@ -3303,7 +3303,7 @@
                 "svg",
                 "upc"
             ],
-            "time": "2016-10-17 14:20:28"
+            "time": "2017-09-28 19:23:19"
         },
         {
             "name": "predis/predis",
