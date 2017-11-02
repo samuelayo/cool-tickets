@@ -36,7 +36,7 @@ class EventsController extends \App\Http\Controllers\Controller
             $get_all =  $get_all->merge($tickets);
            
         }
-         event(new EventTicketPurchased($get_all[0], $get_all[0]->ticket, $id));
+         //event(new EventTicketPurchased($get_all[0], $get_all[0]->ticket, $id));
     
         return View('events.tlist', compact('get_all', 'id'));
     }
