@@ -10,6 +10,9 @@
                         {{evn.title}}</h4>
                     <h5 id="event-date" class="group inner list-group-item-heading">
                         {{evn.date}}</h5>
+
+                     <h5 id="event-date" class="group inner list-group-item-heading" style="text-transform: uppercase;">
+                        {{evn.venue}}</h5>
                     <p id="event-caption" class="group inner list-group-item-text">
                         {{evn.description}}
                     </p>
@@ -270,6 +273,10 @@
     .glyphicon {
         margin-right: 5px;
     }
+
+    .item {
+    margin: 1em;
+        }
     
     .thumbnail {
         margin-bottom: 20px;
