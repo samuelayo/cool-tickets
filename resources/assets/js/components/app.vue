@@ -16,92 +16,7 @@
     <meta name="twitter:title" :content="title" />
     <meta name="twitter:site" content="@coolfmnigeria" />
     <meta name="twitter:image" :content="twitterimage" />
-    <!--<div class="container-fluid topnav" style="
-                        height: 40px !important;
-                        background-color: blue !important; border-bottom: none !important;
-    width: auto !important; box-shadow: inset 0 0 0 1000px rgba(0, 79, 253, 0.4); ;
-                                                               ">
-      <p style="text-align:center;
-                        width: 100%;
-                        padding: 1em;
-                        font-size: 1.5em; color:#fff;
-                        font-family: 'Circular-light';
-                              ">All your favorite events, All the time.
-        <router-link to="/events"><button style="
-                        border-radius: 40px;
-                        border: 1px solid blue;
-                        background: rgba(240, 248, 255, 0.97);
-                        /* -webkit-box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75); */
-                        -moz-box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75);
-                        /* box-shadow: 10px 10px 139px -32px rgba(0,0,0,0.75); */
-                        border: 1px solid blue;
-                        color: blue;
-                        height: 36px;
-                        font-size: .7em !important;
-                        width: 149px;
-                        margin-left: 2em;
-                        font-family: 'Circular-Book';
-                        vertical-align: middle;
-                    "><img src="/img/logo.svg" width="150" alt="Cool Fm"></button></router-link>
-      </p>
-    </div> -->
-  
-  
-  <!--  <div class="intro-header">
-      <div id="fb-streaming-row">
-        <div class="row">
-          <div class="col-lg-12">
-  
-  
-            <div class="container-fluid">
-              <div class="row clearmargin clearpadding row-image-txt" style="height:178px; width: auto;" v-if="now_playing">
-                <div v-if="now_playing" class="col-xs-12 col-sm-6 col-md-6 clearmargin clearpadding col-sm-push-6" :style="'background: url('+now_playing.image+');background-size:100%;height:242px;background-position:center;width:50%;'">
-                  <div></div>
-                  <p style="margin-top:.5EM;margin-left:.3em;font-family:'Circular-medium';width:100%;text-shadow:-1px -1px 25px rgb(1,1,1);padding:1em; color: white;"><i class="ion-location"></i>&nbsp Live from {{current_state}}</p>
-                  <div style="cursor:pointer;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;height:3em;width:9em;border-radius:40px;font-size:1.09em;color:#fff;margin-top:7em;margin-left:1em;text-align:center;background-color:red;"><span style="padding-left: 1.2em;
-        padding-top: 0.2em;
-        border: 1px solid;
-        margin: 0.6em;
-        margin-right: 0.4em;
-        width: 27px;
-        border-radius: 50%;"><i :class="'ion-ios-'+play+''" @click="playthat(0,'livestream', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos', now_playing.title);" style="margin-left: -1em;"></i></span>
-                    <p style="margin-top:.8EM;margin-left:.3em;font-family:'Circular-medium';padding-top: 0.2em;">Listen Live</p>
-                    <p class="help-block"> </p>
-                  </div>
-  
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-sm-pull-6 panning" style='margin-bottom:0;height:242px;width:50%;
-            background-color: rgb(21, 21, 21);
-    background-image: url("/diagonal-stripes 2.svg");
-    animation: panning 50s infinite linear;
-            '>
-                  <h1 v-if="now_playing" style="font-size:1em;text-align:center; color: white; font-family: Circular-black;">{{now_playing.title}}<span style="opacity:.4;float:right;padding-right:1em;"> Ending {{timeleft(now_playing.end)}}</span> <span style="opacity:1;float:left;color:red;margin-right:1em;"><span class="pulse"></span> Now </span>
-                  </h1>
-                  <hr style="opacity:.2;">
-                  <div v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='Later')">
-                  <h1 style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;"><i class="ion-ios-time"></i>&nbsp {{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
-                  <hr style="opacity:.2;">
-                  </div>
 
-                  <div v-for="(schedule, index) in formated_schedules" v-if="(between(schedule.start, schedule.end)=='Ended')">
-                  <h1 style="font-size:1em;text-align:center;font-family: Circular-black;color: white;"><span style="opacity:.4;float:right;padding-right:1em;">{{schedule.start}} - {{schedule.end}}</span><span style="opacity:1;float:left;color:rgb(137,136,136);margin-right:1em;"><i class="ion-android-remove-circle"></i>&nbsp {{between(schedule.start, schedule.end)}} </span>{{schedule.title}}</h1>
-                  <hr style="opacity:.2;">
-                  </div>
-                </div>
-              </div>
-              <div></div>
-              <center v-if="!now_playing">Loading...</center>
-  
-            </div>
-  
-  
-  
-          </div>
-        </div>
-      </div>
-       
-    </div>-->
-  
   
   
     <nav class="navbar topnav navbar-default" role="navigation">
@@ -124,50 +39,7 @@
                                             </button>
           </div>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-     <!--   <div class="collapse navbar-collapse htop" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            
-            <li style="padding: 0px;padding-top: 0px !important;padding-left: 0px !important;padding-right: 0px !important;">
-              <gcse:search></gcse:search>
-            </li>
-            <li>
-              <a data-toggle="dropdown">Categories
-                                                  <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li v-for="cat in categories">
-                  <router-link :to="{ name: 'blogcategory', params: { id: cat.id, name:cat.name }}">{{cat.name}}</router-link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <router-link to="/all_oaps">OAPs</router-link>
-            </li>
-            <li>
-              <a data-toggle="dropdown">Company
-                                                  <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li>
-                  <router-link to="/aboutus">About Us</router-link>
-                </li>
-                <li>
-                  <router-link to="/contact-us">Contact Us</router-link>
-                </li>
-              </ul>
-            </li>
-            <li style="margin-right: -1.1em;">
-              <a class="switch" data-toggle="dropdown">Switch Channel
-                                                  <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="javascript:void()" @click="change_state('Lagos', 'http://icestream.coolwazobiainfo.com:8000/coolfm-lagos')">Coolfm Lagos</a></li>
-                <li><a href="javascript:void()" @click="change_state('Kano', 'http://icestream.coolwazobiainfo.com:8000/coolfm-kano')">Coolfm Kano</a></li>
-                <li><a href="javascript:void()" @click="change_state('Abuja', 'http://icestream.coolwazobiainfo.com:8000/coolfm-abuja')">Coolfm Abuja</a></li>
-                <li><a href="javascript:void()" @click="change_state('Ph', 'http://icestream.coolwazobiainfo.com:8000/coolfm-ph')">Coolfm PH</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div> -->
-        <!-- /.navbar-collapse -->
+      
       </div>
       <!-- /.container-fluid -->
     </nav>
@@ -241,13 +113,6 @@
     },
     mounted: function() {
 
-      
-      // setInterval(()=>{ 
-      //   var sch = this.schedule;
-      //   this.schedule = [];
-      //   this.schedule = sch;
-      //  }, 3000);
-      /// loadscript function that returns promise and resolves to confirm a scrip has been loaded///
       function loadScript(url) {
         return new Promise(function(resolve, reject) {
           var script = document.createElement("script")
@@ -300,7 +165,7 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(gcse, s);
       })();
-      this.player = plyr.setup();
+      
     },
     computed: {
       playorpause: function() {
@@ -404,102 +269,6 @@
           audio.play();
         }
         return this.$store.state.current_stream;
-      },
-      formated_schedules: function() {
-        //set array to hold before items
-        var form_sche = [];
-        //set array t hold after items
-        var after_sche = [];
-        //set schedule to current schedule
-        var schedule_arry = this.schedule[this.current_state];
-        //array_s is am empty array to hold the final value
-        var array_s = [];
-        var myDate = new Date();
-        if (schedule_arry) {
-          if (myDate.getDay() == 6) {
-            //saturday
-            //filter by saturday
-            schedule_arry = _.filter(schedule_arry, (sch) => {
-              return sch.period == "saturday";
-            });
-            array_s = schedule_arry.sort(function(a, b) {
-              return a.start > b.start;
-            });
-          } else if (myDate.getDay() == 0) {
-            //sunday
-            //filter by sunday
-            schedule_arry = _.filter(schedule_arry, (sch) => {
-              return sch.period == "sunday";
-            });
-            array_s = schedule_arry.sort(function(a, b) {
-              return a.start > b.start;
-            });
-          } else {
-            //otherdays
-            schedule_arry = _.filter(schedule_arry, (sch) => {
-              return sch.period != "sunday" && sch.period != "saturday";
-            });
-  
-            array_s = schedule_arry.sort(function(a, b) {
-              return a.start > b.start;
-            });
-          }
-  
-        }
-  
-        array_s = array_s.filter(function(num) {
-          var format = 'hh:mm:ss'
-          var time = moment();
-          var beforeTime = moment(num.start, format);
-          var afterTime = moment(num.end, format);
-          if (time.isBetween(beforeTime, afterTime)) {
-            //return num
-            form_sche.push(num);
-          }
-  
-          if (beforeTime.isAfter(time)) {
-              form_sche.push(num);
-          }
-
-          if (afterTime.isBefore(time)) {
-              after_sche.push(num);
-          }
-        })
-        //return array_s.slice(0, 4);
-
-        return form_sche.concat(after_sche.reverse()).slice(0, 4);
-      },
-      now_playing: function() {
-        if (this.schedule[this.current_state]) {
-          var myDate = new Date();
-          var schedule_arry = this.schedule[this.current_state];
-          if (myDate.getDay() == 6) {
-            //saturday
-            //filter by saturday
-            schedule_arry = _.filter(schedule_arry, (sch) => {
-              return sch.period == "saturday";
-            });
-  
-          } else if (myDate.getDay() == 0) {
-            //sunday
-            //filter by sunday
-            schedule_arry = _.filter(schedule_arry, (sch) => {
-              return sch.period == "sunday";
-            });
-  
-          } else {
-            //otherdays
-            schedule_arry = _.filter(schedule_arry, (sch) => {
-              return sch.period != "sunday" && sch.period != "saturday";
-            });
-          }
-          for (var i = 0; i < schedule_arry.length; i++) {
-            var schedu = schedule_arry[i];
-            if (this.between(schedu.start, schedu.end) == "NOW") {
-              return schedu
-            }
-          }
-        }
       },
       current_state: function() {
         return this.$store.state.current_state;

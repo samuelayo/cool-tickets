@@ -22,7 +22,9 @@
                             <p><span>Ticket Type</span></p>
                             <p><span>Ticket Quantity</span></p>
                             <p id="price" class="lead">
-                                N{{ticket_price[index].price | money }}<small class="days-left">{{daysRemaining(evn.date)}}</small></p>
+                                <span v-if="ticket_price[index].price != 0 ">N{{ticket_price[index].price | money }}</span>
+                                <span v-if="ticket_price[index].price == 0 " > Free </span>
+                                <small class="days-left">{{daysRemaining(evn.date)}}</small></p>
                         </div>
                         <div class="col-md-6 col-md-6 holdown">
     
@@ -165,23 +167,64 @@
                             text: "Please provide us with an email:",
                             type: "input",
                             showCancelButton: true,
-                            closeOnConfirm: true,
+                            closeOnConfirm: false,
                             animation: "slide-from-top",
                             inputPlaceholder: "email",
                             inputValue: email
                         },
                         (inputValue) => {
-                            if (inputValue === false) {
+                            if (inputValue == false) {
                                 return false;
-                            } else if (inputValue === "") {
-                                swal.showInputError("You need to write something!");
-                                return false
+                            } else if (inputValue == "") {
+                                swal.showInputError("You need to input an email!");
+                                return false;
                             } else if (!regex.test(inputValue)) {
                                 swal.showInputError("Your email is not valid!");
                                 return false;
                             } else {
                                 email = inputValue;
                                 var self = this;
+                                if(total_amt == 0){
+
+                                   if(qty != 1){
+                                       swal("We are sorry, but you can only order one free ticket");
+                                       return false;
+                                   }else{
+
+                                       swal({
+                                                title: "In progress",
+                                                text: "Please hold on, your ticket is being processed",
+                                                type: "info",
+                                                showCancelButton: true,
+                                                closeOnConfirm: false,
+                                                showLoaderOnConfirm: true,
+                                            },
+                                            function(){
+                                                axios.post('ticket_purchased', {
+                                                        ticket_id,
+                                                        qty,
+                                                        total_amt,
+                                                        email
+                                                    })
+                                                    .then((response) => {
+                                                        self.all_events = response.data;
+                                                        swal("Please check your email for your tickets");
+                                                    })
+                                                    .catch((error) => {
+                                                        swal("An error occured. If your ticket was not sent, and you have been debitted, please send an email to tickets@coolfm.ng");
+                                                    });
+    
+    
+                                            });
+
+                                   }
+                                  
+                                    
+
+                                }else{
+
+                                
+                                
                                 var handler = PaystackPop.setup({
                                     key: 'pk_live_96225c07868c79dfa4651c2d085c65e8d26ddfe0',
                                     email,
@@ -228,6 +271,11 @@
                                     }
                                 });
                                 handler.openIframe();
+
+
+                                }
+
+
                             }
     
     
