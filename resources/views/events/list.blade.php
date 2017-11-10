@@ -44,7 +44,7 @@
                   <td>{{$one->title}}</td>
                   <td>{{$one->date}}</td>
                   <td>
-                  <a class="btn btn-success btn-sm" href="/admin/events/{{$one->id}}/delete">
+                  <a onclick="return confirm('are you sure you want to delete this Event ({{$one->title}})')" class="btn btn-success btn-sm" href="/admin/events/{{$one->id}}/delete">
                   Delete
                   </a>
                   <a class="btn btn-success btn-sm" href="/admin/events/{{$one->id}}/tlist">
