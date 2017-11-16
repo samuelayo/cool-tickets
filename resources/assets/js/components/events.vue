@@ -1,10 +1,10 @@
 <template>
-    <div id="products" class="container row list-group" style="padding: 2em;">
+    <div id="products" class="row list-group" style="padding: 2em;">
         <clip-loader v-if="loading" color="blue"></clip-loader>
         <div class="item  col-md-4 col-lg-4" v-for="(evn, index) in searchable">
     
             <div id="event-single" class="thumbnail">
-                <img class="group list-group-image" :src="evn.image" alt="" />
+                <img class="group list-group-image" :src="evn.image" alt="" style="width:100%;" />
                 <div class="caption">
                     <h4 id="event-title" class="group inner list-group-item-heading">
                         {{evn.title}}</h4>
@@ -317,6 +317,10 @@
         .holdown{
             margin-top: -8.4em;
         }
+        .item.col-md-4 {
+   
+    padding: 0 !important;
+}
     }
     .glyphicon {
         margin-right: 5px;
@@ -345,10 +349,7 @@
         font-weight: 700
     }
     
-.item.col-md-4 {
-   
-    padding: 0 !important;
-}
+
 
 div#products {
     padding: 2em !important;

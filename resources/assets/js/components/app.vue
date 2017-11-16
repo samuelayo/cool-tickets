@@ -26,7 +26,7 @@
           <div class="navbar-brand topnav">
             <a>
               <router-link to="/">
-                <img src="/img/logo.svg" width="150" alt="Cool Fm">
+                <img src="/img/ticket-logo.jpeg" width="150" alt="Cool Fm Tickets">
               </router-link>
             </a>
           </div>

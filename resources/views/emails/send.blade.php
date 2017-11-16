@@ -15,7 +15,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 <div class="ticket" style="width:400px;height:auto;background-color:white;margin-top:25px;margin-bottom:25px;margin-right:auto;margin-left:auto;position:relative;" >
 	
 	<div class="title" style="padding-top:50px;padding-bottom:10px;padding-right:25px;padding-left:25px;" >
-			<p style="font-style:italic;font-weight:100; color: black;" > E-Ticket</p><p class="cinema" style="color:#0055b3;font-size:19px; font-family: futura; line-height:0; font-weight: 400; text-transform:uppercase;" >{{$event->organizer}} </p>
+			<p style="font-style:italic;font-weight:100; color: black;" > E-Ticket</p><p class="cinema" style="color:#0055b3;font-size:19px; font-family: futura; line-height:0; font-weight: 400; text-transform:uppercase; line-height:1;" >{{$event->organizer}} </p>
 		<p class="movie-title" style="font-size:30px;font-weight:900; font-family: futura; color: black; line-height:0; text-transform:uppercase;" >{{$event->title}}</p>
 	</div>
 	<div class="poster">
