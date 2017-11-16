@@ -327,7 +327,7 @@
     }
 
     .item {
-    margin: 1em;
+    
         }
     
     .thumbnail {
