@@ -80,17 +80,18 @@ h5 {
     color: black;
 }
 
-.htop {}
+.htop {
+}
 
 #center {
     text-align: center;
 }
 
-.htop>ul>li>a {
+.htop > ul > li > a {
     color: black;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
     color: black;
 }
 
@@ -99,11 +100,11 @@ h5 {
     border-bottom: none !important;
 }
 
-.htop>ul>li>a.active {
+.htop > ul > li > a.active {
     color: red;
 }
 
-.htop>ul>li>a.switch {
+.htop > ul > li > a.switch {
     color: grey;
 }
 
@@ -334,10 +335,6 @@ h5 {
     font-size: 12px;
 }
 
-
-
-
-
 .badge-new-2 {
     position: absolute;
     right: 16px;
@@ -421,7 +418,6 @@ button {
     padding: 0 40px 30px 40px;
 }
 
-
 /* The controlsy */
 
 .carousel-control {
@@ -438,7 +434,6 @@ button {
     right: -12px;
 }
 
-
 /* The indicators */
 
 .carousel-indicators {
@@ -447,7 +442,6 @@ button {
     bottom: -10px;
     margin-right: -19px;
 }
-
 
 /* The colour of the indicators */
 
@@ -475,7 +469,7 @@ footer {
     background-color: orange;
 }
 
-.list-inline>li>a {
+.list-inline > li > a {
     color: black;
 }
 
@@ -488,7 +482,7 @@ p.copyright {
     background-image: -o-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
     /* background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001))); */
     /* background-image: linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%); */
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
     /* background-repeat: repeat-x; */
 }
 
@@ -786,13 +780,6 @@ p.copyright {
     margin-top: 22em
 }
 
-#app {
-    width: 85% !important;
-    margin: 0 auto;
-    /* background: #fff; */
-    /* border: 1px solid rgba(105, 96, 96, 0.07); */
-}
-
 .c-btn {
     cursor: pointer;
     display: -ms-inline-flexbox;
@@ -851,7 +838,6 @@ p.copyright {
 .slick-dots li :hover {
     background-color: black;
 }
-
 
 /* Custom Arrow */
 
@@ -1190,7 +1176,6 @@ a.button.super.subtle:active {
     letter-spacing: -1px
 }
 
-
 /* Waves */
 
 .waves {
@@ -1203,7 +1188,7 @@ a.button.super.subtle:active {
 }
 
 .wave {
-    width: calc( 100% + 4em);
+    width: calc(100% + 4em);
     height: 100%;
     position: absolute;
     left: -2em;
@@ -1211,7 +1196,6 @@ a.button.super.subtle:active {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
-
 
 /* Individual wave layers */
 
@@ -1268,7 +1252,6 @@ a.button.super.subtle:active {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="2000" viewBox="0 0 600 2000"><path fill-rule="evenodd" clip-rule="evenodd" fill="#f9f9f9" d="M0 2000c123 0 177-49.866 300-49.866S474 2000 600 2000V0H0v2000z"/></svg>');
     background-position: bottom right;
 }
-
 
 /* Wave animations */
 
@@ -1380,7 +1363,7 @@ tr:hover {
     line-height: 1.2;
 }
 
-.plyr__video-embed{
+.plyr__video-embed {
     padding-bottom: 42.25% !important;
 }
 
@@ -1483,8 +1466,7 @@ span#tag-cat {
     background: none !important;
 }
 
-
-/* -------------------------------- 
+/* --------------------------------
 
 1. Auto-Hiding Navigation - Simple
 
@@ -1642,7 +1624,6 @@ span#tag-cat {
     padding-right: 5%;
 }
 
-
 /*.cd-primary-nav>ul {
     position: absolute;
     z-index: 2;
@@ -1655,7 +1636,7 @@ span#tag-cat {
     box-shadow: 0 14px 20px rgba(0, 0, 0, 0.2);
 }*/
 
-.cd-primary-nav>ul a {
+.cd-primary-nav > ul a {
     /* target primary-nav links */
     display: block;
     height: 50px;
@@ -1667,8 +1648,8 @@ span#tag-cat {
     border-top: 1px solid #f2f2f2;
 }
 
-.cd-primary-nav>ul a:hover,
-.cd-primary-nav>ul a.active {
+.cd-primary-nav > ul a:hover,
+.cd-primary-nav > ul a.active {
     color: #8F3985;
 }
 
@@ -1677,7 +1658,8 @@ span#tag-cat {
         /* vertically align its content */
         display: table;
     }
-    .cd-primary-nav>ul {
+
+    .cd-primary-nav > ul {
         /* vertically align inside parent element */
         display: table-cell;
         vertical-align: middle;
@@ -1689,20 +1671,24 @@ span#tag-cat {
         background-color: transparent;
         box-shadow: none;
     }
-    .cd-primary-nav>ul::after {
+
+    .cd-primary-nav > ul::after {
         clear: both;
         content: "";
         display: block;
     }
-    .cd-primary-nav>ul li {
+
+    .cd-primary-nav > ul li {
         display: inline-block;
         float: left;
         margin-right: 1.5em;
     }
-    .cd-primary-nav>ul li:last-of-type {
+
+    .cd-primary-nav > ul li:last-of-type {
         margin-right: 0;
     }
-    .cd-primary-nav>ul a {
+
+    .cd-primary-nav > ul a {
         /* reset mobile style */
         height: auto;
         line-height: normal;
@@ -1727,8 +1713,7 @@ span#tag-cat {
     }
 }
 
-
-/* -------------------------------- 
+/* --------------------------------
 
 2. Auto-Hiding Navigation - with Sub Nav
 
@@ -1827,12 +1812,14 @@ span#tag-cat {
         height: 70px;
         overflow: visible;
     }
+
     .cd-secondary-nav ul {
         /* reset mobile style */
         display: block;
         text-align: center;
         border-bottom: 1px solid #ddd;
     }
+
     .cd-secondary-nav li {
         /* reset mobile style */
         float: none;
@@ -1840,16 +1827,17 @@ span#tag-cat {
         -ms-flex-negative: 1;
         flex-shrink: 1;
     }
+
     .cd-secondary-nav a {
         line-height: 70px;
     }
+
     .cd-secondary-nav a.active {
         color: #000;
     }
 }
 
-
-/* -------------------------------- 
+/* --------------------------------
 
 3. Auto-Hiding Navigation - with Sub Nav + Hero Image
 
@@ -1872,6 +1860,7 @@ span#tag-cat {
         /* fixes a bug where nav and subnab move with a slight delay */
         box-shadow: 0 -6px 0 #000;
     }
+
     .cd-secondary-nav.slide-up {
         -webkit-transform: translateY(-80px);
         -ms-transform: translateY(-80px);
@@ -1888,7 +1877,6 @@ span#tag-cat {
     color: black;
 }
 
-
 /*.dropdown-menu>li>a {
     display: block;
     padding: 3px 20px;
@@ -1900,22 +1888,19 @@ span#tag-cat {
     font-size: 1.1em;
 }*/
 
-.dropdown-menu>li>a {
+.dropdown-menu > li > a {
     padding: 12px 30px !important;
     border-top: 1px solid #ddd !important;
     font-family: 'Circular-Book';
     font-weight: 100;
 }
 
-
 /*.dropdown-menu>li>a {
     padding: 6px 30px !important;
     border-top: 1px solid #ddd !important;
 }*/
 
-.navbar-nav>li {
-    float: left !important;
-    border-right: 1px solid #eff2f5 !important;
+.navbar-nav > li {
     height: 80px !important;
     padding-top: 1em !important;
     padding-left: .8em !important;

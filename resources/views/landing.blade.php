@@ -27,7 +27,7 @@ localStorage.setItem('email', '<?php echo auth()->user()->email ?>');
 if(!auth()->user()){
 ?>
 <script>
-if(localStorage.getItem('username')!=undefined){
+if(localStorage.getItem('username') !== undefined){
     localStorage.removeItem('username');
     localStorage.removeItem('email');
 }

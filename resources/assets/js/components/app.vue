@@ -1,536 +1,564 @@
 <template>
-  <div id="app">
-    <title>{{title}}</title>
-    <meta name="description" :content="description" />
-    <meta name="robots" content="nodp" />
-    <meta name="author" content="ogundipe samuel">
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" :content="title" />
-    <meta property="og:description" :content="description" />
-    <meta property="og:url" content="/" />
-    <meta property="og:site_name" content="Coolfm" />
-    <meta property="og:image" content="/img/logo.svg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:description" :content="description" />
-    <meta name="twitter:title" :content="title" />
-    <meta name="twitter:site" content="@coolfmnigeria" />
-    <meta name="twitter:image" :content="twitterimage" />
+    <div id="app">
+        <title>{{title}}</title>
+        <meta name="description" :content="description"/>
+        <meta name="robots" content="nodp"/>
+        <meta name="author" content="ogundipe samuel">
+        <meta property="og:locale" content="en_US"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" :content="title"/>
+        <meta property="og:description" :content="description"/>
+        <meta property="og:url" content="/"/>
+        <meta property="og:site_name" content="Coolfm"/>
+        <meta property="og:image" content="/img/logo.svg"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:description" :content="description"/>
+        <meta name="twitter:title" :content="title"/>
+        <meta name="twitter:site" content="@coolfmnigeria"/>
+        <meta name="twitter:image" :content="twitterimage"/>
 
-  
-  
-    <nav class="navbar topnav navbar-default" role="navigation">
-      <div class="container-fluid topnav">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header htop">
-          <div class="navbar-brand topnav">
-            <a>
-              <router-link to="/">
-                <img src="/img/ticket-logo.jpeg" width="150" alt="Cool Fm Tickets">
-              </router-link>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <a class="navbar-brand" href="#">
+                <router-link to="/">
+                    <img src="/img/ticket-logo.jpeg" width="150" alt="Cool Fm Tickets">
+                </router-link>
             </a>
-          </div>
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                                <span class="sr-only">Toggle navigation</span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                            </button>
-          </div>
-        </div>
-      
-      </div>
-      <!-- /.container-fluid -->
-    </nav>
-    <!-- the router outlet, where all matched components would ber viewed -->
-    <center>
-      <!-- homepage ad -->
-<!-- homepage ad -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4448078976745099"
-     data-ad-slot="5185770514"
-     data-ad-format="auto"></ins>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    </center>
-    <br>
-    <transition>
-      <router-view></router-view>
-    </transition>
-    <div class="row product" style="width: 92%;border-radius: 30px;margin: 2em auto 7em;border: none;padding: 0; box-shadow: none !important;">
-      <div class="col-md-5 col-md-offset-0" style="
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sign Up</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 mx-auto">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control home-search-input" placeholder="Search for tickets"
+                               aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-info home-search-button" type="button"><i
+                                    class="fa fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-info" href="#">Sell Tickets <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-capitalize btn get-app-button text-white" href="#">Get the app</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <!-- the router outlet, where all matched components would ber viewed -->
+        <center>
+            <!-- homepage ad -->
+            <!-- homepage ad -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4448078976745099"
+                 data-ad-slot="5185770514" xdata-ad-format="auto"></ins>
+
+        </center>
+        <br>
+        <transition>
+            <router-view></router-view>
+        </transition>
+        <div class="row product"
+             style="width: 92%;border-radius: 30px;margin: 2em auto 7em;border: none;padding: 0; box-shadow: none !important;">
+            <div class="col-md-5 col-md-offset-0" style="
                   padding-left: 0;
                   box-shadow: none !important;
-              "><img src="https://i.imgur.com/nCbmJox.png" style="width: 100%;border-radius: 40px;border-right: 15px solid #f9f9f9;/* -webkit-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */-moz-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37);/* box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */height: auto;"></div>
-      <div id="newsletter" class="col-md-7" style="border-radius: 14px;margin-left: -1em;">
-        <h2 style="font-size: 2em;width: 95%;color: rgb(0, 0, 0);margin-left: .5em;margin-top: 1em;font-family: 'Circular-book';"> Get the latest news &amp; giveaways straight to your inbox. Join our teeming community of fans .</h2>
-        <div class="swiper-slide" style="background-image: url(&quot;https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500&quot;);"></div>
-        <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-        <div id="mc_embed_signup">
-          <form action="//coolfm.us16.list-manage.com/subscribe/post?u=11b9dec20b5f95351d12ef4ff&amp;id=22862615ab" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <div id="mc_embed_signup_scroll">
-  
-              <div class="mc-field-group">
-                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-            </label>
-                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Enter your email">
-              </div>
-              <div id="mce-responses" class="clear">
-                <div class="response" id="mce-error-response" style="display:none"></div>
-                <div class="response" id="mce-success-response" style="display:none"></div>
-              </div>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_11b9dec20b5f95351d12ef4ff_22862615ab" tabindex="-1" value=""></div>
-              <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+              "><img src="https://i.imgur.com/nCbmJox.png"
+                     style="width: 100%;border-radius: 40px;border-right: 15px solid #f9f9f9;/* -webkit-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */-moz-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37);/* box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */height: auto;">
             </div>
-          </form>
+            <div id="newsletter" class="col-md-7" style="border-radius: 14px;margin-left: -1em;">
+                <h2 style="font-size: 2em;width: 95%;color: rgb(0, 0, 0);margin-left: .5em;margin-top: 1em;font-family: 'Circular-book';">
+                    Get the latest news &amp; giveaways straight to your inbox. Join our teeming community of fans
+                    .</h2>
+                <div class="swiper-slide"
+                     style="background-image: url(&quot;https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500&quot;);"></div>
+                <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+                <div id="mc_embed_signup">
+                    <form action="//coolfm.us16.list-manage.com/subscribe/post?u=11b9dec20b5f95351d12ef4ff&amp;id=22862615ab"
+                          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                          class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
+
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
+                                </label>
+                                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"
+                                       placeholder="Enter your email">
+                            </div>
+                            <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                                                                                      name="b_11b9dec20b5f95351d12ef4ff_22862615ab"
+                                                                                                      tabindex="-1"
+                                                                                                      value=""></div>
+                            <div class="clear"><input type="submit" value="Subscribe" name="subscribe"
+                                                      id="mc-embedded-subscribe" class="button"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
+        <br>
+        <br>
+
+
     </div>
-    <br>
-    <br>
-   
-    
-  </div>
 </template>
 
 <script>
-  export default {
-    name: 'app',
-    data: () => {
-      return {
-        type: '',
-        src: '',
-        play: 'play',
-        player: '',
-        schedule: [],
-        categories: Laravel.categories
-      }
-    },
-    created: function() {
-      //this.schedules();
-    },
-    mounted: function() {
+    export default {
+        name: 'app',
+        data: () => {
+            return {
+                type: '',
+                src: '',
+                play: 'play',
+                player: '',
+                schedule: [],
+                categories: Laravel.categories
+            }
+        },
+        created: function () {
+            //this.schedules();
+        },
+        mounted: function () {
 
-      function loadScript(url) {
-        return new Promise(function(resolve, reject) {
-          var script = document.createElement("script")
-          script.type = "text/javascript";
-          if (script.readyState) { //IE
-            script.onreadystatechange = function() {
-              if (script.readyState == "loaded" ||
-                script.readyState == "complete") {
-                script.onreadystatechange = null;
-                resolve();
-              }
-            };
-          } else { //Others
-            script.onload = function() {
-              resolve();
-            };
-          }
-          script.src = url;
-          document.getElementsByTagName("head")[0].appendChild(script);
-        });
-      }
-      ///adsense
-      loadScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function() {
-        (window.adsbygoogle = window.adsbygoogle || []).push({})
-      });
-      ///mailchimp
-      loadScript("//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js").then(function() {
-        (function($) {
-          window.fnames = new Array();
-          window.ftypes = new Array();
-          fnames[0] = 'EMAIL';
-          ftypes[0] = 'email';
-          fnames[1] = 'FNAME';
-          ftypes[1] = 'text';
-          fnames[2] = 'LNAME';
-          ftypes[2] = 'text';
-          fnames[3] = 'BIRTHDAY';
-          ftypes[3] = 'birthday';
-        }(jQuery));
-        var $mcj = jQuery.noConflict(true);
-      });
-      //
-      ///
-      (function() {
-        var cx = '004277073545021023643:yuy8iwmq_ky';
-        var gcse = document.createElement('script');
-        gcse.type = 'text/javascript';
-        gcse.async = true;
-        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(gcse, s);
-      })();
-      
-    },
-    computed: {
-      playorpause: function() {
-        if (this.$refs.ourplay != undefined) {
-          var audio = this.$refs.ourplay;
-          if (audio.paused) {
-            return 'play';
-          }
-          return 'paused';
-        }
-        return 'play';
-      }
-    },
-    methods: {
-      playthis: (id, type, src, name) => {
-        if (type == "livestream") {
-          document.getElementById('live').style.display = 'inline-block';
-        } else {
-          document.getElementById('live').style.display = 'none';
-        }
-        var audio = document.getElementById('ourplay');
-        if (this.type == "livestream") {} else if (this.type == "podcast") {}
-        audio.src = src;
-        this.src = src;
-        this.type = type;
-        audio.play();
-        if (this.type == type && this.play == 'play') {
-          this.play = 'pause';
-          audio.pause();
-        } else if (this.type == type && this.play != 'play') {
-          this.play = 'play';
-          audio.play();
-        }
-        document.getElementById('playname').innerHTML = name;
-      },
-      playthat: function(id, type, src, name){
-                if(type=='podcast' && this.play=='pause'){
-                    this.play='play';
-                }else if(type=='livestream'){
-                    this.play = (this.play=='pause')?'play':'pause';
+            function loadScript(url) {
+                return new Promise(function (resolve, reject) {
+                    var script = document.createElement("script")
+                    script.type = "text/javascript";
+                    if (script.readyState) { //IE
+                        script.onreadystatechange = function () {
+                            if (script.readyState == "loaded" ||
+                                script.readyState == "complete") {
+                                script.onreadystatechange = null;
+                                resolve();
+                            }
+                        };
+                    } else { //Others
+                        script.onload = function () {
+                            resolve();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                });
+            }
+
+            ///adsense
+            loadScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function () {
+                (window.adsbygoogle = window.adsbygoogle || []).push({})
+            });
+            ///mailchimp
+            loadScript("//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js").then(function () {
+                (function ($) {
+                    window.fnames = new Array();
+                    window.ftypes = new Array();
+                    fnames[0] = 'EMAIL';
+                    ftypes[0] = 'email';
+                    fnames[1] = 'FNAME';
+                    ftypes[1] = 'text';
+                    fnames[2] = 'LNAME';
+                    ftypes[2] = 'text';
+                    fnames[3] = 'BIRTHDAY';
+                    ftypes[3] = 'birthday';
+                }(jQuery));
+                var $mcj = jQuery.noConflict(true);
+            });
+            //
+            ///
+            (function () {
+                var cx = '004277073545021023643:yuy8iwmq_ky';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+
+        },
+        computed: {
+            playorpause: function () {
+                if (this.$refs.ourplay != undefined) {
+                    var audio = this.$refs.ourplay;
+                    if (audio.paused) {
+                        return 'play';
+                    }
+                    return 'paused';
+                }
+                return 'play';
+            }
+        },
+        methods: {
+            playthis: (id, type, src, name) => {
+                if (type == "livestream") {
+                    document.getElementById('live').style.display = 'inline-block';
+                } else {
+                    document.getElementById('live').style.display = 'none';
+                }
+                var audio = document.getElementById('ourplay');
+                if (this.type == "livestream") {
+                } else if (this.type == "podcast") {
+                }
+                audio.src = src;
+                this.src = src;
+                this.type = type;
+                audio.play();
+                if (this.type == type && this.play == 'play') {
+                    this.play = 'pause';
+                    audio.pause();
+                } else if (this.type == type && this.play != 'play') {
+                    this.play = 'play';
+                    audio.play();
+                }
+                document.getElementById('playname').innerHTML = name;
+            },
+            playthat: function (id, type, src, name) {
+                if (type == 'podcast' && this.play == 'pause') {
+                    this.play = 'play';
+                } else if (type == 'livestream') {
+                    this.play = (this.play == 'pause') ? 'play' : 'pause';
                 }
                 this.playthis(id, type, src, name);
             },
-      change_state: function(status, stream) {
-        this.$store.dispatch('SET_STATE', status);
-        this.$store.dispatch('SET_STREAM', stream);
-      },
-      schedules: function() {
-        axios.get('/schedules')
-          .then(response => {
-            // JSON responses are automatically parsed.
-            this.schedule = _.groupBy(response.data, function(car) {
-              return car.state;
-            });
-          })
-          .catch(e => {
-  
-          });
-      },
-      between: function(start, end) {
-  
-  
-        var format = 'hh:mm:ss'
-  
-        // var time = moment() gives you current time. no format required.
-        var time = moment(),
-          beforeTime = moment(start, format),
-          afterTime = moment(end, format);
-  
-        if (time.isBetween(beforeTime, afterTime)) {
-  
-          return 'NOW';
-        } else if(beforeTime.isAfter(time)) {
-  
-          return 'Later';
-  
-        }else{
-          return 'Ended';
-        }
-      },
-       timeleft: function(value){
-                value  = new moment(value+":00", "HH:mm:ss a");
+            change_state: function (status, stream) {
+                this.$store.dispatch('SET_STATE', status);
+                this.$store.dispatch('SET_STREAM', stream);
+            },
+            schedules: function () {
+                axios.get('/schedules')
+                    .then(response => {
+                        // JSON responses are automatically parsed.
+                        this.schedule = _.groupBy(response.data, function (car) {
+                            return car.state;
+                        });
+                    })
+                    .catch(e => {
+
+                    });
+            },
+            between: function (start, end) {
+
+
+                var format = 'hh:mm:ss'
+
+                // var time = moment() gives you current time. no format required.
+                var time = moment(),
+                    beforeTime = moment(start, format),
+                    afterTime = moment(end, format);
+
+                if (time.isBetween(beforeTime, afterTime)) {
+
+                    return 'NOW';
+                } else if (beforeTime.isAfter(time)) {
+
+                    return 'Later';
+
+                } else {
+                    return 'Ended';
+                }
+            },
+            timeleft: function (value) {
+                value = new moment(value + ":00", "HH:mm:ss a");
                 return moment(value).fromNow();
             }
-  
-    },
-    computed: {
-      title: function() {
-        return this.$store.state.title;
-      },
-      description: function() {
-        return this.$store.state.description;
-      },
-      twitterimage: function() {
-        return this.$store.state.twitterimage;
-      },
-      current_stream: function() {
-        if (this.$refs.ourplay != undefined) {
-          var audio = this.$refs.ourplay;
-          audio.src = this.$store.state.current_stream;
-          audio.play();
+
+        },
+        computed: {
+            title: function () {
+                return this.$store.state.title;
+            },
+            description: function () {
+                return this.$store.state.description;
+            },
+            twitterimage: function () {
+                return this.$store.state.twitterimage;
+            },
+            current_stream: function () {
+                if (this.$refs.ourplay != undefined) {
+                    var audio = this.$refs.ourplay;
+                    audio.src = this.$store.state.current_stream;
+                    audio.play();
+                }
+                return this.$store.state.current_stream;
+            },
+            current_state: function () {
+                return this.$store.state.current_state;
+            }
         }
-        return this.$store.state.current_stream;
-      },
-      current_state: function() {
-        return this.$store.state.current_state;
-      }
     }
-  }
 </script>
 
 <!-- styling for the component -->
 <style>
-  #timeline {
-    width: 700px;
-    height: 1px;
-    background: #4200f7;
-    margin-top: 2%;
-    float: left;
-  }
-  
-  #playhead {
-    width: 7px;
-    height: 1px;
-    background: rgba(0, 255, 196, 0.82);
-  }
-  
-  audio::-webkit-media-controls-enclosure,
-  video::-webkit-media-controls-enclosure {
-    max-width: 100%;
-  }
-  
-  
-  /**.cse .gsc-control-cse, .gsc-control-cse{
-                        padding: 0 0 0 0 !important;
-                        margin: -1em !important;
-                      }**/
-  
-  .cse .gsc-control-cse,
-  .gsc-control-cse {
-    font-family: Arial, serif !important;
-    background-color: none !important;
-    border: none !important;
-  }
-  
-  .gsc-control-cse {
-    font-family: Arial, sans-serif !important;
-    border-color: none !important;
-    background-color: none !important;
-  }
-  
-  input#gsc-i-id1 {
-    outline: none;
-    background: none !important;
-    text-indent: 0px !important;
-    font-family: 'circular-medium' !important;
-  }
-  
-  input.gsc-input {
-    border-color: none !important;
-  }
-  
-  input.gsc-search-button {
-    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%) !important;
-    border: none !important;
-    color: #fff !important;
-    width: 86px !important;
-    height: 31px !important;
-    border-radius: 26px !important;
-  }
-  
-  .cse input.gsc-input,
-  input.gsc-input {
-    font-family: inherit !important;
-    font-size: 16px !important;
-    border: none !important;
-    border-bottom: 1px dashed #ddd !important;
-    padding: 4px 6px !important;
-    -moz-border-radius: 2px !important;
-    -webkit-border-radius: 2px !important;
-    border-radius: 2px !important;
-  }
-  
-  .toast-success {
-    background-color: #117af2 !important;
-  }
-  
-  #toast-container>.toast-success {
-    background-image: none !important;
-  }
-  
-  #toast-container>div {
-    position: relative;
-    pointer-events: auto;
-    overflow: hidden;
-    margin: 0 0 6px;
-    padding: 15px 15px 15px 10px !important;
-    width: 300px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    background-position: 15px center;
-    background-repeat: no-repeat;
-    -moz-box-shadow: 0 0 12px #999;
-    -webkit-box-shadow: 0 0 12px #999;
-    box-shadow: 0 0 12px #999;
-    color: #fff;
-    opacity: .8;
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-    filter: alpha(opacity=80);
-  }
-  
-  div#___gcse_0 {
-    width: 90% !important;
-    margin: 0 auto !important;
-  }
-  
-  .cse .gsc-control-cse,
-  .gsc-control-cse {
-    padding: 0px !important;
-    width: auto;
-  }
-  
-  td.gsc-clear-button {
-    width: 14px !important;
-    display: none !important;
-  }
-  
-  #mc_embed_signup {
-    background: none;
-    clear: left;
-    font: 14px Helvetica, Arial, sans-serif;
-  }
-  
-  #newsletter {
-    -webkit-box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49) !important;
-    -moz-box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49) !important;
-    box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49) !important;
-    font-family: 'Circular-bold' !important;
-  }
-  
-  div#newsletter .button {
-    border-radius: 40px;
-    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%) !important;
-    height: 49px;
-    font-size: 1.3em;
-    color: #fff;
-    font-family: 'circular-book';
-    width: 177px;
-  }
-  
-  div#newsletter input {
-    -webkit-box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49);
-    -moz-box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49);
-    box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49);
-    background: #fff !important;
-    border: 1px solid #ddd;
-    border-radius: 100px;
-    height: 3.5em;
-  }
-  
-  div#newsletter input {
-    font-family: 'Circular-Book';
-    color: #000;
-    font-size: 1.1em;
-    outline: none;
-  }
-  
-  div#newsletter label {
-    font-family: 'Circular-bold' !important;
-  }
-  
-  #newsletter:before {
-    content: '';
-    position: absolute;
-    top: 71%;
-    right: 100%;
-    margin-top: -8px;
-    width: 0;
-    height: 0;
-    border-right: 25px solid #fff;
-    border-top: 1px solid transparent;
-    border-bottom: 40px solid transparent;
-  }
-  
-  
-  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-                	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-  
-  @-webkit-keyframes pulse {
-    0% {
-      -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+    #timeline {
+        width: 700px;
+        height: 1px;
+        background: #4200f7;
+        margin-top: 2%;
+        float: left;
     }
-    70% {
-      -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+
+    #playhead {
+        width: 7px;
+        height: 1px;
+        background: rgba(0, 255, 196, 0.82);
     }
-    100% {
-      -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+
+    audio::-webkit-media-controls-enclosure,
+    video::-webkit-media-controls-enclosure {
+        max-width: 100%;
     }
-  }
-  
-  @keyframes pulse {
-    0% {
-      -moz-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
-      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+
+    /**.cse .gsc-control-cse, .gsc-control-cse{
+                          padding: 0 0 0 0 !important;
+                          margin: -1em !important;
+                        }**/
+
+    .cse .gsc-control-cse,
+    .gsc-control-cse {
+        font-family: Arial, serif !important;
+        background-color: none !important;
+        border: none !important;
     }
-    70% {
-      -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
-      box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+
+    .gsc-control-cse {
+        font-family: Arial, sans-serif !important;
+        border-color: none !important;
+        background-color: none !important;
     }
-    100% {
-      -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-      box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+
+    input#gsc-i-id1 {
+        outline: none;
+        background: none !important;
+        text-indent: 0px !important;
+        font-family: 'circular-medium' !important;
     }
-  }
-  
-  .pulse {
-    width: 13px;
-    height: 12px;
-    display: inline-flex;
-    border-radius: 50%;
-    background: #fb0027;
-    vertical-align: top;
-    cursor: pointer;
-    box-shadow: 0 0 0 rgba(255, 0, 20, 0.4);
-    animation: pulse 2s infinite;
-  }
-  
-  .pulse:hover {
-    animation: none;
-  }
-  
-  @-webkit-keyframes panning {
-    0% {
-      background-position: 0% 0%;
+
+    input.gsc-input {
+        border-color: none !important;
     }
-    25% {
-      background-position: 100% 100%;
+
+    input.gsc-search-button {
+        background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%) !important;
+        border: none !important;
+        color: #fff !important;
+        width: 86px !important;
+        height: 31px !important;
+        border-radius: 26px !important;
     }
-    50% {
-      background-position: 100% 0%;
+
+    .cse input.gsc-input,
+    input.gsc-input {
+        font-family: inherit !important;
+        font-size: 16px !important;
+        border: none !important;
+        border-bottom: 1px dashed #ddd !important;
+        padding: 4px 6px !important;
+        -moz-border-radius: 2px !important;
+        -webkit-border-radius: 2px !important;
+        border-radius: 2px !important;
     }
-    75% {
-      background-position: 0 100%;
+
+    .toast-success {
+        background-color: #117af2 !important;
     }
-    200% {
-      background-position: 0 0;
+
+    #toast-container > .toast-success {
+        background-image: none !important;
     }
-  }
-  
-  @keyframes panning {
-    0% {
-      background-position: 0% 0%;
+
+    #toast-container > div {
+        position: relative;
+        pointer-events: auto;
+        overflow: hidden;
+        margin: 0 0 6px;
+        padding: 15px 15px 15px 10px !important;
+        width: 300px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        background-position: 15px center;
+        background-repeat: no-repeat;
+        -moz-box-shadow: 0 0 12px #999;
+        -webkit-box-shadow: 0 0 12px #999;
+        box-shadow: 0 0 12px #999;
+        color: #fff;
+        opacity: .8;
+        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+        filter: alpha(opacity=80);
     }
-    25% {
-      background-position: 100% 100%;
+
+    div#___gcse_0 {
+        width: 90% !important;
+        margin: 0 auto !important;
     }
-    50% {
-      background-position: 100% 0%;
+
+    .cse .gsc-control-cse,
+    .gsc-control-cse {
+        padding: 0px !important;
+        width: auto;
     }
-    75% {
-      background-position: 0 100%;
+
+    td.gsc-clear-button {
+        width: 14px !important;
+        display: none !important;
     }
-    200% {
-      background-position: 0 0;
+
+    #mc_embed_signup {
+        background: none;
+        clear: left;
+        font: 14px Helvetica, Arial, sans-serif;
     }
-  }
+
+    #newsletter {
+        -webkit-box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49) !important;
+        -moz-box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49) !important;
+        box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49) !important;
+        font-family: 'Circular-bold' !important;
+    }
+
+    div#newsletter .button {
+        border-radius: 40px;
+        background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%) !important;
+        height: 49px;
+        font-size: 1.3em;
+        color: #fff;
+        font-family: 'circular-book';
+        width: 177px;
+    }
+
+    div#newsletter input {
+        -webkit-box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49);
+        -moz-box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49);
+        box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49);
+        background: #fff !important;
+        border: 1px solid #ddd;
+        border-radius: 100px;
+        height: 3.5em;
+    }
+
+    div#newsletter input {
+        font-family: 'Circular-Book';
+        color: #000;
+        font-size: 1.1em;
+        outline: none;
+    }
+
+    div#newsletter label {
+        font-family: 'Circular-bold' !important;
+    }
+
+    #newsletter:before {
+        content: '';
+        position: absolute;
+        top: 71%;
+        right: 100%;
+        margin-top: -8px;
+        width: 0;
+        height: 0;
+        border-right: 25px solid #fff;
+        border-top: 1px solid transparent;
+        border-bottom: 40px solid transparent;
+    }
+
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                         We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+
+    @-webkit-keyframes pulse {
+        0% {
+            -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+        }
+        70% {
+            -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+        }
+        100% {
+            -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            -moz-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+            box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+        }
+        70% {
+            -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+            box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+        }
+        100% {
+            -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+            box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+        }
+    }
+
+    .pulse {
+        width: 13px;
+        height: 12px;
+        display: inline-flex;
+        border-radius: 50%;
+        background: #fb0027;
+        vertical-align: top;
+        cursor: pointer;
+        box-shadow: 0 0 0 rgba(255, 0, 20, 0.4);
+        animation: pulse 2s infinite;
+    }
+
+    .pulse:hover {
+        animation: none;
+    }
+
+    @-webkit-keyframes panning {
+        0% {
+            background-position: 0% 0%;
+        }
+        25% {
+            background-position: 100% 100%;
+        }
+        50% {
+            background-position: 100% 0%;
+        }
+        75% {
+            background-position: 0 100%;
+        }
+        200% {
+            background-position: 0 0;
+        }
+    }
+
+    @keyframes panning {
+        0% {
+            background-position: 0% 0%;
+        }
+        25% {
+            background-position: 100% 100%;
+        }
+        50% {
+            background-position: 100% 0%;
+        }
+        75% {
+            background-position: 0 100%;
+        }
+        200% {
+            background-position: 0 0;
+        }
+    }
 </style>

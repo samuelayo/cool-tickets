@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Adumskis\LaravelAdvert\Model\Advert;
 use App\Models\BlogPost;
 use App\Models\Schedules;
 use App\Models\OAP;
@@ -14,7 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Mail\ContactMail;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 
 class HomeController extends Controller
@@ -66,7 +67,7 @@ class HomeController extends Controller
 
         $fresh = BlogPost::with('category')->where('published', 1)->orderBy('created_at', 'desc')->take(10)->get();
         $categories = Category::all();
-        $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
+        $ads = Advert::with('advert_category')->get();
         return view('landing', compact('trending', 'newones', 'fresh', 'categories', 'ads'));
     }
 
@@ -133,7 +134,7 @@ class HomeController extends Controller
         $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->where('published', 1)->orderBy('view_count', 'DESC')->with('category')->take(3)->get();
         $fresh = BlogPost::with('category')->where('published', 1)->orderBy('created_at', 'desc')->get();
         $categories = Category::all();
-        $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
+        $ads = Advert::with('advert_category')->get();
         return view('mobileview.index', compact('trending', 'newones', 'fresh', 'categories', 'ads'));
    
     }
@@ -143,7 +144,7 @@ class HomeController extends Controller
         $newones = BlogPost::where('view_count', '>', 1000)->where('view_count', '<', 5000)->where('published', 1)->orderBy('view_count', 'DESC')->with('category')->take(6)->get();
         $fresh = BlogPost::with('category')->where('published', 1)->orderBy('created_at', 'DESC')->get();
         $categories = Category::all();
-        $ads = \Adumskis\LaravelAdvert\Model\Advert::with('advert_category')->get();
+        $ads = Advert::with('advert_category')->get();
         return json_encode([
                     'trending' => $trending,
                     'newones'=>$newones, 

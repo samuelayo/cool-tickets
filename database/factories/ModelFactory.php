@@ -57,3 +57,24 @@ $factory->define(App\Models\BlogPost::class, function (Faker\Generator $faker) {
         'image'=>'asasa'
     ];
 });
+
+$factory->define(App\Models\Events::class, function (Faker\Generator $generator) {
+    return [
+        'title' => $generator->sentence,
+        'date' => $generator->dateTimeBetween('now', '+1 year'),
+        'image' => "picture",
+        'description' => $generator->paragraph,
+        'venue' => $generator->sentence,
+        'organizer' => $generator->name
+    ];
+});
+
+$factory->define(App\Models\Eventickets::class, function (Faker\Generator $generator) {
+    return [
+        'name' => $generator->name,
+        'price' => $generator->randomNumber(5),
+        'image' => "picture",
+        'event' => factory(App\Models\Events::class)->create()->id,
+        'amount' => $generator->randomNumber(5)
+    ];
+});

@@ -8,7 +8,7 @@
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-"build-server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js --progress --hide-modules"
+    "build-server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js --progress --hide-modules"
   },
   "devDependencies": {
     "axios": "^0.15.3",
@@ -29,6 +29,7 @@
     "notification-js": "^1.1.1",
     "plyr": "^2.0.12",
     "sharon": "^1.6.0",
+    "slick-carousel": "^1.8.1",
     "socket.io": "^1.7.3",
     "socket.io-client": "^2.0.3",
     "sweetalert": "^1.1.3",
