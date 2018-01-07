@@ -1,6 +1,12 @@
 <template>
     <div>
-        <eventSlider></eventSlider>
+        <eventSlider height="400px">
+            <div class="bg-black item" style="width: 500px"></div>
+            <div class="bg-success item" style="width: 300px"></div>
+            <div class="bg-danger item" style="width: 700px"></div>
+            <div class="bg-info item" style="width: 200px"></div>
+            <div class="bg-warning item" style="width: 400px"></div>
+        </eventSlider>
         <div class="container bg-white inner-shadow">
             <div class="col-12">
                 <div class="row pt-2">
@@ -11,7 +17,9 @@
                 </div>
             </div>
             <div id="products" class="row">
-                <clip-loader v-if="loading" color="blue"></clip-loader>
+                <div class="col-2 mx-auto" v-if="loading">
+                    <clip-loader color="blue"></clip-loader>
+                </div>
                 <div class="item  col-md-3 col-lg-3" v-for="(evn, index) in searchable">
                     <div id="event-single" class="thumbnail">
                         <div class="event-image" style="background-image: url('event.jpg')"></div>
@@ -21,7 +29,7 @@
                                     <h6 class="text-capitalize text-info font-weight-bold">Concert</h6>
                                 </div>
                                 <div class="col-6">
-                                    <h6 id="event-date" v-text="eventDateConverter(evn.date)"></h6>
+                                    <h6 id="event-date" v-text="eventDateConverter(evn.date)" class="text-right"></h6>
                                 </div>
                             </div>
                             <h4 id="event-title" class="group inner list-group-item-heading" v-text="evn.title"></h4>
@@ -303,7 +311,9 @@
     * {
         font-family: 'Circular-Book'
     }
-
+    .item{
+        height: 400px;
+    }
     .inner-shadow {
         -moz-box-shadow: inset 0 0 8px #d9d9d9;
         -webkit-box-shadow: inset 0 0 8px #d9d9d9;
