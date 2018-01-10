@@ -1,11 +1,11 @@
 <template>
     <div>
         <eventSlider height="400px">
-            <div class="bg-black item" style="width: 500px"></div>
-            <div class="bg-success item" style="width: 300px"></div>
-            <div class="bg-danger item" style="width: 700px"></div>
-            <div class="bg-info item" style="width: 200px"></div>
-            <div class="bg-warning item" style="width: 400px"></div>
+            <div class="bg-black carousel-item" style="width: 500px"></div>
+            <div class="bg-success carousel-item" style="width: 300px"></div>
+            <div class="bg-danger carousel-item" style="width: 700px"></div>
+            <div class="bg-info carousel-item" style="width: 200px"></div>
+            <div class="bg-warning carousel-item" style="width: 400px"></div>
         </eventSlider>
         <div class="container bg-white inner-shadow">
             <div class="col-12">
@@ -13,7 +13,9 @@
                     <span class="col text-uppercase text-secondary text-center" v-for="val in categories">
                         <a href="javascript:void(0)" v-text="val"></a>
                     </span>
-                    <div class="col-12"><hr></div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
                 </div>
             </div>
             <div id="products" class="row">
@@ -42,14 +44,16 @@
                                     </p>
                                 </div>
                                 <div class="col-12">
-                                    <button id="floater" class="btn btn-success" @click="buyticket(index)">Buy Tickets</button>
+                                    <button id="floater" class="btn btn-success" @click="buyticket(index)">Buy Tickets
+                                    </button>
                                     <span class="text-info font-weight-bold">  10% off</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <center v-if="(searchable.length == 0 && loading == false)"><span style="color: black; font-size: 38px;">No events available at this moment</span>
+                <center v-if="(searchable.length == 0 && loading == false)"><span
+                        style="color: black; font-size: 38px;">No events available at this moment</span>
                 </center>
                 <br>
                 <br>
@@ -63,6 +67,7 @@
 
 <script>
     import eventSlider from "./eventslider";
+
     export default {
         data: function () {
             return {
@@ -311,9 +316,11 @@
     * {
         font-family: 'Circular-Book'
     }
-    .item{
+
+    .carousel-item {
         height: 400px;
     }
+
     .inner-shadow {
         -moz-box-shadow: inset 0 0 8px #d9d9d9;
         -webkit-box-shadow: inset 0 0 8px #d9d9d9;

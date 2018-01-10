@@ -466,14 +466,26 @@
                 shows: [],
                 currentweek: this.week(),
                 currentchartweek: this.week(),
-                nigerianchart: [],s
-                globalchart: [],
-                alternativechart: [],
-                selectedcat: ['nigerian', 'global', 'global'],
-                currentchart: 0,
-                play: 'play',
-                all_chart_ever: []
-            }
+                nigerianchart: [], s
+                globalchart
+        :
+            [],
+                alternativechart
+        :
+            [],
+                selectedcat
+        :
+            ['nigerian', 'global', 'global'],
+                currentchart
+        :
+            0,
+                play
+        :
+            'play',
+                all_chart_ever
+        :
+            []
+        }
         },
         components: {Flickity},
         created() {

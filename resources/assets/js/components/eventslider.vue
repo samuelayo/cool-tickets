@@ -9,6 +9,7 @@
 <script>
     import 'owl.carousel/dist/assets/owl.carousel.css';
     import $ from 'jquery';
+
     require('owl.carousel');
     export default {
         name: "eventSlider",
@@ -22,12 +23,12 @@
         },
         mounted: () => {
             $('.owl-carousel').owlCarousel({
-                margin:10,
-                loop:true,
-                autoWidth:true,
-                autoplay:true,
-                autoplayTimeout:1000,
-                autoplayHoverPause:true
+                margin: 10,
+                loop: true,
+                autoWidth: true,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true
             });
         }
     }

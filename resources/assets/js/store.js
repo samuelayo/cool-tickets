@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
@@ -11,14 +12,14 @@ const store = new Vuex.Store({
         twitterimage: '/img/logo.svg'
     },
     actions: {
-        SET_SEO({ commit }, status) {
+        SET_SEO({commit}, status) {
 
             commit('SET_SEO_MUTATION', status)
         },
-        SET_STATE({ commit }, status) {
+        SET_STATE({commit}, status) {
             commit('SET_STATE_MUTATION', status)
         },
-        SET_STREAM({ commit }, stream) {
+        SET_STREAM({commit}, stream) {
             commit('SET_STREAM_MUTATION', stream)
         }
 
@@ -27,7 +28,7 @@ const store = new Vuex.Store({
         SET_SEO_MUTATION(state, status) {
             state.title = status.title;
             state.description = status.description;
-            if(status.twitterimage != undefined){
+            if (status.twitterimage != undefined) {
 
                 state.twitterimage = status.twitterimage;
             }

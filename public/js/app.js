@@ -40361,6 +40361,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -40435,6 +40450,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -40683,6 +40703,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
 __webpack_require__(173);
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "eventSlider",
@@ -40774,6 +40795,7 @@ window.axios.defaults.headers.common = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(195);
+
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
@@ -43248,7 +43270,7 @@ exports.push([module.i, "/**\n * Owl Carousel v2.2.0\n * Copyright 2013-2016 Dav
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 166 */
@@ -43262,7 +43284,7 @@ exports.push([module.i, "\n.v-spinner\n{\n/*\t  font-size: 10px; \n\n    width: 
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.full-width {\r\n    background-color: #127af2;\n}\n.full-width {\r\n    background-color: #f8f8f8 !important;\r\n    box-shadow: none !important;\n}\n.text404 > span {\r\n    display: block;\r\n    -webkit-backface-visibility: hidden;\r\n    color: #787878;\n}\n.sss{\r\n\r\n    font-family: 'Circular-black';\n}\r\n", ""]);
+exports.push([module.i, "\n.full-width {\n    background-color: #127af2;\n}\n.full-width {\n    background-color: #f8f8f8 !important;\n    box-shadow: none !important;\n}\n.text404 > span {\n    display: block;\n    -webkit-backface-visibility: hidden;\n    color: #787878;\n}\n.sss {\n\n    font-family: 'Circular-black';\n}\n", ""]);
 
 /***/ }),
 /* 168 */
@@ -43276,7 +43298,7 @@ exports.push([module.i, "\n#timeline {\n    width: 700px;\n    height: 1px;\n   
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n*[data-v-95f8d1c6] {\n    font-family: 'Circular-Book'\n}\n.item[data-v-95f8d1c6]{\n    height: 400px;\n}\n.inner-shadow[data-v-95f8d1c6] {\n    box-shadow: inset 0 0 8px #d9d9d9;\n}\n.thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 20px;\n    padding: 0px;\n    border-radius: 0px;\n    font-family: 'Karla', sans-serif;\n}\ndiv#products[data-v-95f8d1c6] {\n    padding: 2em !important;\n    padding-left: 0 !important;\n    padding-right: 0.2em !important;\n}\n.item.list-group-item .thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 0px;\n}\n.item.list-group-item .caption[data-v-95f8d1c6] {\n    padding: 9px 9px 0px 9px;\n}\n#event-title[data-v-95f8d1c6] {\n    font-weight: 700 !important;\n    font-size: 1.5em !important;\n    margin-top: .5em !important;\n    margin-bottom: .5em !important;\n    letter-spacing: -.3px !important;\n}\n#event-date[data-v-95f8d1c6] {\n    color: #666;\n}\n.btn-success[data-v-95f8d1c6] {\n    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;\n    border: none !important;\n}\n.thumbnail .caption[data-v-95f8d1c6] {\n    padding: 1.2em !important;\n}\n.event-image[data-v-95f8d1c6] {\n    height: 200px;\n    width: 100%;\n    background-position: center center;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-95f8d1c6] {\n    font-family: 'Circular-Book'\n}\n.carousel-item[data-v-95f8d1c6] {\n    height: 400px;\n}\n.inner-shadow[data-v-95f8d1c6] {\n    box-shadow: inset 0 0 8px #d9d9d9;\n}\n.thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 20px;\n    padding: 0px;\n    border-radius: 0px;\n    font-family: 'Karla', sans-serif;\n}\ndiv#products[data-v-95f8d1c6] {\n    padding: 2em !important;\n    padding-left: 0 !important;\n    padding-right: 0.2em !important;\n}\n.item.list-group-item .thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 0px;\n}\n.item.list-group-item .caption[data-v-95f8d1c6] {\n    padding: 9px 9px 0px 9px;\n}\n#event-title[data-v-95f8d1c6] {\n    font-weight: 700 !important;\n    font-size: 1.5em !important;\n    margin-top: .5em !important;\n    margin-bottom: .5em !important;\n    letter-spacing: -.3px !important;\n}\n#event-date[data-v-95f8d1c6] {\n    color: #666;\n}\n.btn-success[data-v-95f8d1c6] {\n    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;\n    border: none !important;\n}\n.thumbnail .caption[data-v-95f8d1c6] {\n    padding: 1.2em !important;\n}\n.event-image[data-v-95f8d1c6] {\n    height: 200px;\n    width: 100%;\n    background-position: center center;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n", ""]);
 
 /***/ }),
 /* 170 */
@@ -64464,7 +64486,7 @@ var Component = __webpack_require__(4)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\laravel\\coolfm\\node_modules\\vue-spinner\\src\\ClipLoader.vue"
+Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\Laravel\\coolfm\\node_modules\\vue-spinner\\src\\ClipLoader.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] ClipLoader.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -64502,7 +64524,7 @@ var Component = __webpack_require__(4)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\laravel\\coolfm\\resources\\assets\\js\\components\\app.vue"
+Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\Laravel\\coolfm\\resources\\assets\\js\\components\\app.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] app.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -64540,7 +64562,7 @@ var Component = __webpack_require__(4)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\laravel\\coolfm\\resources\\assets\\js\\components\\errorpage.vue"
+Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\Laravel\\coolfm\\resources\\assets\\js\\components\\errorpage.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] errorpage.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -64578,7 +64600,7 @@ var Component = __webpack_require__(4)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\laravel\\coolfm\\resources\\assets\\js\\components\\events.vue"
+Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\Laravel\\coolfm\\resources\\assets\\js\\components\\events.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] events.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -64616,7 +64638,7 @@ var Component = __webpack_require__(4)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\laravel\\coolfm\\resources\\assets\\js\\components\\eventslider.vue"
+Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\Laravel\\coolfm\\resources\\assets\\js\\components\\eventslider.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] eventslider.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -64753,7 +64775,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "color": "#787878",
       "font-family": "'Circular-Black'"
     }
-  }, [_vm._v("Oops!\r\n")]), _vm._v(" "), _c('span', {
+  }, [_vm._v("Oops!\n")]), _vm._v(" "), _c('span', {
     staticClass: "word2"
   }), _vm._v(" "), _c('span', {
     staticClass: "word3"
@@ -64787,7 +64809,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "color": "#787878",
       "font-family": "'Circular-Black'"
     }
-  }, [_vm._v("Error 404!\r\n              ")]), _vm._v(" "), _c('span', {
+  }, [_vm._v("Error 404!\n              ")]), _vm._v(" "), _c('span', {
     staticClass: "text404-cut"
   }, [_c('span', {
     staticClass: "word1",
@@ -64795,7 +64817,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "color": "#787878",
       "font-family": "'Circular-Black'"
     }
-  }, [_vm._v("Oops!\r\n")]), _vm._v(" "), _c('span', {
+  }, [_vm._v("Oops!\n")]), _vm._v(" "), _c('span', {
     staticClass: "word2"
   }), _vm._v(" "), _c('span', {
     staticClass: "word3"
@@ -64836,7 +64858,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": "/"
     }
-  }, [_vm._v("homepage")]), _vm._v(" instead?")])])])])])])])
+  }, [_vm._v("homepage")]), _vm._v("\n                                instead?")])])])])])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -65199,27 +65221,27 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "height": "400px"
     }
   }, [_c('div', {
-    staticClass: "bg-black item",
+    staticClass: "bg-black carousel-item",
     staticStyle: {
       "width": "500px"
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "bg-success item",
+    staticClass: "bg-success carousel-item",
     staticStyle: {
       "width": "300px"
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "bg-danger item",
+    staticClass: "bg-danger carousel-item",
     staticStyle: {
       "width": "700px"
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "bg-info item",
+    staticClass: "bg-info carousel-item",
     staticStyle: {
       "width": "200px"
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "bg-warning item",
+    staticClass: "bg-warning carousel-item",
     staticStyle: {
       "width": "400px"
     }
@@ -65319,7 +65341,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.buyticket(index)
         }
       }
-    }, [_vm._v("Buy Tickets")]), _vm._v(" "), _c('span', {
+    }, [_vm._v("Buy Tickets\n                                ")]), _vm._v(" "), _c('span', {
       staticClass: "text-info font-weight-bold"
     }, [_vm._v("  10% off")])])])])])])
   }), _vm._v(" "), ((_vm.searchable.length == 0 && _vm.loading == false)) ? _c('center', [_c('span', {

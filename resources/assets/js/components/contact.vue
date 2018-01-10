@@ -1,8 +1,9 @@
 <template>
     <div class="container">
-    <div class="alert alert-info">
-  <strong>Notice!</strong> For music request, please select music from the contact form and also submit a link to your song. We wish you the very best!
-</div>
+        <div class="alert alert-info">
+            <strong>Notice!</strong> For music request, please select music from the contact form and also submit a link
+            to your song. We wish you the very best!
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="well well-sm">
@@ -11,47 +12,57 @@
                             <legend class="text-center header" style="color: black;">Contact us</legend>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <input id="fname" v-model="firstname" type="text" placeholder="First Name" required class="form-control">
+                                    <input id="fname" v-model="firstname" type="text" placeholder="First Name" required
+                                           class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <input id="lname" v-model="lastname" type="text" placeholder="Last Name" required class="form-control">
+                                    <input id="lname" v-model="lastname" type="text" placeholder="Last Name" required
+                                           class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <input id="email" v-model="email" type="email" placeholder="Email Address" required class="form-control">
+                                    <input id="email" v-model="email" type="email" placeholder="Email Address" required
+                                           class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <input id="phone" v-model="phone" type="number" placeholder="Phone" required class="form-control">
+                                    <input id="phone" v-model="phone" type="number" placeholder="Phone" required
+                                           class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
                                     <select class="form-control" v-model="dept_email">
-                                            <option value="" disabled selected hidden>Which Department would you like to contact?</option>
-                                            <option value="saleslagos@coolwazobiainfo.com">Sales</option>
-                                            <option value="newslagos@coolwazobiainfo.com">News</option>
-                                            <option value="musiclagos@coolwazobiainfo.com">Music</option>
-                                            <option value="adminintern@coolwazobiainfo.com">Internship</option>
-                                            <option value="webteam@coolwazobiainfo.com">Web Team</option>
-                                            <option value="webteam@coolwazobiainfo.com">Social Media</option>
-                                            <option value="adminlagos@coolwazobiainfo.com">General Enquiries</option>
-                                        </select>
+                                        <option value="" disabled selected hidden>Which Department would you like to
+                                            contact?
+                                        </option>
+                                        <option value="saleslagos@coolwazobiainfo.com">Sales</option>
+                                        <option value="newslagos@coolwazobiainfo.com">News</option>
+                                        <option value="musiclagos@coolwazobiainfo.com">Music</option>
+                                        <option value="adminintern@coolwazobiainfo.com">Internship</option>
+                                        <option value="webteam@coolwazobiainfo.com">Web Team</option>
+                                        <option value="webteam@coolwazobiainfo.com">Social Media</option>
+                                        <option value="adminlagos@coolwazobiainfo.com">General Enquiries</option>
+                                    </select>
                                 </div>
                             </div>
-    
+
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <textarea class="form-control" id="message" v-model="content" required placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
+                                    <textarea class="form-control" id="message" v-model="content" required
+                                              placeholder="Enter your massage for us here. We will get back to you within 2 business days."
+                                              rows="7"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-success btn-lg" :disabled="ready" @click="sendcontact()">Submit</button>
+                                    <button type="submit" class="btn btn-success btn-lg" :disabled="ready"
+                                            @click="sendcontact()">Submit
+                                    </button>
                                 </div>
                             </div>
                         </fieldset>
@@ -62,61 +73,65 @@
                 <div>
                     <div class="panel panel-default">
                         <div class="text-center header" style="color: black;">Our Office</div>
-                        
-                         <div class="col-md-12 panel-body" >
-                                <div class="col-md-6">
-                                    <h4>Lagos Address</h4>
-                                    <div>
-                                        267A Etim Inyang Cres<br /> Victoria island annex, <br /> Lagos, Nigeria <br/>
-                                        <!-- #(703) 1234 1234<br /> -->
-                                      
-                                    </div>
-                                </div>
 
-                                 <div class="col-md-6">
-                                    <h4>Kano Address</h4>
-                                    
-                                    <div>
-                                        Plot 64, Farm Center Road,<br /> near Marhaba Cinema, after NUJ Press Center,<br /> Kano, Nigeria <br/>
-                                        #( 064) 460954, 460955<br />
-                                        
-                                    </div>
-                                </div>
+                        <div class="col-md-12 panel-body">
+                            <div class="col-md-6">
+                                <h4>Lagos Address</h4>
+                                <div>
+                                    267A Etim Inyang Cres<br/> Victoria island annex, <br/> Lagos, Nigeria <br/>
+                                    <!-- #(703) 1234 1234<br /> -->
 
-                                <div class="col-md-6">
-                                <br>
-                                    <h4>Abuja Address</h4>
-                                      
-                                    <div>
-                                        Plot 592, Independence Avenue,<br /> South City center, P.M.B.51, <br /> Garki Abuja, Nigeria <br/>
-                                        #( 09)4618800, 4618140<br /> 
-                                   
-                                    </div>
                                 </div>
-
-                                 <div class="col-md-6">
-                                 <br>
-                                    <h4>Port Harcourt Address</h4>
-                            
-                                    <div>
-                                        Km.16, East-West Highway,<br /> Near Syringe Factory, Rumuosi, P.O.Box 307, Choba-Rumuosi,<br /> Port Harcourt, Nigeria <br/>
-                                        #( 084)467301-3(3 Lines)<br /> 
-                                       
-                                    </div>
-                                </div>
-
-                                
                             </div>
+
+                            <div class="col-md-6">
+                                <h4>Kano Address</h4>
+
+                                <div>
+                                    Plot 64, Farm Center Road,<br/> near Marhaba Cinema, after NUJ Press Center,<br/>
+                                    Kano, Nigeria <br/>
+                                    #( 064) 460954, 460955<br/>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <br>
+                                <h4>Abuja Address</h4>
+
+                                <div>
+                                    Plot 592, Independence Avenue,<br/> South City center, P.M.B.51, <br/> Garki Abuja,
+                                    Nigeria <br/>
+                                    #( 09)4618800, 4618140<br/>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <br>
+                                <h4>Port Harcourt Address</h4>
+
+                                <div>
+                                    Km.16, East-West Highway,<br/> Near Syringe Factory, Rumuosi, P.O.Box 307,
+                                    Choba-Rumuosi,<br/> Port Harcourt, Nigeria <br/>
+                                    #( 084)467301-3(3 Lines)<br/>
+
+                                </div>
+                            </div>
+
+
+                        </div>
                         <div class="panel-body text-center">
-                           
-    
-                            <hr />
+
+
+                            <hr/>
                             <!-- <div id="map1" class="map"> -->
-                            <gmap-map :center="{lat:6.433123, lng:3.437555}" :zoom="20" map-type-id="roadmap" style="width: 100%; height: 100%; min-width: 300px; min-height: 300px;">
+                            <gmap-map :center="{lat:6.433123, lng:3.437555}" :zoom="20" map-type-id="roadmap"
+                                      style="width: 100%; height: 100%; min-width: 300px; min-height: 300px;">
                                 <gmap-marker :position="{lat:6.433123, lng:3.437555}">
                                 </gmap-marker>
                             </gmap-map>
-    
+
                             <!--</div>-->
                         </div>
                     </div>
@@ -128,7 +143,7 @@
 
 <script>
     export default {
-        data: function() {
+        data: function () {
             return {
                 firstname: '',
                 lastname: '',
@@ -138,13 +153,13 @@
                 content: ''
             }
         },
-        created: function() {
+        created: function () {
             var status = {
                 title: 'Cool FM Nigeria | Contact Us',
                 description: `Contact us at  267A Etim Inyang Cres, Victoria island annex, Lagos, Nigeria. Email: webteam@coolwazobiainfo.com. Longitude:6.433123, Latitude:3.437555`
             }
             this.$store.dispatch('SET_SEO', status);
-    
+
             // function init() {
             //     var myLocation = new google.maps.LatLng(6.433123, 3.437555);
             //     var mapOptions = {
@@ -159,14 +174,14 @@
             //         mapOptions);
             //     marker.setMap(map);
             // }
-    
+
             // while (typeof google != undefined) {
             //     init();
             //     break;
             // }
         },
         computed: {
-            ready: function() {
+            ready: function () {
                 if (this.firstname != '' && this.lastname != '' && this.email != '' && this.phone != '' && this.content != "" && this.dept_email != "") {
                     return false;
                 }
@@ -174,7 +189,7 @@
             }
         },
         methods: {
-            sendcontact: function() {
+            sendcontact: function () {
                 axios.post('sendmail', {
                     name: this.firstname + ' ' + this.lastname,
                     body: this.content,
@@ -216,14 +231,14 @@
     select:invalid {
         background: grey;
     }
-    
+
     .map {
         min-width: 300px;
         min-height: 300px;
         width: 100%;
         height: 100%;
     }
-    
+
     .header {
         background-color: #F5F5F5;
         color: #36A0FF;
@@ -231,9 +246,10 @@
         font-size: 27px;
         padding: 10px;
     }
+
     .vue-map-container {
 
-    margin-top: 328px !important;
-}
-     
+        margin-top: 328px !important;
+    }
+
 </style>
