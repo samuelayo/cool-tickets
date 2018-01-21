@@ -44,7 +44,7 @@
                                     </p>
                                 </div>
                                 <div class="col-12">
-                                    <button id="floater" class="btn btn-success" @click="buyticket(index)">Buy Tickets
+                                    <button id="floater" class="btn btn-ticket text-white" @click="navigate(evn.title, evn, index)">Buy Tickets
                                     </button>
                                     <span class="text-info font-weight-bold">  10% off</span>
                                 </div>
@@ -93,6 +93,16 @@
 
         },
         methods: {
+            navigate: function (name, data, index) {
+                this.$router.push({
+                    name: 'events-inner',
+                    params: {
+                        name: this.eventUrlCreator(name),
+                        data: data,
+                        index: index
+                    }
+                })
+            },
             get_tickets: function () {
                 axios.get("/all_tickets")
                     .then((response) => {
@@ -288,13 +298,18 @@
 
 
             },
-            eventDateConverter(date) {
-                let newDate = new Date(date).toLocaleDateString(undefined, {
+            eventDateConverter(eventDate) {
+                let newDate = new Date(eventDate).toLocaleDateString(undefined, {
                     day: '2-digit',
                     month: '2-digit',
                     year: 'numeric'
                 });
                 return newDate;
+            },
+            eventUrlCreator(eventName){
+                let name = eventName;
+                let url = name.replace(/ /g, '-');
+                return url;
             }
 
         },
@@ -319,12 +334,6 @@
 
     .carousel-item {
         height: 400px;
-    }
-
-    .inner-shadow {
-        -moz-box-shadow: inset 0 0 8px #d9d9d9;
-        -webkit-box-shadow: inset 0 0 8px #d9d9d9;
-        box-shadow: inset 0 0 8px #d9d9d9;
     }
 
     .thumbnail {
@@ -362,7 +371,7 @@
         color: #666;
     }
 
-    .btn-success {
+    .btn-ticket {
         background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;
         border: none !important;
     }

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 196);
+/******/ 	return __webpack_require__(__webpack_require__.s = 201);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1914,7 +1914,7 @@ function loadLocale(name) {
         try {
             oldLocale = globalLocale._abbr;
             var aliasedRequire = require;
-            __webpack_require__(172)("./" + name);
+            __webpack_require__(174)("./" + name);
             getSetGlobalLocale(oldLocale);
         } catch (e) {}
     }
@@ -4916,6 +4916,62 @@ module.exports = {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function() {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		var result = [];
+		for(var i = 0; i < this.length; i++) {
+			var item = this[i];
+			if(item[2]) {
+				result.push("@media " + item[2] + "{" + item[1] + "}");
+			} else {
+				result.push(item[1]);
+			}
+		}
+		return result.join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -15175,62 +15231,6 @@ return jQuery;
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function() {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		var result = [];
-		for(var i = 0; i < this.length; i++) {
-			var item = this[i];
-			if(item[2]) {
-				result.push("@media " + item[2] + "{" + item[1] + "}");
-			} else {
-				result.push(item[1]);
-			}
-		}
-		return result.join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-
-/***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
@@ -15307,7 +15307,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(194)
+var listToStyles = __webpack_require__(199)
 
 /*
 type StyleObject = {
@@ -38566,7 +38566,7 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(177).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(179).setImmediate))
 
 /***/ }),
 /* 134 */
@@ -38602,21 +38602,23 @@ module.exports = function(module) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(188);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_app__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_app__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_app__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_events__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_events__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_events___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_events__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_errorpage__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_errorpage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_errorpage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_eventsinner__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_eventsinner___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_eventsinner__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_errorpage__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_errorpage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_errorpage__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(161);
+__webpack_require__(162);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to * the page. Then, you may begin adding components to this application
@@ -38632,7 +38634,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 //vuex store
 
 
-Vue.component('clip-loader', __webpack_require__(178));
+Vue.component('clip-loader', __webpack_require__(180));
 
 //Vue.component('adimage', require('./components/adimage.vue'));
 Vue.filter('money', function (value) {
@@ -38642,14 +38644,11 @@ Vue.filter('money', function (value) {
 
 
 
-// import contact from './components/contact'
-
-// import aboutus from './components/aboutus'
 
 
 var routes = [
 //route for the home route of the webpage
-{ path: '/', component: __WEBPACK_IMPORTED_MODULE_3__components_events___default.a, name: 'events' }, { path: '*', component: __WEBPACK_IMPORTED_MODULE_4__components_errorpage___default.a }];
+{ path: '/', component: __WEBPACK_IMPORTED_MODULE_3__components_events___default.a, name: 'events' }, { path: '/events/:name', component: __WEBPACK_IMPORTED_MODULE_4__components_eventsinner___default.a, name: 'events-inner', props: true }, { path: '*', component: __WEBPACK_IMPORTED_MODULE_5__components_errorpage___default.a }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
     routes: routes, // short for routes: routes
@@ -40301,7 +40300,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return this.$store.state.current_state;
     }
 }));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
 
 /***/ }),
 /* 158 */
@@ -40385,7 +40384,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventslider__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventslider__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__eventslider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__eventslider__);
 //
 //
@@ -40481,6 +40480,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.$store.dispatch('SET_SEO', status);
     },
     methods: {
+        navigate: function navigate(name, data, index) {
+            this.$router.push({
+                name: 'events-inner',
+                params: {
+                    name: this.eventUrlCreator(name),
+                    data: data,
+                    index: index
+                }
+            });
+        },
         get_tickets: function get_tickets() {
             var _this = this;
 
@@ -40658,13 +40667,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             }
         },
-        eventDateConverter: function eventDateConverter(date) {
-            var newDate = new Date(date).toLocaleDateString(undefined, {
+        eventDateConverter: function eventDateConverter(eventDate) {
+            var newDate = new Date(eventDate).toLocaleDateString(undefined, {
                 day: '2-digit',
                 month: '2-digit',
                 year: 'numeric'
             });
             return newDate;
+        },
+        eventUrlCreator: function eventUrlCreator(eventName) {
+            var name = eventName;
+            var url = name.replace(/ /g, '-');
+            return url;
         }
     },
     computed: {
@@ -40688,9 +40702,333 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_owl_carousel_dist_assets_owl_carousel_css__ = __webpack_require__(176);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "eventsInner",
+    props: ['name'],
+    mounted: function mounted() {
+        this.getEventDetails();
+    },
+    data: function data() {
+        return {
+            eventData: {},
+            loading: 'true',
+            quantity: 1
+        };
+    },
+    methods: {
+        incrementQuantity: function incrementQuantity() {
+            return this.quantity++;
+        },
+        getEventDetails: function getEventDetails() {
+            var _this = this;
+
+            console.log(this.name);
+            axios.get('/events/details/' + this.name).then(function (response) {
+                _this.eventData = response.data;
+                _this.loading = false;
+            });
+        },
+        eventDateConverter: function eventDateConverter(eventDate) {
+            var newDate = new Date(eventDate).toLocaleDateString(undefined, {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+            return newDate;
+        },
+        eventTimeConverter: function eventTimeConverter(eventTime) {
+            var date = new Date(eventTime);
+            var hours = date.getHours();
+            var suffix = 'AM';
+            var time = void 0;
+            if (hours < 12) {
+                time = hours + suffix;
+            } else {
+                suffix = 'PM';
+                switch (hours) {
+                    case 12:
+                        time = '12PM';
+                        break;
+                    case 13:
+                        time = '1PM';
+                        break;
+                    case 14:
+                        time = '2PM';
+                        break;
+                    case 15:
+                        time = '3PM';
+                        break;
+                    case 16:
+                        time = '4PM';
+                        break;
+                    case 17:
+                        time = '5PM';
+                        break;
+                    case 18:
+                        time = '6PM';
+                        break;
+                    case 19:
+                        time = '7PM';
+                        break;
+                    case 20:
+                        time = '8PM';
+                        break;
+                    case 21:
+                        time = '9PM';
+                        break;
+                    case 22:
+                        time = '10PM';
+                        break;
+                    case 23:
+                        time = '11PM';
+                        break;
+                    case 0:
+                        time = '12AM';
+                        break;
+                }
+            }
+            return time;
+        },
+
+        buyTicket: function buyTicket() {
+            var _this2 = this;
+
+            var ticket = this.eventData.tickets[0];
+            var ticket_id = ticket.id;
+            var qty = this.quantity;
+            var total_amt = ticket.price * qty;
+            var email = localStorage.getItem('email') ? localStorage.getItem('email') : '';
+            if (ticket.amount === 0) {
+                swal({
+                    title: "Error!",
+                    text: ticket.name + " tickets sold out",
+                    type: "error",
+                    confirmButtonText: "Cool"
+                });
+                return false;
+            }
+            if (qty > ticket.amount && ticket.amount !== 0) {
+                swal({
+                    title: "Error!",
+                    text: "we have only " + ticket.amount + " " + ticket.name + " tickets available",
+                    type: "error",
+                    confirmButtonText: "Cool"
+                });
+
+                return false;
+            }
+            if (email == "" || email != "") {
+                var getemail = "";
+                var regex = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+                swal({
+                    title: "Your Email!",
+                    text: "Please provide us with an email:",
+                    type: "input",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    animation: "slide-from-top",
+                    inputPlaceholder: "email",
+                    inputValue: email
+                }, function (inputValue) {
+                    if (inputValue == false) {
+                        return false;
+                    } else if (inputValue == "") {
+                        swal.showInputError("You need to input an email!");
+                        return false;
+                    } else if (!regex.test(inputValue)) {
+                        swal.showInputError("Your email is not valid!");
+                        return false;
+                    } else {
+                        email = inputValue;
+                        var self = _this2;
+                        if (total_amt === 0) {
+
+                            if (qty !== 1) {
+                                swal("We are sorry, but you can only order one free ticket");
+                                return false;
+                            } else {
+
+                                swal({
+                                    title: "In progress",
+                                    text: "Please hold on, your ticket is being processed",
+                                    type: "info",
+                                    showCancelButton: true,
+                                    closeOnConfirm: false,
+                                    showLoaderOnConfirm: true
+                                }, function () {
+                                    axios.post('ticket_purchased', {
+                                        ticket_id: ticket_id,
+                                        qty: qty,
+                                        total_amt: total_amt,
+                                        email: email
+                                    }).then(function (response) {
+                                        self.all_events = response.data;
+                                        swal("Please check your email for your tickets");
+                                    }).catch(function (error) {
+                                        swal("An error occurred. If your ticket was not sent, and you have been debited, please send an email to tickets@coolfm.ng");
+                                    });
+                                });
+                            }
+                        } else {
+                            var handler = PaystackPop.setup({
+                                key: 'pk_live_96225c07868c79dfa4651c2d085c65e8d26ddfe0',
+                                email: email,
+                                amount: total_amt * 100,
+                                ref: "cool_ticket_" + total_amt + qty + Math.round(+new Date() / 1000),
+                                metadata: {
+                                    // custom_fields: [{
+                                    //     display_name: "Mobile Number",
+                                    //     variable_name: "mobile_number",
+                                    //     value: "+2348012345678"
+                                    // }]
+                                },
+                                callback: function callback(response) {
+                                    swal({
+                                        title: "In progress",
+                                        text: "Please hold on, your ticket is being processed",
+                                        type: "info",
+                                        showCancelButton: true,
+                                        closeOnConfirm: false,
+                                        showLoaderOnConfirm: true
+                                    }, function () {
+                                        axios.post('ticket_purchased', {
+                                            ticket_id: ticket_id,
+                                            qty: qty,
+                                            total_amt: total_amt,
+                                            email: email
+                                        }).then(function (response) {
+                                            self.all_events = response.data;
+                                            swal("Please check your email for your tickets");
+                                        }).catch(function (error) {
+                                            swal("An error occurred. If your ticket was not sent, and you have been debited, please send an email to tickets@coolfm.ng");
+                                        });
+                                    });
+                                },
+                                onClose: function onClose() {
+                                    swal('An error occurred, please try again later');
+                                }
+                            });
+                            handler.openIframe();
+                        }
+                    }
+                });
+            }
+        }
+    },
+    computed: {
+        title: function title() {
+            var name = this.name;
+            var title = name.replace(/-/g, " ");
+            return title;
+        }
+    }
+});
+
+/***/ }),
+/* 161 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_owl_carousel_dist_assets_owl_carousel_css__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_owl_carousel_dist_assets_owl_carousel_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_owl_carousel_dist_assets_owl_carousel_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
 //
 //
@@ -40704,7 +41042,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__webpack_require__(173);
+__webpack_require__(175);
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "eventSlider",
     props: ['height'],
@@ -40729,10 +41067,10 @@ __webpack_require__(173);
 });
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {window._ = __webpack_require__(171);
+/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {window._ = __webpack_require__(173);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -40740,9 +41078,9 @@ __webpack_require__(173);
  * code may be modified to fit the specific needs of your application.
  */
 
-window.$ = __webpack_provided_window_dot_jQuery = __webpack_require__(2);
+window.$ = __webpack_provided_window_dot_jQuery = __webpack_require__(3);
 
-__webpack_require__(163);
+__webpack_require__(164);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -40785,16 +41123,16 @@ window.axios.defaults.headers.common = {
 //     broadcaster: 'socket.io',
 //     host: 'http://localhost:3000'
 // });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(200);
 
 
 
@@ -40875,7 +41213,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 /* harmony default export */ __webpack_exports__["a"] = (store);
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*!
@@ -43256,58 +43594,65 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ }),
-/* 164 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "/**\n * Owl Carousel v2.2.0\n * Copyright 2013-2016 David Deutsch\n * Licensed under MIT (https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE)\n */\n/*\n *  Owl Carousel - Core\n */\n.owl-carousel {\n  display: none;\n  width: 100%;\n  -webkit-tap-highlight-color: transparent;\n  /* position relative and z-index fix webkit rendering fonts issue */\n  position: relative;\n  z-index: 1; }\n  .owl-carousel .owl-stage {\n    position: relative;\n    -ms-touch-action: pan-Y; }\n  .owl-carousel .owl-stage:after {\n    content: \".\";\n    display: block;\n    clear: both;\n    visibility: hidden;\n    line-height: 0;\n    height: 0; }\n  .owl-carousel .owl-stage-outer {\n    position: relative;\n    overflow: hidden;\n    /* fix for flashing background */\n    -webkit-transform: translate3d(0px, 0px, 0px); }\n  .owl-carousel .owl-item {\n    position: relative;\n    min-height: 1px;\n    float: left;\n    -webkit-backface-visibility: hidden;\n    -webkit-tap-highlight-color: transparent;\n    -webkit-touch-callout: none; }\n  .owl-carousel .owl-item img {\n    display: block;\n    width: 100%;\n    -webkit-transform-style: preserve-3d; }\n  .owl-carousel .owl-nav.disabled,\n  .owl-carousel .owl-dots.disabled {\n    display: none; }\n  .owl-carousel .owl-nav .owl-prev,\n  .owl-carousel .owl-nav .owl-next,\n  .owl-carousel .owl-dot {\n    cursor: pointer;\n    cursor: hand;\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none; }\n  .owl-carousel.owl-loaded {\n    display: block; }\n  .owl-carousel.owl-loading {\n    opacity: 0;\n    display: block; }\n  .owl-carousel.owl-hidden {\n    opacity: 0; }\n  .owl-carousel.owl-refresh .owl-item {\n    visibility: hidden; }\n  .owl-carousel.owl-drag .owl-item {\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none; }\n  .owl-carousel.owl-grab {\n    cursor: move;\n    cursor: grab; }\n  .owl-carousel.owl-rtl {\n    direction: rtl; }\n  .owl-carousel.owl-rtl .owl-item {\n    float: right; }\n\n/* No Js */\n.no-js .owl-carousel {\n  display: block; }\n\n/*\n *  Owl Carousel - Animate Plugin\n */\n.owl-carousel .animated {\n  -webkit-animation-duration: 1000ms;\n          animation-duration: 1000ms;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both; }\n\n.owl-carousel .owl-animated-in {\n  z-index: 0; }\n\n.owl-carousel .owl-animated-out {\n  z-index: 1; }\n\n.owl-carousel .fadeOut {\n  -webkit-animation-name: fadeOut;\n          animation-name: fadeOut; }\n\n@-webkit-keyframes fadeOut {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes fadeOut {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n/*\n * \tOwl Carousel - Auto Height Plugin\n */\n.owl-height {\n  transition: height 500ms ease-in-out; }\n\n/*\n * \tOwl Carousel - Lazy Load Plugin\n */\n.owl-carousel .owl-item .owl-lazy {\n  opacity: 0;\n  transition: opacity 400ms ease; }\n\n.owl-carousel .owl-item img.owl-lazy {\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d; }\n\n/*\n * \tOwl Carousel - Video Plugin\n */\n.owl-carousel .owl-video-wrapper {\n  position: relative;\n  height: 100%;\n  background: #000; }\n\n.owl-carousel .owl-video-play-icon {\n  position: absolute;\n  height: 80px;\n  width: 80px;\n  left: 50%;\n  top: 50%;\n  margin-left: -40px;\n  margin-top: -40px;\n  background: url("+__webpack_require__(170)+") no-repeat;\n  cursor: pointer;\n  z-index: 1;\n  -webkit-backface-visibility: hidden;\n  transition: -webkit-transform 100ms ease;\n  transition: transform 100ms ease; }\n\n.owl-carousel .owl-video-play-icon:hover {\n  -webkit-transform: scale(1.3, 1.3);\n      -ms-transform: scale(1.3, 1.3);\n          transform: scale(1.3, 1.3); }\n\n.owl-carousel .owl-video-playing .owl-video-tn,\n.owl-carousel .owl-video-playing .owl-video-play-icon {\n  display: none; }\n\n.owl-carousel .owl-video-tn {\n  opacity: 0;\n  height: 100%;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: contain;\n  transition: opacity 400ms ease; }\n\n.owl-carousel .owl-video-frame {\n  position: relative;\n  z-index: 1;\n  height: 100%;\n  width: 100%; }\n", ""]);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "/**\n * Owl Carousel v2.2.0\n * Copyright 2013-2016 David Deutsch\n * Licensed under MIT (https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE)\n */\n/*\n *  Owl Carousel - Core\n */\n.owl-carousel {\n  display: none;\n  width: 100%;\n  -webkit-tap-highlight-color: transparent;\n  /* position relative and z-index fix webkit rendering fonts issue */\n  position: relative;\n  z-index: 1; }\n  .owl-carousel .owl-stage {\n    position: relative;\n    -ms-touch-action: pan-Y; }\n  .owl-carousel .owl-stage:after {\n    content: \".\";\n    display: block;\n    clear: both;\n    visibility: hidden;\n    line-height: 0;\n    height: 0; }\n  .owl-carousel .owl-stage-outer {\n    position: relative;\n    overflow: hidden;\n    /* fix for flashing background */\n    -webkit-transform: translate3d(0px, 0px, 0px); }\n  .owl-carousel .owl-item {\n    position: relative;\n    min-height: 1px;\n    float: left;\n    -webkit-backface-visibility: hidden;\n    -webkit-tap-highlight-color: transparent;\n    -webkit-touch-callout: none; }\n  .owl-carousel .owl-item img {\n    display: block;\n    width: 100%;\n    -webkit-transform-style: preserve-3d; }\n  .owl-carousel .owl-nav.disabled,\n  .owl-carousel .owl-dots.disabled {\n    display: none; }\n  .owl-carousel .owl-nav .owl-prev,\n  .owl-carousel .owl-nav .owl-next,\n  .owl-carousel .owl-dot {\n    cursor: pointer;\n    cursor: hand;\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none; }\n  .owl-carousel.owl-loaded {\n    display: block; }\n  .owl-carousel.owl-loading {\n    opacity: 0;\n    display: block; }\n  .owl-carousel.owl-hidden {\n    opacity: 0; }\n  .owl-carousel.owl-refresh .owl-item {\n    visibility: hidden; }\n  .owl-carousel.owl-drag .owl-item {\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none; }\n  .owl-carousel.owl-grab {\n    cursor: move;\n    cursor: grab; }\n  .owl-carousel.owl-rtl {\n    direction: rtl; }\n  .owl-carousel.owl-rtl .owl-item {\n    float: right; }\n\n/* No Js */\n.no-js .owl-carousel {\n  display: block; }\n\n/*\n *  Owl Carousel - Animate Plugin\n */\n.owl-carousel .animated {\n  -webkit-animation-duration: 1000ms;\n          animation-duration: 1000ms;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both; }\n\n.owl-carousel .owl-animated-in {\n  z-index: 0; }\n\n.owl-carousel .owl-animated-out {\n  z-index: 1; }\n\n.owl-carousel .fadeOut {\n  -webkit-animation-name: fadeOut;\n          animation-name: fadeOut; }\n\n@-webkit-keyframes fadeOut {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes fadeOut {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n/*\n * \tOwl Carousel - Auto Height Plugin\n */\n.owl-height {\n  transition: height 500ms ease-in-out; }\n\n/*\n * \tOwl Carousel - Lazy Load Plugin\n */\n.owl-carousel .owl-item .owl-lazy {\n  opacity: 0;\n  transition: opacity 400ms ease; }\n\n.owl-carousel .owl-item img.owl-lazy {\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d; }\n\n/*\n * \tOwl Carousel - Video Plugin\n */\n.owl-carousel .owl-video-wrapper {\n  position: relative;\n  height: 100%;\n  background: #000; }\n\n.owl-carousel .owl-video-play-icon {\n  position: absolute;\n  height: 80px;\n  width: 80px;\n  left: 50%;\n  top: 50%;\n  margin-left: -40px;\n  margin-top: -40px;\n  background: url("+__webpack_require__(172)+") no-repeat;\n  cursor: pointer;\n  z-index: 1;\n  -webkit-backface-visibility: hidden;\n  transition: -webkit-transform 100ms ease;\n  transition: transform 100ms ease; }\n\n.owl-carousel .owl-video-play-icon:hover {\n  -webkit-transform: scale(1.3, 1.3);\n      -ms-transform: scale(1.3, 1.3);\n          transform: scale(1.3, 1.3); }\n\n.owl-carousel .owl-video-playing .owl-video-tn,\n.owl-carousel .owl-video-playing .owl-video-play-icon {\n  display: none; }\n\n.owl-carousel .owl-video-tn {\n  opacity: 0;\n  height: 100%;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: contain;\n  transition: opacity 400ms ease; }\n\n.owl-carousel .owl-video-frame {\n  position: relative;\n  z-index: 1;\n  height: 100%;\n  width: 100%; }\n", ""]);
 
 /***/ }),
 /* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.v-spinner\n{\n/*\t  font-size: 10px; \n\n    width: 60px;\n    height: 40px;*/\n    /*margin: 25px auto;*/\n    text-align: center;\n}\n.v-spinner .v-clip\n{\n    -webkit-animation: v-clipDelay 0.75s 0s infinite linear;\n            animation: v-clipDelay 0.75s 0s infinite linear;\n    -webkit-animation-fill-mode: both;\n\t          animation-fill-mode: both;\n\n    display: inline-block;\n}\n@-webkit-keyframes v-clipDelay\n{\n0%\n    {\n        -webkit-transform: rotate(0deg) scale(1);\n                transform: rotate(0deg) scale(1);\n}\n50%\n    {\n        -webkit-transform: rotate(180deg) scale(0.8);\n                transform: rotate(180deg) scale(0.8);\n}\n100%\n    {\n        -webkit-transform: rotate(360deg) scale(1);\n                transform: rotate(360deg) scale(1);\n}\n}\n@keyframes v-clipDelay\n{\n0%\n    {\n        -webkit-transform: rotate(0deg) scale(1);\n                transform: rotate(0deg) scale(1);\n}\n50%\n    {\n        -webkit-transform: rotate(180deg) scale(0.8);\n                transform: rotate(180deg) scale(0.8);\n}\n100%\n    {\n        -webkit-transform: rotate(360deg) scale(1);\n                transform: rotate(360deg) scale(1);\n}\n}\n", ""]);
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.full-width {\n    background-color: #127af2;\n}\n.full-width {\n    background-color: #f8f8f8 !important;\n    box-shadow: none !important;\n}\n.text404 > span {\n    display: block;\n    -webkit-backface-visibility: hidden;\n    color: #787878;\n}\n.sss {\n\n    font-family: 'Circular-black';\n}\n", ""]);
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "\n.v-spinner\n{\n/*\t  font-size: 10px; \n\n    width: 60px;\n    height: 40px;*/\n    /*margin: 25px auto;*/\n    text-align: center;\n}\n.v-spinner .v-clip\n{\n    -webkit-animation: v-clipDelay 0.75s 0s infinite linear;\n            animation: v-clipDelay 0.75s 0s infinite linear;\n    -webkit-animation-fill-mode: both;\n\t          animation-fill-mode: both;\n\n    display: inline-block;\n}\n@-webkit-keyframes v-clipDelay\n{\n0%\n    {\n        -webkit-transform: rotate(0deg) scale(1);\n                transform: rotate(0deg) scale(1);\n}\n50%\n    {\n        -webkit-transform: rotate(180deg) scale(0.8);\n                transform: rotate(180deg) scale(0.8);\n}\n100%\n    {\n        -webkit-transform: rotate(360deg) scale(1);\n                transform: rotate(360deg) scale(1);\n}\n}\n@keyframes v-clipDelay\n{\n0%\n    {\n        -webkit-transform: rotate(0deg) scale(1);\n                transform: rotate(0deg) scale(1);\n}\n50%\n    {\n        -webkit-transform: rotate(180deg) scale(0.8);\n                transform: rotate(180deg) scale(0.8);\n}\n100%\n    {\n        -webkit-transform: rotate(360deg) scale(1);\n                transform: rotate(360deg) scale(1);\n}\n}\n", ""]);
 
 /***/ }),
 /* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n#timeline {\n    width: 700px;\n    height: 1px;\n    background: #4200f7;\n    margin-top: 2%;\n    float: left;\n}\n#playhead {\n    width: 7px;\n    height: 1px;\n    background: rgba(0, 255, 196, 0.82);\n}\naudio::-webkit-media-controls-enclosure,\nvideo::-webkit-media-controls-enclosure {\n    max-width: 100%;\n}\n\n/**.cse .gsc-control-cse, .gsc-control-cse{\n                      padding: 0 0 0 0 !important;\n                      margin: -1em !important;\n                    }**/\n.cse .gsc-control-cse,\n.gsc-control-cse {\n    font-family: Arial, serif !important;\n    background-color: none !important;\n    border: none !important;\n}\n.gsc-control-cse {\n    font-family: Arial, sans-serif !important;\n    border-color: none !important;\n    background-color: none !important;\n}\ninput#gsc-i-id1 {\n    outline: none;\n    background: none !important;\n    text-indent: 0px !important;\n    font-family: 'circular-medium' !important;\n}\ninput.gsc-input {\n    border-color: none !important;\n}\ninput.gsc-search-button {\n    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%) !important;\n    border: none !important;\n    color: #fff !important;\n    width: 86px !important;\n    height: 31px !important;\n    border-radius: 26px !important;\n}\n.cse input.gsc-input,\ninput.gsc-input {\n    font-family: inherit !important;\n    font-size: 16px !important;\n    border: none !important;\n    border-bottom: 1px dashed #ddd !important;\n    padding: 4px 6px !important;\n    border-radius: 2px !important;\n}\n.toast-success {\n    background-color: #117af2 !important;\n}\n#toast-container > .toast-success {\n    background-image: none !important;\n}\n#toast-container > div {\n    position: relative;\n    pointer-events: auto;\n    overflow: hidden;\n    margin: 0 0 6px;\n    padding: 15px 15px 15px 10px !important;\n    width: 300px;\n    border-radius: 3px;\n    background-position: 15px center;\n    background-repeat: no-repeat;\n    box-shadow: 0 0 12px #999;\n    color: #fff;\n    opacity: .8;\n    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);\n    filter: alpha(opacity=80);\n}\ndiv#___gcse_0 {\n    width: 90% !important;\n    margin: 0 auto !important;\n}\n.cse .gsc-control-cse,\n.gsc-control-cse {\n    padding: 0px !important;\n    width: auto;\n}\ntd.gsc-clear-button {\n    width: 14px !important;\n    display: none !important;\n}\n#mc_embed_signup {\n    background: none;\n    clear: left;\n    font: 14px Helvetica, Arial, sans-serif;\n}\n#newsletter {\n    box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49) !important;\n    font-family: 'Circular-bold' !important;\n}\ndiv#newsletter .button {\n    border-radius: 40px;\n    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%) !important;\n    height: 49px;\n    font-size: 1.3em;\n    color: #fff;\n    font-family: 'circular-book';\n    width: 177px;\n}\ndiv#newsletter input {\n    box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49);\n    background: #fff !important;\n    border: 1px solid #ddd;\n    border-radius: 100px;\n    height: 3.5em;\n}\ndiv#newsletter input {\n    font-family: 'Circular-Book';\n    color: #000;\n    font-size: 1.1em;\n    outline: none;\n}\ndiv#newsletter label {\n    font-family: 'Circular-bold' !important;\n}\n#newsletter:before {\n    content: '';\n    position: absolute;\n    top: 71%;\n    right: 100%;\n    margin-top: -8px;\n    width: 0;\n    height: 0;\n    border-right: 25px solid #fff;\n    border-top: 1px solid transparent;\n    border-bottom: 40px solid transparent;\n}\n\n/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.\n                     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\n@-webkit-keyframes pulse {\n0% {\n        -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);\n}\n70% {\n        -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% {\n        -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n@keyframes pulse {\n0% {\n        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);\n}\n70% {\n        box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% {\n        box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.pulse {\n    width: 13px;\n    height: 12px;\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    border-radius: 50%;\n    background: #fb0027;\n    vertical-align: top;\n    cursor: pointer;\n    box-shadow: 0 0 0 rgba(255, 0, 20, 0.4);\n    -webkit-animation: pulse 2s infinite;\n            animation: pulse 2s infinite;\n}\n.pulse:hover {\n    -webkit-animation: none;\n            animation: none;\n}\n@-webkit-keyframes panning {\n0% {\n        background-position: 0% 0%;\n}\n25% {\n        background-position: 100% 100%;\n}\n50% {\n        background-position: 100% 0%;\n}\n75% {\n        background-position: 0 100%;\n}\n200% {\n        background-position: 0 0;\n}\n}\n@keyframes panning {\n0% {\n        background-position: 0% 0%;\n}\n25% {\n        background-position: 100% 100%;\n}\n50% {\n        background-position: 100% 0%;\n}\n75% {\n        background-position: 0 100%;\n}\n200% {\n        background-position: 0 0;\n}\n}\n", ""]);
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "\n.full-width {\n    background-color: #127af2;\n}\n.full-width {\n    background-color: #f8f8f8 !important;\n    box-shadow: none !important;\n}\n.text404 > span {\n    display: block;\n    -webkit-backface-visibility: hidden;\n    color: #787878;\n}\n.sss {\n\n    font-family: 'Circular-black';\n}\n", ""]);
 
 /***/ }),
 /* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n*[data-v-95f8d1c6] {\n    font-family: 'Circular-Book'\n}\n.carousel-item[data-v-95f8d1c6] {\n    height: 400px;\n}\n.inner-shadow[data-v-95f8d1c6] {\n    box-shadow: inset 0 0 8px #d9d9d9;\n}\n.thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 20px;\n    padding: 0px;\n    border-radius: 0px;\n    font-family: 'Karla', sans-serif;\n}\ndiv#products[data-v-95f8d1c6] {\n    padding: 2em !important;\n    padding-left: 0 !important;\n    padding-right: 0.2em !important;\n}\n.item.list-group-item .thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 0px;\n}\n.item.list-group-item .caption[data-v-95f8d1c6] {\n    padding: 9px 9px 0px 9px;\n}\n#event-title[data-v-95f8d1c6] {\n    font-weight: 700 !important;\n    font-size: 1.5em !important;\n    margin-top: .5em !important;\n    margin-bottom: .5em !important;\n    letter-spacing: -.3px !important;\n}\n#event-date[data-v-95f8d1c6] {\n    color: #666;\n}\n.btn-success[data-v-95f8d1c6] {\n    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;\n    border: none !important;\n}\n.thumbnail .caption[data-v-95f8d1c6] {\n    padding: 1.2em !important;\n}\n.event-image[data-v-95f8d1c6] {\n    height: 200px;\n    width: 100%;\n    background-position: center center;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n", ""]);
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "\n#timeline {\n    width: 700px;\n    height: 1px;\n    background: #4200f7;\n    margin-top: 2%;\n    float: left;\n}\n#playhead {\n    width: 7px;\n    height: 1px;\n    background: rgba(0, 255, 196, 0.82);\n}\naudio::-webkit-media-controls-enclosure,\nvideo::-webkit-media-controls-enclosure {\n    max-width: 100%;\n}\n\n/**.cse .gsc-control-cse, .gsc-control-cse{\n                      padding: 0 0 0 0 !important;\n                      margin: -1em !important;\n                    }**/\n.cse .gsc-control-cse,\n.gsc-control-cse {\n    font-family: Arial, serif !important;\n    background-color: none !important;\n    border: none !important;\n}\n.gsc-control-cse {\n    font-family: Arial, sans-serif !important;\n    border-color: none !important;\n    background-color: none !important;\n}\ninput#gsc-i-id1 {\n    outline: none;\n    background: none !important;\n    text-indent: 0px !important;\n    font-family: 'circular-medium' !important;\n}\ninput.gsc-input {\n    border-color: none !important;\n}\ninput.gsc-search-button {\n    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%) !important;\n    border: none !important;\n    color: #fff !important;\n    width: 86px !important;\n    height: 31px !important;\n    border-radius: 26px !important;\n}\n.cse input.gsc-input,\ninput.gsc-input {\n    font-family: inherit !important;\n    font-size: 16px !important;\n    border: none !important;\n    border-bottom: 1px dashed #ddd !important;\n    padding: 4px 6px !important;\n    border-radius: 2px !important;\n}\n.toast-success {\n    background-color: #117af2 !important;\n}\n#toast-container > .toast-success {\n    background-image: none !important;\n}\n#toast-container > div {\n    position: relative;\n    pointer-events: auto;\n    overflow: hidden;\n    margin: 0 0 6px;\n    padding: 15px 15px 15px 10px !important;\n    width: 300px;\n    border-radius: 3px;\n    background-position: 15px center;\n    background-repeat: no-repeat;\n    box-shadow: 0 0 12px #999;\n    color: #fff;\n    opacity: .8;\n    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);\n    filter: alpha(opacity=80);\n}\ndiv#___gcse_0 {\n    width: 90% !important;\n    margin: 0 auto !important;\n}\n.cse .gsc-control-cse,\n.gsc-control-cse {\n    padding: 0px !important;\n    width: auto;\n}\ntd.gsc-clear-button {\n    width: 14px !important;\n    display: none !important;\n}\n#mc_embed_signup {\n    background: none;\n    clear: left;\n    font: 14px Helvetica, Arial, sans-serif;\n}\n#newsletter {\n    box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49) !important;\n    font-family: 'Circular-bold' !important;\n}\ndiv#newsletter .button {\n    border-radius: 40px;\n    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%) !important;\n    height: 49px;\n    font-size: 1.3em;\n    color: #fff;\n    font-family: 'circular-book';\n    width: 177px;\n}\ndiv#newsletter input {\n    box-shadow: -23px 10px 93px -25px rgba(0, 0, 0, 0.49);\n    background: #fff !important;\n    border: 1px solid #ddd;\n    border-radius: 100px;\n    height: 3.5em;\n}\ndiv#newsletter input {\n    font-family: 'Circular-Book';\n    color: #000;\n    font-size: 1.1em;\n    outline: none;\n}\ndiv#newsletter label {\n    font-family: 'Circular-bold' !important;\n}\n#newsletter:before {\n    content: '';\n    position: absolute;\n    top: 71%;\n    right: 100%;\n    margin-top: -8px;\n    width: 0;\n    height: 0;\n    border-right: 25px solid #fff;\n    border-top: 1px solid transparent;\n    border-bottom: 40px solid transparent;\n}\n\n/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.\n                     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\n@-webkit-keyframes pulse {\n0% {\n        -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);\n}\n70% {\n        -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% {\n        -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n@keyframes pulse {\n0% {\n        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);\n}\n70% {\n        box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% {\n        box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.pulse {\n    width: 13px;\n    height: 12px;\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    border-radius: 50%;\n    background: #fb0027;\n    vertical-align: top;\n    cursor: pointer;\n    box-shadow: 0 0 0 rgba(255, 0, 20, 0.4);\n    -webkit-animation: pulse 2s infinite;\n            animation: pulse 2s infinite;\n}\n.pulse:hover {\n    -webkit-animation: none;\n            animation: none;\n}\n@-webkit-keyframes panning {\n0% {\n        background-position: 0% 0%;\n}\n25% {\n        background-position: 100% 100%;\n}\n50% {\n        background-position: 100% 0%;\n}\n75% {\n        background-position: 0 100%;\n}\n200% {\n        background-position: 0 0;\n}\n}\n@keyframes panning {\n0% {\n        background-position: 0% 0%;\n}\n25% {\n        background-position: 100% 100%;\n}\n50% {\n        background-position: 100% 0%;\n}\n75% {\n        background-position: 0 100%;\n}\n200% {\n        background-position: 0 0;\n}\n}\n", ""]);
 
 /***/ }),
 /* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "\nselect[data-v-52ed0c89] {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    -ms-appearance: none;\n    appearance: none;\n    outline: 0;\n    box-shadow: none;\n    border: 0 !important;\n    background: #e8e8e8;\n    background-image: none;\n}\ninput[data-v-52ed0c89] {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    -ms-appearance: none;\n    appearance: none;\n    outline: 0;\n    box-shadow: none;\n    border: 0 !important;\n    background: #e8e8e8;\n    display: block;\n    height: 2em;\n    width: 6em;\n    line-height: 2;\n    padding-left: 10px;\n}\n\n/* Custom Select */\n.select[data-v-52ed0c89] {\n    position: relative;\n    display: block;\n    height: 2em;\n    width: 7em;\n    line-height: 2;\n    background: #e8e8e8;\n    overflow: hidden;\n    border-radius: .25em;\n}\nselect[data-v-52ed0c89] {\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0 0 0 .2em;\n    color: #000;\n    cursor: pointer;\n}\nselect[data-v-52ed0c89]::-ms-expand {\n    display: none;\n}\n\n/* Arrow */\n.select[data-v-52ed0c89]::after {\n    content: '\\25BC';\n    color: #fff;\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    padding: 0 .5em;\n    background: #0b58b1;\n    pointer-events: none;\n}\n.btn-add[data-v-52ed0c89] {\n    background: #0b58b1;\n    height: 2em;\n}\n\n/* Transition */\n.select[data-v-52ed0c89]:hover::after {\n    color: #f8f8f8;\n}\n.select[data-v-52ed0c89]::after {\n    transition: .25s all ease;\n}\n", ""]);
+
+/***/ }),
+/* 171 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "\n*[data-v-95f8d1c6] {\n    font-family: 'Circular-Book'\n}\n.carousel-item[data-v-95f8d1c6] {\n    height: 400px;\n}\n.thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 20px;\n    padding: 0px;\n    border-radius: 0px;\n    font-family: 'Karla', sans-serif;\n}\ndiv#products[data-v-95f8d1c6] {\n    padding: 2em !important;\n    padding-left: 0 !important;\n    padding-right: 0.2em !important;\n}\n.item.list-group-item .thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 0px;\n}\n.item.list-group-item .caption[data-v-95f8d1c6] {\n    padding: 9px 9px 0px 9px;\n}\n#event-title[data-v-95f8d1c6] {\n    font-weight: 700 !important;\n    font-size: 1.5em !important;\n    margin-top: .5em !important;\n    margin-bottom: .5em !important;\n    letter-spacing: -.3px !important;\n}\n#event-date[data-v-95f8d1c6] {\n    color: #666;\n}\n.btn-ticket[data-v-95f8d1c6] {\n    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;\n    border: none !important;\n}\n.thumbnail .caption[data-v-95f8d1c6] {\n    padding: 1.2em !important;\n}\n.event-image[data-v-95f8d1c6] {\n    height: 200px;\n    width: 100%;\n    background-position: center center;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n", ""]);
+
+/***/ }),
+/* 172 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/vendor/owl.carousel/dist/owl.video.play.png?4cbde124d6cd8122c801118696c16f07";
 
 /***/ }),
-/* 171 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -60399,7 +60744,7 @@ module.exports = "/images/vendor/owl.carousel/dist/owl.video.play.png?4cbde124d6
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(134)(module)))
 
 /***/ }),
-/* 172 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -60656,10 +61001,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 172;
+webpackContext.id = 174;
 
 /***/ }),
-/* 173 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery, jQuery) {/**
@@ -63936,10 +64281,10 @@ webpackContext.id = 172;
 
 })(window.Zepto || __webpack_provided_window_dot_jQuery, window, document);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(3)))
 
 /***/ }),
-/* 174 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -64132,7 +64477,7 @@ webpackContext.id = 172;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(132)))
 
 /***/ }),
-/* 175 */
+/* 177 */
 /***/ (function(module, exports) {
 
 /*
@@ -64384,16 +64729,16 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 176 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(164);
+var content = __webpack_require__(165);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(175)(content, {});
+var update = __webpack_require__(177)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -64410,7 +64755,7 @@ if(false) {
 }
 
 /***/ }),
-/* 177 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -64463,24 +64808,24 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(174);
+__webpack_require__(176);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 178 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(190)
+__webpack_require__(194)
 
 var Component = __webpack_require__(4)(
   /* script */
   __webpack_require__(156),
   /* template */
-  __webpack_require__(184),
+  __webpack_require__(187),
   /* scopeId */
   null,
   /* cssModules */
@@ -64507,18 +64852,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 179 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(192)
+__webpack_require__(196)
 
 var Component = __webpack_require__(4)(
   /* script */
   __webpack_require__(157),
   /* template */
-  __webpack_require__(186),
+  __webpack_require__(189),
   /* scopeId */
   null,
   /* cssModules */
@@ -64545,18 +64890,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 180 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(191)
+__webpack_require__(195)
 
 var Component = __webpack_require__(4)(
   /* script */
   __webpack_require__(158),
   /* template */
-  __webpack_require__(185),
+  __webpack_require__(188),
   /* scopeId */
   null,
   /* cssModules */
@@ -64583,18 +64928,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 181 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(193)
+__webpack_require__(198)
 
 var Component = __webpack_require__(4)(
   /* script */
   __webpack_require__(159),
   /* template */
-  __webpack_require__(187),
+  __webpack_require__(191),
   /* scopeId */
   "data-v-95f8d1c6",
   /* cssModules */
@@ -64621,18 +64966,56 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 182 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(189)
+__webpack_require__(197)
 
 var Component = __webpack_require__(4)(
   /* script */
   __webpack_require__(160),
   /* template */
-  __webpack_require__(183),
+  __webpack_require__(190),
+  /* scopeId */
+  "data-v-52ed0c89",
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\Users\\Nelly Atuonwu\\Documents\\Laravel\\coolfm\\resources\\assets\\js\\components\\eventsinner.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] eventsinner.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-52ed0c89", Component.options)
+  } else {
+    hotAPI.reload("data-v-52ed0c89", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(193)
+
+var Component = __webpack_require__(4)(
+  /* script */
+  __webpack_require__(161),
+  /* template */
+  __webpack_require__(186),
   /* scopeId */
   "data-v-1153aeb2",
   /* cssModules */
@@ -64659,7 +65042,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 183 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -64679,7 +65062,7 @@ if (false) {
 }
 
 /***/ }),
-/* 184 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -64705,7 +65088,7 @@ if (false) {
 }
 
 /***/ }),
-/* 185 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -64869,7 +65252,7 @@ if (false) {
 }
 
 /***/ }),
-/* 186 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -65212,7 +65595,147 @@ if (false) {
 }
 
 /***/ }),
-/* 187 */
+/* 190 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_vm._m(0), _vm._v(" "), _c('br'), _vm._v(" "), _c('div', {
+    staticClass: "row bg-white"
+  }, [_c('div', {
+    staticClass: "col-12"
+  }, [(_vm.loading) ? _c('div', {
+    staticClass: "col-2 mx-auto"
+  }, [_c('clip-loader', {
+    attrs: {
+      "color": "blue"
+    }
+  })], 1) : _vm._e(), _vm._v(" "), (!_vm.loading) ? _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-4 bg-danger"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-8"
+  }, [_c('h5', {
+    staticClass: "text-info mt-5"
+  }, [_vm._v("Concert")]), _vm._v(" "), _c('h2', {
+    staticClass: "text-dark text-uppercase"
+  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('p', {
+    staticClass: "my-5"
+  }, [_vm._v(_vm._s(_vm.eventData.description))]), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col"
+  }, [_c('span', {
+    staticClass: "text-uppercase text-muted"
+  }, [_vm._v("venue")]), _vm._v(" "), _c('h3', {
+    staticClass: "text-uppercase"
+  }, [_vm._v("\n                                " + _vm._s(_vm.eventData.venue) + "\n                            ")])]), _vm._v(" "), _c('div', {
+    staticClass: "col"
+  }, [_c('span', {
+    staticClass: "text-uppercase text-muted"
+  }, [_vm._v("time")]), _vm._v(" "), _c('h3', {
+    staticClass: "text-uppercase"
+  }, [_vm._v("\n                                " + _vm._s(_vm.eventTimeConverter(_vm.eventData.date)) + "\n                            ")])]), _vm._v(" "), _c('div', {
+    staticClass: "col"
+  }, [_c('span', {
+    staticClass: "text-uppercase text-muted"
+  }, [_vm._v("date")]), _vm._v(" "), _c('h3', {
+    staticClass: "text-uppercase"
+  }, [_vm._v("\n                                " + _vm._s(_vm.eventDateConverter(_vm.eventData.date)) + "\n                            ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-4"
+  }, [_c('span', {
+    staticClass: "text-uppercase text-muted"
+  }, [_vm._v("\n                                price\n                            ")]), _vm._v(" "), _c('div', {
+    staticClass: "col-12"
+  }, [_c('h1', {
+    staticClass: "font-weight-bold text-danger"
+  }, [_vm._v("N" + _vm._s(_vm.eventData.tickets[0].price))])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
+    staticClass: "col-4"
+  }, [_c('span', {
+    staticClass: "text-uppercase text-muted"
+  }, [_vm._v("\n                                quantity\n                            ")]), _vm._v(" "), _c('div', {
+    staticClass: "my-2"
+  }, [_c('div', {
+    staticClass: "input-group"
+  }, [_c('input', {
+    attrs: {
+      "type": "text"
+    },
+    domProps: {
+      "value": _vm.quantity
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "input-group-btn"
+  }, [_c('button', {
+    staticClass: "btn btn-add text-white",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": function($event) {
+        _vm.incrementQuantity()
+      }
+    }
+  }, [_vm._v("+")])])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-12 my-3"
+  }, [_c('button', {
+    staticClass: "btn btn-ticket text-white",
+    attrs: {
+      "id": "floater"
+    },
+    on: {
+      "click": function($event) {
+        _vm.buyTicket()
+      }
+    }
+  }, [_vm._v("Buy Tickets\n                            ")]), _vm._v(" "), _c('span', {
+    staticClass: "text-info font-weight-bold"
+  }, [_vm._v("  50% off")])])]), _vm._v(" "), _c('br'), _vm._v(" "), _c('br'), _vm._v(" "), _c('br')])]) : _vm._e()])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-12 bg-info"
+  }, [_c('br'), _vm._v(" "), _c('br')])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-4"
+  }, [_c('span', {
+    staticClass: "text-uppercase text-muted"
+  }, [_vm._v("\n                                ticket grade\n                            ")]), _vm._v(" "), _c('div', {
+    staticClass: "select my-2"
+  }, [_c('select', {
+    attrs: {
+      "name": "ticketGrade",
+      "id": "ticketGrade"
+    }
+  }, [_c('option', {
+    attrs: {
+      "value": "1",
+      "selected": ""
+    }
+  }, [_vm._v("Regular")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "2"
+    }
+  }, [_vm._v("VIP")])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-52ed0c89", module.exports)
+  }
+}
+
+/***/ }),
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -65332,13 +65855,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_vm._v(" Free ")]) : _vm._e()])]), _vm._v(" "), _c('div', {
       staticClass: "col-12"
     }, [_c('button', {
-      staticClass: "btn btn-success",
+      staticClass: "btn btn-ticket text-white",
       attrs: {
         "id": "floater"
       },
       on: {
         "click": function($event) {
-          _vm.buyticket(index)
+          _vm.navigate(evn.title, evn, index)
         }
       }
     }, [_vm._v("Buy Tickets\n                                ")]), _vm._v(" "), _c('span', {
@@ -65370,7 +65893,7 @@ if (false) {
 }
 
 /***/ }),
-/* 188 */
+/* 192 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68000,13 +68523,13 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 189 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(165);
+var content = __webpack_require__(166);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -68026,13 +68549,13 @@ if(false) {
 }
 
 /***/ }),
-/* 190 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(166);
+var content = __webpack_require__(167);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -68052,13 +68575,13 @@ if(false) {
 }
 
 /***/ }),
-/* 191 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(167);
+var content = __webpack_require__(168);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -68078,13 +68601,13 @@ if(false) {
 }
 
 /***/ }),
-/* 192 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(168);
+var content = __webpack_require__(169);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -68104,13 +68627,39 @@ if(false) {
 }
 
 /***/ }),
-/* 193 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(169);
+var content = __webpack_require__(170);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("b5e9e900", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-52ed0c89\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./eventsinner.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-52ed0c89\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./eventsinner.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 198 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(171);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -68130,7 +68679,7 @@ if(false) {
 }
 
 /***/ }),
-/* 194 */
+/* 199 */
 /***/ (function(module, exports) {
 
 /**
@@ -68163,7 +68712,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 195 */
+/* 200 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69108,7 +69657,7 @@ var index_esm = {
 
 
 /***/ }),
-/* 196 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(135);

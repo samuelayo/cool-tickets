@@ -131,6 +131,8 @@ Route::group(['middleware' => 'cors'], function () {
 
 
     Route::get('all_tickets', 'Admin\EventsController@allticktes');
+    Route::get('events/{name}', 'Admin\EventsController@event');
+    Route::get('events/details/{name}', 'Admin\EventsController@getEvent');
     Route::get('ticket/{id}/redeem', 'Admin\EventsController@redeem');
 });
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], function () {

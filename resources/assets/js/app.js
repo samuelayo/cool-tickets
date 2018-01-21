@@ -32,17 +32,16 @@ Vue.filter('money', function(value) {
 
 
 import app from './components/app'
-
 import events from './components/events'
-// import contact from './components/contact'
+import eventsInner from './components/eventsinner'
 import errorpage from './components/errorpage'
-// import aboutus from './components/aboutus'
 
 
 
 const routes = [
     //route for the home route of the webpage
     { path: '/', component: events, name: 'events' },
+    { path: '/events/:name', component: eventsInner, name: 'events-inner', props: true },
     { path: '*', component: errorpage }
 ]
 

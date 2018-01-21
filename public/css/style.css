@@ -14,6 +14,18 @@
 }
 
 .get-app-button{
-    background: linear-gradient(45deg, #97b5d9, #0b57b2);
+    background: linear-gradient(180deg, #97b5d9, #0b57b2);
     border-radius: 20px;
+    border: 0 solid;
+}
+
+.inner-shadow {
+    -moz-box-shadow: inset 0 0 8px #d9d9d9;
+    -webkit-box-shadow: inset 0 0 8px #d9d9d9;
+    box-shadow: inset 0 0 8px #d9d9d9;
+}
+
+.btn-ticket {
+    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;
+    border: none !important;
 }
