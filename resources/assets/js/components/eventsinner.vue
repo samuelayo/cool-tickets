@@ -13,7 +13,7 @@
                     <clip-loader color="blue"></clip-loader>
                 </div>
                 <div class="row" v-if="!loading">
-                    <div class="col-5 bg-danger">
+                    <div class="col-5 bg-danger" style="background-image: url('/event.jpg'); background-size: cover; background-position: center center ">
 
                     </div>
                     <div class="col-7">
@@ -55,9 +55,9 @@
                                     ticket grade
                                 </span>
                                 <div class="select my-2">
-                                    <select name="ticketGrade" id="ticketGrade">
+                                    <select name="ticketGrade" id="ticketGrade" v-model="grade">
                                         <option value="1" selected>Regular</option>
-                                        <option value="2">VIP</option>
+                                        <option value="5">VIP</option>
                                     </select>
                                 </div>
                             </div>
@@ -104,7 +104,8 @@
             return {
                 eventData: {},
                 loading: 'true',
-                quantity: 1
+                quantity: 1,
+                grade: 1
             }
         },
         methods: {
@@ -328,7 +329,7 @@
                 return title
             },
             price: function () {
-                return this.eventData.tickets[0].price * this.quantity;
+                return this.eventData.tickets[0].price * this.quantity * this.grade;
             }
         }
     }

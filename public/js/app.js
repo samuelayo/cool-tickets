@@ -40679,7 +40679,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             eventData: {},
             loading: 'true',
-            quantity: 1
+            quantity: 1,
+            grade: 1
         };
     },
     methods: {
@@ -40889,7 +40890,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return title;
         },
         price: function price() {
-            return this.eventData.tickets[0].price * this.quantity;
+            return this.eventData.tickets[0].price * this.quantity * this.grade;
         }
     }
 });
@@ -65488,7 +65489,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })], 1) : _vm._e(), _vm._v(" "), (!_vm.loading) ? _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-5 bg-danger"
+    staticClass: "col-5 bg-danger",
+    staticStyle: {
+      "background-image": "url('/event.jpg')",
+      "background-size": "cover",
+      "background-position": "center center"
+    }
   }), _vm._v(" "), _c('div', {
     staticClass: "col-7"
   }, [_c('h5', {
@@ -65527,7 +65533,44 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-12 col-lg-8"
   }, [_c('h1', {
     staticClass: "font-weight-bold text-danger"
-  }, [_vm._v("N" + _vm._s(_vm.price))])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
+  }, [_vm._v("N" + _vm._s(_vm.price))])])]), _vm._v(" "), _c('div', {
+    staticClass: "col-12 col-lg-4"
+  }, [_c('span', {
+    staticClass: "text-uppercase text-muted"
+  }, [_vm._v("\n                                ticket grade\n                            ")]), _vm._v(" "), _c('div', {
+    staticClass: "select my-2"
+  }, [_c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.grade),
+      expression: "grade"
+    }],
+    attrs: {
+      "name": "ticketGrade",
+      "id": "ticketGrade"
+    },
+    on: {
+      "change": function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.grade = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }
+    }
+  }, [_c('option', {
+    attrs: {
+      "value": "1",
+      "selected": ""
+    }
+  }, [_vm._v("Regular")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "5"
+    }
+  }, [_vm._v("VIP")])])])]), _vm._v(" "), _c('div', {
     staticClass: "col-12 col-lg-4"
   }, [_c('span', {
     staticClass: "text-uppercase text-muted"
@@ -65589,28 +65632,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "col-12 bg-info"
   }, [_c('br'), _vm._v(" "), _c('br')])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "col-12 col-lg-4"
-  }, [_c('span', {
-    staticClass: "text-uppercase text-muted"
-  }, [_vm._v("\n                                ticket grade\n                            ")]), _vm._v(" "), _c('div', {
-    staticClass: "select my-2"
-  }, [_c('select', {
-    attrs: {
-      "name": "ticketGrade",
-      "id": "ticketGrade"
-    }
-  }, [_c('option', {
-    attrs: {
-      "value": "1",
-      "selected": ""
-    }
-  }, [_vm._v("Regular")]), _vm._v(" "), _c('option', {
-    attrs: {
-      "value": "2"
-    }
-  }, [_vm._v("VIP")])])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
