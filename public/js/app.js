@@ -40538,135 +40538,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
             this.ticket_price[index].price = ticket.price * this.ticket_qty[index];
         },
-        buyticket: function buyticket(index) {
-            var _this3 = this;
-
-            var ticket_id = this.ticket_price[index].id;
-            var qty = this.ticket_qty[index];
-            var total_amt = this.ticket_price[index].price;
-            var email = localStorage.getItem('email') ? localStorage.getItem('email') : '';
-            var tickets = this.searchable[index].tickets;
-            var ticket = tickets.find(function (x) {
-                return x.id == _this3.ticket_price[index].id;
-            });
-            if (ticket.amount == 0) {
-                swal({
-                    title: "Error!",
-                    text: ticket.name + " tickets sold out",
-                    type: "error",
-                    confirmButtonText: "Cool"
-                });
-                return false;
-            }
-            if (this.ticket_qty[index] > ticket.amount && ticket.amount != 0) {
-                swal({
-                    title: "Error!",
-                    text: "we have only " + ticket.amount + " " + ticket.name + " tickets available",
-                    type: "error",
-                    confirmButtonText: "Cool"
-                });
-
-                return false;
-            }
-            if (email == "" || email != "") {
-                var getemail = "";
-                var regex = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
-                swal({
-                    title: "Your Email!",
-                    text: "Please provide us with an email:",
-                    type: "input",
-                    showCancelButton: true,
-                    closeOnConfirm: false,
-                    animation: "slide-from-top",
-                    inputPlaceholder: "email",
-                    inputValue: email
-                }, function (inputValue) {
-                    if (inputValue == false) {
-                        return false;
-                    } else if (inputValue == "") {
-                        swal.showInputError("You need to input an email!");
-                        return false;
-                    } else if (!regex.test(inputValue)) {
-                        swal.showInputError("Your email is not valid!");
-                        return false;
-                    } else {
-                        email = inputValue;
-                        var self = _this3;
-                        if (total_amt == 0) {
-
-                            if (qty != 1) {
-                                swal("We are sorry, but you can only order one free ticket");
-                                return false;
-                            } else {
-
-                                swal({
-                                    title: "In progress",
-                                    text: "Please hold on, your ticket is being processed",
-                                    type: "info",
-                                    showCancelButton: true,
-                                    closeOnConfirm: false,
-                                    showLoaderOnConfirm: true
-                                }, function () {
-                                    axios.post('ticket_purchased', {
-                                        ticket_id: ticket_id,
-                                        qty: qty,
-                                        total_amt: total_amt,
-                                        email: email
-                                    }).then(function (response) {
-                                        self.all_events = response.data;
-                                        swal("Please check your email for your tickets");
-                                    }).catch(function (error) {
-                                        swal("An error occured. If your ticket was not sent, and you have been debitted, please send an email to tickets@coolfm.ng");
-                                    });
-                                });
-                            }
-                        } else {
-
-                            var handler = PaystackPop.setup({
-                                key: 'pk_live_96225c07868c79dfa4651c2d085c65e8d26ddfe0',
-                                email: email,
-                                amount: _this3.ticket_price[index].price * 100,
-                                ref: "cool_ticket_" + _this3.ticket_price[index].price + _this3.ticket_qty[index] + Math.round(+new Date() / 1000),
-                                metadata: {
-                                    // custom_fields: [{
-                                    //     display_name: "Mobile Number",
-                                    //     variable_name: "mobile_number",
-                                    //     value: "+2348012345678"
-                                    // }]
-                                },
-                                callback: function callback(response) {
-                                    swal({
-                                        title: "In progress",
-                                        text: "Please hold on, your ticket is being processed",
-                                        type: "info",
-                                        showCancelButton: true,
-                                        closeOnConfirm: false,
-                                        showLoaderOnConfirm: true
-                                    }, function () {
-                                        axios.post('ticket_purchased', {
-                                            ticket_id: ticket_id,
-                                            qty: qty,
-                                            total_amt: total_amt,
-                                            email: email
-                                        }).then(function (response) {
-                                            self.all_events = response.data;
-                                            swal("Please check your email for your tickets");
-                                        }).catch(function (error) {
-                                            swal("An error occured. If your ticket was not sent, and you have been debitted, please send an email to tickets@coolfm.ng");
-                                        });
-                                    });
-                                    //alert('success. transaction ref is ' + response.reference);
-                                },
-                                onClose: function onClose() {
-                                    swal('An error occured, please try agian later');
-                                }
-                            });
-                            handler.openIframe();
-                        }
-                    }
-                });
-            }
-        },
         eventDateConverter: function eventDateConverter(eventDate) {
             var newDate = new Date(eventDate).toLocaleDateString(undefined, {
                 day: '2-digit',
@@ -40683,13 +40554,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     computed: {
         searchable: function searchable() {
-            var _this4 = this;
+            var _this3 = this;
 
             if (!this.all_events) {
                 return [];
             }
             var ll = _.filter(this.all_events, function (event) {
-                return _this4.verify(event.date);
+                return _this3.verify(event.date);
             });
             return ll;
         }
@@ -41016,6 +40887,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var name = this.name;
             var title = name.replace(/-/g, " ");
             return title;
+        },
+        price: function price() {
+            return this.eventData.tickets[0].price * this.quantity;
         }
     }
 });
@@ -65614,9 +65488,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })], 1) : _vm._e(), _vm._v(" "), (!_vm.loading) ? _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-4 bg-danger"
+    staticClass: "col-5 bg-danger"
   }), _vm._v(" "), _c('div', {
-    staticClass: "col-8"
+    staticClass: "col-7"
   }, [_c('h5', {
     staticClass: "text-info mt-5"
   }, [_vm._v("Concert")]), _vm._v(" "), _c('h2', {
@@ -65646,15 +65520,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("\n                                " + _vm._s(_vm.eventDateConverter(_vm.eventData.date)) + "\n                            ")])])]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-4"
+    staticClass: "col-12 col-lg-4"
   }, [_c('span', {
     staticClass: "text-uppercase text-muted"
   }, [_vm._v("\n                                price\n                            ")]), _vm._v(" "), _c('div', {
-    staticClass: "col-12"
+    staticClass: "col-12 col-lg-8"
   }, [_c('h1', {
     staticClass: "font-weight-bold text-danger"
-  }, [_vm._v("N" + _vm._s(_vm.eventData.tickets[0].price))])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
-    staticClass: "col-4"
+  }, [_vm._v("N" + _vm._s(_vm.price))])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
+    staticClass: "col-12 col-lg-4"
   }, [_c('span', {
     staticClass: "text-uppercase text-muted"
   }, [_vm._v("\n                                quantity\n                            ")]), _vm._v(" "), _c('div', {
@@ -65662,11 +65536,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "input-group"
   }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.quantity),
+      expression: "quantity"
+    }],
     attrs: {
       "type": "text"
     },
     domProps: {
-      "value": _vm.quantity
+      "value": (_vm.quantity)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.quantity = $event.target.value
+      }
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "input-group-btn"
@@ -65705,7 +65591,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('br'), _vm._v(" "), _c('br')])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "col-4"
+    staticClass: "col-12 col-lg-4"
   }, [_c('span', {
     staticClass: "text-uppercase text-muted"
   }, [_vm._v("\n                                ticket grade\n                            ")]), _vm._v(" "), _c('div', {

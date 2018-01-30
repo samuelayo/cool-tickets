@@ -13,10 +13,10 @@
                     <clip-loader color="blue"></clip-loader>
                 </div>
                 <div class="row" v-if="!loading">
-                    <div class="col-4 bg-danger">
+                    <div class="col-5 bg-danger">
 
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <h5 class="text-info mt-5">Concert</h5>
                         <h2 class="text-dark text-uppercase">{{ title }}</h2>
                         <p class="my-5">{{ eventData.description }}</p>
@@ -42,15 +42,15 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-12 col-lg-4">
                                 <span class="text-uppercase text-muted">
                                     price
                                 </span>
-                                <div class="col-12">
-                                    <h1 class="font-weight-bold text-danger">N{{ eventData.tickets[0].price }}</h1>
+                                <div class="col-12 col-lg-8">
+                                    <h1 class="font-weight-bold text-danger">N{{ price }}</h1>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-12 col-lg-4">
                                 <span class="text-uppercase text-muted">
                                     ticket grade
                                 </span>
@@ -61,13 +61,13 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-12 col-lg-4">
                                 <span class="text-uppercase text-muted">
                                     quantity
                                 </span>
                                 <div class="my-2">
                                     <div class="input-group">
-                                        <input type="text" :value="quantity">
+                                        <input type="text" v-model="quantity">
                                         <span class="input-group-btn">
                                             <button class="btn btn-add text-white" type="button"
                                                     @click="incrementQuantity()">&plus;</button>
@@ -326,6 +326,9 @@
                 let name = this.name;
                 let title = name.replace(/-/g, " ");
                 return title
+            },
+            price: function () {
+                return this.eventData.tickets[0].price * this.quantity;
             }
         }
     }
