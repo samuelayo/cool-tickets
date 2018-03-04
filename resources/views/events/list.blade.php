@@ -39,6 +39,9 @@
                                 style="width: 250px;">Date
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                style="width: 250px;">Category
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                 style="width: 145px;">Actions
                             </th>
                         </tr>
@@ -51,6 +54,7 @@
                                 </td>
                                 <td>{{$one->title}}</td>
                                 <td>{{$one->date}}</td>
+                                <td>{{\App\Models\Eventscategory::find($one->category)->name}}</td>
                                 <td>
                                     <a onclick="return confirm('are you sure you want to delete this Event ({{$one->title}})')"
                                        class="btn btn-success btn-sm" href="/admin/events/{{$one->id}}/delete">

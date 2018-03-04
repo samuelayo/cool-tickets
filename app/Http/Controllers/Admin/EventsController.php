@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Eventscategory;
 use Illuminate\Http\Request;
 use App\Models\Events;
 use App\Models\Eventickets;
@@ -57,14 +58,14 @@ class EventsController extends \App\Http\Controllers\Controller
         $newevent->description = $request->get('description');
         $newevent->venue = $request->get('venue');
         $newevent->organizer = $request->get('organizer');
-
+        $newevent->category = Eventscategory::find($request->get('category'))->id   ;
         $imageName = rand(0, 18000) . rand(19000, 39000) . '.' .
             $request->file('image')->guessClientExtension();
         $request->file('image')->move(
             base_path() . '/public/uploads/events/', $imageName
         );
         $newevent->image = '/uploads/events/' . $imageName;
-        $newevent->save();
+        $newevent->push();
 
         $types = $request->get('ticket_name');
 
@@ -91,7 +92,11 @@ class EventsController extends \App\Http\Controllers\Controller
     {
         return Events::with(['tickets' => function ($tick) {
             $tick->with('purchased');
-        }])->get();
+        }, 'category'])->get();
+    }
+
+    public function getCategories(){
+        return Eventscategory::all();
     }
 
     public function initiate()

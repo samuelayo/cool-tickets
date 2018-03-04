@@ -40073,57 +40073,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
     name: 'app',
@@ -40460,10 +40409,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             all_events: [],
+            original_events: [],
             ticket_price: [],
             ticket_qty: [],
             loading: true,
-            categories: ['all', 'concerts', 'festivals', 'cinema', 'party', 'carnivals', 'religious', 'sports', 'conference', 'kids']
+            categories: [],
+            category_event: false
         };
     },
     components: {
@@ -40471,6 +40422,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     created: function created() {
         this.get_tickets();
+        this.get_categories();
     },
     mounted: function mounted() {
         var status = {
@@ -40495,10 +40447,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.get("/all_tickets").then(function (response) {
                 _this.all_events = response.data;
+                _this.original_events = response.data;
                 //this.loadable();
                 _this.pushem();
                 _this.loading = false;
             });
+        },
+        get_categories: function get_categories() {
+            var _this2 = this;
+
+            axios.get("/categories").then(function (response) {
+                var data = response.data;
+                data.forEach(function (value) {
+                    _this2.categories.push(value.name);
+                });
+            });
+        },
+        eventCategory: function eventCategory(name) {
+            if (this.category_event === false) {
+                this.category_event = true;
+                var events = [];
+                this.all_events.forEach(function (value) {
+                    if (value.category.name === name) {
+                        events.push(value);
+                    }
+                });
+                this.all_events = events;
+            } else if (this.category_event === true && this.all_events[0].category.name === name) {
+                this.category_event = false;
+                this.all_events = this.original_events;
+                this.category_event = false;
+            } else if (this.category_event === true && this.all_events[0].category.name !== name) {
+                var _events = [];
+                this.original_events.forEach(function (value) {
+                    if (value.category.name === name) {
+                        _events.push(value);
+                    }
+                });
+                this.all_events = _events;
+            } else {
+                this.all_events = this.original_events;
+                this.category_event = false;
+            }
         },
         verify: function verify(start) {
             moment.locale('en');
@@ -40530,11 +40520,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         check: function check(index) {
-            var _this2 = this;
+            var _this3 = this;
 
             var tickets = this.searchable[index].tickets;
             var ticket = tickets.find(function (x) {
-                return x.id == _this2.ticket_price[index].id;
+                return x.id == _this3.ticket_price[index].id;
             });
             this.ticket_price[index].price = ticket.price * this.ticket_qty[index];
         },
@@ -40554,13 +40544,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     computed: {
         searchable: function searchable() {
-            var _this3 = this;
+            var _this4 = this;
 
             if (!this.all_events) {
                 return [];
             }
             var ll = _.filter(this.all_events, function (event) {
-                return _this3.verify(event.date);
+                return _this4.verify(event.date);
             });
             return ll;
         }
@@ -40680,7 +40670,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             eventData: {},
             loading: 'true',
             quantity: 1,
-            grade: 1
+            grade: 1,
+            ticketPrice: 0
         };
     },
     methods: {
@@ -40694,6 +40685,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/events/details/' + this.name).then(function (response) {
                 _this.eventData = response.data;
                 _this.loading = false;
+                _this.ticketPrice = _this.eventData.tickets[0].price;
             });
         },
         eventDateConverter: function eventDateConverter(eventDate) {
@@ -40764,7 +40756,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var ticket = this.eventData.tickets[0];
             var ticket_id = ticket.id;
             var qty = this.quantity;
-            var total_amt = ticket.price * qty;
+            var total_amt = this.ticketPrice;
             var email = localStorage.getItem('email') ? localStorage.getItem('email') : '';
             if (ticket.amount === 0) {
                 swal({
@@ -40890,7 +40882,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return title;
         },
         price: function price() {
-            return this.eventData.tickets[0].price * this.quantity * this.grade;
+            this.ticketPrice = this.eventData.tickets[0].price * this.quantity * this.grade;
+            return this.ticketPrice;
         }
     }
 });
@@ -43518,7 +43511,7 @@ exports.push([module.i, "\nselect[data-v-52ed0c89] {\n    -webkit-appearance: no
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\n*[data-v-95f8d1c6] {\n    font-family: 'Circular-Book'\n}\n.carousel-item[data-v-95f8d1c6] {\n    height: 400px;\n}\n.thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 20px;\n    padding: 0px;\n    border-radius: 0px;\n    font-family: 'Karla', sans-serif;\n}\ndiv#products[data-v-95f8d1c6] {\n    padding: 2em !important;\n    padding-left: 0 !important;\n    padding-right: 0.2em !important;\n}\n.item.list-group-item .thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 0px;\n}\n.item.list-group-item .caption[data-v-95f8d1c6] {\n    padding: 9px 9px 0px 9px;\n}\n#event-title[data-v-95f8d1c6] {\n    font-weight: 700 !important;\n    font-size: 1.5em !important;\n    margin-top: .5em !important;\n    margin-bottom: .5em !important;\n    letter-spacing: -.3px !important;\n}\n#event-date[data-v-95f8d1c6] {\n    color: #666;\n}\n.btn-ticket[data-v-95f8d1c6] {\n    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;\n    border: none !important;\n}\n.thumbnail .caption[data-v-95f8d1c6] {\n    padding: 1.2em !important;\n}\n.event-image[data-v-95f8d1c6] {\n    height: 200px;\n    width: 100%;\n    background-position: center center;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-95f8d1c6] {\n    font-family: 'Circular-Book'\n}\n.item[data-v-95f8d1c6] {\n    height: 400px;\n}\n.thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 20px;\n    padding: 0px;\n    border-radius: 0px;\n    font-family: 'Karla', sans-serif;\n}\ndiv#products[data-v-95f8d1c6] {\n    padding: 2em !important;\n    padding-left: 0 !important;\n    padding-right: 0.2em !important;\n}\n.item.list-group-item .thumbnail[data-v-95f8d1c6] {\n    margin-bottom: 0px;\n}\n.item.list-group-item .caption[data-v-95f8d1c6] {\n    padding: 9px 9px 0px 9px;\n}\n#event-title[data-v-95f8d1c6] {\n    font-weight: 700 !important;\n    font-size: 1.5em !important;\n    margin-top: .5em !important;\n    margin-bottom: .5em !important;\n    letter-spacing: -.3px !important;\n}\n#event-date[data-v-95f8d1c6] {\n    color: #666;\n}\n.btn-ticket[data-v-95f8d1c6] {\n    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;\n    border: none !important;\n    cursor: pointer;\n}\n.thumbnail .caption[data-v-95f8d1c6] {\n    padding: 1.2em !important;\n}\n.event-image[data-v-95f8d1c6] {\n    height: 200px;\n    width: 100%;\n    background-position: center center;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\nspan.col[data-v-95f8d1c6]{\n    border: solid 1px #3c3c3c;\n    border-radius: 5px\n}\n", ""]);
 
 /***/ }),
 /* 172 */
@@ -65237,7 +65230,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "data-ad-slot": "5185770514",
       "xdata-ad-format": "auto"
     }
-  })]), _vm._v(" "), _c('br'), _vm._v(" "), _c('transition', [_c('router-view')], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('br'), _vm._v(" "), _c('br')], 1)
+  })]), _vm._v(" "), _c('br'), _vm._v(" "), _c('transition', [_c('router-view')], 1), _vm._v(" "), _c('br'), _vm._v(" "), _c('br')], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('button', {
     staticClass: "navbar-toggler",
@@ -65258,26 +65251,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "navbarSupportedContent"
     }
-  }, [_c('ul', {
-    staticClass: "navbar-nav mr-auto"
-  }, [_c('li', {
-    staticClass: "nav-item active"
-  }, [_c('a', {
-    staticClass: "nav-link",
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("Login "), _c('span', {
-    staticClass: "sr-only"
-  }, [_vm._v("(current)")])])]), _vm._v(" "), _c('li', {
-    staticClass: "nav-item"
-  }, [_c('a', {
-    staticClass: "nav-link",
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v("Sign Up")])])]), _vm._v(" "), _c('form', {
-    staticClass: "form-inline my-2 my-lg-0 mx-auto"
+  }, [_c('form', {
+    staticClass: "form-inline my-2 my-lg-0 ml-auto"
   }, [_c('div', {
     staticClass: "input-group mb-3"
   }, [_c('input', {
@@ -65303,7 +65278,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])])])]), _vm._v(" "), _c('ul', {
     staticClass: "navbar-nav ml-auto"
   }, [_c('li', {
-    staticClass: "nav-item active"
+    staticClass: "nav-item"
   }, [_c('a', {
     staticClass: "nav-link text-info",
     attrs: {
@@ -65319,147 +65294,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "href": "#"
     }
   }, [_vm._v("Get the app")])])])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "row product",
-    staticStyle: {
-      "width": "92%",
-      "border-radius": "30px",
-      "margin": "2em auto 7em",
-      "border": "none",
-      "padding": "0",
-      "box-shadow": "none !important"
-    }
-  }, [_c('div', {
-    staticClass: "col-md-5 col-md-offset-0",
-    staticStyle: {
-      "padding-left": "0",
-      "box-shadow": "none !important"
-    }
-  }, [_c('img', {
-    staticStyle: {
-      "width": "100%",
-      "border-radius": "40px",
-      "border-right": "15px solid #f9f9f9",
-      "/* -webkit-box-shadow": "10px 10px 101px -28px rgba(0, 0, 0, 0.37)",
-      "*/-moz-box-shadow": "10px 10px 101px -28px rgba(0, 0, 0, 0.37)",
-      "/* box-shadow": "10px 10px 101px -28px rgba(0, 0, 0, 0.37)",
-      "*/height": "auto"
-    },
-    attrs: {
-      "src": "https://i.imgur.com/nCbmJox.png"
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-7",
-    staticStyle: {
-      "border-radius": "14px",
-      "margin-left": "-1em"
-    },
-    attrs: {
-      "id": "newsletter"
-    }
-  }, [_c('h2', {
-    staticStyle: {
-      "font-size": "2em",
-      "width": "95%",
-      "color": "rgb(0, 0, 0)",
-      "margin-left": ".5em",
-      "margin-top": "1em",
-      "font-family": "'Circular-book'"
-    }
-  }, [_vm._v("\n                Get the latest news & giveaways straight to your inbox. Join our teeming community of fans\n                .")]), _vm._v(" "), _c('div', {
-    staticClass: "swiper-slide",
-    staticStyle: {
-      "background-image": "url(\"https://placeholdit.imgix.net/~text?txtsize=68&txt=Slideshow+Image&w=1920&h=500\")"
-    }
-  }), _vm._v(" "), _c('link', {
-    attrs: {
-      "href": "//cdn-images.mailchimp.com/embedcode/classic-10_7.css",
-      "rel": "stylesheet",
-      "type": "text/css"
-    }
-  }), _vm._v(" "), _c('div', {
-    attrs: {
-      "id": "mc_embed_signup"
-    }
-  }, [_c('form', {
-    staticClass: "validate",
-    attrs: {
-      "action": "//coolfm.us16.list-manage.com/subscribe/post?u=11b9dec20b5f95351d12ef4ff&id=22862615ab",
-      "method": "post",
-      "id": "mc-embedded-subscribe-form",
-      "name": "mc-embedded-subscribe-form",
-      "target": "_blank",
-      "novalidate": ""
-    }
-  }, [_c('div', {
-    attrs: {
-      "id": "mc_embed_signup_scroll"
-    }
-  }, [_c('div', {
-    staticClass: "mc-field-group"
-  }, [_c('label', {
-    attrs: {
-      "for": "mce-EMAIL"
-    }
-  }, [_vm._v("Email Address "), _c('span', {
-    staticClass: "asterisk"
-  }, [_vm._v("*")])]), _vm._v(" "), _c('input', {
-    staticClass: "required email",
-    attrs: {
-      "type": "email",
-      "value": "",
-      "name": "EMAIL",
-      "id": "mce-EMAIL",
-      "placeholder": "Enter your email"
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "clear",
-    attrs: {
-      "id": "mce-responses"
-    }
-  }, [_c('div', {
-    staticClass: "response",
-    staticStyle: {
-      "display": "none"
-    },
-    attrs: {
-      "id": "mce-error-response"
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "response",
-    staticStyle: {
-      "display": "none"
-    },
-    attrs: {
-      "id": "mce-success-response"
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "position": "absolute",
-      "left": "-5000px"
-    },
-    attrs: {
-      "aria-hidden": "true"
-    }
-  }, [_c('input', {
-    attrs: {
-      "type": "text",
-      "name": "b_11b9dec20b5f95351d12ef4ff_22862615ab",
-      "tabindex": "-1",
-      "value": ""
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "clear"
-  }, [_c('input', {
-    staticClass: "button",
-    attrs: {
-      "type": "submit",
-      "value": "Subscribe",
-      "name": "subscribe",
-      "id": "mc-embedded-subscribe"
-    }
-  })])])])])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -65651,27 +65485,27 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "height": "400px"
     }
   }, [_c('div', {
-    staticClass: "bg-black carousel-item",
+    staticClass: "bg-dark item",
     staticStyle: {
       "width": "500px"
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "bg-success carousel-item",
+    staticClass: "bg-success item",
     staticStyle: {
       "width": "300px"
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "bg-danger carousel-item",
+    staticClass: "bg-danger item",
     staticStyle: {
       "width": "700px"
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "bg-info carousel-item",
+    staticClass: "bg-info item",
     staticStyle: {
       "width": "200px"
     }
   }), _vm._v(" "), _c('div', {
-    staticClass: "bg-warning carousel-item",
+    staticClass: "bg-warning item",
     staticStyle: {
       "width": "400px"
     }
@@ -65683,13 +65517,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "row pt-2"
   }, [_vm._l((_vm.categories), function(val) {
     return _c('span', {
-      staticClass: "col text-uppercase text-secondary text-center"
+      staticClass: "col text-uppercase text-secondary text-center p-1 m-1"
     }, [_c('a', {
       attrs: {
         "href": "javascript:void(0)"
       },
       domProps: {
         "textContent": _vm._s(val)
+      },
+      on: {
+        "click": function($event) {
+          _vm.eventCategory(val)
+        }
       }
     })])
   }), _vm._v(" "), _vm._m(0)], 2)]), _vm._v(" "), _c('div', {
@@ -65705,7 +65544,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })], 1) : _vm._e(), _vm._v(" "), _vm._l((_vm.searchable), function(evn, index) {
     return _c('div', {
-      staticClass: "item  col-md-3 col-lg-3"
+      staticClass: "col-md-6 col-lg-3 col-sm-12"
     }, [_c('div', {
       staticClass: "thumbnail",
       attrs: {

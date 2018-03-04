@@ -1,17 +1,17 @@
 <template>
     <div>
         <eventSlider height="400px">
-            <div class="bg-black carousel-item" style="width: 500px"></div>
-            <div class="bg-success carousel-item" style="width: 300px"></div>
-            <div class="bg-danger carousel-item" style="width: 700px"></div>
-            <div class="bg-info carousel-item" style="width: 200px"></div>
-            <div class="bg-warning carousel-item" style="width: 400px"></div>
+            <div class="bg-dark item" style="width: 500px"></div>
+            <div class="bg-success item" style="width: 300px"></div>
+            <div class="bg-danger item" style="width: 700px"></div>
+            <div class="bg-info item" style="width: 200px"></div>
+            <div class="bg-warning item" style="width: 400px"></div>
         </eventSlider>
         <div class="container bg-white inner-shadow">
             <div class="col-12">
                 <div class="row pt-2">
-                    <span class="col text-uppercase text-secondary text-center" v-for="val in categories">
-                        <a href="javascript:void(0)" v-text="val"></a>
+                    <span class="col text-uppercase text-secondary text-center p-1 m-1" v-for="val in categories">
+                        <a href="javascript:void(0)" v-text="val" @click="eventCategory(val)"></a>
                     </span>
                     <div class="col-12">
                         <hr>
@@ -22,7 +22,7 @@
                 <div class="col-2 mx-auto" v-if="loading">
                     <clip-loader color="blue"></clip-loader>
                 </div>
-                <div class="item  col-md-3 col-lg-3" v-for="(evn, index) in searchable">
+                <div class="col-md-6 col-lg-3 col-sm-12" v-for="(evn, index) in searchable">
                     <div id="event-single" class="thumbnail">
                         <div class="event-image" style="background-image: url('event.jpg')"></div>
                         <div class="col-12">
@@ -72,10 +72,12 @@
         data: function () {
             return {
                 all_events: [],
+                original_events: [],
                 ticket_price: [],
                 ticket_qty: [],
                 loading: true,
-                categories: ['all', 'concerts', 'festivals', 'cinema', 'party', 'carnivals', 'religious', 'sports', 'conference', 'kids']
+                categories: [],
+                category_event: false
             }
         },
         components: {
@@ -83,6 +85,7 @@
         },
         created: function () {
             this.get_tickets();
+            this.get_categories();
         },
         mounted: function () {
             var status = {
@@ -107,10 +110,47 @@
                 axios.get("/all_tickets")
                     .then((response) => {
                         this.all_events = response.data;
+                        this.original_events = response.data;
                         //this.loadable();
                         this.pushem();
                         this.loading = false;
                     });
+            },
+            get_categories: function () {
+                axios.get("/categories")
+                    .then((response) => {
+                        const data = response.data;
+                        data.forEach((value) => {
+                            this.categories.push(value.name);
+                        })
+                    });
+            },
+            eventCategory: function (name) {
+                if (this.category_event === false ){
+                    this.category_event = true;
+                    let events = [];
+                    this.all_events.forEach((value) => {
+                        if (value.category.name === name){
+                            events.push(value)
+                        }
+                    });
+                    this.all_events = events;
+                } else if (this.category_event === true && this.all_events[0].category.name === name){
+                    this.category_event = false;
+                    this.all_events = this.original_events;
+                    this.category_event = false;
+                } else if (this.category_event === true && this.all_events[0].category.name !== name){
+                    let events = [];
+                    this.original_events.forEach((value) => {
+                        if (value.category.name === name){
+                            events.push(value)
+                        }
+                    });
+                    this.all_events = events;
+                } else {
+                    this.all_events = this.original_events;
+                    this.category_event = false;
+                }
             },
             verify: function (start) {
                 moment.locale('en');
@@ -181,7 +221,7 @@
         font-family: 'Circular-Book'
     }
 
-    .carousel-item {
+    .item {
         height: 400px;
     }
 
@@ -223,6 +263,7 @@
     .btn-ticket {
         background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;
         border: none !important;
+        cursor: pointer;
     }
 
     .thumbnail .caption {
@@ -235,5 +276,10 @@
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    span.col{
+        border: solid 1px #3c3c3c;
+        border-radius: 5px
     }
 </style>

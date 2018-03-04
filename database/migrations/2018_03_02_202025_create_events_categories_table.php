@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterEventsTable extends Migration
+class CreateEventsCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +12,10 @@ class AlterEventsTable extends Migration
      */
     public function up()
     {
-        Schema::table('events', function (Blueprint $table) {
+        Schema::create('events_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category')->unsigned();
+            $table->string('name')->unique();
+            $table->timestamps();
         });
     }
 
@@ -26,8 +26,6 @@ class AlterEventsTable extends Migration
      */
     public function down()
     {
-        Schema::table('events', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('events_categories');
     }
 }

@@ -105,7 +105,8 @@
                 eventData: {},
                 loading: 'true',
                 quantity: 1,
-                grade: 1
+                grade: 1,
+                ticketPrice: 0
             }
         },
         methods: {
@@ -118,6 +119,7 @@
                     (response) => {
                         this.eventData = response.data;
                         this.loading = false;
+                        this.ticketPrice = this.eventData.tickets[0].price
                     }
                 )
             },
@@ -186,7 +188,7 @@
                 const ticket = this.eventData.tickets[0];
                 const ticket_id = ticket.id;
                 let qty = this.quantity;
-                let total_amt = ticket.price * qty;
+                let total_amt = this.ticketPrice;
                 let email = localStorage.getItem('email') ? localStorage.getItem('email') : '';
                 if (ticket.amount === 0) {
                     swal({
@@ -329,7 +331,8 @@
                 return title
             },
             price: function () {
-                return this.eventData.tickets[0].price * this.quantity * this.grade;
+                this.ticketPrice = this.eventData.tickets[0].price * this.quantity * this.grade;
+                return this.ticketPrice;
             }
         }
     }

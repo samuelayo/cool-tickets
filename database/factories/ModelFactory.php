@@ -58,6 +58,12 @@ $factory->define(App\Models\BlogPost::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Models\Eventscategory::class, function (Faker\Generator $generator) {
+    return [
+        'name' => str_random('12')
+    ];
+});
+
 $factory->define(App\Models\Events::class, function (Faker\Generator $generator) {
     return [
         'title' => $generator->sentence,
@@ -65,7 +71,8 @@ $factory->define(App\Models\Events::class, function (Faker\Generator $generator)
         'image' => "picture",
         'description' => $generator->paragraph,
         'venue' => $generator->sentence,
-        'organizer' => $generator->name
+        'organizer' => $generator->name,
+        'category' => factory(App\Models\Eventscategory::class)->create()->id
     ];
 });
 

@@ -131,6 +131,7 @@ Route::group(['middleware' => 'cors'], function () {
 
 
     Route::get('all_tickets', 'Admin\EventsController@allticktes');
+    Route::get('categories', 'Admin\EventsController@getCategories');
     Route::get('events/{name}', 'Admin\EventsController@event');
     Route::get('events/details/{name}', 'Admin\EventsController@getEvent');
     Route::get('ticket/{id}/redeem', 'Admin\EventsController@redeem');
@@ -167,6 +168,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     CRUD::resource('forumcategory', 'ForumcategoryCrudController');
     CRUD::resource('forum', 'ForumCrudController');
     CRUD::resource('shows', 'ShowsCrudController');
+    CRUD::resource('eventscategory', 'EventscategoryCrudController');
     Route::get('events', 'EventsController@list');
     Route::get('events/create', 'EventsController@create');
     Route::post('events/create', 'EventsController@createpost');

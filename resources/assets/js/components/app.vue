@@ -30,15 +30,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Up</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0 mx-auto">
+                <form class="form-inline my-2 my-lg-0 ml-auto">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control home-search-input" placeholder="Search for tickets"
                                aria-label="Search" aria-describedby="basic-addon2">
@@ -49,7 +41,7 @@
                     </div>
                 </form>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link text-info" href="#">Sell Tickets <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
@@ -72,49 +64,6 @@
         <transition>
             <router-view></router-view>
         </transition>
-        <div class="row product"
-             style="width: 92%;border-radius: 30px;margin: 2em auto 7em;border: none;padding: 0; box-shadow: none !important;">
-            <div class="col-md-5 col-md-offset-0" style="
-                  padding-left: 0;
-                  box-shadow: none !important;
-              "><img src="https://i.imgur.com/nCbmJox.png"
-                     style="width: 100%;border-radius: 40px;border-right: 15px solid #f9f9f9;/* -webkit-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */-moz-box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37);/* box-shadow: 10px 10px 101px -28px rgba(0, 0, 0, 0.37); */height: auto;">
-            </div>
-            <div id="newsletter" class="col-md-7" style="border-radius: 14px;margin-left: -1em;">
-                <h2 style="font-size: 2em;width: 95%;color: rgb(0, 0, 0);margin-left: .5em;margin-top: 1em;font-family: 'Circular-book';">
-                    Get the latest news &amp; giveaways straight to your inbox. Join our teeming community of fans
-                    .</h2>
-                <div class="swiper-slide"
-                     style="background-image: url(&quot;https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500&quot;);"></div>
-                <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-                <div id="mc_embed_signup">
-                    <form action="//coolfm.us16.list-manage.com/subscribe/post?u=11b9dec20b5f95351d12ef4ff&amp;id=22862615ab"
-                          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                          class="validate" target="_blank" novalidate>
-                        <div id="mc_embed_signup_scroll">
-
-                            <div class="mc-field-group">
-                                <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
-                                </label>
-                                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"
-                                       placeholder="Enter your email">
-                            </div>
-                            <div id="mce-responses" class="clear">
-                                <div class="response" id="mce-error-response" style="display:none"></div>
-                                <div class="response" id="mce-success-response" style="display:none"></div>
-                            </div>
-                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                                                                                                      name="b_11b9dec20b5f95351d12ef4ff_22862615ab"
-                                                                                                      tabindex="-1"
-                                                                                                      value=""></div>
-                            <div class="clear"><input type="submit" value="Subscribe" name="subscribe"
-                                                      id="mc-embedded-subscribe" class="button"></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
         <br>
         <br>
 

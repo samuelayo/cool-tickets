@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Events extends Model
+class Events_category extends Model
 {
     use CrudTrait;
 
@@ -15,10 +15,10 @@ class Events extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'events';
+    //protected $table = 'events_categorys';
     //protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
@@ -35,13 +35,6 @@ class Events extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function tickets(){
-        return $this->hasMany('App\Models\Eventickets', 'event', 'id');
-    }
-
-    public function category(){
-        return $this->belongsTo('App\Models\Eventscategory', 'category', 'id');
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

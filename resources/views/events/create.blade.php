@@ -84,6 +84,19 @@
                                 <input type="file" name="image" class="form-control" id="inputEmail3" required>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Event Category</label>
+
+                            <div class="col-sm-10">
+                                <select name="category" id="category" class="form-control" required>
+                                    <option value="" selected disabled>Select a category</option>
+                                    @foreach(App\Models\Eventscategory::all() as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
 
 
                         <div class="form-group">
