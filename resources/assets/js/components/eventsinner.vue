@@ -517,4 +517,8 @@
             height: inherit;
         }
     }
+
+    #floater:hover{
+        cursor: pointer;
+    }
 </style>

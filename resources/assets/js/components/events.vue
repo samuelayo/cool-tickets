@@ -22,13 +22,13 @@
                         <div class="col-12">
                             <div class="row mt-2">
                                 <div class="col-6">
-                                    <h6 class="text-capitalize text-info font-weight-bold">Concert</h6>
+                                    <h6 class="text-capitalize text-info font-weight-bold">{{evn.category.name}}</h6>
                                 </div>
                                 <div class="col-6">
                                     <h6 id="event-date" v-text="eventDateConverter(evn.date)" class="text-right"></h6>
                                 </div>
                             </div>
-                            <h4 id="event-title" class="group inner list-group-item-heading" v-text="evn.title"></h4>
+                            <h4 id="event-title" class="group inner list-group-item-heading" v-text="evn.title" @click="navigate(evn.title, evn, index)"></h4>
                             <p id="event-caption" class="group inner list-group-item-text" v-text="evn.description"></p>
                             <div id="ticket-panel" class="row">
                                 <div class="col-12">
@@ -245,6 +245,10 @@
         margin-top: .5em !important;
         margin-bottom: .5em !important;
         letter-spacing: -.3px !important;
+    }
+
+    #event-title:hover{
+        cursor: pointer;
     }
 
     #event-date {

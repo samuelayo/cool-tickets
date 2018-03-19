@@ -9,7 +9,7 @@
                         </div>
                         <div class="col-6 text-right">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                <i class="fa fa-close" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
@@ -71,6 +71,11 @@
                                             </div>
                                         </template>
                                     </ais-results>
+                                    <ais-no-results :classNames="{'ais-no-results' : 'text-capitalize text-center col-12'}">
+                                        <template slot-scope="props">
+                                            <h2 class="my-auto mx-auto p-2">No products found for <b>"{{ props.query }}"</b></h2>
+                                        </template>
+                                    </ais-no-results>
                                 </ais-index>
                             </div>
                         </div>
@@ -83,7 +88,7 @@
 </template>
 
 <script>
-    import {Index, SearchBox, Results, Pagination, Highlight} from 'vue-instantsearch'
+    import {Index, SearchBox, Results, Pagination, Highlight, NoResults} from 'vue-instantsearch'
     import 'animate.css/animate.min.css'
     import 'SimpleBar'
     import $ from 'jquery'
@@ -103,7 +108,8 @@
             'ais-search-box': SearchBox,
             'ais-results': Results,
             'ais-pagination': Pagination,
-            'ais-highlight': Highlight
+            'ais-highlight': Highlight,
+            'ais-no-results': NoResults
         },
         methods: {
             navigate: function (name) {

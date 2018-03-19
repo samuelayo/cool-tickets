@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "Whitney";
+    src: url("../fonts/whitney-book.ttf");
+}
+html, body, h1, h2, h3, h4, h5, h6, p, li, a, button{
+    font-family: Whitney, serif !important;
+}
 .home-search-input{
     background-color: #e8e8e8;
     border-radius: 20px 0 0 20px;
