@@ -34,7 +34,7 @@ return [
     |
     */
 
-    'host' => 'box.coolfm.com.ng',
+    'host' => 'smtp.gmail.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ return [
 
     
     'from' => [
-        'address' => 'tickets@coolfm.com.ng',
+        'address' => 'nellyatuonwu@gmail.com',
         'name' => $mail_from[rand(0, count($mail_from)-1)],
     ],
 
@@ -90,9 +90,9 @@ return [
     |
     */
 
-    'username' => 'tickets@coolfm.com.ng',
+    'username' => 'nellyatuonwu@gmail.com',
 
-    'password' => 'coolfmadm1n',
+    'password' => 'Game@boY13',
 
     /*
     |--------------------------------------------------------------------------
@@ -125,6 +125,14 @@ return [
 
         'paths' => [
             resource_path('views/vendor/mail'),
+        ],
+    ],
+
+    'stream' => [
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify_peer' => false,
+            'verify_peer_name' => false,
         ],
     ],
 

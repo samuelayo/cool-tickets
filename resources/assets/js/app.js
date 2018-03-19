@@ -35,6 +35,7 @@ import app from './components/app'
 import events from './components/events'
 import eventsInner from './components/eventsinner'
 import errorpage from './components/errorpage'
+import vendorregister from './components/vendorregister'
 
 
 
@@ -42,6 +43,7 @@ const routes = [
     //route for the home route of the webpage
     { path: '/', component: events, name: 'events' },
     { path: '/events/:name', component: eventsInner, name: 'events-inner', props: true },
+    { path: '/vendor/register', component: vendorregister, name: 'vendor'},
     { path: '*', component: errorpage }
 ]
 

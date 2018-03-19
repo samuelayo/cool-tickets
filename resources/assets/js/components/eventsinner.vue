@@ -13,11 +13,11 @@
                     <clip-loader color="blue"></clip-loader>
                 </div>
                 <div class="row" v-if="!loading">
-                    <div class="col-5 bg-danger" style="background-image: url('/event.jpg'); background-size: cover; background-position: center center ">
+                    <div class="col-lg-5 col-md-4 col-sm-12 img_cover" :style="{'background-image': 'url('+eventData.image+')', 'background-size': 'cover', 'background-position': 'center center'}">
 
                     </div>
-                    <div class="col-7">
-                        <h5 class="text-info mt-5">Concert</h5>
+                    <div class="col-lg-7 col-md-8 col-sm-12">
+                        <h5 class="text-info mt-5">{{eventData.category.name}}</h5>
                         <h2 class="text-dark text-uppercase">{{ title }}</h2>
                         <p class="my-5">{{ eventData.description }}</p>
                         <div class="row">
@@ -56,8 +56,7 @@
                                 </span>
                                 <div class="select my-2">
                                     <select name="ticketGrade" id="ticketGrade" v-model="grade">
-                                        <option value="1" selected>Regular</option>
-                                        <option value="5">VIP</option>
+                                        <option :value="ticket.price" v-for="(ticket, index) in tickets" :selected="(index === 0) ? 'selected' : false">{{ticket.name}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -67,6 +66,10 @@
                                 </span>
                                 <div class="my-2">
                                     <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-add text-white" type="button"
+                                                    @click="decrementQuantity()">-</button>
+                                        </span>
                                         <input type="text" v-model="quantity">
                                         <span class="input-group-btn">
                                             <button class="btn btn-add text-white" type="button"
@@ -80,7 +83,7 @@
                             <div class="col-12 my-3">
                                 <button id="floater" class="btn btn-ticket text-white" @click="buyTicket()">Buy Tickets
                                 </button>
-                                <span class="text-info font-weight-bold">  50% off</span>
+                                <span class="text-info font-weight-bold">{{discount ? discount + '% off' : ''}}</span>
                             </div>
                         </div>
                         <br>
@@ -98,7 +101,7 @@
         name: "eventsInner",
         props: ['name'],
         mounted: function () {
-            this.getEventDetails()
+            this.getEventDetails().then(response => this.getDiscountedPrice(response));
         },
         data: function () {
             return {
@@ -106,22 +109,51 @@
                 loading: 'true',
                 quantity: 1,
                 grade: 1,
-                ticketPrice: 0
+                ticketPrice: 0,
+                tickets: [],
+                discountPrice: 0,
+                discount: 0
+            }
+        },
+        watch: {
+            grade: function () {
+                this.getDiscountedPrice(this.tickets);
+            },
+            ticketPrice: function () {
+                this.getDiscountedPrice(this.tickets);
             }
         },
         methods: {
             incrementQuantity: function () {
-                return this.quantity++
+                this.quantity++;
+                this.getDiscountedPrice(this.tickets);
+                return this.quantity;
+            },
+            decrementQuantity: function () {
+                if (this.quantity > 1){
+                    this.quantity--;
+                    this.getDiscountedPrice(this.tickets);
+                    return this.quantity;
+                }
+                return this.quantity
             },
             getEventDetails: function () {
                 console.log(this.name);
-                axios.get('/events/details/' + this.name).then(
-                    (response) => {
-                        this.eventData = response.data;
-                        this.loading = false;
-                        this.ticketPrice = this.eventData.tickets[0].price
-                    }
-                )
+                return new Promise((resolve, reject) => {
+                    axios.get('/events/details/' + this.name).then(
+                        (response) => {
+                            this.eventData = response.data;
+                            this.loading = false;
+                            this.grade = this.eventData.tickets[0].price;
+                            this.eventData.tickets.forEach((val) => {
+                                this.tickets.push(val);
+                            });
+                            resolve(this.tickets)
+                        }
+                    ).catch((err) => {
+                        reject(err)
+                    })
+                })
             },
             eventDateConverter(eventDate) {
                 let newDate = new Date(eventDate).toLocaleDateString(undefined, {
@@ -131,13 +163,23 @@
                 });
                 return newDate;
             },
+            getDiscountedPrice: function (tickets) {
+                const result = tickets.find(ticket => ticket.price === this.grade);
+                if (result.discount !== null){
+                    this.discount = result.discount;
+                    return this.discountPrice = this.ticketPrice - (this.ticketPrice * (this.discount / 100));
+                } else {
+                    return null;
+                }
+            },
             eventTimeConverter(eventTime) {
                 let date = new Date(eventTime);
                 let hours = date.getHours();
                 let suffix = 'AM';
                 let time;
                 if (hours < 12) {
-                    time = hours + suffix
+                    if (hours === 0) time = 12 + suffix;
+                     else  time = hours + suffix
                 } else {
                     suffix = 'PM';
                     switch (hours) {
@@ -188,7 +230,7 @@
                 const ticket = this.eventData.tickets[0];
                 const ticket_id = ticket.id;
                 let qty = this.quantity;
-                let total_amt = this.ticketPrice;
+                let total_amt = this.discountPrice ? this.discountPrice : this.ticketPrice;
                 let email = localStorage.getItem('email') ? localStorage.getItem('email') : '';
                 if (ticket.amount === 0) {
                     swal({
@@ -216,40 +258,67 @@
                             title: "Your Email!",
                             text: "Please provide us with an email:",
                             type: "input",
-                            showCancelButton: true,
-                            closeOnConfirm: false,
-                            animation: "slide-from-top",
-                            inputPlaceholder: "email",
-                            inputValue: email
-                        },
-                        (inputValue) => {
-                            if (inputValue == false) {
-                                return false;
-                            } else if (inputValue == "") {
-                                swal.showInputError("You need to input an email!");
-                                return false;
-                            } else if (!regex.test(inputValue)) {
-                                swal.showInputError("Your email is not valid!");
-                                return false;
-                            } else {
-                                email = inputValue;
-                                let self = this;
-                                if (total_amt === 0) {
+                            content: {
+                                element: "input",
+                                attributes: {
+                                    placeholder: "Type your Email",
+                                    type: "email",
+                                }
+                            },
+                            buttons: {
+                                cancel: {
+                                    text: "Cancel",
+                                    value: null,
+                                    visible: true,
+                                    closeModal: true,
+                                },
+                                confirm: {
+                                    text: "Submit",
+                                    value: true,
+                                    visible: true,
+                                    className: "",
+                                    closeModal: false
+                                }
+                            }
+                        }).then((inputValue) => {
+                        if (!inputValue) {
+                            return false;
+                        } else if (inputValue === "") {
+                            swal.showInputError("You need to input an email!");
+                            return false;
+                        } else if (!regex.test(inputValue)) {
+                            swal.showInputError("Your email is not valid!");
+                            return false;
+                        } else {
+                            email = inputValue;
+                            let self = this;
+                            if (total_amt === 0) {
 
-                                    if (qty !== 1) {
-                                        swal("We are sorry, but you can only order one free ticket");
-                                        return false;
-                                    } else {
-
-                                        swal({
-                                                title: "In progress",
-                                                text: "Please hold on, your ticket is being processed",
-                                                type: "info",
-                                                showCancelButton: true,
-                                                closeOnConfirm: false,
-                                                showLoaderOnConfirm: true,
-                                            },
-                                            function () {
+                                if (qty !== 0) {
+                                    swal("We are sorry, but you can only order up to one free ticket");
+                                    return false;
+                                } else {
+                                    swal({
+                                            title: "In progress",
+                                            text: "Please hold on, your ticket is being processed",
+                                            type: "info",
+                                            buttons: {
+                                                cancel: {
+                                                    text: "Cancel",
+                                                    value: null,
+                                                    visible: true,
+                                                    closeModal: true,
+                                                },
+                                                confirm: {
+                                                    text: "Continue",
+                                                    value: true,
+                                                    visible: true,
+                                                    className: "",
+                                                    closeModal: false
+                                                }
+                                            }
+                                        }).then(() => {
+                                            return new Promise((resolve, reject) => {
                                                 axios.post('ticket_purchased', {
                                                     ticket_id,
                                                     qty,
@@ -257,66 +326,79 @@
                                                     email
                                                 }).then((response) => {
                                                     self.all_events = response.data;
-                                                    swal("Please check your email for your tickets");
+                                                    resolve(response.data);
                                                 })
                                                     .catch((error) => {
+                                                        reject(error);
                                                         swal("An error occurred. If your ticket was not sent, and you have been debited, please send an email to tickets@coolfm.ng");
                                                     });
-                                            });
-                                    }
-
-                                } else {
-                                    var handler = PaystackPop.setup({
-                                        key: 'pk_live_96225c07868c79dfa4651c2d085c65e8d26ddfe0',
-                                        email,
-                                        amount: total_amt * 100,
-                                        ref: "cool_ticket_" + total_amt + qty + Math.round(+new Date() / 1000),
-                                        metadata: {
-                                            // custom_fields: [{
-                                            //     display_name: "Mobile Number",
-                                            //     variable_name: "mobile_number",
-                                            //     value: "+2348012345678"
-                                            // }]
-                                        },
-                                        callback: function (response) {
-                                            swal({
-                                                    title: "In progress",
-                                                    text: "Please hold on, your ticket is being processed",
-                                                    type: "info",
-                                                    showCancelButton: true,
-                                                    closeOnConfirm: false,
-                                                    showLoaderOnConfirm: true,
-                                                },
-                                                () => {
-                                                    axios.post('ticket_purchased', {
-                                                        ticket_id,
-                                                        qty,
-                                                        total_amt,
-                                                        email
-                                                    })
-                                                        .then((response) => {
-                                                            self.all_events = response.data;
-                                                            swal("Please check your email for your tickets");
-                                                        })
-                                                        .catch((error) => {
-                                                            swal("An error occurred. If your ticket was not sent, and you have been debited, please send an email to tickets@coolfm.ng");
-                                                        });
-                                                });
-                                        },
-                                        onClose: () => {
-                                            swal('An error occurred, please try again later');
-                                        }
-                                    });
-                                    handler.openIframe();
-
-
+                                            })
+                                        }).then(data => {
+                                            console.log(data);
+                                            const response = data[0];
+                                            if (response){
+                                                swal("Please check your email for your tickets");
+                                            }
+                                    })
                                 }
+
+                            } else {
+                                var handler = PaystackPop.setup({
+                                    key: 'pk_live_96225c07868c79dfa4651c2d085c65e8d26ddfe0',
+                                    email,
+                                    amount: total_amt * 100,
+                                    ref: "cool_ticket_" + total_amt + qty + Math.round(+new Date() / 1000),
+                                    metadata: {
+                                        // custom_fields: [{
+                                        //     display_name: "Mobile Number",
+                                        //     variable_name: "mobile_number",
+                                        //     value: "+2348012345678"
+                                        // }]
+                                    },
+                                    callback: function (response) {
+                                        swal({
+                                                title: "In progress",
+                                                text: "Please hold on, your ticket is being processed",
+                                                type: "info",
+                                                button: {
+                                                    text: "Continue",
+                                                    value: true,
+                                                    visible: true,
+                                                    closeModal: false
+                                                }
+                                            }).then((val) => {
+                                            if (!val) throw null;
+                                            else {
+                                                axios.post('/ticket_purchased', {
+                                                    ticket_id,
+                                                    qty,
+                                                    total_amt,
+                                                    email
+                                                })
+                                                    .then((response) => {
+                                                        self.all_events = response.data;
+                                                        swal("Woo! You\"ve got mail", "Please check your email for your tickets", "success");
+                                                    })
+                                                    .catch((error) => {
+                                                        swal("Oops...", "An error occurred. If your ticket was not sent, and you have been debited, please send an email to tickets@coolfm.ng", "error");
+                                                    });
+                                            }
+                                        });
+                                    },
+                                    onClose: () => {
+                                        swal('An error occurred, please try again later');
+                                    }
+                                });
+                                handler.openIframe();
 
 
                             }
 
 
-                        });
+                        }
+
+
+                    });
 
 
                 }
@@ -331,7 +413,7 @@
                 return title
             },
             price: function () {
-                this.ticketPrice = this.eventData.tickets[0].price * this.quantity * this.grade;
+                this.ticketPrice = this.quantity * this.grade;
                 return this.ticketPrice;
             }
         }
@@ -419,5 +501,20 @@
         -webkit-transition: .25s all ease;
         -o-transition: .25s all ease;
         transition: .25s all ease;
+    }
+
+    @media (max-width: 575px) {
+        .img_cover{
+            height: 200px;
+        }
+    }@media (min-width: 576px) {
+        .img_cover {
+            height: 200px;
+        }
+    }
+    @media (min-width: 768px) {
+        .img_cover {
+            height: inherit;
+        }
     }
 </style>

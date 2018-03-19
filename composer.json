@@ -7,6 +7,7 @@
     "require": {
         "php": ">=5.6.4",
         "adumskis/laravel-advert": "dev-master",
+        "algolia/algoliasearch-client-php": "^1.25",
         "arcanedev/qr-code": "^1.0",
         "backpack/base": "^0.7.14",
         "backpack/crud": "^3.2",
@@ -14,6 +15,7 @@
         "faustbrian/laravel-commentable": "^2.1",
         "jenssegers/agent": "^2.5",
         "laravel/framework": "5.4.*",
+        "laravel/scout": "^4.0",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "picqer/php-barcode-generator": "^0.2.2",

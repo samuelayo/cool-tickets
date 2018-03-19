@@ -132,7 +132,12 @@ Route::group(['middleware' => 'cors'], function () {
 
     Route::get('all_tickets', 'Admin\EventsController@allticktes');
     Route::get('categories', 'Admin\EventsController@getCategories');
+    Route::get('get_slides', 'Admin\EventsController@getSlides');
     Route::get('events/{name}', 'Admin\EventsController@event');
+    Route::get('/vendor/register', function (){
+       return view('vendor');
+    });
+    Route::post('/vendor/register', 'Admin\VendorCrudController@register');
     Route::get('events/details/{name}', 'Admin\EventsController@getEvent');
     Route::get('ticket/{id}/redeem', 'Admin\EventsController@redeem');
 });
@@ -143,7 +148,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     });
 
     Route::any('elfinder/connector', '\Barryvdh\Elfinder\ElfinderController@showConnector');
-    Route::get('elfinder/popup', '\Barryvdh\Elfinder\ElfinderController@showPopup');
+    Route::get('elfinder/popup/{input_id}', '\Barryvdh\Elfinder\ElfinderController@showPopup');
     Route::get('elfinder/tinymce', '\Barryvdh\Elfinder\ElfinderController@showTinyMCE');
     Route::get('elfinder/tinymce4', '\Barryvdh\Elfinder\ElfinderController@showTinyMCE4');
     Route::get('elfinder/ckeditor', '\Barryvdh\Elfinder\ElfinderController@showCKeditor4');
@@ -156,6 +161,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Auth::routes();
     Route::get('logout', 'Auth\LoginController@Logout');
     CRUD::resource('user', 'UserCrudController');
+    CRUD::resource('carousel', 'CarouselCrudController');
     CRUD::resource('category', 'CategoryCrudController');
     CRUD::resource('blogpost', 'BlogPostCrudController');
     CRUD::resource('keypoint', 'KeypointCrudController');
@@ -169,6 +175,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     CRUD::resource('forum', 'ForumCrudController');
     CRUD::resource('shows', 'ShowsCrudController');
     CRUD::resource('eventscategory', 'EventscategoryCrudController');
+    CRUD::resource('vendor', 'VendorCrudController');
     Route::get('events', 'EventsController@list');
     Route::get('events/create', 'EventsController@create');
     Route::post('events/create', 'EventsController@createpost');

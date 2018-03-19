@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Carousel;
 use App\Models\Eventscategory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Models\Events;
 use App\Models\Eventickets;
@@ -31,7 +33,7 @@ class EventsController extends \App\Http\Controllers\Controller
 
         $all = Eventickets::where('event', $id->id)->get();
 
-        $get_all = new \Illuminate\Database\Eloquent\Collection;
+        $get_all = new Collection;
 
         foreach ($all as $one) {
 
@@ -58,14 +60,14 @@ class EventsController extends \App\Http\Controllers\Controller
         $newevent->description = $request->get('description');
         $newevent->venue = $request->get('venue');
         $newevent->organizer = $request->get('organizer');
-        $newevent->category = Eventscategory::find($request->get('category'))->id   ;
+        $newevent->category = (new Eventscategory)->find($request->get('category'))->id;
         $imageName = rand(0, 18000) . rand(19000, 39000) . '.' .
             $request->file('image')->guessClientExtension();
         $request->file('image')->move(
             base_path() . '/public/uploads/events/', $imageName
         );
         $newevent->image = '/uploads/events/' . $imageName;
-        $newevent->push();
+        $newevent->save();
 
         $types = $request->get('ticket_name');
 
@@ -77,6 +79,7 @@ class EventsController extends \App\Http\Controllers\Controller
             $eventticket->event = $newevent->id;
             $imageName = rand(0, 18000) . rand(19000, 39000) . '.';
             $eventticket->image = '/uploads/events/tickets/' . $imageName;
+            $eventticket->discount = $request->get('discount')[$i];
             $eventticket->save();
         }
         return redirect('/admin/events');
@@ -97,6 +100,12 @@ class EventsController extends \App\Http\Controllers\Controller
 
     public function getCategories(){
         return Eventscategory::all();
+    }
+
+    public function getSlides(){
+        return Carousel::with(['event' => function ($event) {
+            $event->with('tickets');
+        }])->get();
     }
 
     public function initiate()
@@ -135,11 +144,11 @@ class EventsController extends \App\Http\Controllers\Controller
         $ticket->email = $request->get('email');
         $ticket->save();
 
-        $original_ticket = Eventickets::where('id', $request->get('ticket_id'))->first();
+        $original_ticket = (new Eventickets)->where('id', $request->get('ticket_id'))->first();
         $original_ticket->amount = $original_ticket->amount - $request->get('qty');
         $original_ticket->save();
 
-        $event = Events::where('id', $original_ticket->event)->first();
+        $event = (new Events)->where('id', $original_ticket->event)->first();
         event(new EventTicketPurchased($ticket, $original_ticket, $event));
         return Events::with('tickets')->get();
     }
@@ -157,8 +166,8 @@ class EventsController extends \App\Http\Controllers\Controller
 
     public function getEvent($name){
         $title = str_replace('-', ' ', $name);
-        return Events::where('title', $title)->with(['tickets' => function ($tick) {
+        return (new Events)->where('title', $title)->with(['tickets' => function ($tick) {
             $tick->with('purchased');
-        }])->first();
+        }, 'category'])->first();
     }
 }

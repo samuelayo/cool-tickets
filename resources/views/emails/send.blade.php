@@ -54,10 +54,10 @@
         <p class="cinema"
            style="color:#0055b3;font-size:19px; font-family: futura; line-height:0; font-weight: 400; text-transform:uppercase; line-height:1;">{{$event->organizer}} </p>
         <p class="movie-title"
-           style="font-size:30px;font-weight:900; font-family: futura; color: black; line-height:0; text-transform:uppercase;">{{$event->title}}</p>
+           style="font-size:30px;font-weight:900; font-family: futura; color: black; line-height:1; text-transform:uppercase; text-wrap: normal">{{$event->title}}</p>
     </div>
     <div class="poster">
-        <img src="https://tickets.coolfm.ng{{$event->image}}" style="max-width:100%;height:auto;" alt="event img"/>
+        <img src="{{url($event->image)}}" style="max-width:100%;height:auto;" alt="event img"/>
     </div>
     <div class="info" style="padding-top:15px;padding-bottom:15px;padding-right:25px;padding-left:25px;">
         <table style="width:100%;font-size:18px;margin-bottom:15px;">
@@ -151,7 +151,7 @@
     <div class="holes-lower"
          style="position:relative;margin-top:25px;margin-bottom:0px;margin-right:25px;margin-left:25px;border-width:1px;border-style:dashed;border-color:#aaa;"></div>
     <div class="serial" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;">
-        <img src="https://tickets.coolfm.ng/{{$ticketpurchased->id}}.png"/>
+        <img src="{{asset('uploads/' . $ticketpurchased->id . '.png')}}"/>
         <br>
         <span style="opacity: .3; color: black;">{{$ticketpurchased->id}}</span>
         <table class="barcode"
@@ -207,7 +207,7 @@
 
             </tr>
             <tr style="margin-bottom:10px;">
-                <td style="font-size:15px;font-weight:400;width:33%; font-family: futura;">tickets@coolfm.com.ng</td>
+                <td style="font-size:15px;font-weight:400;width:33%; font-family: futura; color: #ffffff">hello@coolfm.ng</td>
 
 
             </tr>

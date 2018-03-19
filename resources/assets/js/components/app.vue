@@ -24,16 +24,19 @@
                     <img src="/img/ticket-logo.jpeg" width="150" alt="Cool Fm Tickets">
                 </router-link>
             </a>
+            <button class="btn ml-auto d-block d-sm-block d-md-none" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-search"></i>
+            </button>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="form-inline my-2 my-lg-0 ml-auto">
+                <form class="form-inline my-2 my-lg-0 ml-auto d-none d-md-block">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control home-search-input" placeholder="Search for tickets"
-                               aria-label="Search" aria-describedby="basic-addon2">
+                               aria-label="Search" aria-describedby="basic-addon2" id="search">
                         <div class="input-group-append">
                             <button class="btn btn-outline-info home-search-button" type="button"><i
                                     class="fa fa-search" aria-hidden="true"></i></button>
@@ -42,10 +45,13 @@
                 </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-info" href="#">Sell Tickets <span class="sr-only">(current)</span></a>
+                        <router-link class="nav-link text-info" to="/vendor/register">Sell Tickets <span class="sr-only">(current)</span></router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-capitalize btn get-app-button text-white" href="#">Get the app</a>
+                        <button type="button" class="btn btn-primary" id="show" data-toggle="modal" data-target="#exampleModal" v-show="false">
+                            Launch demo modal
+                        </button>
                     </li>
                 </ul>
 
@@ -67,11 +73,14 @@
         <br>
         <br>
 
-
+    <search></search>
     </div>
 </template>
 
 <script>
+    import $ from 'jquery'
+    import search from './search'
+
     export default {
         name: 'app',
         data: () => {
@@ -84,11 +93,16 @@
                 categories: Laravel.categories
             }
         },
+        components: {
+            search
+        },
         created: function () {
             //this.schedules();
         },
         mounted: function () {
-
+            $('#search').focus(() => {
+                $('#show').trigger('click')
+            });
             function loadScript(url) {
                 return new Promise(function (resolve, reject) {
                     var script = document.createElement("script")

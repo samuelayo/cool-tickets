@@ -18,6 +18,7 @@ class CreateEventsTickets extends Migration
             $table->string('price');
             $table->string('image');
             $table->string('event');
+            $table->string('discount')->nullable();
             $table->timestamps();
         });
     }

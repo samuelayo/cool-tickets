@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Events;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -9,6 +9,7 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Picqer\Barcode\BarcodeGeneratorPNG;
 
 
 class TicketPurchased
@@ -22,6 +23,7 @@ class TicketPurchased
     /**
      * Create a new event instance.
      *
+     * @throws \Picqer\Barcode\Exceptions\BarcodeException
      * @return void
      */
     public function __construct($ticketdetails, $original, $event)
@@ -37,7 +39,7 @@ class TicketPurchased
         // $qrCode->setSize(200);
         // $filename = 'uploads/'.$ticketdetails->id.'.jpg';
         // $qrCode->save($filename);
-        $generator = new \Picqer\Barcode\BarcodeGeneratorPNG();
+        $generator = new BarcodeGeneratorPNG();
         $idevn = explode('-',$ticketdetails->id);
        //$img =  '<img src="data:image/png;base64,' . base64_encode($generator->getBarcode($idevn[0].$idevn[1].$idevn[2], $generator::TYPE_CODE_128)) . '">';
         //dd($img);

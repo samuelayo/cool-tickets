@@ -36,6 +36,8 @@
                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/ads') }}"><i class="fa fa-files-o"></i> <span>Ads </span></a></li>
                   <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/events') }}"><i class="fa fa-files-o"></i> <span>Events </span></a></li>
                   <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/eventscategory') }}"><i class="fa fa-files-o"></i> <span>Events Category </span></a></li>
+                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/carousel') }}"><i class="fa fa-files-o"></i> <span>Carousel </span></a></li>
+                  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/vendor') }}"><i class="fa fa-files-o"></i> <span>Offline Vendor </span></a></li>
                   <li class="treeview">
     <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>
     <ul class="treeview-menu">

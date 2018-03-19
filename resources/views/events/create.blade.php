@@ -105,7 +105,7 @@
 
                             <div class="col-sm-10">
                                 <div class="col-md-12" id="parent">
-                                    <div id="child" class="child">
+                                    <div id="child" class="child" style="margin-bottom: 20px">
                                         <div class="col-md-6">
                                             <input type="text" name="ticket_name[]" class="form-control"
                                                    placeholder="Name" required/>
@@ -118,6 +118,11 @@
                                             <input type="number" name="amount[]" class="form-control"
                                                    placeholder="Amount of tickets available" required/>
                                         </div>
+                                        <div class="col-md-12">
+                                            <input type="number" name="discount[]" class="form-control"
+                                                   placeholder="Discount on ticket in % (Optional)"/>
+                                        </div>
+
                                         <!--  <div class="col-md-8">
 
                                               <input type="file"  name="ticket_image[]" class="form-control" id="inputEmail3"  required>

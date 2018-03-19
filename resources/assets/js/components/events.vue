@@ -1,16 +1,10 @@
 <template>
     <div>
-        <eventSlider height="400px">
-            <div class="bg-dark item" style="width: 500px"></div>
-            <div class="bg-success item" style="width: 300px"></div>
-            <div class="bg-danger item" style="width: 700px"></div>
-            <div class="bg-info item" style="width: 200px"></div>
-            <div class="bg-warning item" style="width: 400px"></div>
-        </eventSlider>
+        <eventSlider height="400px" ></eventSlider>
         <div class="container bg-white inner-shadow">
             <div class="col-12">
                 <div class="row pt-2">
-                    <span class="col text-uppercase text-secondary text-center p-1 m-1" v-for="val in categories">
+                    <span class="col text-capitalize text-secondary text-center p-1 m-1" v-for="val in categories">
                         <a href="javascript:void(0)" v-text="val" @click="eventCategory(val)"></a>
                     </span>
                     <div class="col-12">
@@ -24,7 +18,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3 col-sm-12" v-for="(evn, index) in searchable">
                     <div id="event-single" class="thumbnail">
-                        <div class="event-image" style="background-image: url('event.jpg')"></div>
+                        <div class="event-image" :style="{'background-image': 'url('+evn.image+')'}"></div>
                         <div class="col-12">
                             <div class="row mt-2">
                                 <div class="col-6">
@@ -39,14 +33,14 @@
                             <div id="ticket-panel" class="row">
                                 <div class="col-12">
                                     <p class="font-weight-bold">
-                                        <span v-if="ticket_price[index].price != 0 " class="text-danger">*Starting from N{{ticket_price[index].price | money }}</span>
-                                        <span v-if="ticket_price[index].price == 0 " class="text-success"> Free </span>
+                                        <span v-if="evn.tickets[0].price !== 0 " class="text-danger">*Starting from N{{evn.tickets[0].price | money }}</span>
+                                        <span v-if="evn.tickets[0].price === null " class="text-success"> Free </span>
                                     </p>
                                 </div>
                                 <div class="col-12">
                                     <button id="floater" class="btn btn-ticket text-white" @click="navigate(evn.title, evn, index)">Buy Tickets
                                     </button>
-                                    <span class="text-info font-weight-bold">  10% off</span>
+                                    <span class="text-info font-weight-bold">  {{evn.tickets[0].discount ? 'up to ' + evn.tickets[evn.tickets.length - 1].discount + '% off' : ''}}</span>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +61,6 @@
 
 <script>
     import eventSlider from "./eventslider";
-
     export default {
         data: function () {
             return {
@@ -77,7 +70,8 @@
                 ticket_qty: [],
                 loading: true,
                 categories: [],
-                category_event: false
+                category_event: false,
+                slides: []
             }
         },
         components: {
@@ -91,7 +85,7 @@
             var status = {
                 title: 'Cool FM Nigeria | Events',
                 description: `Buy your event tickets from coolfm 96.9fm`
-            }
+            };
             this.$store.dispatch('SET_SEO', status);
 
         },
@@ -110,7 +104,8 @@
                 axios.get("/all_tickets")
                     .then((response) => {
                         this.all_events = response.data;
-                        this.original_events = response.data;
+                        this.all_events = this.searchable;
+                        this.original_events = this.searchable;
                         //this.loadable();
                         this.pushem();
                         this.loading = false;
@@ -219,10 +214,6 @@
 <style scoped>
     * {
         font-family: 'Circular-Book'
-    }
-
-    .item {
-        height: 400px;
     }
 
     .thumbnail {

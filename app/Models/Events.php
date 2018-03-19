@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Laravel\Scout\Searchable;
 
 class Events extends Model
 {
     use CrudTrait;
+    use Searchable;
 
      /*
     |--------------------------------------------------------------------------
@@ -35,12 +37,23 @@ class Events extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function toSearchableArray()
+    {
+        $this->category;
+        $this->tickets;
+        return $this->toArray();
+    }
+
     public function tickets(){
         return $this->hasMany('App\Models\Eventickets', 'event', 'id');
     }
 
     public function category(){
         return $this->belongsTo('App\Models\Eventscategory', 'category', 'id');
+    }
+
+    public function carousel(){
+        return $this->hasOne(Carousel::class);
     }
     /*
     |--------------------------------------------------------------------------
