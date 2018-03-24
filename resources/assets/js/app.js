@@ -12,8 +12,10 @@ require('./bootstrap');
  */
 
 import VueRouter from 'vue-router'
+import VueLazyLoad from 'vue-lazyload'
 //tell vue to use the router
 Vue.use(VueRouter);
+Vue.use(VueLazyLoad);
 
 //window.sharon = require('sharon');
 

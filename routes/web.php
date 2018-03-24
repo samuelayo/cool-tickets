@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use Jenssegers\Agent\Agent;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes

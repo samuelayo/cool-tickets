@@ -36,3 +36,7 @@ html, body, h1, h2, h3, h4, h5, h6, p, li, a, button{
     background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%) !important;
     border: none !important;
 }
+
+.cool-blue{
+    color: #275faa;
+}

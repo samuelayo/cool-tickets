@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Carousel;
 use App\Models\Eventscategory;
 use Illuminate\Database\Eloquent\Collection;
@@ -11,15 +12,16 @@ use App\Models\Eventickets;
 use GuzzleHttp\Client;
 use App\TicketPurchased;
 use App\Events\TicketPurchased as EventTicketPurchased;
+use Illuminate\Support\Facades\Artisan;
 
 
-class EventsController extends \App\Http\Controllers\Controller
+class EventsController extends Controller
 {
 
 
     public function list()
     {
-        $all = Events::orderBy('created_at', 'desc')->paginate(20);
+        $all = (new Events)->orderBy('created_at', 'desc')->paginate(20);
         return View('events.list', compact('all'));
     }
 
@@ -68,6 +70,7 @@ class EventsController extends \App\Http\Controllers\Controller
         );
         $newevent->image = '/uploads/events/' . $imageName;
         $newevent->save();
+        Artisan::call('scout:import', ['model' => '\App\Models\Events']);
 
         $types = $request->get('ticket_name');
 

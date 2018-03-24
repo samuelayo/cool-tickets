@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3 col-sm-12" v-for="(evn, index) in searchable">
                     <div id="event-single" class="thumbnail">
-                        <div class="event-image" :style="{'background-image': 'url('+evn.image+')'}"></div>
+                        <div class="event-image" v-lazy:background-image="evn.image"></div>
                         <div class="col-12">
                             <div class="row mt-2">
                                 <div class="col-6">

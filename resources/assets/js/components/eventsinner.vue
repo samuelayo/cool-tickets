@@ -46,7 +46,7 @@
                                 <span class="text-uppercase text-muted">
                                     price
                                 </span>
-                                <div class="col-12 col-lg-8">
+                                <div class="col-12 col-lg-8 pl-0">
                                     <h1 class="font-weight-bold text-danger">N{{ price }}</h1>
                                 </div>
                             </div>

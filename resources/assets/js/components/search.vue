@@ -54,7 +54,7 @@
                                         <template slot-scope="{ result }">
                                             <div class="col-12 py-3" style="border-bottom: solid 1px #cfcfcf">
                                                 <div class="row">
-                                                    <div class="col-3" :style="{'background-image': 'url('+result.image+')', 'background-size':'cover', 'background-repeat':'no-repeat', 'background-position':'center center'}">
+                                                    <div class="col-3" v-lazy:background-image="result.image" :style="{'background-size':'cover', 'background-repeat':'no-repeat', 'background-position':'center center'}">
                                                         <!--<img :src="result.image" alt="" style="width: 100%; height: auto">-->
                                                     </div>
                                                     <div class="col-9">

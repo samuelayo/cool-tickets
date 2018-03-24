@@ -18,7 +18,8 @@
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
     "vue": "^2.1.10",
-    "vue-adsense": "^1.0.1"
+    "vue-adsense": "^1.0.1",
+    "vue-lazyload": "^1.2.2"
   },
   "dependencies": {
     "accounting": "^0.4.1",
