@@ -15,7 +15,12 @@ import VueRouter from 'vue-router'
 import VueLazyLoad from 'vue-lazyload'
 //tell vue to use the router
 Vue.use(VueRouter);
-Vue.use(VueLazyLoad);
+Vue.use(VueLazyLoad, {
+    preLoad: 1.3,
+    error: 'dist/error.png',
+    loading: 'img/imgloader.gif',
+    attempt: 1
+});
 
 //window.sharon = require('sharon');
 

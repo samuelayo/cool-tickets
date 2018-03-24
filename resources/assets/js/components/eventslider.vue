@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="container">
         <div class="col-2 mx-auto" v-if="!loaded">
             <clip-loader color="blue"></clip-loader>
         </div>
@@ -41,8 +41,9 @@
         },
         created: function () {
             this.get_slides().then(() => {
-                this.initOwlCarousel();
-                this.loaded = true;
+                this.initOwlCarousel().then(() => {
+                    setTimeout(this.loaded = true, 3000);
+                });
             });
         },
         methods: {
@@ -62,33 +63,40 @@
                 })
             },
             initOwlCarousel: function () {
-                $('.owl-carousel').owlCarousel({
-                    margin: 10,
-                    loop: true,
-                    autoWidth: true,
-                    autoplay: true,
-                    autoplayTimeout: 2500,
-                    autoplayHoverPause: true,
-                    responsiveClass: true,
-                    responsive: {
-                        0:{
-                            items: 1,
-                            autoWidth: false
-                        },
-                        480:{
-                            items: 2,
-                            autoWidth: false,
-                            nav: false
-                        },
-                        720:{
-                            margin: 10,
-                            loop: true,
-                            autoWidth: true,
-                            autoplay: true,
-                            autoplayTimeout: 2500,
-                            autoplayHoverPause: true,
-                        }
+                return new Promise((resolve, reject) => {
+                    const owl = $('.owl-carousel');
+                    function initialized(event){
+                        resolve();
                     }
+                    owl.owlCarousel({
+                        margin: 10,
+                        loop: true,
+                        autoWidth: true,
+                        autoplay: true,
+                        autoplayTimeout: 2500,
+                        autoplayHoverPause: true,
+                        responsiveClass: true,
+                        responsive: {
+                            0:{
+                                items: 1,
+                                autoWidth: false
+                            },
+                            480:{
+                                items: 2,
+                                autoWidth: false,
+                                nav: false
+                            },
+                            720:{
+                                margin: 10,
+                                loop: true,
+                                autoWidth: true,
+                                autoplay: true,
+                                autoplayTimeout: 2500,
+                                autoplayHoverPause: true,
+                            }
+                        },
+                        onInitialized: initialized
+                    });
                 });
             },
             navigate: function (name, data, index) {
