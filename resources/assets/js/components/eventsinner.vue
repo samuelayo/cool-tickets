@@ -17,7 +17,7 @@
 
                     </div>
                     <div class="col-lg-7 col-md-8 col-sm-12">
-                        <h5 class="text-info mt-5">{{eventData.category.name}}</h5>
+                        <h5 class="cool-blue mt-5">{{eventData.category.name}}</h5>
                         <h2 class="text-dark text-uppercase">{{ title }}</h2>
                         <p class="my-5">{{ eventData.description }}</p>
                         <div class="row">

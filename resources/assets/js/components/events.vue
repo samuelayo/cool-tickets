@@ -22,7 +22,7 @@
                         <div class="col-12">
                             <div class="row mt-2">
                                 <div class="col-6">
-                                    <h6 class="text-capitalize text-info font-weight-bold">{{evn.category.name}}</h6>
+                                    <h6 class="text-capitalize cool-blue font-weight-bold">{{evn.category.name}}</h6>
                                 </div>
                                 <div class="col-6">
                                     <h6 id="event-date" v-text="eventDateConverter(evn.date)" class="text-right"></h6>
