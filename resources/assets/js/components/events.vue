@@ -1,7 +1,7 @@
 <template>
     <div>
         <eventSlider height="400px" ></eventSlider>
-        <div class="container bg-white inner-shadow">
+        <div class="container bg-white inner-shado mt-2">
             <div class="col-12">
                 <div class="row pt-2">
                     <span class="col text-capitalize text-secondary text-center p-1 m-1" v-for="val in categories">

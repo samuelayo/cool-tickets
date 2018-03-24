@@ -67,8 +67,28 @@
                     loop: true,
                     autoWidth: true,
                     autoplay: true,
-                    autoplayTimeout: 1000,
-                    autoplayHoverPause: true
+                    autoplayTimeout: 2500,
+                    autoplayHoverPause: true,
+                    responsiveClass: true,
+                    responsive: {
+                        0:{
+                            items: 1,
+                            autoWidth: false
+                        },
+                        480:{
+                            items: 2,
+                            autoWidth: false,
+                            nav: false
+                        },
+                        720:{
+                            margin: 10,
+                            loop: true,
+                            autoWidth: true,
+                            autoplay: true,
+                            autoplayTimeout: 2500,
+                            autoplayHoverPause: true,
+                        }
+                    }
                 });
             },
             navigate: function (name, data, index) {
@@ -114,5 +134,16 @@
         left: 20px;
         color: white !important;
         width: calc(100% - 40px);
+    }
+
+    @media screen and (max-width: 480px){
+        .slide_img{
+            width: 100% !important;
+        }
+    }
+    @media screen and (max-width: 720px){
+        .slide_img{
+            width: 100% !important;
+        }
     }
 </style>

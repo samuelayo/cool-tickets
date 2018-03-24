@@ -24,7 +24,7 @@
                     <img src="/img/ticket-logo.jpeg" width="150" alt="Cool Fm Tickets">
                 </router-link>
             </a>
-            <button class="btn ml-auto d-block d-sm-block d-md-none" data-toggle="modal" data-target="#exampleModal">
+            <button class="btn ml-auto d-block d-sm-block d-md-none btn-transparent" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-search"></i>
             </button>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -272,6 +272,16 @@
 
 <!-- styling for the component -->
 <style>
+    .btn-transparent{
+        border: 1px solid #cfcfcf;
+        background-color: transparent;
+        margin-right: 10px;
+    }
+
+    .btn-transparent:focus{
+        border: solid 0 transparent;
+        background-color: transparent;
+    }
     html, body, h1, h2, h3, h4, h5, h6, p, li, a, button{
         font-family: Whitney, serif !important;
     }
