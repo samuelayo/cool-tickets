@@ -18,7 +18,8 @@
         <meta name="twitter:image" :content="twitterimage"/>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+        	<nav class="navbar navbar-expand-lg navbar-light bg-white">
             <a class="navbar-brand" href="#">
                 <router-link to="/">
                     <img src="/img/ticket-logo.jpeg" width="150" alt="Cool Fm Tickets">
@@ -57,6 +58,7 @@
 
             </div>
         </nav>
+        </div>
 
         <!-- the router outlet, where all matched components would ber viewed -->
         <center>
