@@ -46,9 +46,9 @@
                         </div>
                     </div>
                 </div>
-                <center v-if="(searchable.length == 0 && loading == false)"><span
+                <div v-if="(searchable.length == 0 && loading == false)" class="text-center py-4"><span
                         style="color: black; font-size: 38px;">No events available at this moment</span>
-                </center>
+                </div>
                 <br>
                 <br>
                 <br>
@@ -122,33 +122,35 @@
                     });
             },
             eventCategory: function (name) {
-                if (this.category_event === false ){
-                    this.category_event = true;
-                    let events = [];
-                    this.all_events.forEach((value) => {
-                        if (value.category.name === name){
-                            events.push(value)
-                        }
-                    });
-                    this.category = name;
-                    this.all_events = events;
-                } else if (this.category_event === true && this.all_events[0].category.name === name){
-                    this.category = null;
-                    this.all_events = this.original_events;
-                    this.category_event = false;
-                } else if (this.category_event === true && this.all_events[0].category.name !== name){
-                    let events = [];
-                    this.original_events.forEach((value) => {
-                        if (value.category.name === name){
-                            events.push(value)
-                        }
-                    });
-                    this.category = name;
-                    this.all_events = events;
-                } else {
-                    this.category = null;
-                    this.all_events = this.original_events;
-                    this.category_event = false;
+                if (this.all_events.length !== 0){
+                    if (this.category_event === false ){
+                        this.category_event = true;
+                        let events = [];
+                        this.all_events.forEach((value) => {
+                            if (value.category.name === name){
+                                events.push(value)
+                            }
+                        });
+                        this.category = name;
+                        this.all_events = events;
+                    } else if (this.category_event === true && this.all_events[0].category.name === name){
+                        this.category = null;
+                        this.all_events = this.original_events;
+                        this.category_event = false;
+                    } else if (this.category_event === true && this.all_events[0].category.name !== name){
+                        let events = [];
+                        this.original_events.forEach((value) => {
+                            if (value.category.name === name){
+                                events.push(value)
+                            }
+                        });
+                        this.category = name;
+                        this.all_events = events;
+                    } else {
+                        this.category = null;
+                        this.all_events = this.original_events;
+                        this.category_event = false;
+                    }
                 }
             },
             verify: function (start) {
