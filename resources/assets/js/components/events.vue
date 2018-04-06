@@ -1,11 +1,11 @@
 <template>
     <div>
         <eventSlider height="400px" ></eventSlider>
-        <div class="container bg-white inner-shado mt-2">
+        <div class="container bg-white inner-shadow mt-2">
             <div class="col-12">
                 <div class="row pt-2">
                     <span class="col text-capitalize text-secondary text-center p-1 m-1" v-for="val in categories">
-                        <a href="javascript:void(0)" v-text="val" @click="eventCategory(val)"></a>
+                        <a href="javascript:void(0)" v-text="val" :class="{'cool-blue': (val === category), 'font-weight-bold': (val === category)}" @click="eventCategory(val)"></a>
                     </span>
                     <div class="col-12">
                         <hr>
@@ -71,6 +71,7 @@
                 loading: true,
                 categories: [],
                 category_event: false,
+                category: '',
                 slides: []
             }
         },
@@ -129,9 +130,10 @@
                             events.push(value)
                         }
                     });
+                    this.category = name;
                     this.all_events = events;
                 } else if (this.category_event === true && this.all_events[0].category.name === name){
-                    this.category_event = false;
+                    this.category = null;
                     this.all_events = this.original_events;
                     this.category_event = false;
                 } else if (this.category_event === true && this.all_events[0].category.name !== name){
@@ -141,8 +143,10 @@
                             events.push(value)
                         }
                     });
+                    this.category = name;
                     this.all_events = events;
                 } else {
+                    this.category = null;
                     this.all_events = this.original_events;
                     this.category_event = false;
                 }
@@ -273,8 +277,8 @@
         background-size: cover;
     }
 
-    span.col{
-        border: solid 1px #3c3c3c;
-        border-radius: 5px
+    span.col>a:hover{
+        transition: ease 0.3s;
+        color: #275faa;
     }
 </style>

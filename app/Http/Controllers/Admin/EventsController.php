@@ -13,6 +13,7 @@ use GuzzleHttp\Client;
 use App\TicketPurchased;
 use App\Events\TicketPurchased as EventTicketPurchased;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 
 class EventsController extends Controller
@@ -56,6 +57,7 @@ class EventsController extends Controller
 
     public function createpost(Request $request)
     {
+        DB::beginTransaction();
         $newevent = new Events();
         $newevent->title = $request->get('title');
         $newevent->date = $request->get('date');
@@ -69,9 +71,7 @@ class EventsController extends Controller
             base_path() . '/public/uploads/events/', $imageName
         );
         $newevent->image = '/uploads/events/' . $imageName;
-        $newevent->save();
-        Artisan::call('scout:import', ['model' => '\App\Models\Events']);
-
+        $newevent->push();
         $types = $request->get('ticket_name');
 
         for ($i = 0; $i < count($types); $i++) {
@@ -85,6 +85,8 @@ class EventsController extends Controller
             $eventticket->discount = $request->get('discount')[$i];
             $eventticket->save();
         }
+        DB::commit();
+        Artisan::call('index:search', ['model' => 'App\\Models\\Events']);
         return redirect('/admin/events');
     }
 

@@ -62,7 +62,7 @@
                                                             <ais-highlight :result="result" attribute-name="title"/>
                                                         </h2>
                                                         <p>venue: <b><ais-highlight :result="result" attribute-name="venue"/></b></p>
-                                                        <p>Price: <b class="text-danger">from N{{result.tickets[0].price}}</b></p>
+                                                        <p>Price: <b class="text-danger font-weight-bold">from N{{result.tickets[0].price}}</b></p>
                                                         <div class="col-12">
                                                             <button class="btn btn-ticket text-white" @click="navigate(result.title)">See Tickets</button>
                                                         </div>

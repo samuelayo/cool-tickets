@@ -39,7 +39,6 @@ class Events extends Model
 
     public function toSearchableArray()
     {
-        $this->category;
         $this->tickets;
         return $this->toArray();
     }

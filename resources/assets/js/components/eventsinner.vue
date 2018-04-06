@@ -1,95 +1,94 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-12 bg-info">
-                <br>
-                <br>
-            </div>
+        <div class="col-12 bg-info">
+            <br>
+            <br>
         </div>
         <br>
-        <div class="row bg-white">
-            <div class="col-12">
-                <div class="col-2 mx-auto" v-if="loading">
-                    <clip-loader color="blue"></clip-loader>
+        <div class="col-12 bg-white">
+            <div class="col-2 mx-auto" v-if="loading">
+                <clip-loader color="blue"></clip-loader>
+            </div>
+            <div class="row" v-if="!loading">
+                <div class="col-lg-5 col-md-4 col-sm-12 img_cover"
+                     :style="{'background-image': 'url('+eventData.image+')', 'background-size': 'cover', 'background-position': 'center center'}">
+
                 </div>
-                <div class="row" v-if="!loading">
-                    <div class="col-lg-5 col-md-4 col-sm-12 img_cover" :style="{'background-image': 'url('+eventData.image+')', 'background-size': 'cover', 'background-position': 'center center'}">
+                <div class="col-lg-7 col-md-8 col-sm-12">
+                    <h5 class="cool-blue mt-5">{{eventData.category.name}}</h5>
+                    <h2 class="text-dark text-uppercase">{{ title }}</h2>
+                    <p class="my-5">{{ eventData.description }}</p>
+                    <div class="row">
+                        <div class="col">
+                            <span class="text-uppercase text-muted">venue</span>
+                            <h3 class="text-uppercase">
+                                {{ eventData.venue }}
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <span class="text-uppercase text-muted">time</span>
+                            <h3 class="text-uppercase">
+                                {{ eventTimeConverter(eventData.date) }}
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <span class="text-uppercase text-muted">date</span>
+                            <h3 class="text-uppercase">
+                                {{ eventDateConverter(eventData.date) }}
+                            </h3>
+                        </div>
 
                     </div>
-                    <div class="col-lg-7 col-md-8 col-sm-12">
-                        <h5 class="cool-blue mt-5">{{eventData.category.name}}</h5>
-                        <h2 class="text-dark text-uppercase">{{ title }}</h2>
-                        <p class="my-5">{{ eventData.description }}</p>
-                        <div class="row">
-                            <div class="col">
-                                <span class="text-uppercase text-muted">venue</span>
-                                <h3 class="text-uppercase">
-                                    {{ eventData.venue }}
-                                </h3>
-                            </div>
-                            <div class="col">
-                                <span class="text-uppercase text-muted">time</span>
-                                <h3 class="text-uppercase">
-                                    {{ eventTimeConverter(eventData.date) }}
-                                </h3>
-                            </div>
-                            <div class="col">
-                                <span class="text-uppercase text-muted">date</span>
-                                <h3 class="text-uppercase">
-                                    {{ eventDateConverter(eventData.date) }}
-                                </h3>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-lg-4">
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
                                 <span class="text-uppercase text-muted">
                                     price
                                 </span>
-                                <div class="col-12 col-lg-8 pl-0">
-                                    <h1 class="font-weight-bold text-danger">N{{ price }}</h1>
-                                </div>
+                            <div class="col-12 col-lg-8 pl-0">
+                                <h1 class="font-weight-bold text-danger">N{{ price }}</h1>
                             </div>
-                            <div class="col-12 col-lg-4">
+                        </div>
+                        <div class="col-12 col-lg-4">
                                 <span class="text-uppercase text-muted">
                                     ticket grade
                                 </span>
-                                <div class="select my-2">
-                                    <select name="ticketGrade" id="ticketGrade" v-model="grade">
-                                        <option :value="ticket.price" v-for="(ticket, index) in tickets" :selected="(index === 0) ? 'selected' : false">{{ticket.name}}</option>
-                                    </select>
-                                </div>
+                            <div class="select my-2">
+                                <select name="ticketGrade" id="ticketGrade" v-model="grade">
+                                    <option :value="ticket.price" v-for="(ticket, index) in tickets"
+                                            :selected="(index === 0) ? 'selected' : false">{{ticket.name}}
+                                    </option>
+                                </select>
                             </div>
-                            <div class="col-12 col-lg-4">
+                        </div>
+                        <div class="col-12 col-lg-4">
                                 <span class="text-uppercase text-muted">
                                     quantity
                                 </span>
-                                <div class="my-2">
-                                    <div class="input-group">
+                            <div class="my-2">
+                                <div class="input-group">
                                         <span class="input-group-btn">
                                             <button class="btn btn-add text-white" type="button"
                                                     @click="decrementQuantity()">-</button>
                                         </span>
-                                        <input type="text" v-model="quantity">
-                                        <span class="input-group-btn">
+                                    <input type="text" v-model="quantity">
+                                    <span class="input-group-btn">
                                             <button class="btn btn-add text-white" type="button"
                                                     @click="incrementQuantity()">&plus;</button>
                                         </span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 my-3">
-                                <button id="floater" class="btn btn-ticket text-white" @click="buyTicket()">Buy Tickets
-                                </button>
-                                <span class="text-info font-weight-bold">{{discount ? discount + '% off' : ''}}</span>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
                     </div>
+                    <div class="row">
+                        <div class="col-12 my-3">
+                            <button id="floater" class="btn btn-ticket text-white" @click="buyTicket()">Buy Tickets
+                            </button>
+                            <span class="text-info font-weight-bold">{{discount ? discount + '% off' : ''}}</span>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
@@ -130,7 +129,7 @@
                 return this.quantity;
             },
             decrementQuantity: function () {
-                if (this.quantity > 1){
+                if (this.quantity > 1) {
                     this.quantity--;
                     this.getDiscountedPrice(this.tickets);
                     return this.quantity;
@@ -165,7 +164,7 @@
             },
             getDiscountedPrice: function (tickets) {
                 const result = tickets.find(ticket => ticket.price === this.grade);
-                if (result.discount !== null){
+                if (result.discount !== null) {
                     this.discount = result.discount;
                     return this.discountPrice = this.ticketPrice - (this.ticketPrice * (this.discount / 100));
                 } else {
@@ -179,7 +178,7 @@
                 let time;
                 if (hours < 12) {
                     if (hours === 0) time = 12 + suffix;
-                     else  time = hours + suffix
+                    else time = hours + suffix
                 } else {
                     suffix = 'PM';
                     switch (hours) {
@@ -255,32 +254,32 @@
                     var getemail = "";
                     var regex = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
                     swal({
-                            title: "Your Email!",
-                            text: "Please provide us with an email:",
-                            type: "input",
-                            content: {
-                                element: "input",
-                                attributes: {
-                                    placeholder: "Type your Email",
-                                    type: "email",
-                                }
-                            },
-                            buttons: {
-                                cancel: {
-                                    text: "Cancel",
-                                    value: null,
-                                    visible: true,
-                                    closeModal: true,
-                                },
-                                confirm: {
-                                    text: "Submit",
-                                    value: true,
-                                    visible: true,
-                                    className: "",
-                                    closeModal: false
-                                }
+                        title: "Your Email!",
+                        text: "Please provide us with an email:",
+                        type: "input",
+                        content: {
+                            element: "input",
+                            attributes: {
+                                placeholder: "Type your Email",
+                                type: "email",
                             }
-                        }).then((inputValue) => {
+                        },
+                        buttons: {
+                            cancel: {
+                                text: "Cancel",
+                                value: null,
+                                visible: true,
+                                closeModal: true,
+                            },
+                            confirm: {
+                                text: "Submit",
+                                value: true,
+                                visible: true,
+                                className: "",
+                                closeModal: false
+                            }
+                        }
+                    }).then((inputValue) => {
                         if (!inputValue) {
                             return false;
                         } else if (inputValue === "") {
@@ -299,46 +298,46 @@
                                     return false;
                                 } else {
                                     swal({
-                                            title: "In progress",
-                                            text: "Please hold on, your ticket is being processed",
-                                            type: "info",
-                                            buttons: {
-                                                cancel: {
-                                                    text: "Cancel",
-                                                    value: null,
-                                                    visible: true,
-                                                    closeModal: true,
-                                                },
-                                                confirm: {
-                                                    text: "Continue",
-                                                    value: true,
-                                                    visible: true,
-                                                    className: "",
-                                                    closeModal: false
-                                                }
+                                        title: "In progress",
+                                        text: "Please hold on, your ticket is being processed",
+                                        type: "info",
+                                        buttons: {
+                                            cancel: {
+                                                text: "Cancel",
+                                                value: null,
+                                                visible: true,
+                                                closeModal: true,
+                                            },
+                                            confirm: {
+                                                text: "Continue",
+                                                value: true,
+                                                visible: true,
+                                                className: "",
+                                                closeModal: false
                                             }
-                                        }).then(() => {
-                                            return new Promise((resolve, reject) => {
-                                                axios.post('ticket_purchased', {
-                                                    ticket_id,
-                                                    qty,
-                                                    total_amt,
-                                                    email
-                                                }).then((response) => {
-                                                    self.all_events = response.data;
-                                                    resolve(response.data);
-                                                })
-                                                    .catch((error) => {
-                                                        reject(error);
-                                                        swal("An error occurred. If your ticket was not sent, and you have been debited, please send an email to tickets@coolfm.ng");
-                                                    });
+                                        }
+                                    }).then(() => {
+                                        return new Promise((resolve, reject) => {
+                                            axios.post('ticket_purchased', {
+                                                ticket_id,
+                                                qty,
+                                                total_amt,
+                                                email
+                                            }).then((response) => {
+                                                self.all_events = response.data;
+                                                resolve(response.data);
                                             })
-                                        }).then(data => {
-                                            console.log(data);
-                                            const response = data[0];
-                                            if (response){
-                                                swal("Please check your email for your tickets");
-                                            }
+                                                .catch((error) => {
+                                                    reject(error);
+                                                    swal("An error occurred. If your ticket was not sent, and you have been debited, please send an email to tickets@coolfm.ng");
+                                                });
+                                        })
+                                    }).then(data => {
+                                        console.log(data);
+                                        const response = data[0];
+                                        if (response) {
+                                            swal("Please check your email for your tickets");
+                                        }
                                     })
                                 }
 
@@ -357,16 +356,16 @@
                                     },
                                     callback: function (response) {
                                         swal({
-                                                title: "In progress",
-                                                text: "Please hold on, your ticket is being processed",
-                                                type: "info",
-                                                button: {
-                                                    text: "Continue",
-                                                    value: true,
-                                                    visible: true,
-                                                    closeModal: false
-                                                }
-                                            }).then((val) => {
+                                            title: "In progress",
+                                            text: "Please hold on, your ticket is being processed",
+                                            type: "info",
+                                            button: {
+                                                text: "Continue",
+                                                value: true,
+                                                visible: true,
+                                                closeModal: false
+                                            }
+                                        }).then((val) => {
                                             if (!val) throw null;
                                             else {
                                                 axios.post('/ticket_purchased', {
@@ -504,21 +503,24 @@
     }
 
     @media (max-width: 575px) {
-        .img_cover{
-            height: 200px;
-        }
-    }@media (min-width: 576px) {
         .img_cover {
             height: 200px;
         }
     }
+
+    @media (min-width: 576px) {
+        .img_cover {
+            height: 200px;
+        }
+    }
+
     @media (min-width: 768px) {
         .img_cover {
             height: inherit;
         }
     }
 
-    #floater:hover{
+    #floater:hover {
         cursor: pointer;
     }
 </style>
