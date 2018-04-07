@@ -40,7 +40,11 @@
             }
         },
         created: function () {
-            this.get_slides().then(() => {
+            const self = this;
+            this.get_slides().then((slides) => {
+                if (slides.length === 0){
+                    self.style.height = '5px'
+                }
                 this.initOwlCarousel().then(() => {
                     setTimeout(this.loaded = true, 3000);
                 });

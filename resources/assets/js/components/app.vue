@@ -275,7 +275,6 @@
 <!-- styling for the component -->
 <style>
     .btn-transparent{
-        border: 1px solid #cfcfcf;
         background-color: transparent;
         margin-right: 10px;
     }

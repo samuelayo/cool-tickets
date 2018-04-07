@@ -1,59 +1,61 @@
 <template>
     <div>
         <eventSlider height="400px" ></eventSlider>
-        <div class="container bg-white inner-shadow mt-2">
-            <div class="col-12">
+        <div class="container mt-2">
+            <div class="col-12 bg-white inner-shadow">
                 <div class="row pt-2">
                     <span class="col text-capitalize text-secondary text-center p-1 m-1" v-for="val in categories">
                         <a href="javascript:void(0)" v-text="val" :class="{'cool-blue': (val === category), 'font-weight-bold': (val === category)}" @click="eventCategory(val)"></a>
                     </span>
                     <div class="col-12">
-                        <hr>
+                        <hr v-if="categories.length !== 0">
                     </div>
                 </div>
-            </div>
-            <div id="products" class="row">
-                <div class="col-2 mx-auto" v-if="loading">
-                    <clip-loader color="blue"></clip-loader>
-                </div>
-                <div class="col-md-6 col-lg-3 col-sm-12" v-for="(evn, index) in searchable">
-                    <div id="event-single" class="thumbnail">
-                        <div class="event-image" v-lazy:background-image="evn.image"></div>
-                        <div class="col-12">
-                            <div class="row mt-2">
-                                <div class="col-6">
-                                    <h6 class="text-capitalize cool-blue font-weight-bold">{{evn.category.name}}</h6>
+                <div id="products" class="row">
+                    <div class="col-2 mx-auto" v-if="loading">
+                        <clip-loader color="blue"></clip-loader>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-sm-12" v-for="(evn, index) in searchable">
+                        <div id="event-single" class="thumbnail">
+                            <div class="event-image" v-lazy:background-image="evn.image"></div>
+                            <div class="col-12">
+                                <div class="row mt-2">
+                                    <div class="col-6">
+                                        <h6 class="text-capitalize cool-blue font-weight-bold">{{evn.category.name}}</h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <h6 id="event-date" v-text="eventDateConverter(evn.date)" class="text-right"></h6>
+                                    </div>
                                 </div>
-                                <div class="col-6">
-                                    <h6 id="event-date" v-text="eventDateConverter(evn.date)" class="text-right"></h6>
-                                </div>
-                            </div>
-                            <h4 id="event-title" class="group inner list-group-item-heading" v-text="evn.title" @click="navigate(evn.title, evn, index)"></h4>
-                            <p id="event-caption" class="group inner list-group-item-text" v-text="evn.description"></p>
-                            <div id="ticket-panel" class="row">
-                                <div class="col-12">
-                                    <p class="font-weight-bold">
-                                        <span v-if="evn.tickets[0].price !== 0 " class="text-danger">*Starting from N{{evn.tickets[0].price | money }}</span>
-                                        <span v-if="evn.tickets[0].price === null " class="text-success"> Free </span>
-                                    </p>
-                                </div>
-                                <div class="col-12">
-                                    <button id="floater" class="btn btn-ticket text-white" @click="navigate(evn.title, evn, index)">Buy Tickets
-                                    </button>
-                                    <span class="text-info font-weight-bold">  {{evn.tickets[0].discount ? 'up to ' + evn.tickets[evn.tickets.length - 1].discount + '% off' : ''}}</span>
+                                <h4 id="event-title" class="group inner list-group-item-heading" v-text="evn.title" @click="navigate(evn.title, evn, index)"></h4>
+                                <p id="event-caption" class="group inner list-group-item-text" v-text="evn.description"></p>
+                                <div id="ticket-panel" class="row">
+                                    <div class="col-12">
+                                        <p class="font-weight-bold">
+                                            <span v-if="evn.tickets[0].price !== 0 " class="text-danger">*Starting from N{{evn.tickets[0].price | money }}</span>
+                                            <span v-if="evn.tickets[0].price === null " class="text-success"> Free </span>
+                                        </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <button id="floater" class="btn btn-ticket text-white" @click="navigate(evn.title, evn, index)">Buy Tickets
+                                        </button>
+                                        <span class="text-info font-weight-bold">
+                                        {{getDiscount(evn.tickets)}}
+                                    </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div v-if="(searchable.length == 0 && loading == false)" class="text-center py-4"><span
-                        style="color: black; font-size: 38px;">No events available at this moment</span>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
+                    <div v-if="(searchable.length == 0 && loading == false)" class="col-12 text-center py-4">
+                        <h1>No events available at this moment</h1>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
 
+                </div>
             </div>
         </div>
     </div>
@@ -101,6 +103,19 @@
                     }
                 })
             },
+            getDiscount: function (tickets) {
+                let discounts = [];
+                tickets.forEach((val) => {
+                    if (val.discount){
+                        discounts.push(val.discount)
+                    }
+                });
+                if (discounts.length === 0){
+                    return null
+                } else {
+                    return ('up to ' + discounts[discounts.length - 1] + '% off');
+                }
+            },
             get_tickets: function () {
                 axios.get("/all_tickets")
                     .then((response) => {
@@ -122,7 +137,7 @@
                     });
             },
             eventCategory: function (name) {
-                if (this.all_events.length !== 0){
+                if (this.all_events[0] !== undefined){
                     if (this.category_event === false ){
                         this.category_event = true;
                         let events = [];
@@ -133,12 +148,12 @@
                         });
                         this.category = name;
                         this.all_events = events;
-                    } else if (this.category_event === true && this.all_events[0].category.name === name){
+                    } else if (this.all_events[0] !== undefined && this.all_events[0].category.name === name){
                         this.category = null;
                         this.all_events = this.original_events;
                         this.category_event = false;
-                    } else if (this.category_event === true && this.all_events[0].category.name !== name){
-                        let events = [];
+                    } else if (this.category_event === true && this.all_events[0] !== undefined && this.all_events[0].category.name !== name){
+                        const events = [];
                         this.original_events.forEach((value) => {
                             if (value.category.name === name){
                                 events.push(value)
@@ -146,6 +161,19 @@
                         });
                         this.category = name;
                         this.all_events = events;
+                    } else {
+                        this.category = null;
+                        this.all_events = this.original_events;
+                        this.category_event = false;
+                    }
+                } else {
+                    if (this.category_event === false ){
+                        this.category_event = true;
+                        this.category = name;
+                    } else if (this.category=== name && this.category_event === true){
+                        this.category = null;
+                        this.category_event = false;
+                        this.all_events = this.original_events;
                     } else {
                         this.category = null;
                         this.all_events = this.original_events;
@@ -178,7 +206,7 @@
                     var obj = {
                         price: this.searchable[i].tickets[0].price,
                         id: this.searchable[i].tickets[0].id
-                    }
+                    };
                     this.ticket_price.push(obj);
                     this.ticket_qty.push(1);
                 }
