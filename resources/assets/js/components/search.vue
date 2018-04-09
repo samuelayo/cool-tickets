@@ -5,7 +5,6 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-6 text-left">
-                            <h1>Search</h1>
                         </div>
                         <div class="col-6 text-right">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

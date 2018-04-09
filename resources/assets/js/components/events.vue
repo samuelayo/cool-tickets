@@ -73,7 +73,7 @@
                 loading: true,
                 categories: [],
                 category_event: false,
-                category: '',
+                category: 'all',
                 slides: []
             }
         },
@@ -131,6 +131,9 @@
                 axios.get("/categories")
                     .then((response) => {
                         const data = response.data;
+                        if (data){
+                        this.categories.push('all');
+                        };
                         data.forEach((value) => {
                             this.categories.push(value.name);
                         })
@@ -138,7 +141,11 @@
             },
             eventCategory: function (name) {
                 if (this.all_events[0] !== undefined){
-                    if (this.category_event === false ){
+                    if (name === 'all'){
+                        this.all_events = this.original_events;
+                        this.category_event = false;
+                        this.category = name;
+                    } else if (this.category_event === false ){
                         this.category_event = true;
                         let events = [];
                         this.all_events.forEach((value) => {
@@ -148,11 +155,11 @@
                         });
                         this.category = name;
                         this.all_events = events;
-                    } else if (this.all_events[0] !== undefined && this.all_events[0].category.name === name){
-                        this.category = null;
+                    } else if (this.all_events[0].category.name === name){
+                        this.category = 'all';
                         this.all_events = this.original_events;
                         this.category_event = false;
-                    } else if (this.category_event === true && this.all_events[0] !== undefined && this.all_events[0].category.name !== name){
+                    } else if (this.category_event === true && this.all_events[0].category.name !== name){
                         const events = [];
                         this.original_events.forEach((value) => {
                             if (value.category.name === name){
@@ -162,7 +169,7 @@
                         this.category = name;
                         this.all_events = events;
                     } else {
-                        this.category = null;
+                        this.category = 'all';
                         this.all_events = this.original_events;
                         this.category_event = false;
                     }
@@ -170,12 +177,25 @@
                     if (this.category_event === false ){
                         this.category_event = true;
                         this.category = name;
-                    } else if (this.category=== name && this.category_event === true){
-                        this.category = null;
+                    } else if (this.category === name && this.category_event === true){
+                        this.category = 'all';
                         this.category_event = false;
                         this.all_events = this.original_events;
+                    } else if (name === 'all' && this.category_event === true){
+                        this.category = 'all';
+                        this.category_event === false;
+                        this.all_events = this.original_events;
+                    } else if (this.category !== name && this.category_event === true){
+                        this.category = name;
+                        const events = [];
+                        this.original_events.forEach((value) => {
+                            if (value.category.name === name){
+                                events.push(value)
+                            }
+                        });
+                        this.all_events = events;
                     } else {
-                        this.category = null;
+                        this.category = 'all';
                         this.all_events = this.original_events;
                         this.category_event = false;
                     }

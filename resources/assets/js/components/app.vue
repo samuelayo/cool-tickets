@@ -28,7 +28,7 @@
             <button class="btn ml-auto d-block d-sm-block d-md-none btn-transparent" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-search"></i>
             </button>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            <button class="navbar-toggler no-border" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,7 +39,7 @@
                         <input type="text" class="form-control home-search-input" placeholder="Search for tickets"
                                aria-label="Search" aria-describedby="basic-addon2" id="search">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-info home-search-button" type="button"><i
+                            <button class="btn cool-blue home-search-button" type="button"><i
                                     class="fa fa-search" aria-hidden="true"></i></button>
                         </div>
                     </div>
@@ -48,12 +48,12 @@
                     <li class="nav-item">
                         <router-link class="nav-link text-info" to="/vendor/register">Sell Tickets <span class="sr-only">(current)</span></router-link>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-capitalize btn get-app-button text-white" href="#">Get the app</a>
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link text-capitalize btn get-app-button text-white" href="#">Get the app</a>-->
                         <button type="button" class="btn btn-primary" id="show" data-toggle="modal" data-target="#exampleModal" v-show="false">
                             Launch demo modal
                         </button>
-                    </li>
+                    <!--</li>-->
                 </ul>
 
             </div>
@@ -274,6 +274,15 @@
 
 <!-- styling for the component -->
 <style>
+    .home-search-button:hover{
+        background-color: #275faa;
+        color: white;
+        transition: 0.2s ease;
+        pointer:
+    }
+    .no-border{
+        border: solid 0 transparent;
+    }
     .btn-transparent{
         background-color: transparent;
         margin-right: 10px;
