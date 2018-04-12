@@ -22,7 +22,7 @@
         	<nav class="navbar navbar-expand-lg navbar-light bg-white">
             <a class="navbar-brand" href="#">
                 <router-link to="/">
-                    <img src="/img/ticket-logo.jpeg" width="150" alt="Cool Fm Tickets">
+                    <img src="/img/logo.svg" width="150" alt="Cool Fm Tickets">
                 </router-link>
             </a>
             <button class="btn ml-auto d-block d-sm-block d-md-none btn-transparent" data-toggle="modal" data-target="#exampleModal">
