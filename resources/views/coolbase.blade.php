@@ -164,8 +164,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="/img/facicon.png" type="image/x-icon"/>
-    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon"/>
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon"/>
 
     <!-- Custom CSS -->
     <link href="/css/coolfm.css" rel="stylesheet">

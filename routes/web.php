@@ -177,6 +177,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     CRUD::resource('vendor', 'VendorCrudController');
     Route::get('events', 'EventsController@list');
     Route::get('events/create', 'EventsController@create');
+    Route::get('events/{event}/edit', 'EventsController@edit');
+    Route::post('events/{event}/edit', 'EventsController@postEdit');
     Route::post('events/create', 'EventsController@createpost');
     Route::get('events/{id}/delete', 'EventsController@delete_event');
     Route::get('events/{id}/tlist', 'EventsController@tlist');

@@ -63,6 +63,10 @@
                                     <a class="btn btn-success btn-sm" href="/admin/events/{{$one->id}}/tlist">
                                         Ticket List
                                     </a>
+
+                                    <a class="btn btn-success btn-sm" href="/admin/events/{{$one->id}}/edit">
+                                        Edit
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

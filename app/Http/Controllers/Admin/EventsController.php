@@ -55,6 +55,63 @@ class EventsController extends Controller
         return View('events.create');
     }
 
+    public function edit(Events $event) 
+    {
+        $event = $event->with('tickets')->first();
+        //dd($event);
+        return View('events.edit', compact('event'));
+    }
+
+    public function postEdit(Request $request, Events $event)
+    {
+        $newevent = $event;
+        DB::beginTransaction();
+        $newevent->title = $request->get('title');
+        $newevent->date = $request->get('date');
+        $newevent->description = $request->get('description');
+        $newevent->venue = $request->get('venue');
+        $newevent->organizer = $request->get('organizer');
+        $newevent->category = (new Eventscategory)->find($request->get('category'))->id;
+
+
+
+        if ($request->hasFile('image')) {
+            //
+            $imageName = rand(0, 18000) . rand(19000, 39000) . '.' .
+            $request->file('image')->guessClientExtension();
+            $request->file('image')->move(
+                base_path() . '/public/uploads/events/', $imageName
+            );
+            $newevent->image = '/uploads/events/' . $imageName;
+        }
+        
+        $newevent->push();
+        $types = $request->get('ticket_name');
+        
+         for ($i = 0; $i < count($types); $i++) {
+            $isavailable = Eventickets::where('id', $request->get('ticket_id')[$i])->first();
+            if($isavailable == null){
+               
+                $eventticket = new Eventickets();
+            }else{
+          
+                $eventticket = $isavailable;
+            }
+            $eventticket->name = $request->get('ticket_name')[$i];
+            $eventticket->price = $request->get('ticket_price')[$i];
+            $eventticket->amount = $request->get('amount')[$i];
+            $eventticket->event = $newevent->id;
+            $imageName = rand(0, 18000) . rand(19000, 39000) . '.';
+            $eventticket->image = '/uploads/events/tickets/' . $imageName;
+            $eventticket->discount = $request->get('discount')[$i];
+            $eventticket->save();
+        }
+
+        DB::commit();
+        Artisan::call('index:search', ['model' => 'App\\Models\\Events']);
+        return redirect('/admin/events');
+    }
+
     public function createpost(Request $request)
     {
         DB::beginTransaction();
