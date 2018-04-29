@@ -100,6 +100,10 @@
         name: "eventsInner",
         props: ['name'],
         mounted: function () {
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-0473184618853447",
+                enable_page_level_ads: true
+            });
             this.getEventDetails().then(response => this.getDiscountedPrice(response));
         },
         data: function () {
@@ -147,6 +151,11 @@
                             this.eventData.tickets.forEach((val) => {
                                 this.tickets.push(val);
                             });
+                            var status = {
+                                title: 'Cool Tickets | ' + this.name,
+                                description: `Buy your event tickets from coolfm 96.9fm`
+                            };
+                            this.$store.dispatch('SET_SEO', status);
                             resolve(this.tickets)
                         }
                     ).catch((err) => {

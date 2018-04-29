@@ -57,6 +57,7 @@
 
                 </div>
             </div>
+            
         </div>
     </div>
 </template>
@@ -86,11 +87,10 @@
         },
         mounted: function () {
             var status = {
-                title: 'Cool FM Nigeria | Events',
+                title: 'Cool Tickets | Ticketing Just Got Cooler',
                 description: `Buy your event tickets from coolfm 96.9fm`
             };
             this.$store.dispatch('SET_SEO', status);
-
         },
         methods: {
             navigate: function (name, data, index) {

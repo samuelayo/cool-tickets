@@ -5,18 +5,20 @@
         </div>
         <div class="owl-carousel owl-theme" :style="style">
             <div class="item" v-for="(slide, index) in slides">
-                <img :src="slide.image_path" alt="" class="slide_img">
-                <div class="overlay">
-                    <div class="overlay_content">
-                        <div class="row">
-                            <div class="col-12"><h1 v-text="slide.title"></h1></div>
-                            <div class="col-12"><p v-text="slide.description"></p></div>
-                            <div class="col-12 text-left" style="mix-blend-mode: difference">
-                                <button class="btn" :style="{ background: slide.button_color }" v-text="slide.button_text" @click="navigate(slide.event.title, slide.event, index )"></button>
+                <a @click="navigate(slide.event.title, slide.event, index )" >
+                    <img :src="slide.image_path" alt="" class="slide_img">
+                    <div :class="slide.title ? 'overlay' : ''">
+                        <div class="overlay_content">
+                            <div class="row" v-if="(slide.title != null || slide.description != null)">
+                                <div class="col-12"><h1 v-text="slide.title"></h1></div>
+                                <div class="col-12"><p v-text="slide.description"></p></div>
+                                <div class="col-12 text-left" style="mix-blend-mode: difference">
+                                    <button class="btn" :style="{ background: slide.button_color }" v-text="slide.button_text" @click="navigate(slide.event.title, slide.event, index )"></button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>

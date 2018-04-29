@@ -61,20 +61,18 @@
         </div>
 
         <!-- the router outlet, where all matched components would ber viewed -->
-        <center>
-            <!-- homepage ad -->
-            <!-- homepage ad -->
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4448078976745099"
-                 data-ad-slot="5185770514" xdata-ad-format="auto"></ins>
-
-        </center>
         <br>
         <transition>
             <router-view></router-view>
+            
         </transition>
         <br>
         <br>
-
+       <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="autorelaxed"
+                data-ad-client="ca-pub-4448078976745099"
+                data-ad-slot="5292952536"></ins>
     <search></search>
     </div>
 </template>
@@ -105,50 +103,9 @@
             $('#search').focus(() => {
                 $('#show').trigger('click')
             });
-            function loadScript(url) {
-                return new Promise(function (resolve, reject) {
-                    var script = document.createElement("script")
-                    script.type = "text/javascript";
-                    if (script.readyState) { //IE
-                        script.onreadystatechange = function () {
-                            if (script.readyState == "loaded" ||
-                                script.readyState == "complete") {
-                                script.onreadystatechange = null;
-                                resolve();
-                            }
-                        };
-                    } else { //Others
-                        script.onload = function () {
-                            resolve();
-                        };
-                    }
-                    script.src = url;
-                    document.getElementsByTagName("head")[0].appendChild(script);
-                });
-            }
-
-            ///adsense
-            loadScript("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function () {
+            this.loadScript("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function () {
                 (window.adsbygoogle = window.adsbygoogle || []).push({})
             });
-            ///mailchimp
-            loadScript("//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js").then(function () {
-                (function ($) {
-                    window.fnames = new Array();
-                    window.ftypes = new Array();
-                    fnames[0] = 'EMAIL';
-                    ftypes[0] = 'email';
-                    fnames[1] = 'FNAME';
-                    ftypes[1] = 'text';
-                    fnames[2] = 'LNAME';
-                    ftypes[2] = 'text';
-                    fnames[3] = 'BIRTHDAY';
-                    ftypes[3] = 'birthday';
-                }(jQuery));
-                var $mcj = jQuery.noConflict(true);
-            });
-            //
-            ///
             (function () {
                 var cx = '004277073545021023643:yuy8iwmq_ky';
                 var gcse = document.createElement('script');
@@ -173,6 +130,27 @@
             }
         },
         methods: {
+            loadScript: function (url) {
+                return new Promise(function (resolve, reject) {
+                    var script = document.createElement("script")
+                    script.type = "text/javascript";
+                    if (script.readyState) { //IE
+                        script.onreadystatechange = function () {
+                            if (script.readyState == "loaded" ||
+                                script.readyState == "complete") {
+                                script.onreadystatechange = null;
+                                resolve();
+                            }
+                        };
+                    } else { //Others
+                        script.onload = function () {
+                            resolve();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                });
+            },
             playthis: (id, type, src, name) => {
                 if (type == "livestream") {
                     document.getElementById('live').style.display = 'inline-block';

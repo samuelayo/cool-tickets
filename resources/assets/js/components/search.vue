@@ -89,7 +89,7 @@
 <script>
     import {Index, SearchBox, Results, Pagination, Highlight, NoResults} from 'vue-instantsearch'
     import 'animate.css/animate.min.css'
-    import 'SimpleBar'
+    import 'simplebar'
     import $ from 'jquery'
 
     export default {

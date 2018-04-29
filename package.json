@@ -32,7 +32,7 @@
     "owl.carousel": "^2.3.2",
     "plyr": "^2.0.12",
     "sharon": "^1.6.0",
-    "simplebar": "^2.6.0",
+    "simplebar": "^2.6.1",
     "socket.io": "^1.7.3",
     "socket.io-client": "^2.0.3",
     "sweetalert": "^2.1.0",
