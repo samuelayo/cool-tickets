@@ -1,13 +1,14 @@
 <template>
     <div>
-        <center>
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-format="autorelaxed"
-                data-ad-client="ca-pub-4448078976745099"
-                data-ad-slot="5292952536"></ins>
-            </center>
-       
+        <div style="max-height: 330px;">
+            <center>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-format="autorelaxed"
+                    data-ad-client="ca-pub-4448078976745099"
+                    data-ad-slot="5292952536"></ins>
+                </center>
+        </div>
         <eventSlider height="400px" ></eventSlider>
         <div class="container mt-2">
             <div class="col-12 bg-white inner-shadow">
