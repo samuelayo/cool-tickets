@@ -3,7 +3,7 @@
         <div class="col-12" style="max-height: 330px;">
           <center>
             <ins class="adsbygoogle"
-                style="display:block"
+                style="display:block; height: 330px;"
                 data-ad-format="autorelaxed"
                 data-ad-client="ca-pub-4448078976745099"
                 data-ad-slot="5292952536"></ins>
