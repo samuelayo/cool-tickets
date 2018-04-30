@@ -1,5 +1,13 @@
 <template>
     <div>
+        <center>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="autorelaxed"
+                data-ad-client="ca-pub-4448078976745099"
+                data-ad-slot="5292952536"></ins>
+            </center>
+       
         <eventSlider height="400px" ></eventSlider>
         <div class="container mt-2">
             <div class="col-12 bg-white inner-shadow">
@@ -91,8 +99,32 @@
                 description: `Buy your event tickets from coolfm 96.9fm`
             };
             this.$store.dispatch('SET_SEO', status);
+            this.loadScript("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function () {
+                (window.adsbygoogle = window.adsbygoogle || []).push({})
+            });
         },
         methods: {
+            loadScript: function (url) {
+                return new Promise(function (resolve, reject) {
+                    var script = document.createElement("script")
+                    script.type = "text/javascript";
+                    if (script.readyState) { //IE
+                        script.onreadystatechange = function () {
+                            if (script.readyState == "loaded" ||
+                                script.readyState == "complete") {
+                                script.onreadystatechange = null;
+                                resolve();
+                            }
+                        };
+                    } else { //Others
+                        script.onload = function () {
+                            resolve();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                });
+            },
             navigate: function (name, data, index) {
                 this.$router.push({
                     name: 'events-inner',
@@ -320,7 +352,7 @@
     }
 
     .event-image {
-        height: 200px;
+        height: 350px;
         width: 100%;
         background-position: center center;
         background-repeat: no-repeat;

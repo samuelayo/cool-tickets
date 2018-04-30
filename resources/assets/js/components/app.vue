@@ -69,14 +69,7 @@
         <br>
 
         <br>
-        <center>
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-format="autorelaxed"
-                data-ad-client="ca-pub-4448078976745099"
-                data-ad-slot="5292952536"></ins>
-            </center>
-       
+        
     <search></search>
     </div>
 </template>
@@ -107,9 +100,7 @@
             $('#search').focus(() => {
                 $('#show').trigger('click')
             });
-            this.loadScript("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function () {
-                (window.adsbygoogle = window.adsbygoogle || []).push({})
-            });
+            
             (function () {
                 var cx = '004277073545021023643:yuy8iwmq_ky';
                 var gcse = document.createElement('script');
