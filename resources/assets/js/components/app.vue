@@ -64,11 +64,13 @@
         <br>
         <transition>
             <router-view></router-view>
+            <center>
             <ins class="adsbygoogle"
                 style="display:block"
                 data-ad-format="autorelaxed"
                 data-ad-client="ca-pub-4448078976745099"
                 data-ad-slot="5292952536"></ins>
+            </center>
         </transition>
         <br>
 
