@@ -64,15 +64,16 @@
         <br>
         <transition>
             <router-view></router-view>
-            
-        </transition>
-        <br>
-        <br>
-       <ins class="adsbygoogle"
+            <ins class="adsbygoogle"
                 style="display:block"
                 data-ad-format="autorelaxed"
                 data-ad-client="ca-pub-4448078976745099"
                 data-ad-slot="5292952536"></ins>
+        </transition>
+        <br>
+
+        <br>
+       
     <search></search>
     </div>
 </template>
