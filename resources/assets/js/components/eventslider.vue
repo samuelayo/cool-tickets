@@ -5,7 +5,7 @@
         </div>
         <div class="owl-carousel owl-theme" :style="style">
             <div class="item" v-for="(slide, index) in slides">
-                <a @click="navigate(slide.event.title, slide.event, index )" >
+                <a @click="navigate(slide.event.title, slide.event, index, slide.url )"  >
                     <img :src="slide.image_path" alt="" class="slide_img">
                     <div :class="slide.title ? 'overlay' : ''">
                         <div class="overlay_content">
@@ -105,7 +105,12 @@
                     });
                 });
             },
-            navigate: function (name, data, index) {
+            navigate: function (name, data, index, url = null) {
+                if(url != null ){
+                    var win = window.open(url, '_blank');
+                    win.focus();
+                    return;
+                }
                 this.$router.push({
                     name: 'events-inner',
                     params: {

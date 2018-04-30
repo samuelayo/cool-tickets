@@ -19,7 +19,7 @@ class Carousel extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['image_path', 'button_text', 'button_color', 'title', 'description', 'event_id'];
+    protected $fillable = ['image_path', 'button_text', 'button_color', 'title', 'description', 'event_id', 'url'];
     // protected $hidden = [];
     // protected $dates = [];
 

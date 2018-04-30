@@ -32,6 +32,14 @@ class CarouselCrudController extends CrudController
             'label' => 'Button Text',
             'type' => 'text'
         ]);
+
+        $this->crud->addField([
+            'name' => 'url',
+            'label' => 'Url/Hyperlink',
+            'type' => 'url',
+            'placeholder' => 'You can add a url here, optional. if not set, event would be used'
+        ]);
+
         $this->crud->addField([
             'label' => 'Button Color',
             'name' => 'button_color',
