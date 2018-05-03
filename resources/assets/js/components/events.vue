@@ -1,14 +1,6 @@
 <template>
     <div>
-        <div >
-            <center style="height: 330px !important;">
-                <ins class="adsbygoogle"
-                    style="display:block; max-height: 330px !important; height: 100%; overflow: hidden;"
-                    data-ad-format="autorelaxed"
-                    data-ad-client="ca-pub-4448078976745099"
-                    data-ad-slot="5292952536"></ins>
-                </center>
-        </div>
+     
         <eventSlider height="400px" ></eventSlider>
         <div class="container mt-2">
             <div class="col-12 bg-white inner-shadow">
@@ -100,9 +92,9 @@
                 description: `Buy your event tickets from coolfm 96.9fm`
             };
             this.$store.dispatch('SET_SEO', status);
-            this.loadScript("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function () {
-                (window.adsbygoogle = window.adsbygoogle || []).push({})
-            });
+            //this.loadScript("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function () {
+            //    (window.adsbygoogle = window.adsbygoogle || []).push({})
+            //});
         },
         methods: {
             loadScript: function (url) {
