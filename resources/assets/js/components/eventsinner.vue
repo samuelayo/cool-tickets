@@ -1,14 +1,5 @@
 <template>
     <div class="container">
-        <div class="col-12" style="max-height: 330px !important;">
-          <center style="height: 330px !important;">
-            <ins class="adsbygoogle"
-                style="display:block; height: 100%; overflow: hidden;"
-                data-ad-format="autorelaxed"
-                data-ad-client="ca-pub-4448078976745099"
-                data-ad-slot="5292952536"></ins>
-            </center>
-        </div>
         <br>
         <div class="col-12 bg-white">
             <div class="col-2 mx-auto" v-if="loading">
@@ -105,9 +96,9 @@
         name: "eventsInner",
         props: ['name'],
         mounted: function () {
-            this.loadScript("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function () {
-                (window.adsbygoogle = window.adsbygoogle || []).push({})
-            });
+            //this.loadScript("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js").then(function () {
+             //   (window.adsbygoogle = window.adsbygoogle || []).push({})
+            //});
             this.getEventDetails().then(response => this.getDiscountedPrice(response));
         },
         data: function () {
